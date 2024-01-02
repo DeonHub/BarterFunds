@@ -1,0 +1,1258 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterFunds - Edit Currency</title>
+
+    <link rel="shortcut icon" type="image/png" href="assets/images/logoIcon/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/admin/css/vendor/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="assets/global/css/all.min.css">
+    <link rel="stylesheet" href="assets/global/css/line-awesome.min.css">
+
+
+    <link rel="stylesheet" href="assets/global/css/select2.min.css">
+    <link rel="stylesheet" href="assets/admin/css/app.css">
+
+    <style>
+        .thumb .profilePicPreview {
+            width: 100%;
+            height: 250px;
+            display: block;
+            border: 3px solid #f1f1f1;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center
+        }
+
+        .thumb .profilePicUpload {
+            font-size: 0;
+            opacity: 0;
+            width: 0;
+        }
+
+        .thumb .avatar-edit label {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            border: 2px solid #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .thumb {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .thumb .avatar-edit {
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- page-wrapper start -->
+    <div class="page-wrapper default-version">
+        <div class="sidebar bg--dark">
+            <button class="res-sidebar-close-btn"><i class="las la-times"></i></button>
+            <div class="sidebar__inner">
+                <div class="sidebar__logo">
+                    <a href="#" class="sidebar__main-logo"><img src="../assets/images/logoIcon/logo-dark.png"
+                            alt="image"></a>
+                </div>
+
+                <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
+                    <ul class="sidebar__menu">
+                        <li class="sidebar-menu-item active">
+                            <a href="index.html" class="nav-link ">
+                                <i class="menu-icon las la-home"></i>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-users"></i>
+                                <span class="menu-title">Manage Users</span>
+                            </a>
+                            <div class="sidebar-submenu ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/active.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Active
+                                                Users</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/banned.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Banned
+                                                Users</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/email-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Email
+                                                Unverified</span>
+
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/mobile-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Mobile
+                                                Unverified</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/kyc-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">KYC
+                                                Unverified</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/kyc-pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">KYC
+                                                Pending</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/with-balance.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">With
+                                                Balance</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/users.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Users</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/send-notification.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                to All</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="currency/index.html" class="nav-link" data-default-url="currency/index.html">
+                                <i class="menu-icon las la-money-bill"></i>
+                                <span class="menu-title">Manage Currencies
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="gateway/automatic.html" class="nav-link">
+                                <i class="menu-icon las la-credit-card"></i>
+                                <span class="menu-title">Payment
+                                    Gateways</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-exchange-alt"></i>
+                                <span class="menu-title">Exchange</span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Exchange</span>
+                                            <span class="menu-badge pill bg--danger ms-auto">0</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/canceled.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Canceled
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/refunded.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Refunded
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/approved.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Approved
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/list.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-bank"></i>
+                                <span class="menu-title">Withdrawals </span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Withdrawals</span>
+
+                                            <span class="menu-badge pill bg--danger ms-auto">12</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/approved.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Approved
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/rejected.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Rejected
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/log.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-ticket"></i>
+                                <span class="menu-title">Support Ticket
+                                </span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Ticket</span>
+                                            <span class="menu-badge pill bg--danger ms-auto">6</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/closed.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Closed
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/answered.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Answered
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/ticket.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-list"></i>
+                                <span class="menu-title">Report </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/referral/commission.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Referall
+                                                Commissions</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/login/history.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Login
+                                                History</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/notification/history.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                History</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="subscriber.html" class="nav-link" data-default-url="subscriber">
+                                <i class="menu-icon las la-thumbs-up"></i>
+                                <span class="menu-title">Subscribers </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar__menu-header">Settings</li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="general-settings.html" class="nav-link">
+                                <i class="menu-icon las la-life-ring"></i>
+                                <span class="menu-title">General
+                                    Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/social/credentials.html" class="nav-link">
+                                <i class="menu-icon las la-users-cog"></i>
+                                <span class="menu-title">Social
+                                    Credentials</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/system-configuration.html" class="nav-link">
+                                <i class="menu-icon las la-cog"></i>
+                                <span class="menu-title">System
+                                    Configuration</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="referral.html" class="nav-link" data-default-url="referral">
+                                <i class="menu-icon las la-link"></i>
+                                <span class="menu-title">Referral
+                                    Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/logo-icon.html" class="nav-link">
+                                <i class="menu-icon las la-images"></i>
+                                <span class="menu-title">Logo &
+                                    Favicon</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="sidebar-menu-item ">
+                            <a href="seo.html" class="nav-link">
+                                <i class="menu-icon las la-globe"></i>
+                                <span class="menu-title">SEO Manager</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="kyc-settings.html" class="nav-link">
+                                <i class="menu-icon las la-user-check"></i>
+                                <span class="menu-title">KYC Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="blocked-ip.html" class="nav-link">
+                                <i class="menu-icon las la-map-marked"></i>
+                                <span class="menu-title">IP Blocking</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-bell"></i>
+                                <span class="menu-title">Notification
+                                    Setting</span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/global.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Global
+                                                Template</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/email/setting.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Email
+                                                Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/sms/setting.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">SMS
+                                                Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/templates.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                Templates</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar__menu-header">Frontend
+                            Manager</li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="frontend/manage-pages.html" class="nav-link ">
+                                <i class="menu-icon la la-list"></i>
+                                <span class="menu-title">Manage Pages</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- sidebar end -->
+
+        <!-- navbar-wrapper start -->
+        <nav class="navbar-wrapper bg--dark">
+            <div class="navbar__left">
+                <button type="button" class="res-sidebar-open-btn me-3"><i class="las la-bars"></i></button>
+                <form class="navbar-search">
+                    <input type="search" name="#0" class="navbar-search-field" id="searchInput" autocomplete="off"
+                        placeholder="Search here...">
+                    <i class="las la-search"></i>
+                    <ul class="search-list"></ul>
+                </form>
+            </div>
+            <div class="navbar__right">
+                <ul class="navbar__action-list">
+
+                    <li class="dropdown">
+                        <button type="button" class="primary--layer" data-bs-toggle="dropdown" data-display="static"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="las la-bell text--primary  icon-left-right "></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--md p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <div class="dropdown-menu__header">
+                                <span class="caption">Notification</span>
+                                <p>You have 62 unread notification</p>
+                            </div>
+                            <div class="dropdown-menu__body">
+                                <a href="admin/notification/read/512" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">SMS Error: unexpected response from API</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                5 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/511" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New withdraw request from username</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                5 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/510" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                5 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/509" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                5 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/508" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                10 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/507" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                10 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/505" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/504" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Rocket</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/503" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Payoneer</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/502" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                            </div>
+                            <div class="dropdown-menu__footer">
+                                <a href="admin/notifications" class="view-all-message">View all notification</a>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <button type="button" class="" data-bs-toggle="dropdown" data-display="static"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span class="navbar-user">
+                                <span class="navbar-user__thumb"><img src="../../assets/images/default.png"
+                                        alt="image"></span>
+                                <span class="navbar-user__info">
+                                    <span class="navbar-user__name">admin</span>
+                                </span>
+                                <span class="icon"><i class="las la-chevron-circle-down"></i></span>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <a href="admin/profile" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-user-circle"></i>
+                                <span class="dropdown-menu__caption">Profile</span>
+                            </a>
+
+                            <a href="admin/password" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-key"></i>
+                                <span class="dropdown-menu__caption">Password</span>
+                            </a>
+
+                            <a href="admin/logout" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-sign-out-alt"></i>
+                                <span class="dropdown-menu__caption">Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- navbar-wrapper end -->
+
+        <div class="body-wrapper">
+            <div class="bodywrapper__inner">
+
+                <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
+                    <h6 class="page-title">Edit Currency</h6>
+                    <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+                        <a href="admin/currency/index" class="btn btn-sm btn-outline--primary">
+                            <i class="la la-undo"></i> Back</a>
+                    </div>
+                </div>
+
+                <form action="admin/currency/save/32" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="UNzijgbfPpKQOf0c7hJOCc3eMA2Ck8HlQjqS8MD7">
+                    <div class="row gy-4">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-3">
+                                            <div class="thumb mb-2">
+                                                <div class="avatar-preview">
+                                                    <div class="profilePicPreview"
+                                                        style="background-image: url('assets/images/currency/63d782ac127d51675068076.jpg')">
+                                                    </div>
+                                                </div>
+                                                <div class="avatar-edit">
+                                                    <input type="file" name="image" class="profilePicUpload" id="image"
+                                                        accept=".png, .jpg, .jpeg" />
+                                                    <label for="image" class="bg--primary"><i
+                                                            class="la la-pencil"></i></label>
+                                                </div>
+                                            </div>
+                                            <small class="mt-3 text-muted text--small">Supported files: <b>png,
+                                                    jpeg,jpg.</b>
+                                                Image will be resized into 400x400 px </small>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-9">
+                                            <div class="row">
+                                                <div class="col-xxl-4 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Currency Name</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            value="Payoneer" required autocomplete="off" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label> Currency</label>
+                                                        <input type="text" name="currency" class="form-control currency"
+                                                            required value="EUR" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label> Payment Gateway</label> <i class="la la-info-circle"
+                                                            title="User will send the money by this payment gateway."></i>
+                                                        <select name="payment_gateway" class="form-control" required>
+                                                            <option value="0">Manual</option>
+                                                            <option value="1">
+                                                                Paypal
+                                                            </option>
+                                                            <option value="2">
+                                                                Perfect Money
+                                                            </option>
+                                                            <option value="3">
+                                                                Stripe Hosted
+                                                            </option>
+                                                            <option value="4">
+                                                                Skrill
+                                                            </option>
+                                                            <option value="5">
+                                                                PayTM
+                                                            </option>
+                                                            <option value="6">
+                                                                Payeer
+                                                            </option>
+                                                            <option value="7">
+                                                                PayStack
+                                                            </option>
+                                                            <option value="8">
+                                                                VoguePay
+                                                            </option>
+                                                            <option value="9">
+                                                                Flutterwave
+                                                            </option>
+                                                            <option value="10">
+                                                                RazorPay
+                                                            </option>
+                                                            <option value="11">
+                                                                Stripe Storefront
+                                                            </option>
+                                                            <option value="12">
+                                                                Instamojo
+                                                            </option>
+                                                            <option value="13">
+                                                                Blockchain
+                                                            </option>
+                                                            <option value="15">
+                                                                CoinPayments
+                                                            </option>
+                                                            <option value="16">
+                                                                CoinPayments Fiat
+                                                            </option>
+                                                            <option value="17">
+                                                                Coingate
+                                                            </option>
+                                                            <option value="18">
+                                                                Coinbase Commerce
+                                                            </option>
+                                                            <option value="19">
+                                                                Paypal Express
+                                                            </option>
+                                                            <option value="20">
+                                                                Stripe Checkout
+                                                            </option>
+                                                            <option value="21">
+                                                                Mollie
+                                                            </option>
+                                                            <option value="22">
+                                                                Cashmaal
+                                                            </option>
+                                                            <option value="23">
+                                                                Mercado Pago
+                                                            </option>
+                                                            <option value="24">
+                                                                Authorize.net
+                                                            </option>
+                                                            <option value="25">
+                                                                NMI
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Buy At</label>
+                                                        <div class="input-group">
+                                                            <input type="number" step="any" class="form-control"
+                                                                name="buy_at" value="0.01100000" required />
+                                                            <span class="input-group-text">INR</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label> Sell At</label>
+                                                        <div class="input-group">
+                                                            <input type="number" step="any" class="form-control"
+                                                                name="sell_at" value="0.50000000" required />
+                                                            <span class="input-group-text">INR</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label> Reserve</label>
+                                                        <div class="input-group">
+                                                            <input type="number" step="any" class="form-control"
+                                                                name="reserve" value="49999932.03750000" required />
+                                                            <span class="currency-symbol input-group-text"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Available For sell</label>
+                                                        <input type="checkbox" data-width="100%" data-size="large"
+                                                            data-onstyle="-success" data-offstyle="-danger"
+                                                            data-bs-toggle="toggle" data-on="Yes" data-off="No"
+                                                            name="available_for_sell" checked>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label> Available For buy</label>
+                                                        <input type="checkbox" data-width="100%" data-size="large"
+                                                            data-onstyle="-success" data-offstyle="-danger"
+                                                            data-bs-toggle="toggle" data-on="Yes" data-off="No"
+                                                            name="available_for_buy" checked>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xxl-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label> Rate Show</label>
+                                                        <input type="checkbox" data-width="100%" data-size="large"
+                                                            data-onstyle="-success" data-offstyle="-danger"
+                                                            data-bs-toggle="toggle" data-on="Yes" data-off="No"
+                                                            name="rate_show" checked>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                            <div class="card">
+                                <h5 class="card-header bg--info">Limit & Charge for Sale</h5>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label>Minimum Amount</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control rounded"
+                                                    name="minimum_limit_for_sell" required value="1.00000000" />
+                                                <span class="input-group-text currency-symbol d-none"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Maximum Amount</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control rounded"
+                                                    name="maximum_limit_for_sell" required value="3000.00000000" />
+                                                <span class="input-group-text currency-symbol d-none"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Fixed Charge</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control rounded"
+                                                    name="fixed_charge_for_sell" required value="1.00000000" />
+                                                <div class="input-group-text currency-symbol d-none"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Percent Charge</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control"
+                                                    name="percent_charge_for_sell" required value="1.50" />
+                                                <div class="input-group-text">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                            <div class="card">
+                                <h5 class="card-header bg--warning">Limit & Charge to Buy</h5>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label>Minimum Amount</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control rounded"
+                                                    name="minimum_limit_for_buy" required value="1.00000000" />
+                                                <span class="input-group-text currency-symbol d-none "></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Maximum Amount</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control rounded"
+                                                    name="maximum_limit_for_buy" required value="50000.00000000" />
+                                                <span class="input-group-text currency-symbol d-none"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Fixed Charge</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control rounded"
+                                                    name="fixed_charge_for_buy" required value="1.00000000" />
+                                                <div class="input-group-text currency-symbol d-none"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Percent Charge</label>
+                                            <div class="input-group">
+                                                <input type="number" step="any" class="form-control"
+                                                    name="percent_charge_for_buy" required value="1.00" />
+                                                <div class="input-group-text">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forManualGateway my-4">
+                        <div class="card">
+                            <h5 class="card-header">Instruction <i class="fa fa-info-circle text--primary"
+                                    title="Write the payment instruction here. Users will see the instruction while exchanging money."></i>
+                            </h5>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <textarea rows="8" class="form-control nicEdit"
+                                        name="instruction">&lt;div&gt;&lt;span style=&quot;color: var(--bs-body-color); font-size: 1rem; text-align: var(--bs-body-text-align);&quot;&gt;Send the amount to this wallet &lt;b&gt;xxxxxxxxxxxxxxxxxxxxxx&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-4">
+                            <div class="card-header d-flex justify-content-between">
+                                <h5>Transaction Proof Form <i class="fa fa-info-circle text--primary"
+                                        title="Users have to fill the form while sending money with this currency."></i>
+                                </h5>
+                                <button type="button"
+                                    class="btn btn-sm btn-outline--primary float-end form-generate-btn"
+                                    append-to="#transaction-proof" input-name="transaction_proof">
+                                    <i class="la la-fw la-plus"></i>Add New </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="row addedField" id="transaction-proof">
+                                    <div class="col-md-4">
+                                        <div class="card border mb-3" id="tr0">
+                                            <input type="hidden" name="transaction_proof[is_required][]"
+                                                value="required">
+                                            <input type="hidden" name="transaction_proof[extensions][]" value="">
+                                            <input type="hidden" name="transaction_proof[options][]" value="">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>Label</label>
+                                                    <input type="text" name="transaction_proof[form_label][]"
+                                                        class="form-control" value="First Name" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <input type="text" name="transaction_proof[form_type][]"
+                                                        class="form-control" value="text" readonly>
+                                                </div>
+                                                <div class="btn-group w-100">
+                                                    <button type="button" class="btn btn--primary editFormData"
+                                                        data-form_item="{&quot;type&quot;:&quot;text&quot;,&quot;is_required&quot;:&quot;required&quot;,&quot;label&quot;:&quot;First Name&quot;,&quot;extensions&quot;:[&quot;&quot;],&quot;options&quot;:[],&quot;old_id&quot;:&quot;&quot;}"
+                                                        data-update_id="tr0">
+                                                        <i class="las la-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn--danger removeFormData">
+                                                        <i class="las la-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card border mb-3" id="tr1">
+                                            <input type="hidden" name="transaction_proof[is_required][]"
+                                                value="required">
+                                            <input type="hidden" name="transaction_proof[extensions][]" value="">
+                                            <input type="hidden" name="transaction_proof[options][]" value="">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>Label</label>
+                                                    <input type="text" name="transaction_proof[form_label][]"
+                                                        class="form-control" value="Last Name" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <input type="text" name="transaction_proof[form_type][]"
+                                                        class="form-control" value="text" readonly>
+                                                </div>
+                                                <div class="btn-group w-100">
+                                                    <button type="button" class="btn btn--primary editFormData"
+                                                        data-form_item="{&quot;type&quot;:&quot;text&quot;,&quot;is_required&quot;:&quot;required&quot;,&quot;label&quot;:&quot;Last Name&quot;,&quot;extensions&quot;:[&quot;&quot;],&quot;options&quot;:[],&quot;old_id&quot;:&quot;&quot;}"
+                                                        data-update_id="tr1">
+                                                        <i class="las la-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn--danger removeFormData">
+                                                        <i class="las la-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card border mb-3" id="tr2">
+                                            <input type="hidden" name="transaction_proof[is_required][]"
+                                                value="required">
+                                            <input type="hidden" name="transaction_proof[extensions][]" value="">
+                                            <input type="hidden" name="transaction_proof[options][]" value="">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>Label</label>
+                                                    <input type="text" name="transaction_proof[form_label][]"
+                                                        class="form-control" value="Email" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <input type="text" name="transaction_proof[form_type][]"
+                                                        class="form-control" value="text" readonly>
+                                                </div>
+                                                <div class="btn-group w-100">
+                                                    <button type="button" class="btn btn--primary editFormData"
+                                                        data-form_item="{&quot;type&quot;:&quot;text&quot;,&quot;is_required&quot;:&quot;required&quot;,&quot;label&quot;:&quot;Email&quot;,&quot;extensions&quot;:[&quot;&quot;],&quot;options&quot;:[],&quot;old_id&quot;:&quot;&quot;}"
+                                                        data-update_id="tr2">
+                                                        <i class="las la-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn--danger removeFormData">
+                                                        <i class="las la-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card my-4">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5>Sending Form</h5>
+
+                            <button type="button" class="btn btn-sm btn-outline--primary float-end form-generate-btn"
+                                append-to="#sending-details">
+                                <i class="la la-fw la-plus"></i>Add New </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="row addedField" id="sending-details">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn--primary w-100 h-45">Submit</button>
+                    </div>
+            </div>
+            </form>
+            <div class="modal fade" id="formGenerateModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Generate Form</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="las la-times"></i>
+                            </button>
+                        </div>
+                        <form class="generate-form">
+                            <input type="hidden" name="_token" value="UNzijgbfPpKQOf0c7hJOCc3eMA2Ck8HlQjqS8MD7">
+                            <div class="modal-body">
+                                <input type="hidden" name="update_id" value="">
+                                <div class="form-group">
+                                    <label>Form Type</label>
+                                    <select name="form_type" class="form-control" required>
+                                        <option value="">Select One</option>
+                                        <option value="text">Text</option>
+                                        <option value="textarea">Textarea</option>
+                                        <option value="select">Select</option>
+                                        <option value="checkbox">Checkbox</option>
+                                        <option value="radio">Radio</option>
+                                        <option value="file">File</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Required</label>
+                                    <select name="is_required" class="form-control" required>
+                                        <option value="">Select One</option>
+                                        <option value="required">Required</option>
+                                        <option value="optional">Optional</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Form Label</label>
+                                    <input type="text" name="form_label" class="form-control" required>
+                                </div>
+                                <div class="form-group extra_area">
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn--primary w-100 h-45 generatorSubmit">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div><!-- bodywrapper__inner end -->
+    </div><!-- body-wrapper end -->
+    </div>
+
+
+
+
+    <script src="assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
+    <script src="assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
+
+    <link rel="stylesheet" href="assets/global/css/iziToast.min.css">
+    <script src="assets/global/js/iziToast.min.js"></script>
+
+    <script>
+        "use strict";
+        function notify(status, message) {
+            if (typeof message == 'string') {
+                iziToast[status]({
+                    message: message,
+                    position: "topRight"
+                });
+            } else {
+                $.each(message, function (i, val) {
+                    iziToast[status]({
+                        message: val,
+                        position: "topRight"
+                    });
+                });
+            }
+        }
+    </script>
+
+    <script src="assets/global/js/form_generator.js"></script>
+
+    <script src="assets/admin/js/nicEdit.js"></script>
+
+    <script src="assets/global/js/select2.min.js"></script>
+    <script src="assets/admin/js/app.js"></script>
+
+
+    <script>
+        "use strict";
+        bkLib.onDomLoaded(function () {
+            $(".nicEdit").each(function (index) {
+                $(this).attr("id", "nicEditor" + index);
+                new nicEditor({
+                    fullPanel: true
+                }).panelInstance('nicEditor' + index, {
+                    hasPanel: true
+                });
+            });
+        });
+        (function ($) {
+            $(document).on('mouseover ', '.nicEdit-main,.nicEdit-panelContain', function () {
+                $('.nicEdit-main').focus();
+            });
+        })(jQuery);
+    </script>
+
+    <script>
+        "use strict"
+        var formGenerator = new FormGenerator();
+    </script>
+
+    <script src="assets/global/js/form_actions.js"></script>
+    <script>
+        "use strict";
+        $(function () {
+
+            const currencySymbol = () => {
+                let currency = $('.currency').val();
+                if (currency && currency.length > 0) {
+                    currency = currency.toUpperCase();
+                    $('.currency').val(currency);
+                    $('.currency-symbol').removeClass('d-none');
+                    $('.currency-symbol').parent().find('input').removeClass('rounded');
+                    $('.currency-symbol').text(currency);
+                } else {
+                    $('.currency-symbol').addClass('d-none');
+                    $('.currency-symbol').parent().find('input').addClass('rounded');
+                }
+            }
+            currencySymbol();
+
+            $('.currency').on('input', currencySymbol);
+
+            $('[name=payment_gateway]').on('change', function () {
+                if (this.value != 0) {
+                    $('.forManualGateway').addClass('d-none');
+                } else {
+                    $('.forManualGateway').removeClass('d-none');
+                }
+            }).change();
+        });
+    </script>
+    <script>
+        if ($('li').hasClass('active')) {
+            $('#sidebar__menuWrapper').animate({
+                scrollTop: eval($(".active").offset().top - 320)
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

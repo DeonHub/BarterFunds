@@ -1,0 +1,1328 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterFunds - User Detail - hearning</title>
+
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.svg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/admin/css/vendor/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="/assets/global/css/all.min.css">
+    <link rel="stylesheet" href="/assets/global/css/line-awesome.min.css">
+
+    <link rel="stylesheet" href="/assets/global/css/select2.min.css">
+    <link rel="stylesheet" href="/assets/admin/css/app.css">
+
+</head>
+
+<body>
+    <!-- page-wrapper start -->
+    <div class="page-wrapper default-version">
+        <div class="sidebar bg--dark">
+            <button class="res-sidebar-close-btn"><i class="las la-times"></i></button>
+            <div class="sidebar__inner">
+                <div class="sidebar__logo">
+                    <a href="#" class="sidebar__main-logo"><img src="../assets/images/logoIcon/logo-dark.png"
+                            alt="image"></a>
+                </div>
+
+                <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
+                    <ul class="sidebar__menu">
+                        <li class="sidebar-menu-item active">
+                            <a href="index.html" class="nav-link ">
+                                <i class="menu-icon las la-home"></i>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-users"></i>
+                                <span class="menu-title">Manage Users</span>
+                            </a>
+                            <div class="sidebar-submenu ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/active.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Active
+                                                Users</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/banned.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Banned
+                                                Users</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/email-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Email
+                                                Unverified</span>
+
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/mobile-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Mobile
+                                                Unverified</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/kyc-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">KYC
+                                                Unverified</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/kyc-pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">KYC
+                                                Pending</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/with-balance.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">With
+                                                Balance</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/users.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Users</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/send-notification.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                to All</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="currency/index.html" class="nav-link" data-default-url="currency/index.html">
+                                <i class="menu-icon las la-money-bill"></i>
+                                <span class="menu-title">Manage Currencies
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="gateway/automatic.html" class="nav-link">
+                                <i class="menu-icon las la-credit-card"></i>
+                                <span class="menu-title">Payment
+                                    Gateways</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-exchange-alt"></i>
+                                <span class="menu-title">Exchange</span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Exchange</span>
+                                            <span class="menu-badge pill bg--danger ms-auto">0</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/canceled.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Canceled
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/refunded.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Refunded
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/approved.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Approved
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/list.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-bank"></i>
+                                <span class="menu-title">Withdrawals </span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Withdrawals</span>
+
+                                            <span class="menu-badge pill bg--danger ms-auto">12</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/approved.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Approved
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/rejected.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Rejected
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/log.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-ticket"></i>
+                                <span class="menu-title">Support Ticket
+                                </span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Ticket</span>
+                                            <span class="menu-badge pill bg--danger ms-auto">6</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/closed.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Closed
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/answered.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Answered
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/ticket.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-list"></i>
+                                <span class="menu-title">Report </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/referral/commission.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Referall
+                                                Commissions</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/login/history.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Login
+                                                History</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/notification/history.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                History</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="subscriber.html" class="nav-link" data-default-url="subscriber">
+                                <i class="menu-icon las la-thumbs-up"></i>
+                                <span class="menu-title">Subscribers </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar__menu-header">Settings</li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="general-settings.html" class="nav-link">
+                                <i class="menu-icon las la-life-ring"></i>
+                                <span class="menu-title">General
+                                    Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/social/credentials.html" class="nav-link">
+                                <i class="menu-icon las la-users-cog"></i>
+                                <span class="menu-title">Social
+                                    Credentials</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/system-configuration.html" class="nav-link">
+                                <i class="menu-icon las la-cog"></i>
+                                <span class="menu-title">System
+                                    Configuration</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="referral.html" class="nav-link" data-default-url="referral">
+                                <i class="menu-icon las la-link"></i>
+                                <span class="menu-title">Referral
+                                    Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/logo-icon.html" class="nav-link">
+                                <i class="menu-icon las la-images"></i>
+                                <span class="menu-title">Logo &
+                                    Favicon</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="sidebar-menu-item ">
+                            <a href="seo.html" class="nav-link">
+                                <i class="menu-icon las la-globe"></i>
+                                <span class="menu-title">SEO Manager</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="kyc-settings.html" class="nav-link">
+                                <i class="menu-icon las la-user-check"></i>
+                                <span class="menu-title">KYC Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="blocked-ip.html" class="nav-link">
+                                <i class="menu-icon las la-map-marked"></i>
+                                <span class="menu-title">IP Blocking</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-bell"></i>
+                                <span class="menu-title">Notification
+                                    Setting</span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/global.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Global
+                                                Template</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/email/setting.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Email
+                                                Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/sms/setting.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">SMS
+                                                Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/templates.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                Templates</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar__menu-header">Frontend
+                            Manager</li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="frontend/manage-pages.html" class="nav-link ">
+                                <i class="menu-icon la la-list"></i>
+                                <span class="menu-title">Manage Pages</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- sidebar end -->
+
+        <!-- navbar-wrapper start -->
+        <nav class="navbar-wrapper bg--dark">
+            <div class="navbar__left">
+                <button type="button" class="res-sidebar-open-btn me-3"><i class="las la-bars"></i></button>
+                <form class="navbar-search">
+                    <input type="search" name="#0" class="navbar-search-field" id="searchInput" autocomplete="off"
+                        placeholder="Search here...">
+                    <i class="las la-search"></i>
+                    <ul class="search-list"></ul>
+                </form>
+            </div>
+            <div class="navbar__right">
+                <ul class="navbar__action-list">
+
+                    <li class="dropdown">
+                        <button type="button" class="primary--layer" data-bs-toggle="dropdown" data-display="static"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="las la-bell text--primary  icon-left-right "></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--md p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <div class="dropdown-menu__header">
+                                <span class="caption">Notification</span>
+                                <p>You have 63 unread notification</p>
+                            </div>
+                            <div class="dropdown-menu__body">
+                                <a href="admin/notification/read/513" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New
+                                                member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                37 minutes ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/512" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">SMS
+                                                Error: unexpected response
+                                                from API</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                9 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/511" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New
+                                                withdraw request from
+                                                username</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                9 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/510" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0
+                                                by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                9 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/509" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New
+                                                member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                9 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/508" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0
+                                                by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                14 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/507" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New
+                                                member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                14 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/505" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New
+                                                member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/504" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0
+                                                by Rocket</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="admin/notification/read/503" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0
+                                                by Payoneer</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                            </div>
+                            <div class="dropdown-menu__footer">
+                                <a href="admin/notifications" class="view-all-message">View all
+                                    notification</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <button type="button" class data-bs-toggle="dropdown" data-display="static" aria-haspopup="true"
+                            aria-expanded="false">
+                            <span class="navbar-user">
+                                <span class="navbar-user__thumb"><img src="../../assets/images/default.png"
+                                        alt="image"></span>
+                                <span class="navbar-user__info">
+                                    <span class="navbar-user__name">admin</span>
+                                </span>
+                                <span class="icon"><i class="las la-chevron-circle-down"></i></span>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <a href="admin/profile" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-user-circle"></i>
+                                <span class="dropdown-menu__caption">Profile</span>
+                            </a>
+
+                            <a href="admin/password" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-key"></i>
+                                <span class="dropdown-menu__caption">Password</span>
+                            </a>
+
+                            <a href="admin/logout" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-sign-out-alt"></i>
+                                <span class="dropdown-menu__caption">Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- navbar-wrapper end -->
+
+        <div class="body-wrapper">
+            <div class="bodywrapper__inner">
+
+                <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
+                    <h6 class="page-title">User Detail - hearning</h6>
+                    <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row gy-4">
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="widget-two style--two box--shadow2 b-radius--5 bg--19">
+                                    <div class="widget-two__icon b-radius--5 bg--primary">
+                                        <i class="las la-money-bill-wave-alt"></i>
+                                    </div>
+                                    <div class="widget-two__content">
+                                        <h3 class="text-white">₹0.00</h3>
+                                        <p class="text-white">Balance</p>
+                                    </div>
+                                    <a href="#" class="widget-two__btn">View
+                                        All</a>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="widget-two style--two box--shadow2 b-radius--5 bg--1">
+                                    <div class="widget-two__icon b-radius--5 bg--primary">
+                                        <i class="fas fa-wallet"></i>
+                                    </div>
+                                    <div class="widget-two__content">
+                                        <h3 class="text-white">₹0.00</h3>
+                                        <p class="text-white">Withdrawn</p>
+                                    </div>
+                                    <a href="admin/withdraw/log?search=hearning" class="widget-two__btn">View All</a>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="widget-two style--two box--shadow2 b-radius--5 bg--primary">
+                                    <div class="widget-two__icon b-radius--5 bg--primary">
+                                        <i class="las la-sync"></i>
+                                    </div>
+                                    <div class="widget-two__content">
+                                        <h3 class="text-white">0</h3>
+                                        <p class="text-white">Exchanges</p>
+                                    </div>
+                                    <a href="admin/exchange/list?user_id=2365" class="widget-two__btn">View All</a>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="widget-two style--two box--shadow2 b-radius--5 bg--17">
+                                    <div class="widget-two__icon b-radius--5 bg--primary">
+                                        <i class="la la-ticket"></i>
+                                    </div>
+                                    <div class="widget-two__content">
+                                        <h3 class="text-white">0</h3>
+                                        <p class="text-white">Suport
+                                            Tickets</p>
+                                    </div>
+                                    <a href="admin/ticket?user_id=2365" class="widget-two__btn">View All</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+
+                            <div class="flex-fill">
+                                <a href="admin/report/login/history?search=hearning"
+                                    class="btn btn--primary btn--shadow w-100 btn-lg">
+                                    <i class="las la-list-alt"></i>Logins
+                                </a>
+                            </div>
+
+                            <div class="flex-fill">
+                                <a href="admin/users/notification-log/2365"
+                                    class="btn btn--secondary btn--shadow w-100 btn-lg">
+                                    <i class="las la-bell"></i>Notifications
+                                </a>
+                            </div>
+
+                            <div class="flex-fill">
+                                <a href="admin/users/login/2365" target="_blank"
+                                    class="btn btn--primary btn--gradi btn--shadow w-100 btn-lg">
+                                    <i class="las la-sign-in-alt"></i>Login
+                                    as User </a>
+                            </div>
+
+                            <div class="flex-fill">
+                                <button type="button"
+                                    class="btn btn--warning btn--gradi btn--shadow w-100 btn-lg userStatus"
+                                    data-bs-toggle="modal" data-bs-target="#userStatusModal">
+                                    <i class="las la-ban"></i>Ban User
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card mt-30">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Information of
+                                    Xasan Cabdi</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="admin/users/update/2365" method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="_token" value="3vuTExGZvcVqqtByZPqrvQL5B5yUgI769rrQKDaC">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>First Name</label>
+                                                <input class="form-control" type="text" name="firstname" required
+                                                    value="Xasan">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Last
+                                                    Name</label>
+                                                <input class="form-control" type="text" name="lastname" required
+                                                    value="Cabdi">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Email </label>
+                                                <input class="form-control" type="email" name="email"
+                                                    value="[Email is protected for the demo]" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Mobile Number
+                                                </label>
+                                                <div class="input-group ">
+                                                    <span class="input-group-text mobile-code"></span>
+                                                    <input type="number" name="mobile" value id="mobile"
+                                                        class="form-control checkUser" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="form-group ">
+                                                <label>Address</label>
+                                                <input class="form-control" type="text" name="address"
+                                                    value="1217 POINT MALLARD PKWY SE, Street Room">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input class="form-control" type="text" name="city" value="New York">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="form-group ">
+                                                <label>State</label>
+                                                <input class="form-control" type="text" name="state" value="New York">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="form-group ">
+                                                <label>Zip/Postal</label>
+                                                <input class="form-control" type="text" name="zip" value="10001">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="form-group ">
+                                                <label>Country</label>
+                                                <select name="country" class="form-control">
+                                                    <option data-mobile_code="93" value="AF">Afghanistan</option>
+                                                    <option data-mobile_code="358" value="AX">Aland
+                                                        Islands</option>
+                                                    <option data-mobile_code="355" value="AL">Albania</option>
+                                                    <option data-mobile_code="213" value="DZ">Algeria</option>
+                                                    <option data-mobile_code="1684" value="AS">AmericanSamoa</option>
+                                                    <option data-mobile_code="376" value="AD">Andorra</option>
+                                                    <option data-mobile_code="244" value="AO">Angola</option>
+                                                    <option data-mobile_code="1264" value="AI">Anguilla</option>
+                                                    <option data-mobile_code="672" value="AQ">Antarctica</option>
+                                                    <option data-mobile_code="1268" value="AG">Antigua
+                                                        and Barbuda</option>
+                                                    <option data-mobile_code="54" value="AR">Argentina</option>
+                                                    <option data-mobile_code="374" value="AM">Armenia</option>
+                                                    <option data-mobile_code="297" value="AW">Aruba</option>
+                                                    <option data-mobile_code="61" value="AU">Australia</option>
+                                                    <option data-mobile_code="43" value="AT">Austria</option>
+                                                    <option data-mobile_code="994" value="AZ">Azerbaijan</option>
+                                                    <option data-mobile_code="1242" value="BS">Bahamas</option>
+                                                    <option data-mobile_code="973" value="BH">Bahrain</option>
+                                                    <option data-mobile_code="880" value="BD">Bangladesh</option>
+                                                    <option data-mobile_code="1246" value="BB">Barbados</option>
+                                                    <option data-mobile_code="375" value="BY">Belarus</option>
+                                                    <option data-mobile_code="32" value="BE">Belgium</option>
+                                                    <option data-mobile_code="501" value="BZ">Belize</option>
+                                                    <option data-mobile_code="229" value="BJ">Benin</option>
+                                                    <option data-mobile_code="1441" value="BM">Bermuda</option>
+                                                    <option data-mobile_code="975" value="BT">Bhutan</option>
+                                                    <option data-mobile_code="591" value="BO">Plurinational
+                                                        State of
+                                                        Bolivia</option>
+                                                    <option data-mobile_code="387" value="BA">Bosnia
+                                                        and
+                                                        Herzegovina</option>
+                                                    <option data-mobile_code="267" value="BW">Botswana</option>
+                                                    <option data-mobile_code="55" value="BR">Brazil</option>
+                                                    <option data-mobile_code="246" value="IO">British
+                                                        Indian Ocean
+                                                        Territory</option>
+                                                    <option data-mobile_code="673" value="BN">Brunei
+                                                        Darussalam</option>
+                                                    <option data-mobile_code="359" value="BG">Bulgaria</option>
+                                                    <option data-mobile_code="226" value="BF">Burkina
+                                                        Faso</option>
+                                                    <option data-mobile_code="257" value="BI">Burundi</option>
+                                                    <option data-mobile_code="855" value="KH">Cambodia</option>
+                                                    <option data-mobile_code="237" value="CM">Cameroon</option>
+                                                    <option data-mobile_code="1" value="CA">Canada</option>
+                                                    <option data-mobile_code="238" value="CV">Cape
+                                                        Verde</option>
+                                                    <option data-mobile_code=" 345" value="KY">Cayman
+                                                        Islands</option>
+                                                    <option data-mobile_code="236" value="CF">Central
+                                                        African
+                                                        Republic</option>
+                                                    <option data-mobile_code="235" value="TD">Chad</option>
+                                                    <option data-mobile_code="56" value="CL">Chile</option>
+                                                    <option data-mobile_code="86" value="CN">China</option>
+                                                    <option data-mobile_code="61" value="CX">Christmas
+                                                        Island</option>
+                                                    <option data-mobile_code="61" value="CC">Cocos
+                                                        (Keeling)
+                                                        Islands</option>
+                                                    <option data-mobile_code="57" value="CO">Colombia</option>
+                                                    <option data-mobile_code="269" value="KM">Comoros</option>
+                                                    <option data-mobile_code="242" value="CG">Congo</option>
+                                                    <option data-mobile_code="243" value="CD">The
+                                                        Democratic Republic
+                                                        of the
+                                                        Congo</option>
+                                                    <option data-mobile_code="682" value="CK">Cook
+                                                        Islands</option>
+                                                    <option data-mobile_code="506" value="CR">Costa
+                                                        Rica</option>
+                                                    <option data-mobile_code="225" value="CI">Cote
+                                                        d&#039;Ivoire</option>
+                                                    <option data-mobile_code="385" value="HR">Croatia</option>
+                                                    <option data-mobile_code="53" value="CU">Cuba</option>
+                                                    <option data-mobile_code="357" value="CY">Cyprus</option>
+                                                    <option data-mobile_code="420" value="CZ">Czech
+                                                        Republic</option>
+                                                    <option data-mobile_code="45" value="DK">Denmark</option>
+                                                    <option data-mobile_code="253" value="DJ">Djibouti</option>
+                                                    <option data-mobile_code="1767" value="DM">Dominica</option>
+                                                    <option data-mobile_code="1849" value="DO">Dominican
+                                                        Republic</option>
+                                                    <option data-mobile_code="593" value="EC">Ecuador</option>
+                                                    <option data-mobile_code="20" value="EG">Egypt</option>
+                                                    <option data-mobile_code="503" value="SV">El
+                                                        Salvador</option>
+                                                    <option data-mobile_code="240" value="GQ">Equatorial
+                                                        Guinea</option>
+                                                    <option data-mobile_code="291" value="ER">Eritrea</option>
+                                                    <option data-mobile_code="372" value="EE">Estonia</option>
+                                                    <option data-mobile_code="251" value="ET">Ethiopia</option>
+                                                    <option data-mobile_code="500" value="FK">Falkland
+                                                        Islands
+                                                        (Malvinas)</option>
+                                                    <option data-mobile_code="298" value="FO">Faroe
+                                                        Islands</option>
+                                                    <option data-mobile_code="679" value="FJ">Fiji</option>
+                                                    <option data-mobile_code="358" value="FI">Finland</option>
+                                                    <option data-mobile_code="33" value="FR">France</option>
+                                                    <option data-mobile_code="594" value="GF">French
+                                                        Guiana</option>
+                                                    <option data-mobile_code="689" value="PF">French
+                                                        Polynesia</option>
+                                                    <option data-mobile_code="241" value="GA">Gabon</option>
+                                                    <option data-mobile_code="220" value="GM">Gambia</option>
+                                                    <option data-mobile_code="995" value="GE">Georgia</option>
+                                                    <option data-mobile_code="49" value="DE">Germany</option>
+                                                    <option data-mobile_code="233" value="GH">Ghana</option>
+                                                    <option data-mobile_code="350" value="GI">Gibraltar</option>
+                                                    <option data-mobile_code="30" value="GR">Greece</option>
+                                                    <option data-mobile_code="299" value="GL">Greenland</option>
+                                                    <option data-mobile_code="1473" value="GD">Grenada</option>
+                                                    <option data-mobile_code="590" value="GP">Guadeloupe</option>
+                                                    <option data-mobile_code="1671" value="GU">Guam</option>
+                                                    <option data-mobile_code="502" value="GT">Guatemala</option>
+                                                    <option data-mobile_code="44" value="GG">Guernsey</option>
+                                                    <option data-mobile_code="224" value="GN">Guinea</option>
+                                                    <option data-mobile_code="245" value="GW">Guinea-Bissau</option>
+                                                    <option data-mobile_code="595" value="GY">Guyana</option>
+                                                    <option data-mobile_code="509" value="HT">Haiti</option>
+                                                    <option data-mobile_code="379" value="VA">Holy See
+                                                        (Vatican City
+                                                        State)</option>
+                                                    <option data-mobile_code="504" value="HN">Honduras</option>
+                                                    <option data-mobile_code="852" value="HK">Hong
+                                                        Kong</option>
+                                                    <option data-mobile_code="36" value="HU">Hungary</option>
+                                                    <option data-mobile_code="354" value="IS">Iceland</option>
+                                                    <option data-mobile_code="91" value="IN">India</option>
+                                                    <option data-mobile_code="62" value="ID">Indonesia</option>
+                                                    <option data-mobile_code="98" value="IR">Iran,
+                                                        Islamic Republic of
+                                                        Persian
+                                                        Gulf</option>
+                                                    <option data-mobile_code="964" value="IQ">Iraq</option>
+                                                    <option data-mobile_code="353" value="IE">Ireland</option>
+                                                    <option data-mobile_code="44" value="IM">Isle of
+                                                        Man</option>
+                                                    <option data-mobile_code="972" value="IL">Israel</option>
+                                                    <option data-mobile_code="39" value="IT">Italy</option>
+                                                    <option data-mobile_code="1876" value="JM">Jamaica</option>
+                                                    <option data-mobile_code="81" value="JP">Japan</option>
+                                                    <option data-mobile_code="44" value="JE">Jersey</option>
+                                                    <option data-mobile_code="962" value="JO">Jordan</option>
+                                                    <option data-mobile_code="77" value="KZ">Kazakhstan</option>
+                                                    <option data-mobile_code="254" value="KE">Kenya</option>
+                                                    <option data-mobile_code="686" value="KI">Kiribati</option>
+                                                    <option data-mobile_code="850" value="KP">Democratic
+                                                        People&#039;s
+                                                        Republic of
+                                                        Korea</option>
+                                                    <option data-mobile_code="82" value="KR">Republic
+                                                        of South
+                                                        Korea</option>
+                                                    <option data-mobile_code="965" value="KW">Kuwait</option>
+                                                    <option data-mobile_code="996" value="KG">Kyrgyzstan</option>
+                                                    <option data-mobile_code="856" value="LA">Laos</option>
+                                                    <option data-mobile_code="371" value="LV">Latvia</option>
+                                                    <option data-mobile_code="961" value="LB">Lebanon</option>
+                                                    <option data-mobile_code="266" value="LS">Lesotho</option>
+                                                    <option data-mobile_code="231" value="LR">Liberia</option>
+                                                    <option data-mobile_code="218" value="LY">Libyan
+                                                        Arab
+                                                        Jamahiriya</option>
+                                                    <option data-mobile_code="423" value="LI">Liechtenstein</option>
+                                                    <option data-mobile_code="370" value="LT">Lithuania</option>
+                                                    <option data-mobile_code="352" value="LU">Luxembourg</option>
+                                                    <option data-mobile_code="853" value="MO">Macao</option>
+                                                    <option data-mobile_code="389" value="MK">Macedonia</option>
+                                                    <option data-mobile_code="261" value="MG">Madagascar</option>
+                                                    <option data-mobile_code="265" value="MW">Malawi</option>
+                                                    <option data-mobile_code="60" value="MY">Malaysia</option>
+                                                    <option data-mobile_code="960" value="MV">Maldives</option>
+                                                    <option data-mobile_code="223" value="ML">Mali</option>
+                                                    <option data-mobile_code="356" value="MT">Malta</option>
+                                                    <option data-mobile_code="692" value="MH">Marshall
+                                                        Islands</option>
+                                                    <option data-mobile_code="596" value="MQ">Martinique</option>
+                                                    <option data-mobile_code="222" value="MR">Mauritania</option>
+                                                    <option data-mobile_code="230" value="MU">Mauritius</option>
+                                                    <option data-mobile_code="262" value="YT">Mayotte</option>
+                                                    <option data-mobile_code="52" value="MX">Mexico</option>
+                                                    <option data-mobile_code="691" value="FM">Federated
+                                                        States of
+                                                        Micronesia</option>
+                                                    <option data-mobile_code="373" value="MD">Moldova</option>
+                                                    <option data-mobile_code="377" value="MC">Monaco</option>
+                                                    <option data-mobile_code="976" value="MN">Mongolia</option>
+                                                    <option data-mobile_code="382" value="ME">Montenegro</option>
+                                                    <option data-mobile_code="1664" value="MS">Montserrat</option>
+                                                    <option data-mobile_code="212" value="MA">Morocco</option>
+                                                    <option data-mobile_code="258" value="MZ">Mozambique</option>
+                                                    <option data-mobile_code="95" value="MM">Myanmar</option>
+                                                    <option data-mobile_code="264" value="NA">Namibia</option>
+                                                    <option data-mobile_code="674" value="NR">Nauru</option>
+                                                    <option data-mobile_code="977" value="NP">Nepal</option>
+                                                    <option data-mobile_code="31" value="NL">Netherlands</option>
+                                                    <option data-mobile_code="599" value="AN">Netherlands
+                                                        Antilles</option>
+                                                    <option data-mobile_code="687" value="NC">New
+                                                        Caledonia</option>
+                                                    <option data-mobile_code="64" value="NZ">New
+                                                        Zealand</option>
+                                                    <option data-mobile_code="505" value="NI">Nicaragua</option>
+                                                    <option data-mobile_code="227" value="NE">Niger</option>
+                                                    <option data-mobile_code="234" value="NG">Nigeria</option>
+                                                    <option data-mobile_code="683" value="NU">Niue</option>
+                                                    <option data-mobile_code="672" value="NF">Norfolk
+                                                        Island</option>
+                                                    <option data-mobile_code="1670" value="MP">Northern
+                                                        Mariana
+                                                        Islands</option>
+                                                    <option data-mobile_code="47" value="NO">Norway</option>
+                                                    <option data-mobile_code="968" value="OM">Oman</option>
+                                                    <option data-mobile_code="92" value="PK">Pakistan</option>
+                                                    <option data-mobile_code="680" value="PW">Palau</option>
+                                                    <option data-mobile_code="970" value="PS">Palestinian
+                                                        Territory</option>
+                                                    <option data-mobile_code="507" value="PA">Panama</option>
+                                                    <option data-mobile_code="675" value="PG">Papua New
+                                                        Guinea</option>
+                                                    <option data-mobile_code="595" value="PY">Paraguay</option>
+                                                    <option data-mobile_code="51" value="PE">Peru</option>
+                                                    <option data-mobile_code="63" value="PH">Philippines</option>
+                                                    <option data-mobile_code="872" value="PN">Pitcairn</option>
+                                                    <option data-mobile_code="48" value="PL">Poland</option>
+                                                    <option data-mobile_code="351" value="PT">Portugal</option>
+                                                    <option data-mobile_code="1939" value="PR">Puerto
+                                                        Rico</option>
+                                                    <option data-mobile_code="974" value="QA">Qatar</option>
+                                                    <option data-mobile_code="40" value="RO">Romania</option>
+                                                    <option data-mobile_code="7" value="RU">Russia</option>
+                                                    <option data-mobile_code="250" value="RW">Rwanda</option>
+                                                    <option data-mobile_code="262" value="RE">Reunion</option>
+                                                    <option data-mobile_code="590" value="BL">Saint
+                                                        Barthelemy</option>
+                                                    <option data-mobile_code="290" value="SH">Saint
+                                                        Helena</option>
+                                                    <option data-mobile_code="1869" value="KN">Saint
+                                                        Kitts and
+                                                        Nevis</option>
+                                                    <option data-mobile_code="1758" value="LC">Saint
+                                                        Lucia</option>
+                                                    <option data-mobile_code="590" value="MF">Saint
+                                                        Martin</option>
+                                                    <option data-mobile_code="508" value="PM">Saint
+                                                        Pierre and
+                                                        Miquelon</option>
+                                                    <option data-mobile_code="1784" value="VC">Saint
+                                                        Vincent and the
+                                                        Grenadines</option>
+                                                    <option data-mobile_code="685" value="WS">Samoa</option>
+                                                    <option data-mobile_code="378" value="SM">San
+                                                        Marino</option>
+                                                    <option data-mobile_code="239" value="ST">Sao Tome
+                                                        and
+                                                        Principe</option>
+                                                    <option data-mobile_code="966" value="SA">Saudi
+                                                        Arabia</option>
+                                                    <option data-mobile_code="221" value="SN">Senegal</option>
+                                                    <option data-mobile_code="381" value="RS">Serbia</option>
+                                                    <option data-mobile_code="248" value="SC">Seychelles</option>
+                                                    <option data-mobile_code="232" value="SL">Sierra
+                                                        Leone</option>
+                                                    <option data-mobile_code="65" value="SG">Singapore</option>
+                                                    <option data-mobile_code="421" value="SK">Slovakia</option>
+                                                    <option data-mobile_code="386" value="SI">Slovenia</option>
+                                                    <option data-mobile_code="677" value="SB">Solomon
+                                                        Islands</option>
+                                                    <option data-mobile_code="252" value="SO">Somalia</option>
+                                                    <option data-mobile_code="27" value="ZA">South
+                                                        Africa</option>
+                                                    <option data-mobile_code="211" value="SS">South
+                                                        Sudan</option>
+                                                    <option data-mobile_code="500" value="GS">South
+                                                        Georgia and the
+                                                        South Sandwich
+                                                        Islands</option>
+                                                    <option data-mobile_code="34" value="ES">Spain</option>
+                                                    <option data-mobile_code="94" value="LK">Sri
+                                                        Lanka</option>
+                                                    <option data-mobile_code="249" value="SD">Sudan</option>
+                                                    <option data-mobile_code="597" value="SR">Suricountry</option>
+                                                    <option data-mobile_code="47" value="SJ">Svalbard
+                                                        and Jan
+                                                        Mayen</option>
+                                                    <option data-mobile_code="268" value="SZ">Swaziland</option>
+                                                    <option data-mobile_code="46" value="SE">Sweden</option>
+                                                    <option data-mobile_code="41" value="CH">Switzerland</option>
+                                                    <option data-mobile_code="963" value="SY">Syrian
+                                                        Arab
+                                                        Republic</option>
+                                                    <option data-mobile_code="886" value="TW">Taiwan</option>
+                                                    <option data-mobile_code="992" value="TJ">Tajikistan</option>
+                                                    <option data-mobile_code="255" value="TZ">Tanzania</option>
+                                                    <option data-mobile_code="66" value="TH">Thailand</option>
+                                                    <option data-mobile_code="670" value="TL">Timor-Leste</option>
+                                                    <option data-mobile_code="228" value="TG">Togo</option>
+                                                    <option data-mobile_code="690" value="TK">Tokelau</option>
+                                                    <option data-mobile_code="676" value="TO">Tonga</option>
+                                                    <option data-mobile_code="1868" value="TT">Trinidad
+                                                        and Tobago</option>
+                                                    <option data-mobile_code="216" value="TN">Tunisia</option>
+                                                    <option data-mobile_code="90" value="TR">Turkey</option>
+                                                    <option data-mobile_code="993" value="TM">Turkmenistan</option>
+                                                    <option data-mobile_code="1649" value="TC">Turks and
+                                                        Caicos
+                                                        Islands</option>
+                                                    <option data-mobile_code="688" value="TV">Tuvalu</option>
+                                                    <option data-mobile_code="256" value="UG">Uganda</option>
+                                                    <option data-mobile_code="380" value="UA">Ukraine</option>
+                                                    <option data-mobile_code="971" value="AE">United
+                                                        Arab
+                                                        Emirates</option>
+                                                    <option data-mobile_code="44" value="GB">United
+                                                        Kingdom</option>
+                                                    <option data-mobile_code="1" value="US">United
+                                                        States</option>
+                                                    <option data-mobile_code="598" value="UY">Uruguay</option>
+                                                    <option data-mobile_code="998" value="UZ">Uzbekistan</option>
+                                                    <option data-mobile_code="678" value="VU">Vanuatu</option>
+                                                    <option data-mobile_code="58" value="VE">Venezuela</option>
+                                                    <option data-mobile_code="84" value="VN">Vietnam</option>
+                                                    <option data-mobile_code="1284" value="VG">British
+                                                        Virgin
+                                                        Islands</option>
+                                                    <option data-mobile_code="1340" value="VI">U.S.
+                                                        Virgin
+                                                        Islands</option>
+                                                    <option data-mobile_code="681" value="WF">Wallis
+                                                        and Futuna</option>
+                                                    <option data-mobile_code="967" value="YE">Yemen</option>
+                                                    <option data-mobile_code="260" value="ZM">Zambia</option>
+                                                    <option data-mobile_code="263" value="ZW">Zimbabwe</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group  col-xl-3 col-md-6 col-12">
+                                            <label>Email
+                                                Verification</label>
+                                            <input type="checkbox" data-width="100%" data-onstyle="-success"
+                                                data-offstyle="-danger" data-bs-toggle="toggle" data-on="Verified"
+                                                data-off="Unverified" name="ev" checked>
+
+                                        </div>
+
+                                        <div class="form-group  col-xl-3 col-md-6 col-12">
+                                            <label>Mobile
+                                                Verification</label>
+                                            <input type="checkbox" data-width="100%" data-onstyle="-success"
+                                                data-offstyle="-danger" data-bs-toggle="toggle" data-on="Verified"
+                                                data-off="Unverified" name="sv" checked>
+
+                                        </div>
+                                        <div class="form-group col-xl-3 col-md- col-12">
+                                            <label>2FA Verification </label>
+                                            <input type="checkbox" data-width="100%" data-height="50"
+                                                data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
+                                                data-on="Enable" data-off="Disable" name="ts">
+                                        </div>
+                                        <div class="form-group col-xl-3 col-md- col-12">
+                                            <label>KYC </label>
+                                            <input type="checkbox" data-width="100%" data-height="50"
+                                                data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
+                                                data-on="Verified" data-off="Unverified" name="kv" checked>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn--primary w-100 h-45">Submit
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="userStatusModal" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">
+                                    <span>Ban User</span>
+                                </h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="las la-times"></i>
+                                </button>
+                            </div>
+                            <form action="admin/users/status/2365" method="POST">
+                                <input type="hidden" name="_token" value="3vuTExGZvcVqqtByZPqrvQL5B5yUgI769rrQKDaC">
+                                <div class="modal-body">
+                                    <h6 class="mb-2">If you ban this user
+                                        he/she won't able to access his/her
+                                        dashboard.</h6>
+                                    <div class="form-group">
+                                        <label>Reason</label>
+                                        <textarea class="form-control" name="reason" rows="4" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn--primary h-45 w-100">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- bodywrapper__inner end -->
+        </div><!-- body-wrapper end -->
+    </div>
+
+    <script src="assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
+    <script src="assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
+
+    <link rel="stylesheet" href="assets/global/css/iziToast.min.css">
+    <script src="assets/global/js/iziToast.min.js"></script>
+
+    <script>
+        "use strict";
+        function notify(status, message) {
+            if (typeof message == 'string') {
+                iziToast[status]({
+                    message: message,
+                    position: "topRight"
+                });
+            } else {
+                $.each(message, function (i, val) {
+                    iziToast[status]({
+                        message: val,
+                        position: "topRight"
+                    });
+                });
+            }
+        }
+    </script>
+
+    <script src="assets/admin/js/nicEdit.js"></script>
+
+    <script src="assets/global/js/select2.min.js"></script>
+    <script src="assets/admin/js/app.js"></script>
+
+    <script>
+        "use strict";
+        bkLib.onDomLoaded(function () {
+            $(".nicEdit").each(function (index) {
+                $(this).attr("id", "nicEditor" + index);
+                new nicEditor({
+                    fullPanel: true
+                }).panelInstance('nicEditor' + index, {
+                    hasPanel: true
+                });
+            });
+        });
+        (function ($) {
+            $(document).on('mouseover ', '.nicEdit-main,.nicEdit-panelContain', function () {
+                $('.nicEdit-main').focus();
+            });
+        })(jQuery);
+    </script>
+
+    <script>
+        (function ($) {
+            "use strict"
+
+            let mobileElement = $('.mobile-code');
+            $('select[name=country]').change(function () {
+                mobileElement.text(`+${$('select[name=country] :selected').data('mobile_code')}`);
+            });
+
+            $('select[name=country]').val('SO');
+            let dialCode = $('select[name=country] :selected').data('mobile_code');
+            let mobileNumber = `[Mobile number is protected for the demo]`;
+            mobileNumber = mobileNumber.replace(dialCode, '');
+            $('input[name=mobile]').val(mobileNumber);
+            mobileElement.text(`+${dialCode}`);
+
+        })(jQuery);
+    </script>
+    <script>
+        if ($('li').hasClass('active')) {
+            $('#sidebar__menuWrapper').animate({
+                scrollTop: eval($(".active").offset().top - 320)
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,948 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterFunds - Manage Currency</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.svg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/admin/css/vendor/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="../../assets/global/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/global/css/line-awesome.min.css">
+
+
+    <link rel="stylesheet" href="../../assets/global/css/select2.min.css">
+    <link rel="stylesheet" href="../../assets/admin/css/app.css">
+
+</head>
+
+<body>
+    <!-- page-wrapper start -->
+    <div class="page-wrapper default-version">
+        <div class="sidebar bg--dark">
+            <button class="res-sidebar-close-btn"><i class="las la-times"></i></button>
+            <div class="sidebar__inner">
+                <div class="sidebar__logo">
+                    <a href="#" class="sidebar__main-logo"><img src="../assets/images/logoIcon/logo-dark.png"
+                            alt="image"></a>
+                </div>
+
+                <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
+                    <ul class="sidebar__menu">
+                        <li class="sidebar-menu-item active">
+                            <a href="index.html" class="nav-link ">
+                                <i class="menu-icon las la-home"></i>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-users"></i>
+                                <span class="menu-title">Manage Users</span>
+                            </a>
+                            <div class="sidebar-submenu ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/active.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Active
+                                                Users</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/banned.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Banned
+                                                Users</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/email-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Email
+                                                Unverified</span>
+
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/mobile-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Mobile
+                                                Unverified</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/kyc-unverified.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">KYC
+                                                Unverified</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/kyc-pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">KYC
+                                                Pending</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/with-balance.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">With
+                                                Balance</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="users/users.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Users</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="users/send-notification.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                to All</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="currency/index.html" class="nav-link" data-default-url="currency/index.html">
+                                <i class="menu-icon las la-money-bill"></i>
+                                <span class="menu-title">Manage Currencies
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="gateway/automatic.html" class="nav-link">
+                                <i class="menu-icon las la-credit-card"></i>
+                                <span class="menu-title">Payment
+                                    Gateways</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-exchange-alt"></i>
+                                <span class="menu-title">Exchange</span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Exchange</span>
+                                            <span class="menu-badge pill bg--danger ms-auto">0</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/canceled.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Canceled
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/refunded.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Refunded
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/approved.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Approved
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="exchange/list.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Exchange</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-bank"></i>
+                                <span class="menu-title">Withdrawals </span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Withdrawals</span>
+
+                                            <span class="menu-badge pill bg--danger ms-auto">12</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/approved.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Approved
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/rejected.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Rejected
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="withdraw/log.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Withdrawals</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-ticket"></i>
+                                <span class="menu-title">Support Ticket
+                                </span>
+                                <span class="menu-badge pill bg--danger ms-auto">
+                                    <i class="fa fa-exclamation"></i>
+                                </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/pending.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Pending
+                                                Ticket</span>
+                                            <span class="menu-badge pill bg--danger ms-auto">6</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/closed.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Closed
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/answered.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Answered
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="ticket/ticket.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">All
+                                                Ticket</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon la la-list"></i>
+                                <span class="menu-title">Report </span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/referral/commission.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Referall
+                                                Commissions</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/login/history.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Login
+                                                History</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item ">
+                                        <a href="report/notification/history.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                History</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="subscriber.html" class="nav-link" data-default-url="subscriber">
+                                <i class="menu-icon las la-thumbs-up"></i>
+                                <span class="menu-title">Subscribers </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar__menu-header">Settings</li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="general-settings.html" class="nav-link">
+                                <i class="menu-icon las la-life-ring"></i>
+                                <span class="menu-title">General
+                                    Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/social/credentials.html" class="nav-link">
+                                <i class="menu-icon las la-users-cog"></i>
+                                <span class="menu-title">Social
+                                    Credentials</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/system-configuration.html" class="nav-link">
+                                <i class="menu-icon las la-cog"></i>
+                                <span class="menu-title">System
+                                    Configuration</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item  ">
+                            <a href="referral.html" class="nav-link" data-default-url="referral">
+                                <i class="menu-icon las la-link"></i>
+                                <span class="menu-title">Referral
+                                    Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="setting/logo-icon.html" class="nav-link">
+                                <i class="menu-icon las la-images"></i>
+                                <span class="menu-title">Logo &
+                                    Favicon</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="sidebar-menu-item ">
+                            <a href="seo.html" class="nav-link">
+                                <i class="menu-icon las la-globe"></i>
+                                <span class="menu-title">SEO Manager</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="kyc-settings.html" class="nav-link">
+                                <i class="menu-icon las la-user-check"></i>
+                                <span class="menu-title">KYC Setting</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="blocked-ip.html" class="nav-link">
+                                <i class="menu-icon las la-map-marked"></i>
+                                <span class="menu-title">IP Blocking</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item sidebar-dropdown">
+                            <a href="javascript:void(0)" class>
+                                <i class="menu-icon las la-bell"></i>
+                                <span class="menu-title">Notification
+                                    Setting</span>
+                            </a>
+                            <div class="sidebar-submenu  ">
+                                <ul>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/global.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Global
+                                                Template</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/email/setting.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Email
+                                                Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/sms/setting.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">SMS
+                                                Setting</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item  ">
+                                        <a href="notification/templates.html" class="nav-link">
+                                            <i class="menu-icon las la-dot-circle"></i>
+                                            <span class="menu-title">Notification
+                                                Templates</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar__menu-header">Frontend
+                            Manager</li>
+
+                        <li class="sidebar-menu-item ">
+                            <a href="frontend/manage-pages.html" class="nav-link ">
+                                <i class="menu-icon la la-list"></i>
+                                <span class="menu-title">Manage Pages</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- sidebar end -->
+
+        <!-- navbar-wrapper start -->
+        <nav class="navbar-wrapper bg--dark">
+            <div class="navbar__left">
+                <button type="button" class="res-sidebar-open-btn me-3"><i class="las la-bars"></i></button>
+                <form class="navbar-search">
+                    <input type="search" name="#0" class="navbar-search-field" id="searchInput" autocomplete="off"
+                        placeholder="Search here...">
+                    <i class="las la-search"></i>
+                    <ul class="search-list"></ul>
+                </form>
+            </div>
+            <div class="navbar__right">
+                <ul class="navbar__action-list">
+
+                    <li class="dropdown">
+                        <button type="button" class="primary--layer" data-bs-toggle="dropdown" data-display="static"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="las la-bell text--primary  icon-left-right "></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--md p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <div class="dropdown-menu__header">
+                                <span class="caption">Notification</span>
+                                <p>You have 48 unread notification</p>
+                            </div>
+                            <div class="dropdown-menu__body">
+                                <a href="notification/read/497" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300.jpg" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Payoneer</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                34 seconds ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/496" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                32 minutes ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/494" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                3 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/493" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Payoneer</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                10 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/492" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                10 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/491" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                17 hours ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/490" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Web Money</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/489" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">send 0 by Bkash</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/488" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                                <a href="notification/read/487" class="dropdown-menu__item">
+                                    <div class="navbar-notifi">
+                                        <div class="navbar-notifi__left bg--green b-radius--rounded"><img
+                                                src="../../placeholder-image/350x300" alt="Profile Image"></div>
+                                        <div class="navbar-notifi__right">
+                                            <h6 class="notifi__title">New member registered</h6>
+                                            <span class="time"><i class="far fa-clock"></i>
+                                                1 day ago</span>
+                                        </div>
+                                    </div><!-- navbar-notifi end -->
+                                </a>
+                            </div>
+                            <div class="dropdown-menu__footer">
+                                <a href="notifications" class="view-all-message">View all notification</a>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <button type="button" class="" data-bs-toggle="dropdown" data-display="static"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span class="navbar-user">
+                                <span class="navbar-user__thumb"><img src="../../../../../assets/images/default.png"
+                                        alt="image"></span>
+                                <span class="navbar-user__info">
+                                    <span class="navbar-user__name">admin</span>
+                                </span>
+                                <span class="icon"><i class="las la-chevron-circle-down"></i></span>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <a href="profile" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-user-circle"></i>
+                                <span class="dropdown-menu__caption">Profile</span>
+                            </a>
+
+                            <a href="password" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-key"></i>
+                                <span class="dropdown-menu__caption">Password</span>
+                            </a>
+
+                            <a href="logout" class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                <i class="dropdown-menu__icon las la-sign-out-alt"></i>
+                                <span class="dropdown-menu__caption">Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- navbar-wrapper end -->
+
+        <div class="body-wrapper">
+            <div class="bodywrapper__inner">
+
+                <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
+                    <h6 class="page-title">Manage Currency</h6>
+                    <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+                        <form action="" method="GET" class="d-flex flex-wrap sea gap-2">
+                            <div class="input-group w-auto flex-fill">
+                                <input type="search" name="search" class="form-control bg--white"
+                                    placeholder="Search..." value="">
+                                <button class="btn btn--primary" type="submit"><i class="la la-search"></i></button>
+                            </div>
+
+                        </form>
+                        <a class="btn btn-outline--primary" href="currency/create" /><i class="las la-plus"></i>Add
+                        New</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card b-radius--10 ">
+                            <div class="card-body p-0">
+                                <div class="table-responsive--md  table-responsive">
+                                    <table class="table table--light style--two">
+                                        <thead>
+                                            <tr>
+                                                <th>Currency</th>
+                                                <th>Buy At</th>
+                                                <th>Sell At</th>
+                                                <th>Reserve Amount</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="user">
+                                                        <div class="thumb">
+                                                            <img src="/assets/images/currency/btc.png">
+                                                        </div>
+                                                        <span class="name">Bitcoin - USD</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    82.00 GHS
+                                                </td>
+                                                <td>
+                                                    95.00 GHS
+                                                </td>
+                                                <td>80,000,000.00 USD</td>
+                                                <td> <span class="badge badge--success">Enabled</span> </td>
+                                                <td>
+                                                    <a href="edit/18.html" class="btn btn-sm btn-outline--primary">
+                                                        <i class="la la-pencil"></i>Edit </a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline--danger  confirmationBtn"
+                                                        data-action="currency/status/18"
+                                                        data-question="Are you sure to disable this currency?">
+                                                        <i class="la la-eye-slash"></i> Disable </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="user">
+                                                        <div class="thumb">
+                                                            <img src="/assets/images/currency/ethereum.png">
+                                                        </div>
+                                                        <span class="name">Ethereum - USD</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    0.01 GHS
+                                                </td>
+                                                <td>
+                                                    0.50 GHS
+                                                </td>
+                                                <td>49,999,932.04 USD</td>
+                                                <td> <span class="badge badge--success">Enabled</span> </td>
+                                                <td>
+                                                    <a href="currency/edit/32" class="btn btn-sm btn-outline--primary">
+                                                        <i class="la la-pencil"></i>Edit </a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline--danger  confirmationBtn"
+                                                        data-action="currency/status/32"
+                                                        data-question="Are you sure to disable this currency?">
+                                                        <i class="la la-eye-slash"></i> Disable </button>
+                                                </td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>
+                                                    <div class="user">
+                                                        <div class="thumb">
+                                                            <img src="/assets/images/currency/perfectmoney.png">
+                                                        </div>
+                                                        <span class="name">Perfect Money - USD</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    0.96 GHS
+                                                </td>
+                                                <td>
+                                                    1.20 GHS
+                                                </td>
+                                                <td>80,000.00 GHS</td>
+                                                <td> <span class="badge badge--success">Enabled</span> </td>
+                                                <td>
+                                                    <a href="edit/17.html" class="btn btn-sm btn-outline--primary">
+                                                        <i class="la la-pencil"></i>Edit </a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline--danger  confirmationBtn"
+                                                        data-action="currency/status/17"
+                                                        data-question="Are you sure to disable this currency?">
+                                                        <i class="la la-eye-slash"></i> Disable </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="user">
+                                                        <div class="thumb">
+                                                            <img src="../../assets/images/currency/rmb.png">
+                                                        </div>
+                                                        <span class="name">Yuan - RMB</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    1.10 GHS
+                                                </td>
+                                                <td>
+                                                    2.50 GHS
+                                                </td>
+                                                <td>8,005,075.00 RMB</td>
+                                                <td> <span class="badge badge--success">Enabled</span> </td>
+                                                <td>
+                                                    <a href="currency/edit/16" class="btn btn-sm btn-outline--primary">
+                                                        <i class="la la-pencil"></i>Edit </a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline--danger  confirmationBtn"
+                                                        data-action="currency/status/16"
+                                                        data-question="Are you sure to disable this currency?">
+                                                        <i class="la la-eye-slash"></i> Disable </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="user">
+                                                        <div class="thumb">
+                                                            <img src="../../assets/images/currency/usdt.png">
+                                                        </div>
+                                                        <span class="name">Tether USDT - USD</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    81.00 GHS
+                                                </td>
+                                                <td>
+                                                    88.00 GHS
+                                                </td>
+                                                <td>100,000.00 USD</td>
+                                                <td> <span class="badge badge--success">Enabled</span> </td>
+                                                <td>
+                                                    <a href="currency/edit/15" class="btn btn-sm btn-outline--primary">
+                                                        <i class="la la-pencil"></i>Edit </a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline--danger  confirmationBtn"
+                                                        data-action="currency/status/15"
+                                                        data-question="Are you sure to disable this currency?">
+                                                        <i class="la la-eye-slash"></i> Disable </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="user">
+                                                        <div class="thumb">
+                                                            <img src="../../assets/images/currency/paypal.png">
+                                                        </div>
+                                                        <span class="name">Paypal - USD</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    83.64 GHS
+                                                </td>
+                                                <td>
+                                                    86.55 GHS
+                                                </td>
+                                                <td>10,000.00 USD</td>
+                                                <td> <span class="badge badge--success">Enabled</span> </td>
+                                                <td>
+                                                    <a href="currency/edit/14" class="btn btn-sm btn-outline--primary">
+                                                        <i class="la la-pencil"></i>Edit </a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline--danger  confirmationBtn"
+                                                        data-action="currency/status/14"
+                                                        data-question="Are you sure to disable this currency?">
+                                                        <i class="la la-eye-slash"></i> Disable </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="confirmationModal" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Confirmation Alert!</h5>
+                                <span type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="las la-times"></i>
+                                </span>
+                            </div>
+                            <form action="" method="POST">
+                                <input type="hidden" name="_token" value="H4ATodCIq10Ilj4glleG1Id1azCiq1obuuZmDmjX">
+                                <div class="modal-body">
+                                    <p class="question"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn--dark" data-bs-dismiss="modal">No</button>
+                                    <button type="submit" class="btn btn--primary">Yes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div><!-- bodywrapper__inner end -->
+        </div><!-- body-wrapper end -->
+    </div>
+
+
+
+
+    <script src="../../assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
+    <script src="../../assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
+
+    <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
+    <script src="../../assets/global/js/iziToast.min.js"></script>
+
+    <script>
+        "use strict";
+        function notify(status, message) {
+            if (typeof message == 'string') {
+                iziToast[status]({
+                    message: message,
+                    position: "topRight"
+                });
+            } else {
+                $.each(message, function (i, val) {
+                    iziToast[status]({
+                        message: val,
+                        position: "topRight"
+                    });
+                });
+            }
+        }
+    </script>
+
+
+    <script src="../../assets/admin/js/nicEdit.js"></script>
+
+    <script src="../../assets/global/js/select2.min.js"></script>
+    <script src="../../assets/admin/js/app.js"></script>
+
+
+    <script>
+        "use strict";
+        bkLib.onDomLoaded(function () {
+            $(".nicEdit").each(function (index) {
+                $(this).attr("id", "nicEditor" + index);
+                new nicEditor({
+                    fullPanel: true
+                }).panelInstance('nicEditor' + index, {
+                    hasPanel: true
+                });
+            });
+        });
+        (function ($) {
+            $(document).on('mouseover ', '.nicEdit-main,.nicEdit-panelContain', function () {
+                $('.nicEdit-main').focus();
+            });
+        })(jQuery);
+    </script>
+
+
+    <script>
+        (function ($) {
+            "use strict";
+            $(document).on('click', '.confirmationBtn', function () {
+                var modal = $('#confirmationModal');
+                let data = $(this).data();
+                modal.find('.question').text(`${data.question}`);
+                modal.find('form').attr('action', `${data.action}`);
+                modal.modal('show');
+            });
+        })(jQuery);
+    </script>
+    <script>
+        if ($('li').hasClass('active')) {
+            $('#sidebar__menuWrapper').animate({
+                scrollTop: eval($(".active").offset().top - 320)
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>
