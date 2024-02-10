@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="author" content="barterfunds">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Transactions Panel">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <!-- Page Title  -->
+    <title>Dashboard | Barter Funds</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="/assets/css/barterfunds.css">
+    <link rel="stylesheet" href="/assets/css/panel.css">
+    <style>
+        .info-content {
+            display: none;
+            position: center;
+            top: 100%;
+            left: 0;
+            z-index: 999;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            transform: translateY(-100%);
+
+            /* Adjust width as needed */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bold-text {
+            font-weight: bold;
+            /* Apply bold font weight to h6 element */
+        }
+
+        .info-icon:hover .info-content {
+            display: block;
+        }
+
+        .info-icon {
+            position: absolute;
+
+
+        }
+    </style>
+    <style>
+        .buysell-tt-list {
+            border: 1px solid #dbdfea;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        .buysell-tt-item {
+            position: relative;
+        }
+
+        .buysell-tt-item:not(:last-child) {
+            border-bottom: 1px solid #e5e9f2;
+        }
+
+        .buysell-tt-label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0;
+            padding: 16px 20px 16px 60px;
+            cursor: pointer;
+        }
+
+
+        .buysell-tt-label:before,
+        .buysell-tt-label:after {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+        }
+
+        .buysell-tt-label:before {
+            content: "";
+            border: 2px solid #dbdfea;
+        }
+
+        .buysell-tt-label:after {
+            font-family: "Nioicon";
+            content: "\e9be";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: #810020;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        .buysell-tt-label .tt-name {
+            font-size: 14px;
+            color: #364a63;
+        }
+
+        .buysell-tt-label .tt-icon {
+            display: inline-flex;
+            font-size: 24px;
+            color: #8094ae;
+
+
+
+        }
+
+
+
+        .buysell-tt-control {
+            position: absolute;
+            top: 0;
+            height: 1px;
+            width: 1px;
+            opacity: 0;
+        }
+
+        .buysell-tt-control:checked~.buysell-tt-label {
+            cursor: default;
+        }
+
+        .buysell-tt-control:checked~.buysell-tt-label:after {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body class="nk-body bg-white has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
+            <div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu">
+                <div class="nk-sidebar-element nk-sidebar-head">
+                    <div class="nk-sidebar-brand">
+                        <a href="index.html" class="logo-link nk-sidebar-logo">
+                            <img class="logo-light logo-img" src="/images/logo-dark.png"
+                                srcset="/images/dashboard-logo.png 2x" alt="logo">
+                            <img class="logo-dark logo-img" src="/images/logo.png"
+                                srcset="/images/dashboard-logo.png 2x" alt="logo-dark">
+                        </a>
+                    </div>
+                    <div class="nk-menu-trigger me-n2">
+                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
+                                class="icon ni ni-arrow-left"></em></a>
+                    </div>
+                </div><!-- .nk-sidebar-element -->
+                <div class="nk-sidebar-element">
+                    <div class="nk-sidebar-body" data-simplebar>
+                        <div class="nk-sidebar-content">
+                            <div class="nk-sidebar-menu">
+                                <ul class="nk-menu">
+                                    <li class="nk-menu-heading">
+                                        <h6 class="overline-title text-primary-alt">OVERVIEW</h6>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item">
+                                        <a href="index.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                                            <span class="nk-menu-text">Dashboard</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-heading">
+                                        <h6 class="overline-title text-primary-alt">TRANSACTIONS</h6>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item">
+                                        <a href="/panel/send" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-sign-eth-alt"></em></span>
+                                            <span class="nk-menu-text">Buy Sell Panel</span><span
+                                                class="nk-menu-badge">HOT</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-heading">
+                                        <h6 class="overline-title text-primary-alt">PAYMENTS</h6>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item">
+                                        <a href="/panel/buy/btc.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
+                                            <span class="nk-menu-text">Barter Wallet</span><span
+                                                class="nk-menu-badge">COMING SOON</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item">
+                                        <a href="transactions.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-sign-cc-alt"></em></span>
+                                            <span class="nk-menu-text">Manage Orders</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item">
+                                        <a href="coming-soon.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-exchange"></em></span>
+                                            <span class="nk-menu-text">Exchange Rates</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-heading">
+                                        <h6 class="overline-title text-primary-alt">MENU</h6>
+                                    </li><!-- .nk-menu-heading -->
+
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                                            <span class="nk-menu-text">My Account</span>
+                                        </a>
+                                        <ul class="nk-menu-sub">
+                                            <li class="nk-menu-item">
+                                                <a href="user/profile.html" class="nk-menu-link"><span
+                                                        class="nk-menu-text">My
+                                                        Profile</span></a>
+                                            </li>
+
+                                        </ul><!-- .nk-menu-sub -->
+                                    </li><!-- .nk-menu-item -->
+
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-tranx"></em></span>
+                                            <span class="nk-menu-text">Transactions</span>
+                                        </a>
+                                        <ul class="nk-menu-sub">
+                                            <li class="nk-menu-item">
+                                                <a href="order-history.html" class="nk-menu-link"><span
+                                                        class="nk-menu-text">Transaction History</span></a>
+                                            </li>
+
+                                        </ul><!-- .nk-menu-sub -->
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-user"></em></span>
+                                            <span class="nk-menu-text">KYC</span>
+                                        </a>
+                                        <ul class="nk-menu-sub">
+                                            <li class="nk-menu-item">
+                                                <a href="kyc/application.html" class="nk-menu-link"><span
+                                                        class="nk-menu-text">Get
+                                                        Started</span></a>
+                                            </li>
+
+                                        </ul><!-- .nk-menu-sub -->
+                                    </li><!-- .nk-menu-item -->
+
+
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-question"></em></span>
+                                            <span class="nk-menu-text">Support Center</span>
+                                        </a>
+                                        <ul class="nk-menu-sub">
+                                            <li class="nk-menu-item">
+                                                <a href="support.html" class="nk-menu-link"><span
+                                                        class="nk-menu-text">Live
+                                                        Chat</span></a>
+                                            </li>
+                                            <li class="nk-menu-item">
+                                                <a href="faqs.html" class="nk-menu-link"><span class="nk-menu-text">Faqs
+                                                        / Help</span></a>
+                                            </li>
+                                            <li class="nk-menu-item">
+                                                <a href="https://wa.me/message/ON5PHWAZTGKWI1"
+                                                    class="nk-menu-link"><span class="nk-menu-text">Whatsapp
+                                                        Chat</span></a>
+                                            </li>
+                                            <li class="nk-menu-item">
+                                                <a href="tel:+233598870911" class="nk-menu-link"><span
+                                                        class="nk-menu-text">Phone
+                                                        Call</span></a>
+                                            </li>
+
+                                        </ul><!-- .nk-menu-sub -->
+                                    </li><!-- .nk-menu-item -->
+
+                                </ul><!-- .nk-menu -->
+                            </div><!-- .nk-sidebar-menu -->
+                            <div class="nk-sidebar-footer">
+                                <ul class="nk-menu nk-menu-footer">
+                                    <li class="nk-menu-item">
+                                        <a href="#" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-help-alt"></em></span>
+                                            <span class="nk-menu-text">Support</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item ms-auto">
+                                        <div class="dropup">
+                                            <a href="#" class="nk-menu-link dropdown-indicator has-indicator"
+                                                data-bs-toggle="dropdown" data-offset="0,10">
+                                                <span class="nk-menu-icon"><em class="icon ni ni-globe"></em></span>
+                                                <span class="nk-menu-text">English</span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
+                                                <ul class="language-list">
+                                                    <li>
+                                                        <a href="#" class="language-item">
+                                                            <img src="./images/flags/ghanaflag.png" alt=""
+                                                                class="language-flag">
+                                                            <span class="language-name">Ghana</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="language-item">
+                                                            <img src="./images/flags/spanish.png" alt=""
+                                                                class="language-flag">
+                                                            <span class="language-name">Nigeria</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="language-item">
+                                                            <img src="./images/flags/french.png" alt=""
+                                                                class="language-flag">
+                                                            <span class="language-name">Kenya</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="language-item">
+                                                            <img src="./images/flags/turkey.png" alt=""
+                                                                class="language-flag">
+                                                            <span class="language-name">Uganda</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul><!-- .nk-footer-menu -->
+                            </div><!-- .nk-sidebar-footer -->
+                        </div><!-- .nk-sidebar-content -->
+                    </div><!-- .nk-sidebar-body -->
+                </div><!-- .nk-sidebar-element -->
+            </div>
+            <!-- sidebar @e -->
+            <!-- wrap @s -->
+            <div class="nk-wrap ">
+                <!-- main header @s -->
+                <div class="nk-header nk-header-fixed is-light">
+                    <div class="container-fluid">
+                        <div class="nk-header-wrap">
+                            <div class="nk-menu-trigger d-xl-none ms-n1">
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                                        class="icon ni ni-menu"></em></a>
+                            </div>
+                            <div class="nk-header-brand d-xl-none">
+                                <a href="html/index.html" class="logo-link">
+                                    <img class="logo-light logo-img" src="/images/logo-dark.png"
+                                        srcset="./images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="/images/logo.png"
+                                        srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                </a>
+                            </div><!-- .nk-header-brand -->
+                            <div class="nk-header-news d-none d-xl-block">
+                                <div class="nk-news-list">
+                                    <a class="nk-news-item" href="#">
+                                        <div class="nk-news-icon">
+                                            <em class="icon ni ni-card-view"></em>
+                                        </div>
+                                        <div class="nk-news-text">
+                                            <p>Get realtime update on our exchange rates<span> Subscribe to our
+                                                    newsletter now!</span></p>
+                                            <em class="icon ni ni-external"></em>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- .nk-header-news -->
+                            <div class="nk-header-tools">
+                                <ul class="nk-quick-nav">
+                                    <li class="dropdown language-dropdown d-none d-sm-block me-n1">
+                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                            <div class="quick-icon border border-light">
+                                                <img class="icon" src="/images/flags/ghana.png" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-s1">
+                                            <ul class="language-list">
+                                                <li>
+                                                    <a href="#" class="language-item">
+                                                        <img src="/images/flags/ghana.png" alt="" class="language-flag">
+                                                        <span class="language-name">Ghana</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="language-item">
+                                                        <img src="/images/flags/nigeria.png" alt=""
+                                                            class="language-flag">
+                                                        <span class="language-name">Nigeria</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="language-item">
+                                                        <img src="/images/flags/kenya.png" alt="" class="language-flag">
+                                                        <span class="language-name">Kenya</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="language-item">
+                                                        <img src="/images/flags/uganda.png" alt=""
+                                                            class="language-flag">
+                                                        <span class="language-name">Uganda</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <li class="dropdown user-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <div class="user-toggle">
+                                                <div class="user-avatar sm">
+                                                    <em class="icon ni ni-user-alt"></em>
+                                                </div>
+                                                <div class="user-info d-none d-md-block">
+                                                    <div class="user-status">Administrator</div>
+                                                    <div class="user-name dropdown-indicator">Michael Adzato</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end dropdown-menu-s1">
+                                            <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                                <div class="user-card">
+                                                    <div class="user-avatar">
+                                                        <span>AB</span>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <span class="lead-text">Michael Adzato</span>
+                                                        <span class="sub-text">info@barter-funds.com</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-inner">
+                                                <ul class="link-list">
+                                                    <li><a href="html/user-profile.html"><em
+                                                                class="icon ni ni-user-alt"></em><span>View
+                                                                Profile</span></a></li>
+                                                    <li><a href="html/user-profile-setting.html"><em
+                                                                class="icon ni ni-setting-alt"></em><span>Account
+                                                                Setting</span></a></li>
+                                                    <li><a href="html/user-profile-activity.html"><em
+                                                                class="icon ni ni-activity-alt"></em><span>Login
+                                                                Activity</span></a></li>
+                                                    <li><a class="dark-switch" href="#"><em
+                                                                class="icon ni ni-moon"></em><span>Dark Mode</span></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="dropdown-inner">
+                                                <ul class="link-list">
+                                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign
+                                                                out</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <li class="dropdown notification-dropdown me-n1">
+                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end dropdown-menu-s1">
+                                            <div class="dropdown-head">
+                                                <span class="sub-title nk-dropdown-title">Notifications</span>
+                                                <a href="#">Mark All as Read</a>
+                                            </div>
+                                            <div class="dropdown-body">
+                                                <div class="nk-notification">
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em
+                                                                class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">You have requested to
+                                                                <span>Widthdrawl</span>
+                                                            </div>
+                                                            <div class="nk-notification-time">2 hrs ago</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em
+                                                                class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">Your <span>Deposit
+                                                                    Order</span> is placed</div>
+                                                            <div class="nk-notification-time">2 hrs ago</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em
+                                                                class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">You have requested to
+                                                                <span>Widthdrawl</span>
+                                                            </div>
+                                                            <div class="nk-notification-time">2 hrs ago</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em
+                                                                class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">Your <span>Deposit
+                                                                    Order</span> is placed</div>
+                                                            <div class="nk-notification-time">2 hrs ago</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em
+                                                                class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">You have requested to
+                                                                <span>Widthdrawl</span>
+                                                            </div>
+                                                            <div class="nk-notification-time">2 hrs ago</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em
+                                                                class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">Your <span>Deposit
+                                                                    Order</span> is placed</div>
+                                                            <div class="nk-notification-time">2 hrs ago</div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .nk-notification -->
+                                            </div><!-- .nk-dropdown-body -->
+                                            <div class="dropdown-foot center">
+                                                <a href="#">View All</a>
+                                            </div>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                </ul><!-- .nk-quick-nav -->
+                            </div><!-- .nk-header-tools -->
+                        </div><!-- .nk-header-wrap -->
+                    </div><!-- .container-fliud -->
+                </div>
+                <!-- main header @e -->
+                <!-- content @s -->
+                <div class="nk-content nk-content-fluid">
+                    <div class="container-xl wide-lg">
+                        <div class="nk-content-body">
+                            <div class="buysell wide-xs m-auto">
+                                <div class="form-stage visible" id="stage1">
+                                    <div class="navigation">
+                                        <a href="#" id="buy-nav" onclick="loadLink('/panel/buy/btc.html')">BUY</a>
+                                        <a href="#" id="sell-nav" onclick="loadLink('/panel/sell/btc.html')">SELL</a>
+                                        <a href="#" class="active" id="send-nav"
+                                            onclick="loadLink('/panel/send/btc.html')">SEND</a>
+                                        <a href="#" id="receive-nav"
+                                            onclick="loadLink('/panel/receive/btc.html')">RECEIVE</a>
+                                    </div>
+
+                                    <!-- Currency Selection Block Start -->
+                                    <div class="buysell-block">
+                                        <form action="#" class="buysell-form">
+                                            <div class="buysell-field form-group form-section">
+                                                <div class="buysell-field form-group">
+                                                    <!-- .buysell-field currency selection-->
+                                                    <div class="form-label-group">
+                                                        <label class="form-label">Choose what you want to send</label>
+                                                    </div>
+                                                    <input type="hidden" value="eth" name="bs-currency"
+                                                        id="buysell-choose-currency">
+                                                    <div class="dropdown buysell-cc-dropdown">
+                                                        <a href="#" class="buysell-cc-choosen dropdown-indicator"
+                                                            data-bs-toggle="dropdown">
+                                                            <div class="coin-item coin-eth">
+                                                                <div class="coin-icon">
+                                                                    <em class="icon ni ni-sign-eth-alt"></em>
+                                                                </div>
+                                                                <div class="coin-info">
+                                                                    <span class="coin-name">Ethereum (ETH)</span>
+                                                                    <span class="coin-text">USD</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh">
+                                                            <ul class="buysell-cc-list">
+                                                                <li class="buysell-cc-item selected">
+                                                                    <a href="/panel/send/btc.html"
+                                                                        class="buysell-cc-opt" data-currency="btc">
+                                                                        <div class="coin-item coin-btc">
+                                                                            <div class="coin-icon">
+                                                                                <em
+                                                                                    class="icon ni ni-sign-btc-alt"></em>
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">Ethereum
+                                                                                    (BTC)</span>
+                                                                                <span class="coin-text">USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="buysell-cc-item">
+                                                                    <a href="/panel/send/eth.html"
+                                                                        class="buysell-cc-opt" data-currency="eth">
+                                                                        <div class="coin-item coin-eth">
+                                                                            <div class="coin-icon">
+                                                                                <em
+                                                                                    class="icon ni ni-sign-eth-alt"></em>
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">Ethereum
+                                                                                    (ETH)</span>
+                                                                                <span class="coin-text">USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="buysell-cc-item">
+                                                                    <a href="/panel/send/usdt.html"
+                                                                        class="buysell-cc-opt" data-currency="usdt">
+                                                                        <div class="coin-item coin-usdt">
+                                                                            <div class="coin-icon">
+                                                                                <em
+                                                                                    class="icon ni ni-sign-usdt-alt"></em>
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">Tether TRC20
+                                                                                    (USDT)</span>
+                                                                                <span class="coin-text">USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="buysell-cc-item">
+                                                                    <a href="/panel/send/usdc.html"
+                                                                        class="buysell-cc-opt" data-currency="usdc">
+                                                                        <div class="coin-item coin-usdc">
+                                                                            <div class="coin-icon">
+                                                                                <em
+                                                                                    class="icon ni ni-sign-usdc-alt"></em>
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">USD Coin
+                                                                                    (USDC)</span>
+                                                                                <span class="coin-text">USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="buysell-cc-item">
+                                                                    <a href="/panel/send/paypal.html"
+                                                                        class="buysell-cc-opt" data-currency="paypal">
+                                                                        <div class="coin-item coin-paypal">
+                                                                            <div class="coin-icon">
+                                                                                <em
+                                                                                    class="icon ni ni-sign-paypal-alt"></em>
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">PayPal
+                                                                                    (PP)</span>
+                                                                                <span class="coin-text">USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="buysell-cc-item">
+                                                                    <a href="/panel/send/cny.html"
+                                                                        class="buysell-cc-opt" data-currency="cny">
+                                                                        <div class="coin-item coin-cny">
+                                                                            <div class="coin-icon">
+                                                                                <em
+                                                                                    class="icon ni ni-sign-cny-alt"></em>
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">Yuan
+                                                                                    (RMB)</span>
+                                                                                <span class="coin-text">CNY</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+
+
+                                                                <li class="buysell-cc-item">
+                                                                    <a href="/panel/send/pm.html" class="buysell-cc-opt"
+                                                                        data-currency="pm">
+                                                                        <div class="coin-item coin-pm">
+                                                                            <div class="coin-icon">
+                                                                                <img src="/assets/images/jsTree/perfectmoney.png"
+                                                                                    alt="perfectmoney Icon">
+                                                                            </div>
+                                                                            <div class="coin-info">
+                                                                                <span class="coin-name">Perfect Money
+                                                                                    (PM)</span>
+                                                                                <span class="coin-text">USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div><!-- .dropdown-menu -->
+                                                    </div><!-- .dropdown -->
+                                                </div><!-- .buysell-field currency selection-->
+
+                                                <div class="buysell-field form-group"> <!-- .buysell-field amount-->
+                                                    <div class="form-label-group">
+                                                        <label class="form-label" for="buysell-amount">I want to
+                                                            send</label>
+                                                    </div>
+                                                    <div class="currency-box">
+                                                        <input type="text"
+                                                            class="form-control form-control-lg form-control-number"
+                                                            class="currency-input" id="usd-input" name="usd-input"
+                                                            placeholder="Amount in USD">
+                                                        <span class="currency-symbol">&nbsp;USD</span>
+                                                        <img src="/assets/images/jsTree/dollar.jpg" alt="USD"
+                                                            class="currency-image">
+                                                    </div>
+                                                    &nbsp;
+
+
+                                                    <div class="form-label-group">
+                                                        <label class="form-label" for="buysell-amount">I will
+                                                            pay</label>
+                                                    </div>
+                                                    <div class="currency-box">
+                                                        <input type="text"
+                                                            class="form-control form-control-lg form-control-number"
+                                                            class="currency-input" id="ghs-input" name="ghs-input"
+                                                            placeholder="Amount in GHS">
+                                                        <span class="currency-symbol">&nbsp;GHS</span>
+                                                        <img src="/assets/images/jsTree/ghanacedia.jpg" alt="GHS"
+                                                            class="currency-image">
+                                                    </div>
+                                                    <div class="form-note-group">
+                                                        <span class="buysell-min form-note-alt">Minimum: 50.00
+                                                            USD</span>
+                                                        <span class="buysell-rate form-note-alt">1 USD = 12.8 GHS</span>
+                                                    </div>
+                                                </div><!-- .buysell-field amount-->
+
+                                                <div class="form-navigation">
+                                                    <button type="button" class="btn btn-lg btn-block btn-primary"
+                                                        onclick="nextStage('stage1', 'stage2')">Continue To
+                                                        Send</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div><!-- Currency Selection Block End -->
+                                </div>
+
+                                <div class="form-stage" id="stage2"><!-- .buysell-field eth address-->
+                                    <!-- Your stage 2 form fields go here -->
+                                    <div class="buysell-field form-group">
+                                        <div class="form-navigation">
+                                            <label type="button" onclick="previousStage()">
+                                                <i class="icon ni ni-arrow-long-left"></i>
+                                            </label>
+                                        </div>
+
+
+
+
+
+                                        <div class="divider">
+                                            <div class="divider-text">Provide Ethereum Address</div>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <label class="form-label">Receipient ETH Address</label>
+                                        </div>
+                                        <div class="currency-box">
+                                            <input type="text"
+                                                class="form-control form-control-lg form-control-number eth-address-input"
+                                                id="eth-address-input" name="eth-address-input"
+                                                placeholder="1Lbcfr7sAHTD9CgdQo3HTMTkV8LK4ZnX71">
+                                            <span class="currency-symbol"></span>
+                                            <div class="buysell-field form-group">
+                                                <img src="/assets/images/jsTree/btc-qr.png" alt="placeholder-icon"
+                                                    class="currency-image" id="uploaded-image">
+                                                <input type="file" class="form-control-file" id="btc-qr-code"
+                                                    name="btc-qr-code" accept="image/*" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="buysell-field form-group">
+                                        <div class="divider">
+                                            <div class="divider-text">Transaction Type</div>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <label class="form-label">Select Transaction Type</label>
+                                        </div>
+                                        <div class="form-pm-group">
+                                            <ul class="buysell-tt-list">
+                                                <li class="buysell-tt-item">
+                                                    <input class="buysell-tt-control" type="radio" name="bs-method"
+                                                        id="tt-online" />
+                                                    <label class="buysell-tt-label" for="tt-online">
+                                                        <span class="tt-name">
+                                                            Online Transaction
+                                                            <span class="info-icon">
+                                                                <em class="icon ni ni-info-fill"></em>
+                                                                <div class="info-content">
+                                                                    <h6>Online Transactions:</h6>
+                                                                    <p>This involves buying goods and services over
+                                                                        the internet, including subscriptions,
+                                                                        purchases, payments, and transfers on
+                                                                        various websites.</p>
+                                                                </div>
+                                                            </span>
+                                                        </span>
+                                                        <span class="tt-icon"><em class="icon ni ni-cart"></em></span>
+
+                                                    </label>
+                                                </li>
+                                                <li class="buysell-tt-item">
+                                                    <input class="buysell-tt-control" type="radio" name="bs-method"
+                                                        id="tt-b2b" />
+                                                    <label class="buysell-tt-label" for="tt-b2b">
+                                                        <span class="tt-name">
+                                                            B2B Transaction
+                                                            <span class="info-icon">
+                                                                <em class="icon ni ni-info-fill"></em>
+                                                                <div class="info-content">
+                                                                    <h6>Business Transactions:</h6>
+                                                                    <p>These transactions occur between businesses,
+                                                                        such
+                                                                        as purchasing inventory, paying suppliers,
+                                                                        or
+                                                                        payment to service providers such as
+                                                                        freelancers.</p>
+                                                                </div>
+                                                            </span>
+                                                        </span>
+
+                                                        <span class="tt-icon"><em
+                                                                class="icon ni ni-bar-chart"></em></span>
+
+                                                    </label>
+                                                </li>
+                                                <li class="buysell-tt-item">
+                                                    <input class="buysell-tt-control" type="radio" name="bs-method"
+                                                        id="tt-p2p" />
+                                                    <label class="buysell-tt-label" for="tt-p2p">
+                                                        <span class="tt-name">
+                                                            P2P Transaction
+                                                            <span class="info-icon">
+                                                                <em class="icon ni ni-info-fill"></em>
+                                                                <div class="info-content">
+                                                                    <p class="bold-text">Peer-to-Peer Transactions:
+                                                                    </p>
+                                                                    <p>Transactions such as sending money directly
+                                                                        individuals, friends or family members.</p>
+                                                                </div>
+                                                            </span>
+                                                        </span>
+
+                                                        <span class="tt-icon"><em class="icon ni ni-users"></em></span>
+
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div><!-- .buysell-field payment method-->
+
+
+
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn btn-lg btn-block btn-primary"
+                                            onclick="nextStage()">Continue To Send</button>
+                                    </div>
+
+
+                                </div> <!-- .buysell-field eth address-->
+
+                                <!-- Stage 3 --> <!-- .buysell-field payment method-->
+                                <div class="form-stage" id="stage3">
+                                    <div class="form-navigation">
+                                        <label type="button" onclick="previousStage()">
+                                            <i class="icon ni ni-arrow-long-left"></i>
+                                        </label>
+                                    </div>
+                                    <div class="divider">
+                                        <div class="divider-text">Further Details and Intruction</div>
+                                    </div>
+
+                                    <div class=" form-group">
+                                        <label class="form-label" for="cf-default-textarea">Message</label>
+                                        <div class="form-control-wrap">
+                                            <textarea class="form-control form-control-sm" id="cf-default-textarea"
+                                                placeholder="Write your message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Attachment</label>
+                                        <div class="form-control-wrap">
+                                            <div class="form-file">
+                                                <input type="file" class="form-file-input" id="customFile">
+                                                <label class="form-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn btn-lg btn-block btn-primary"
+                                            onclick="nextStage()">Continue To Send</button>
+                                    </div>
+
+                                </div>
+                                <!-- Stage 4 --> <!-- .buysell-field payment method-->
+                                <div class="form-stage" id="stage4">
+                                    <div class="form-navigation">
+                                        <label type="button" onclick="previousStage()">
+                                            <i class="icon ni ni-arrow-long-left"></i>
+                                        </label>
+                                    </div>
+                                    <!-- Your stage 4 form fields go here -->
+                                    <div class="nk-block-head nk-block-head-xs text-center">
+                                        <h5 class="nk-block-title">Confirm Order</h5>
+                                        <div class="nk-block-text">
+                                            <div class="caption-text">You are about to send
+                                                <strong>100</strong> USD
+                                                for <strong>1280</strong> GHS
+                                            </div>
+                                            <span class="sub-text-sm">Exchange rate: 1 USD = 12.8
+                                                GHS</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="nk-block">
+                                        <div class="buysell-overview">
+                                            <ul class="buysell-overview-list">
+                                                <li class="buysell-overview-item">
+                                                    <span class="pm-title">Pay with</span>
+                                                    <span class="pm-currency"><em class="icon ni ni-wallet"></em>
+                                                        <span>Mobile Money</span></span>
+                                                </li>
+                                                <li class="buysell-overview-item">
+                                                    <span class="pm-title">Amount</span>
+                                                    <span class="pm-currency">100.00 USD</span>
+                                                </li>
+                                                <li class="buysell-overview-item">
+                                                    <span class="pm-title">Fees</span>
+                                                    <span class="pm-currency">36.00 USD</span>
+                                                </li>
+                                            </ul>
+                                            <div class="sub-text-sm">* Our transaction fee are included.
+                                                <a href="#">See
+                                                    transaction fee</a>
+                                            </div>
+                                        </div>
+                                        <div class="buysell-field form-group">
+                                            <div class="form-label-group">
+                                                <label class="form-label">Receipient Address</label>
+                                            </div>
+                                            <input type="hidden" value="eth" name="bs-currency"
+                                                id="buysell-choose-currency">
+                                            <div class="dropdown buysell-cc-dropdown">
+                                                <a href="#" class="buysell-cc-chosen" data-bs-toggle="dropdown">
+                                                    <div class="coin-item coin-eth">
+                                                        <div class="coin-icon">
+                                                            <em class="icon ni ni-sign-eth-alt"></em>
+                                                        </div>
+                                                        <div class="coin-info">
+                                                            <span class="account-name">Ethereum Wallet</span>
+                                                            <span
+                                                                class="account-number">1Lbcfr7sAHTD9CgdQo3HTMTkV8LK4ZnX71</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                            </div><!-- .dropdown -->
+                                        </div><!-- .buysell-field -->
+
+                                        <div class="form-navigation">
+                                            <button type="button" class="btn btn-lg btn-block btn-primary"
+                                                onclick="nextStage()">Confirm Your Order</button>
+                                        </div>
+                                    </div><!-- .nk-block -->
+
+                                </div>
+
+                                <!-- Stage 4 -->
+                                <div class="form-stage" id="stage5">
+
+                                    <!-- Your stage 4 form fields go here -->
+                                    <div class="nk-modal text-center">
+                                        <em
+                                            class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-check bg-success"></em>
+                                        <h4 class="nk-modal-title">Successfully sent payment!</h4>
+                                        <div class="nk-modal-text">
+                                            <p class="caption-text">You’ve successfully sold
+                                                <strong>100</strong>
+                                                USD for <strong>1,200.00</strong> GHS.
+                                            </p>
+                                            <p class="sub-text-sm">Learn when you receive Ethereum in your
+                                                wallet.
+                                                <a href="#"> Click here</a>
+                                            </p>
+                                        </div>
+                                        <div class="nk-modal-action-lg">
+                                            <ul class="btn-group gx-4">
+                                                <li><a href="../../transactions.html"
+                                                        class="btn btn-lg btn-mw btn-primary">Check Order
+                                                        Status</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="text-center w-100">
+                                        <p>Earn upto GHS 100 for each friend your refer! <a href="#">Invite
+                                                friends</a>
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright"> &copy; 2019 - 2024 Barter Funds. <a
+                                    href="https://barter-funds.com" target="_blank">All Rights Reserved</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+
+
+
+
+        <!-- @@ Confirm Coin Modal @e -->
+
+        <!-- JavaScript -->
+        <script src="/assets/js/bundle.js?ver=3.0.0"></script>
+        <script src="/assets/js/scripts.js?ver=3.0.0"></script>
+        <script src="/assets/js/charts/gd-default.js?ver=3.0.0"></script>
+        <script src="/assets/js/panel.js"></script>
+        <!-- Add this script at the end of your HTML body or in a separate JavaScript file -->
+
+        <!-- Include jQuery and Bootstrap JS -->
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
