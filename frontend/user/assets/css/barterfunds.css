@@ -35926,13 +35926,16 @@ button.close {
   color: #2775C9;
 }
 .coin-eth .coin-icon .icon {
-  color: #444971;
+  color: #5F658B;
 }
 .coin-pm .coin-icon .icon {
   color: #E33E23;
 }
-.coin-pm .coin-icon .icon {
-  color: #E33E23;
+.coin-ltc .coin-icon .icon {
+  color: #325A98;
+}
+.coin-bch .coin-icon .icon {
+  color: #0ABB8A;
 }
 .coin-pm img {
   width: 32px;
@@ -43019,7 +43022,7 @@ body.dark-mode.nk-body.ui-softy, body.dark-mode.nk-body.ui-shady {
   color: #26A17B;
 }
 .coin-eth .currency-icon .icon {
-  color: #444971;
+  color: #5F658B;
 }
 .coin-usdc .currency-icon .icon {
   color: #2775C9;
@@ -43032,5 +43035,11 @@ body.dark-mode.nk-body.ui-softy, body.dark-mode.nk-body.ui-shady {
 }
 .coin-cny .currency-icon .icon {
   color: #aa381e;
+}
+.coin-ltc .currency-icon .icon {
+  color: #325A98;
+}
+.coin-bch .currency-icon .icon {
+  color: #0ABB8A;
 }
 /*! END @iO */

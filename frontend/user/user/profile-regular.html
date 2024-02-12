@@ -9,12 +9,12 @@
     <meta name="description"
         content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="./frontend/user/images/favicon.png">
+    <link rel="shortcut icon" href="/frontend/user/images/favicon.png">
     <!-- Page Title  -->
     <title>Profile | Barter Funds</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="/frontend/user/assets/css/barterfunds.css">
-    <link id="skin-default" rel="stylesheet" href="./frontend/user/assets/css/theme.css?ver=3.0.0">
+    <link id="skin-default" rel="stylesheet" href="/frontend/user/assets/css/theme.css?ver=3.0.0">
 </head>
 
 <body class="nk-body bg-white has-sidebar ">
@@ -22,7 +22,7 @@
         <!-- main @s -->
         <div class="nk-main ">
             <!-- sidebar @s -->
-            <div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu">
+            <div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu"> <!-- sidebar @s -->
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
                         <a href="/frontend/user/index.html" class="logo-link nk-sidebar-logo">
@@ -55,8 +55,8 @@
                                         <h6 class="overline-title text-primary-alt">TRANSACTIONS</h6>
                                     </li><!-- .nk-menu-item -->
                                     <li class="nk-menu-item">
-                                        <a href="panel.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-sign-btc-alt"></em></span>
+                                        <a href="/frontend/user/panel/buy/btc.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-panel"></em></span>
                                             <span class="nk-menu-text">Buy Sell Panel</span><span
                                                 class="nk-menu-badge">HOT</span>
                                         </a>
@@ -65,13 +65,20 @@
                                         <h6 class="overline-title text-primary-alt">PAYMENTS</h6>
                                     </li><!-- .nk-menu-item -->
                                     <li class="nk-menu-item">
+                                        <a href="/frontend/user/wallet.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
+                                            <span class="nk-menu-text">Barter Wallet</span><span
+                                                class="nk-menu-badge">COMING SOON</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item">
                                         <a href="/frontend/user/transactions.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-bitcoin-cash"></em></span>
+                                            <span class="nk-menu-icon"><em class="icon ni ni-sign-cc-alt"></em></span>
                                             <span class="nk-menu-text">Manage Orders</span>
                                         </a>
                                     </li><!-- .nk-menu-item -->
                                     <li class="nk-menu-item">
-                                        <a href="coming-soon.html" class="nk-menu-link">
+                                        <a href="/frontend/user/coming-soon.html" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-exchange"></em></span>
                                             <span class="nk-menu-text">Exchange Rates</span>
                                         </a>
@@ -79,8 +86,6 @@
                                     <li class="nk-menu-heading">
                                         <h6 class="overline-title text-primary-alt">MENU</h6>
                                     </li><!-- .nk-menu-heading -->
-
-                                    </li><!-- .nk-menu-item -->
                                     <li class="nk-menu-item has-sub">
                                         <a href="#" class="nk-menu-link nk-menu-toggle">
                                             <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
@@ -88,7 +93,7 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="user/profile.html" class="nk-menu-link"><span
+                                                <a href="/frontend/user/user/profile.html" class="nk-menu-link"><span
                                                         class="nk-menu-text">My
                                                         Profile</span></a>
                                             </li>
@@ -104,7 +109,8 @@
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
                                                 <a href="/frontend/user/order-history.html" class="nk-menu-link"><span
-                                                        class="nk-menu-text">Transaction History</span></a>
+                                                        class="nk-menu-text">Transaction
+                                                        History</span></a>
                                             </li>
 
                                         </ul><!-- .nk-menu-sub -->
@@ -116,7 +122,7 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="kyc/application.html" class="nk-menu-link"><span
+                                                <a href="/frontend/user/kyc/application.html" class="nk-menu-link"><span
                                                         class="nk-menu-text">Get
                                                         Started</span></a>
                                             </li>
@@ -137,7 +143,8 @@
                                                         Chat</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="faqs.html" class="nk-menu-link"><span class="nk-menu-text">Faqs
+                                                <a href="/frontend/user/faqs.html" class="nk-menu-link"><span
+                                                        class="nk-menu-text">Faqs
                                                         / Help</span></a>
                                             </li>
                                             <li class="nk-menu-item">
@@ -175,32 +182,26 @@
                                                 <ul class="language-list">
                                                     <li>
                                                         <a href="#" class="language-item">
-                                                            <img src="./frontend/user/images/flags/english.png" alt=""
+                                                            <img src="/frontend/user/images/flags/uk.png" alt=""
                                                                 class="language-flag">
                                                             <span class="language-name">English</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="#" class="language-item">
-                                                            <img src="./frontend/user/images/flags/spanish.png" alt=""
+                                                            <img src="/frontend/user/images/flags/spanish.png" alt=""
                                                                 class="language-flag">
-                                                            <span class="language-name">Español</span>
+                                                            <span class="language-name">Spanish</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="#" class="language-item">
-                                                            <img src="./frontend/user/images/flags/french.png" alt=""
+                                                            <img src="/frontend/user/images/flags/french.png" alt=""
                                                                 class="language-flag">
-                                                            <span class="language-name">Français</span>
+                                                            <span class="language-name">French</span>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#" class="language-item">
-                                                            <img src="./frontend/user/images/flags/turkey.png" alt=""
-                                                                class="language-flag">
-                                                            <span class="language-name">Türkçe</span>
-                                                        </a>
-                                                    </li>
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -224,10 +225,10 @@
                             </div>
                             <div class="nk-header-brand d-xl-none">
                                 <a href="/frontend/user/index.html" class="logo-link">
-                                    <img class="logo-light logo-img" src="./frontend/user/images/logo.png"
-                                        srcset="./frontend/user/images/logo2x.png 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="./frontend/user/images/logo-dark.png"
-                                        srcset="./frontend/user/images/logo-dark2x.png 2x" alt="logo-dark">
+                                    <img class="logo-light logo-img" src="/frontend/user/images/logo.png"
+                                        srcset="/frontend/user/images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="/frontend/user/images/logo-dark.png"
+                                        srcset="/frontend/user/images/logo-dark2x.png 2x" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
                             <div class="nk-header-news d-none d-xl-block">
@@ -249,7 +250,7 @@
                                     <li class="dropdown language-dropdown d-none d-sm-block me-n1">
                                         <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                             <div class="quick-icon border border-light">
-                                                <img class="icon" src="./frontend/user/images/flags/english-sq.png"
+                                                <img class="icon" src="/frontend/user/images/flags/english-sq.png"
                                                     alt="">
                                             </div>
                                         </a>
@@ -257,28 +258,28 @@
                                             <ul class="language-list">
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./frontend/user/images/flags/english.png" alt=""
+                                                        <img src="/frontend/user/images/flags/english.png" alt=""
                                                             class="language-flag">
                                                         <span class="language-name">English</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./frontend/user/images/flags/spanish.png" alt=""
+                                                        <img src="/frontend/user/images/flags/spanish.png" alt=""
                                                             class="language-flag">
                                                         <span class="language-name">Español</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./frontend/user/images/flags/french.png" alt=""
+                                                        <img src="/frontend/user/images/flags/french.png" alt=""
                                                             class="language-flag">
                                                         <span class="language-name">Français</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./frontend/user/images/flags/turkey.png" alt=""
+                                                        <img src="/frontend/user/images/flags/turkey.png" alt=""
                                                             class="language-flag">
                                                         <span class="language-name">Türkçe</span>
                                                     </a>
@@ -321,9 +322,7 @@
                                                     <li><a href="user/profile-activity.html"><em
                                                                 class="icon ni ni-activity-alt"></em><span>Login
                                                                 Activity</span></a></li>
-                                                    <li><a class="dark-switch" href="#"><em
-                                                                class="icon ni ni-moon"></em><span>Dark Mode</span></a>
-                                                    </li>
+
                                                 </ul>
                                             </div>
                                             <div class="dropdown-inner">
@@ -677,109 +676,109 @@
                         <ul class="country-list text-center gy-2">
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/arg.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/arg.png" alt="" class="country-flag">
                                     <span class="country-name">Argentina</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/aus.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/aus.png" alt="" class="country-flag">
                                     <span class="country-name">Australia</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/bangladesh.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/bangladesh.png" alt="" class="country-flag">
                                     <span class="country-name">Bangladesh</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/canada.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/canada.png" alt="" class="country-flag">
                                     <span class="country-name">Canada <small>(English)</small></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/china.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/china.png" alt="" class="country-flag">
                                     <span class="country-name">Centrafricaine</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/china.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/china.png" alt="" class="country-flag">
                                     <span class="country-name">China</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/french.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/french.png" alt="" class="country-flag">
                                     <span class="country-name">France</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/germany.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/germany.png" alt="" class="country-flag">
                                     <span class="country-name">Germany</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/iran.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/iran.png" alt="" class="country-flag">
                                     <span class="country-name">Iran</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/italy.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/italy.png" alt="" class="country-flag">
                                     <span class="country-name">Italy</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/mexico.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/mexico.png" alt="" class="country-flag">
                                     <span class="country-name">México</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/philipine.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/philipine.png" alt="" class="country-flag">
                                     <span class="country-name">Philippines</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/portugal.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/portugal.png" alt="" class="country-flag">
                                     <span class="country-name">Portugal</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/s-africa.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/s-africa.png" alt="" class="country-flag">
                                     <span class="country-name">South Africa</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/spanish.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/spanish.png" alt="" class="country-flag">
                                     <span class="country-name">Spain</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/switzerland.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/switzerland.png" alt="" class="country-flag">
                                     <span class="country-name">Switzerland</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/uk.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/uk.png" alt="" class="country-flag">
                                     <span class="country-name">United Kingdom</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./frontend/user/images/flags/english.png" alt="" class="country-flag">
+                                    <img src="/frontend/user/images/flags/english.png" alt="" class="country-flag">
                                     <span class="country-name">United State</span>
                                 </a>
                             </li>
@@ -909,8 +908,8 @@
         </div><!-- .modal-dialog -->
     </div><!-- .modal -->
     <!-- JavaScript -->
-    <script src="./frontend/user/assets/js/bundle.js?ver=3.0.0"></script>
-    <script src="./frontend/user/assets/js/scripts.js?ver=3.0.0"></script>
+    <script src="/frontend/user/assets/js/bundle.js?ver=3.0.0"></script>
+    <script src="/frontend/user/assets/js/scripts.js?ver=3.0.0"></script>
 </body>
 
 </html>
