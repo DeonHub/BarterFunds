@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BarterFunds - Contact Us</title>
 
-    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.svg">
+    <link rel="shortcut icon" type="image/png" href="../../frontend/user/assets/frontend/user/images/favicon.svg">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/global/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/admin/css/vendor/bootstrap-toggle.min.css">
-    <link rel="stylesheet" href="../../assets/global/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/global/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../../frontend/user/assets/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../frontend/user/assets/admin/css/vendor/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="../../frontend/user/assets/global/css/all.min.css">
+    <link rel="stylesheet" href="../../frontend/user/assets/global/css/line-awesome.min.css">
 
-        <link href="../../assets/admin/css/fontawesome-iconpicker.min.css" rel="stylesheet">
+        <link href="../../frontend/user/assets/admin/css/fontawesome-iconpicker.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/global/css/select2.min.css">
-    <link rel="stylesheet" href="../../assets/admin/css/app.css">
+    <link rel="stylesheet" href="../../frontend/user/assets/global/css/select2.min.css">
+    <link rel="stylesheet" href="../../frontend/user/assets/admin/css/app.css">
 
     </head>
 
@@ -29,7 +29,7 @@
     <button class="res-sidebar-close-btn"><i class="las la-times"></i></button>
     <div class="sidebar__inner">
         <div class="sidebar__logo">
-            <a href="../../admin/dashboard" class="sidebar__main-logo"><img src="../../assets/images/logoIcon/logo-dark.png" alt="image"></a>
+            <a href="../../admin/dashboard" class="sidebar__main-logo"><img src="../../frontend/user/assets/frontend/user/images/logoIcon/logo-dark.png" alt="image"></a>
         </div>
 
         <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
@@ -793,7 +793,7 @@
                     aria-expanded="false">
                     <span class="navbar-user">
                         <span class="navbar-user__thumb"><img
-                                src="../../../../../assets/images/default.png"
+                                src="../../../../../frontend/user/assets/frontend/user/images/default.png"
                                 alt="image"></span>
                         <span class="navbar-user__info">
                             <span
@@ -917,7 +917,7 @@
                                                                                                                                             <td>
                                                     <div class="customer-details d-block">
                                                         <a href="javascript:void(0)" class="thumb">
-                                                            <img src="../../assets/images/frontend/contact_us/63cfec1c9bbe41674570780.png" alt="image">
+                                                            <img src="../../frontend/user/assets/frontend/user/images/frontend/contact_us/63cfec1c9bbe41674570780.png" alt="image">
                                                         </a>
                                                     </div>
                                                 </td>
@@ -926,7 +926,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                 <td>544234513556551</td>
                                                                                                                                                                                                                                                                                                                                                                                             <td>
                                                 <div class="button--group">
-                                                                                                                                                                    <button class="btn btn-sm btn-outline--primary updateBtn" data-id="220" data-all="{&quot;has_image&quot;:&quot;1&quot;,&quot;heading&quot;:&quot;Give Us a Call&quot;,&quot;subheading&quot;:&quot;Lorem ipsum dolor sit amet consectetuer adipiscing elit.&quot;,&quot;value&quot;:&quot;544234513556551&quot;,&quot;icon&quot;:&quot;63cfec1c9bbe41674570780.png&quot;}"  data-images="[&quot;https:\/\/script.viserlab.com\/BarterFunds\/demo\/assets\/images\/frontend\/contact_us\/63cfec1c9bbe41674570780.png&quot;]" >
+                                                                                                                                                                    <button class="btn btn-sm btn-outline--primary updateBtn" data-id="220" data-all="{&quot;has_image&quot;:&quot;1&quot;,&quot;heading&quot;:&quot;Give Us a Call&quot;,&quot;subheading&quot;:&quot;Lorem ipsum dolor sit amet consectetuer adipiscing elit.&quot;,&quot;value&quot;:&quot;544234513556551&quot;,&quot;icon&quot;:&quot;63cfec1c9bbe41674570780.png&quot;}"  data-images="[&quot;https:\/\/script.viserlab.com\/BarterFunds\/demo\/frontend/user/assets\/frontend/user/images\/frontend\/contact_us\/63cfec1c9bbe41674570780.png&quot;]" >
                                                             <i class="la la-pencil-alt"></i> Edit                                                        </button>
                                                                                                         <button class="btn btn-sm btn-outline--danger confirmationBtn" data-action="../../admin/frontend/remove/220" data-question="Are you sure to remove this item?"><i class="la la-trash"></i> Remove</button>
                                                 </div>
@@ -937,7 +937,7 @@
                                                                                                                                             <td>
                                                     <div class="customer-details d-block">
                                                         <a href="javascript:void(0)" class="thumb">
-                                                            <img src="../../assets/images/frontend/contact_us/63cfec94d06371674570900.png" alt="image">
+                                                            <img src="../../frontend/user/assets/frontend/user/images/frontend/contact_us/63cfec94d06371674570900.png" alt="image">
                                                         </a>
                                                     </div>
                                                 </td>
@@ -946,7 +946,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                 <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72111a131c15131e131032151f131b1e5c111d1f">[email&#160;protected]</a></td>
                                                                                                                                                                                                                                                                                                                                                                                             <td>
                                                 <div class="button--group">
-                                                                                                                                                                    <button class="btn btn-sm btn-outline--primary updateBtn" data-id="221" data-all="{&quot;has_image&quot;:&quot;1&quot;,&quot;heading&quot;:&quot;Leave Us a Message&quot;,&quot;subheading&quot;:&quot;Lorem ipsum dolor sit amet consectetuer adipiscing elit.&quot;,&quot;value&quot;:&quot;BarterFunds@gmail.com&quot;,&quot;icon&quot;:&quot;63cfec94d06371674570900.png&quot;}"  data-images="[&quot;https:\/\/script.viserlab.com\/BarterFunds\/demo\/assets\/images\/frontend\/contact_us\/63cfec94d06371674570900.png&quot;]" >
+                                                                                                                                                                    <button class="btn btn-sm btn-outline--primary updateBtn" data-id="221" data-all="{&quot;has_image&quot;:&quot;1&quot;,&quot;heading&quot;:&quot;Leave Us a Message&quot;,&quot;subheading&quot;:&quot;Lorem ipsum dolor sit amet consectetuer adipiscing elit.&quot;,&quot;value&quot;:&quot;BarterFunds@gmail.com&quot;,&quot;icon&quot;:&quot;63cfec94d06371674570900.png&quot;}"  data-images="[&quot;https:\/\/script.viserlab.com\/BarterFunds\/demo\/frontend/user/assets\/frontend/user/images\/frontend\/contact_us\/63cfec94d06371674570900.png&quot;]" >
                                                             <i class="la la-pencil-alt"></i> Edit                                                        </button>
                                                                                                         <button class="btn btn-sm btn-outline--danger confirmationBtn" data-action="../../admin/frontend/remove/221" data-question="Are you sure to remove this item?"><i class="la la-trash"></i> Remove</button>
                                                 </div>
@@ -957,7 +957,7 @@
                                                                                                                                             <td>
                                                     <div class="customer-details d-block">
                                                         <a href="javascript:void(0)" class="thumb">
-                                                            <img src="../../assets/images/frontend/contact_us/63cfecf64583f1674570998.png" alt="image">
+                                                            <img src="../../frontend/user/assets/frontend/user/images/frontend/contact_us/63cfecf64583f1674570998.png" alt="image">
                                                         </a>
                                                     </div>
                                                 </td>
@@ -966,7 +966,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                 <td>Maiores magna adipis</td>
                                                                                                                                                                                                                                                                                                                                                                                             <td>
                                                 <div class="button--group">
-                                                                                                                                                                    <button class="btn btn-sm btn-outline--primary updateBtn" data-id="222" data-all="{&quot;has_image&quot;:&quot;1&quot;,&quot;heading&quot;:&quot;Meet Face to Face&quot;,&quot;subheading&quot;:&quot;Lorem ipsum dolor sit amet consectetuer adipiscing elit.&quot;,&quot;value&quot;:&quot;Maiores magna adipis&quot;,&quot;icon&quot;:&quot;63cfecf64583f1674570998.png&quot;}"  data-images="[&quot;https:\/\/script.viserlab.com\/BarterFunds\/demo\/assets\/images\/frontend\/contact_us\/63cfecf64583f1674570998.png&quot;]" >
+                                                                                                                                                                    <button class="btn btn-sm btn-outline--primary updateBtn" data-id="222" data-all="{&quot;has_image&quot;:&quot;1&quot;,&quot;heading&quot;:&quot;Meet Face to Face&quot;,&quot;subheading&quot;:&quot;Lorem ipsum dolor sit amet consectetuer adipiscing elit.&quot;,&quot;value&quot;:&quot;Maiores magna adipis&quot;,&quot;icon&quot;:&quot;63cfecf64583f1674570998.png&quot;}"  data-images="[&quot;https:\/\/script.viserlab.com\/BarterFunds\/demo\/frontend/user/assets\/frontend/user/images\/frontend\/contact_us\/63cfecf64583f1674570998.png&quot;]" >
                                                             <i class="la la-pencil-alt"></i> Edit                                                        </button>
                                                                                                         <button class="btn btn-sm btn-outline--danger confirmationBtn" data-action="../../admin/frontend/remove/222" data-question="Are you sure to remove this item?"><i class="la la-trash"></i> Remove</button>
                                                 </div>
@@ -1149,13 +1149,13 @@
 
 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../assets/global/js/jquery-3.6.0.min.js"></script>
-    <script src="../../assets/global/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
-    <script src="../../assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../frontend/user/assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="../../frontend/user/assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="../../frontend/user/assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
+    <script src="../../frontend/user/assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
 
-    <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
-<script src="../../assets/global/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="../../frontend/user/assets/global/css/iziToast.min.css">
+<script src="../../frontend/user/assets/global/js/iziToast.min.js"></script>
 
 <script>
     "use strict";
@@ -1176,12 +1176,12 @@
         }
 </script>
 
-        <script src="../../assets/admin/js/fontawesome-iconpicker.js"></script>
+        <script src="../../frontend/user/assets/admin/js/fontawesome-iconpicker.js"></script>
 
-    <script src="../../assets/admin/js/nicEdit.js"></script>
+    <script src="../../frontend/user/assets/admin/js/nicEdit.js"></script>
 
-    <script src="../../assets/global/js/select2.min.js"></script>
-    <script src="../../assets/admin/js/app.js"></script>
+    <script src="../../frontend/user/assets/global/js/select2.min.js"></script>
+    <script src="../../frontend/user/assets/admin/js/app.js"></script>
 
     
     <script>
