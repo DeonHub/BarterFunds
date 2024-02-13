@@ -7033,7 +7033,7 @@ th.w-85 {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    background-color: #3d2bfb;
+
 }
 
 @media (max-width: 575px) {
@@ -7049,34 +7049,19 @@ th.w-85 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #1E157D;
     opacity: 0.57;
     z-index: -1;
 }
 
 .login-area {
-    position: relative;
+    position: relative;   
+    background-color: #12151A;
+    border-radius: 5px;
 }
 
-.login-area::after {
-    position: absolute;
-    content: '';
-    width: 247px;
-    height: 247px;
-    right: -80px;
-    top: -100px;
-    border: 40px solid rgba(52, 34, 229, 0.31);
-    box-sizing: border-box;
-    filter: blur(2px);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-}
 
 .login-wrapper {
-    background-color: #1E157D;
+
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -7088,7 +7073,6 @@ th.w-85 {
 .login-wrapper__top {
     padding: 60px 30px 40px 30px;
     text-align: center;
-    background-color: #3D2BFB;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -7113,7 +7097,6 @@ th.w-85 {
     z-index: -1;
     border-width: 25px 256px 0px 256px;
     border-style: solid;
-    border-color: #3d2bfb transparent transparent transparent;
 }
 
 @media (max-width: 1399px) {
@@ -7207,7 +7190,7 @@ th.w-85 {
 
 .login-form .form-control:focus {
     background-color: transparent;
-    border-color: #3D2BFB;
+    border-color: #A01D27;
 }
 
 .login-form .forget-text {
@@ -7220,7 +7203,7 @@ th.w-85 {
 }
 
 .cmn-btn {
-    background-color: #3D2BFB;
+    background-color: #A01D27;
     color: #fff;
     height: 50px;
 }
@@ -7270,8 +7253,8 @@ th.w-85 {
 
 .login-form .form-check .form-check-input:checked~.form-check-label::before {
     content: "\f00c";
-    background-color: #3D2BFB;
-    border-color: #3D2BFB;
+    background-color: #A01D27;
+    border-color: #A01D27;
 }
 
 /* login css end */
