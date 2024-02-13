@@ -33,7 +33,7 @@ const upload = multer({
 
 router.get("/", currencyController.getCurrencies);
 
-router.post("/", checkAuth, upload.single('currencyImage'), currencyController.createCurrency);
+router.post("/", upload.single('currencyImage'), currencyController.createCurrency);
 
 router.get("/:currencyId", currencyController.getCurrencyById);
 

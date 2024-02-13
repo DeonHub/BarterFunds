@@ -1,19 +1,33 @@
-const express = require("express");
+const express = require("express")
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require('dotenv').config();
+
 
 const currencyRoutes = require("./src/routes/currency.routes");
 const orderRoutes = require("./src/routes/orders");
-const userRoutes = require('./src/routes/user');
+const userRoutes = require('./src/routes/users.routes');
+const authRoutes = require('./src/routes/auth.routes');
 
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const uri = `mongodb+srv://${dbUser}:${dbPassword}@deonhub.g1umm8e.mongodb.net/?retryWrites=true&w=majority`
 
 
-mongoose.connect( uri, { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+
+db.on('error', (error) => {
+  console.error('Error connecting to MongoDB:', error);
+});
+
+db.once('open', () => {
+  console.log('Connected to MongoDB successfully!');
+});
+
 mongoose.Promise = global.Promise;
 
 
@@ -38,13 +52,28 @@ app.use((req, res, next) => {
 // Routes which should handle requests
 app.use("/currencies", currencyRoutes);
 app.use("/orders", orderRoutes);
-app.use("/user", userRoutes);
+app.use("/users", userRoutes);
+app.use("/auth", authRoutes);
+
+
+app.use((req, res, next) => {
+  if (req.url === '/') {
+    res.status(200).send('Welcome to BarterFunds API');
+  } else {
+    const error = new Error('Not found');
+    error.status = 404;
+    next(error);
+  }
+});
+
+
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
   next(error);
 });
+
 
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
