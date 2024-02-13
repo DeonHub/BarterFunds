@@ -339,7 +339,7 @@
 
     // Dropzone Init @v1.0
     NioApp.Dropzone.init = function () {
-        NioApp.Dropzone('.upload-zone', { url: "/images" });
+        NioApp.Dropzone('.upload-zone', { url: "/frontend/user/images" });
     };
 
     // Wizard @v1.0
