@@ -20,6 +20,8 @@ const getUsers = (req, res, next) => {
             username: user.username,
             email: user.email,
             contact: user.contact,
+            verified: user.verified,
+            status: user.status,
             createdAt: user.createdAt,
             request: {
               type: "GET",
@@ -76,6 +78,7 @@ const getUser = async (req, res, next) => {
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 };
+
 
 
 const editUser = (req, res, next) => {
