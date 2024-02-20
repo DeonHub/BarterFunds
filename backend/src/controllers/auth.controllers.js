@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const transporter = require("../utils/sendMail");
 const Users = require("../models/users");
 const hostEmail = process.env.EMAIL_HOST_USER;
+const baseUrl = process.env.BASE_URL;
+const crypto = require('crypto');
 
 
 const generateUsername = (name) => {
@@ -18,6 +20,7 @@ const generateToken = (user) => {
       { expiresIn: "30d" }
     );
   };
+
 
 const generateCode = () => {
     // Generate a random number between 100000 and 999999
@@ -34,7 +37,7 @@ const mailOptions = {
     from: hostEmail,
     to: userEmail,
     subject: subject,
-    text: "Your verification code is " + code,
+    text: "Your BarterFunds User Account verification code is " + code,
   };
   
   // Send the email
@@ -110,7 +113,7 @@ const Signup = async (req, res, next) => {
         verificationCode: code
       });
       const result = await user.save();
-      const subject = "Account Verification";
+      const subject = "BarterFunds User Account Verification";
 
 
       // Send the verification code to the user's email
@@ -168,33 +171,97 @@ const verifyEmail = (req, res, next) => {
 
 
 
-// const forgotPassword = (req, res, next) => {
-//   const email = req.body.email;
+const forgotPassword = (req, res, next) => {
+  const email = req.body.email;
+  const resetToken = crypto.randomBytes(64).toString('base64');
 
-//   // Find the user by email
-//   Users.findOne({ email })
-//     .then(user => {
-//       if (!user) {
-//         return res.status(404).json({ message: 'User not found' });
-//       }
+  Users.findOneAndUpdate(
+    { email },
+    { $set: { resetToken: resetToken, resetTokenExpires: Date.now() + 3600000 } },
+    { new: true }
+  )
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
 
-//       // Generate a random verification code
-//     //   const verificationCode = generateVerificationCode();
+      const mailOptions = {
+        from: hostEmail,
+        to: user.email,
+        subject: 'BarterFunds Account Password Reset Request',
+        text: `Greetings from BarterFunds,\n\n\n\n`
+          + `We received a request to reset the password for the BarterFunds account associated with this e-mail address. Click the link below to reset your password using our secure server:\n\n\n\n`
+          + `${baseUrl}/auth/reset-password?token=${resetToken}\n\n\n\n`
+          + `If you did not request this, please ignore this email and your password will remain unchanged.\n\n\n`
 
-//       // Save the verification code to the user's document
-//       user.verificationCode = verificationCode;
-//       return user.save();
-//     })
-//     .then(user => {
-//       // Send email with verification code
-//       sendVerificationEmail(user.email, user.verificationCode);
-//       res.status(200).json({ message: 'Verification code sent successfully' });
-//     })
-//     .catch(err => {
-//       console.error('Error sending verification code:', err);
-//       res.status(500).json({ message: 'Internal server error' });
-//     });
-// };
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Error sending password reset email:', error);
+          return res.status(500).json({ success:false, message: 'Internal server error' });
+        }
+        console.log('Password reset email sent:', info.response);
+        res.status(200).json({ success:true, message: 'Password reset email sent' });
+      });
+    })
+    .catch(err => {
+      console.error('Error processing password reset request:', err);
+      res.status(500).json({ success:false, message: 'Internal server error' });
+    });
+};
+
+
+const resetPassword = (req, res, next) => {
+  const { newPassword } = req.body;
+  const token = req.query.token;
+
+  if (!token) {
+    return res.status(400).json({ success: false, message: 'Token is required' });
+  }
+
+  // Find user by token
+  Users.findOne({
+    resetToken: token,
+    resetTokenExpires: { $gt: Date.now() }
+  })
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'Invalid or expired reset token' });
+      }
+
+      // Hash the new password
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) {
+          throw err;
+        }
+        bcrypt.hash(newPassword, salt, (err, hash) => {
+          if (err) {
+            throw err;
+          }
+          // Update user password with the new hashed password
+          user.password = hash;
+          user.resetToken = undefined;
+          user.resetTokenExpires = undefined;
+
+          // Save the updated user document
+          user.save()
+            .then(() => {
+              res.status(200).json({ success:true, message: 'Password reset successful' });
+            })
+            .catch(err => {
+              console.error('Error updating password:', err);
+              res.status(500).json({ success:false, message: 'Internal server error' });
+            });
+        });
+      });
+    })
+    .catch(err => {
+      console.error('Error resetting password:', err);
+      res.status(500).json({ success:false, message: 'Internal server error' });
+    });
+};
+
 
 
 const updatePassword = async (req, res, next) => {
@@ -233,6 +300,7 @@ module.exports = {
     Login,
     Signup,
     updatePassword,
-    verifyEmail
-    // forgotPassword
+    verifyEmail,
+    forgotPassword,
+    resetPassword
 }  
