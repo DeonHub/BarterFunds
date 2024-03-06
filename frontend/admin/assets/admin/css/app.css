@@ -3794,8 +3794,8 @@ a {
 }
 
 .btn-outline--success {
-    color: #fff;
-    border-color: #fff;
+    color: #28c76f;
+    border-color: #28c76f;
 }
 
 .btn-outline--success:hover {
@@ -3803,8 +3803,8 @@ a {
 }
 
 .btn-outline--danger {
-    color: #000;
-    border-color: #000;
+    color: #ea5455;
+    border-color: #ea5455;
 }
 
 .btn-outline--danger:hover {
@@ -3812,8 +3812,8 @@ a {
 }
 
 .btn-outline--warning {
-    color: #fff;
-    border-color: #fff;
+    color: #ff9f43;
+    border-color: #ff9f43;
 }
 
 .btn-outline--warning:hover {
@@ -3830,8 +3830,8 @@ a {
 }
 
 .btn-outline--dark {
-    color: #fff;
-    border-color: #fff;
+    color: #10163A;
+    border-color: #10163A;
 }
 
 .btn-outline--dark:hover {
