@@ -650,11 +650,9 @@
                 <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
                     <h6 class="page-title">Exchange Details: U69OE15P6HGX</h6>
                     <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-                        <a href="https://script.viserlab.com/changalab/demo/admin/exchange/list"
-                            class="btn btn-sm btn-outline--primary">
+                        <a href="../../admin/exchange/list" class="btn btn-sm btn-outline--primary">
                             <i class="la la-undo"></i> Back</a>
-                        <a href="https://script.viserlab.com/changalab/demo/admin/exchange/exchange/download/1717"
-                            class="btn btn-sm btn-outline--dark">
+                        <a href="../../admin/exchange/exchange/download/1717" class="btn btn-sm btn-outline--dark">
                             <i class="la la-download"></i>Download</a>
                     </div>
                 </div>
@@ -777,8 +775,7 @@
                                     <li class="list-group-item d-flex justify-content-between flex-wrap">
                                         <span class="fw-bold"> User Name</span>
                                         <span>
-                                            <a class="text--primary"
-                                                href="https://script.viserlab.com/changalab/demo/admin/users/detail/2984">
+                                            <a class="text--primary" href="../../admin/users/detail/2984">
                                                 <span class="text--primary">@</span>109846077076451849121
                                             </a>
                                         </span>
@@ -881,13 +878,13 @@
 
 
 
-    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/jquery-3.6.0.min.js"></script>
-    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/bootstrap.bundle.min.js"></script>
-    <script src="https://script.viserlab.com/changalab/demo/assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
-    <script src="https://script.viserlab.com/changalab/demo/assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
+    <script src="../../assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/admin/js/vendor/bootstrap-toggle.min.js"></script>
+    <script src="../../assets/admin/js/vendor/jquery.slimscroll.min.js"></script>
 
-    <link rel="stylesheet" href="https://script.viserlab.com/changalab/demo/assets/global/css/iziToast.min.css">
-    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
+    <script src="../../assets/global/js/iziToast.min.js"></script>
 
     <script>
         "use strict";
@@ -909,10 +906,11 @@
     </script>
 
 
-    <script src="https://script.viserlab.com/changalab/demo/assets/admin/js/nicEdit.js"></script>
+    <script src="../../assets/admin/js/nicEdit.js"></script>
 
-    <script src="https://script.viserlab.com/changalab/demo/assets/global/js/select2.min.js"></script>
-    <script src="https://script.viserlab.com/changalab/demo/assets/admin/js/app.js"></script>
+    <script src="../../assets/global/js/select2.min.js"></script>
+    <script src="../../assets/admin/js/app.js"></script>
+
 
 
     <script>
@@ -946,7 +944,7 @@
                     <input type="text" name="transaction" required class="form-control">
                 </div>`;
                 modal.find(".modal-body").html(html);
-                modal.find('form').attr('action', `https://script.viserlab.com/changalab/demo/admin/exchange/exchange/approve/1717`)
+                modal.find('form').attr('action', `../../admin/exchange/exchange/approve/1717`)
                 modal.find(".modal-title").text(`Approve Exchange`);
                 modal.modal('show');
             });
@@ -957,7 +955,7 @@
                     <textarea type="text" name="cancel_reason" required class="form-control"></textarea>
                 </div>`;
                 modal.find(".modal-body").html(html);
-                modal.find('form').attr('action', `https://script.viserlab.com/changalab/demo/admin/exchange/exchange/cancel/1717`)
+                modal.find('form').attr('action', `../../admin/exchange/exchange/cancel/1717`)
                 modal.find(".modal-title").text(`Cancel Exchange`);
                 modal.modal('show');
             });
@@ -967,7 +965,7 @@
                     <label>Reason Of Refund</label>
                     <textarea type="text" name="refund_reason" required class="form-control"></textarea>
                 </div>`;
-                modal.find('form').attr('action', `https://script.viserlab.com/changalab/demo/admin/exchange/exchange/refund/1717`)
+                modal.find('form').attr('action', `../../admin/exchange/exchange/refund/1717`)
                 modal.find(".modal-body").html(html);
                 modal.find(".modal-title").text(`Refund Exchange`);
                 modal.modal('show');
