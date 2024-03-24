@@ -1725,7 +1725,7 @@ a {
 }
 
 .text--info {
-    color: #1e9ff2 !important;
+    color: #810020 !important;
 }
 
 .text--dark {
@@ -1924,7 +1924,7 @@ a {
 }
 
 .bg--info {
-    background-color: #1e9ff2 !important;
+    background-color: #810020 !important;
 }
 
 .bg--dark {
@@ -2492,7 +2492,7 @@ a {
 }
 
 [class*="overlay"].overlay--info::before {
-    background-color: #1e9ff2 !important;
+    background-color: #810020 !important;
 }
 
 [class*="overlay"].overlay--dark::before {
@@ -2747,7 +2747,7 @@ a {
 }
 
 .border--info {
-    border-color: #1e9ff2 !important;
+    border-color: #810020 !important;
 }
 
 .border--dark {
@@ -2989,7 +2989,7 @@ a {
 }
 
 .btn--info {
-    background-color: #1e9ff2 !important;
+    background-color: #810020 !important;
 }
 
 .btn--info:hover {
@@ -3794,8 +3794,8 @@ a {
 }
 
 .btn-outline--success {
-    color: #fff;
-    border-color: #fff;
+    color: #28c76f;
+    border-color: #28c76f;
 }
 
 .btn-outline--success:hover {
@@ -3803,8 +3803,8 @@ a {
 }
 
 .btn-outline--danger {
-    color: #fff;
-    border-color: #fff;
+    color: #ea5455;
+    border-color: #ea5455;
 }
 
 .btn-outline--danger:hover {
@@ -3812,8 +3812,8 @@ a {
 }
 
 .btn-outline--warning {
-    color: #fff;
-    border-color: #fff;
+    color: #ff9f43;
+    border-color: #ff9f43;
 }
 
 .btn-outline--warning:hover {
@@ -3821,8 +3821,8 @@ a {
 }
 
 .btn-outline--info {
-    color: #1e9ff2;
-    border-color: #1e9ff2;
+    color: #810020;
+    border-color: #810020;
 }
 
 .btn-outline--info:hover {
@@ -3830,8 +3830,8 @@ a {
 }
 
 .btn-outline--dark {
-    color: #fff;
-    border-color: #fff;
+    color: #10163A;
+    border-color: #10163A;
 }
 
 .btn-outline--dark:hover {
@@ -4320,8 +4320,8 @@ select:focus-within {
 }
 
 .form-check-info .custom-control-input:checked~.custom-control-label::before {
-    border-color: #1e9ff2;
-    background-color: #1e9ff2;
+    border-color: #810020;
+    background-color: #810020;
 }
 
 .form-check-warning .custom-control-input:checked~.custom-control-label::before {
@@ -5999,7 +5999,7 @@ th.w-85 {
 
 .sidebar.pill--bg-2 .sidebar-menu-item .side-menu--open,
 .sidebar.pill--bg-2 .sidebar-menu-item.active>a {
-    background-color: #1e9ff2;
+    background-color: #810020;
 }
 
 .sidebar.pill--bg-3 .sidebar-menu-item .side-menu--open,
@@ -6607,7 +6607,7 @@ th.w-85 {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #1e9ff2;
+    background: #810020;
     cursor: pointer;
     box-shadow: 0 0 0 rgba(30, 159, 242, 0.9);
     animation: pulse-info 2s infinite;
