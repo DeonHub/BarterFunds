@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema({
     firstname: { type: String, required: true },
     surname: { type: String, required: true },
     username: { type: String, required: true, default: 'user1234'},
+    profilePicture: { type: String, default: '/uploads/profile.jpeg' },
     email: { 
         type: String, 
         required: true, 
@@ -17,6 +18,9 @@ const userSchema = mongoose.Schema({
     verified: { type: Boolean, default: false },
     verificationCode: { type: String },
     isAdmin: { type: Boolean, default: false },
+    kycApproved: { type: Boolean, default: false },
+    activationToken: String,
+    activationTokenExpires: Date,
     resetToken: String,
     resetTokenExpires: Date,
     createdAt: { type: Date, default: Date.now }

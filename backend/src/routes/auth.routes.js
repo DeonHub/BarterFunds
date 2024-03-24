@@ -5,7 +5,7 @@ const {
     Signup, 
     Login, 
     updatePassword,
-    verifyEmail,
+    accountActivation,
     forgotPassword,
     resetPassword
      } = require('../controllers/auth.controllers');
@@ -14,7 +14,7 @@ const checkAuth = require('../middleware/check-auth');
 
 router.post("/signup", Signup);
 router.post("/login", Login);
-router.post("/verify-email", verifyEmail);
+router.get("/account-activation", accountActivation);
 router.post("/update-password", checkAuth, updatePassword);
 
 router.post("/forgot-password", forgotPassword);

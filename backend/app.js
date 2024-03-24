@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 
 
+const kycRoutes = require("./src/routes/kyc.routes");
 const currencyRoutes = require("./src/routes/currency.routes");
 const orderRoutes = require("./src/routes/orders");
 const userRoutes = require('./src/routes/users.routes');
@@ -50,6 +51,7 @@ app.use((req, res, next) => {
 });
 
 // Routes which should handle requests
+app.use("/kyc", kycRoutes);
 app.use("/currencies", currencyRoutes);
 app.use("/orders", orderRoutes);
 app.use("/users", userRoutes);

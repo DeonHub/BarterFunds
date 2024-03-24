@@ -1,30 +1,18 @@
 const mongoose = require("mongoose");
 const Currency = require("../models/currency");
+const baseUrl = process.env.BASE_URL;
+
 
 const getCurrencies = (req, res, next) => {
-  Currency.find()
-    .select("_id name shortCode currencyImage exchangeRate createdAt")
+  const filter = req.query;
+
+  Currency.find(filter)
     .exec()
-    .then(result => {
-      const response = {
+    .then(currencies => {
+      res.status(200).json({
         success: true,
-        count: result.length,
-        currencies: result.map(currency => {
-          return {
-            _id: currency._id,
-            name: currency.name,
-            shortCode: currency.shortCode,
-            currencyImage: currency.currencyImage,
-            exchangeRate: currency.exchangeRate,
-            createdAt: currency.createdAt,
-            request: {
-              type: "GET",
-              url: "http://localhost:3000/currencies/" + currency._id
-            }
-          };
-        })
-      };
-      res.status(200).json(response);
+        currencies: currencies
+      });
     })
     .catch(err => {
       console.log(err);
@@ -40,9 +28,18 @@ const createCurrency = (req, res, next) => {
   const currency = new Currency({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
-    shortCode: req.body.shortCode,
+    logo: req.file.path,
+    code: req.body.code,
+    symbol: req.body.symbol,
+    country: req.body.country,
+    decimalPlaces: req.body.decimalPlaces,
     exchangeRate: req.body.exchangeRate,
-    currencyImage: req.file.path
+    minimumBuyAmount: req.body.minimumBuyAmount,
+    maximumBuyAmount: req.body.maximumBuyAmount,
+    minimumSellAmount: req.body.minimumSellAmount,
+    maximumSellAmount: req.body.maximumSellAmount,
+    availableForBuy: req.body.availableForBuy,
+    availableForSell: req.body.availableForSell
   });
   currency
     .save()
@@ -51,18 +48,7 @@ const createCurrency = (req, res, next) => {
       res.status(201).json({
         success: true,
         message: "Currency created successfully",
-        createdCurrency: {
-          _id: result._id,
-          name: result.name,
-          shortCode: result.shortCode,
-          currencyImage: result.currencyImage,
-          exchangeRate: result.exchangeRate,
-          createdAt: result.createdAt,
-          request: {
-            type: "GET",
-            url: "http://localhost:3000/currencies/" + result._id
-          }
-        }
+        createdCurrency: result
       });
     })
     .catch(err => {
@@ -74,48 +60,51 @@ const createCurrency = (req, res, next) => {
     });
 };
 
+
 const getCurrencyById = (req, res, next) => {
   const id = req.params.currencyId;
   Currency.findById(id)
-    .select("_id name shortCode currencyImage exchangeRate createdAt")
     .exec()
     .then(doc => {
       console.log("From database", doc);
       if (doc) {
-        res.status(200).json({
-          success: true,
-          currency: doc,
-          request: {
-            type: "GET",
-            url: "http://localhost:3000/currencies"
-          }
-        });
+        res.status(200).json(doc);
       } else {
-        res
-          .status(404)
-          .json({ success:false, message: "No valid entry found for provided ID" });
+        res.status(404).json({ message: "No valid entry found for provided ID" });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({success:false, error: err });
+      res.status(500).json({ error: err });
     });
 };
+
+
 
 const editCurrency = (req, res, next) => {
   const id = req.params.currencyId;
   const updateOps = {};
-  for (const ops of req.body) {
-    updateOps[ops.propName] = ops.value;
+
+  if (req.file) {
+    updateOps.logo = req.file.path;
   }
-  Currency.update({ _id: id }, { $set: updateOps })
+
+  // Iterate over the properties of req.body
+  for (const propName in req.body) {
+    // Check if the property is not inherited from the prototype chain
+    if (Object.prototype.hasOwnProperty.call(req.body, propName)) {
+      updateOps[propName] = req.body[propName];
+    }
+  }
+
+  Currency.updateOne({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       res.status(200).json({
         message: "Currency updated",
         request: {
           type: "GET",
-          url: "http://localhost:3000/currencies/" + id
+          url: `${baseUrl}/currencies/` + id
         }
       });
     })
@@ -126,6 +115,7 @@ const editCurrency = (req, res, next) => {
       });
     });
 };
+
 
 const deleteCurrency = (req, res, next) => {
 
@@ -138,7 +128,31 @@ const deleteCurrency = (req, res, next) => {
         message: "Currency deleted",
         request: {
           type: "POST",
-          url: "http://localhost:3000/currencies",
+          url: `${baseUrl}/currencies`,
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        success: false,
+        error: err
+      });
+    });
+};
+
+const deactivateCurrency = (req, res, next) => {
+  const id = req.params.currencyId;
+  
+  Currency.updateOne({ _id: id }, { $set: { status: 'inactive' } })
+    .exec()
+    .then(result => {
+      res.status(200).json({
+        success: true,
+        message: "Currency deactivated",
+        request: {
+          type: "GET",
+          url: `${baseUrl}/currencies/` + id
         }
       });
     })
@@ -152,10 +166,12 @@ const deleteCurrency = (req, res, next) => {
 };
 
 
+
 module.exports = {
   getCurrencies,
   createCurrency,
   getCurrencyById,
   editCurrency,
-  deleteCurrency
+  deleteCurrency,
+  deactivateCurrency
 };

@@ -30,14 +30,18 @@ const generateCode = () => {
     return randomNumber.toString();
   }
 
-const sendMail = (userEmail, code, subject) => {
+const sendMail = (userEmail, activationToken, subject) => {
 
-    // Define email options
+// Define email options
 const mailOptions = {
     from: hostEmail,
     to: userEmail,
     subject: subject,
-    text: "Your BarterFunds User Account verification code is " + code,
+    text: `Thank you for registering with BarterFunds!,\n\n\n\n`
+    + `To complete your registration and activate your account, please click on the following link:\n\n\n\n`
+    + `${baseUrl}/auth/account-activation?token=${activationToken}\n\n\n\n`
+    + `If you did not sign up for an account with [Website Name], please disregard this email.\n\n\n`
+    + `Thank you.\n\n\n`
   };
   
   // Send the email
@@ -99,7 +103,7 @@ const Signup = async (req, res, next) => {
       const hash = await bcrypt.hash(req.body.password, 10);
 
       // Generate a verification code
-      const code = generateCode();
+      const activationToken = crypto.randomBytes(64).toString('base64');
   
       // Create and save the user
       const user = new Users({
@@ -110,19 +114,21 @@ const Signup = async (req, res, next) => {
         email: req.body.email,
         password: hash,
         contact: req.body.contact,
-        verificationCode: code
+        activationToken: activationToken,
+        activationTokenExpires: Date.now() + 3600000 
       });
+      
       const result = await user.save();
-      const subject = "BarterFunds User Account Verification";
+      const subject = "BarterFunds Account Activation";
 
 
       // Send the verification code to the user's email
-      sendMail(req.body.email, code, subject);
+      sendMail(req.body.email, activationToken, subject);
 
       console.log(result);
       res.status(201).json({
         success: true,
-        message: "User created successfully. Vefication code has been sent to your email. Please check your email to verify your account.",
+        message: "User created successfully. Activation link sent successfully. Please check your email to verify your account.",
         user: result
       });
     } catch (err) {
@@ -135,37 +141,41 @@ const Signup = async (req, res, next) => {
   };
 
 
+const accountActivation = (req, res, next) => {
+  const activationToken = req.query.token;
 
-const verifyEmail = (req, res, next) => {
-  const email = req.body.email;
-  const verificationCode = req.body.verificationCode;
+  if (!activationToken) {
+    return res.status(400).json({ success: false, message: 'Token is required' });
+  }
 
-  // Find the user by email
-  Users.findOne({ email })
+  // Find user by token
+  Users.findOne({
+    activationToken: activationToken,
+    activationTokenExpires: { $gt: Date.now() }
+  })
     .then(user => {
       if (!user) {
-        return res.status(404).json({ message: 'User not found' });
+        return res.status(404).json({ success: false, message: 'Invalid or expired reset token' });
       }
 
-      // Check if the verification code matches
-      if (user.verificationCode !== verificationCode) {
-        return res.status(400).json({ message: 'Incorrect verification code' });
-      }
-
-      // Update user's verified status and status to active
       user.verified = true;
       user.status = 'active';
-      user.verificationCode = null;
+      user.activationToken = undefined;
+      user.activationTokenExpires = undefined;
 
-      // Save the updated user
-      return user.save();
-    })
-    .then(updatedUser => {
-      res.status(200).json({ message: 'Email verified successfully', user: updatedUser });
+      // Save the updated user document
+      user.save()
+        .then(() => {
+          res.status(200).json({ success:true, message: 'User account activation successful' });
+        })
+        .catch(err => {
+          console.error('Error activating user account:', err);
+          res.status(500).json({ success: false, message: 'Internal server error' });
+        });
     })
     .catch(err => {
-      console.error('Error verifying email:', err);
-      res.status(500).json({ message: 'Internal server error' });
+      console.error('Error activating account:', err);
+      res.status(500).json({ success:false, message: 'Internal server error' });
     });
 };
 
@@ -300,7 +310,7 @@ module.exports = {
     Login,
     Signup,
     updatePassword,
-    verifyEmail,
+    accountActivation,
     forgotPassword,
     resetPassword
 }  
