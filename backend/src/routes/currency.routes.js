@@ -7,17 +7,15 @@ const {
   getCurrencies,
   createCurrency,
   getCurrencyById,
-  editCurrency,
-  deleteCurrency,
-  deactivateCurrency
+  updateCurrency,
+  deleteCurrency
    } = require('../controllers/currency.controllers');
 
 
 router.get("/", checkAuth, getCurrencies);
 router.post("/", upload.single('logo'), checkAuth, createCurrency);
 router.get("/:currencyId", checkAuth, getCurrencyById);
-router.patch("/:currencyId", upload.single('logo'), checkAuth, editCurrency);
+router.patch("/:currencyId", upload.single('logo'), checkAuth, updateCurrency);
 router.delete("/:currencyId", checkAuth, deleteCurrency);
-router.patch("/:currencyId", checkAuth, deactivateCurrency);
 
 module.exports = router;

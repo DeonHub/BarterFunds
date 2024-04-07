@@ -10,6 +10,7 @@ const getCurrencies = (req, res, next) => {
     .exec()
     .then(currencies => {
       res.status(200).json({
+        count: currencies.length,
         success: true,
         currencies: currencies
       });
@@ -25,22 +26,57 @@ const getCurrencies = (req, res, next) => {
 
 
 const createCurrency = (req, res, next) => {
+  console.log(req.files)
+
   const currency = new Currency({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     logo: req.file.path,
     code: req.body.code,
     symbol: req.body.symbol,
-    country: req.body.country,
-    decimalPlaces: req.body.decimalPlaces,
-    exchangeRate: req.body.exchangeRate,
-    minimumBuyAmount: req.body.minimumBuyAmount,
-    maximumBuyAmount: req.body.maximumBuyAmount,
-    minimumSellAmount: req.body.minimumSellAmount,
-    maximumSellAmount: req.body.maximumSellAmount,
-    availableForBuy: req.body.availableForBuy,
-    availableForSell: req.body.availableForSell
+    status: req.body.status || 'active', 
+    reserveAmount: req.body.reserveAmount || 0,
+    exchangeRate: req.body.exchangeRate || 0, 
+    isBaseCurrency: req.body.isBaseCurrency || false, 
+    rateShow: req.body.rateShow || true, 
+
+
+    limitAndCharge: {
+        buy: {
+            buyAt: req.body.buyAt || 0, 
+            availableForBuy: req.body.availableForBuy || true, 
+            minimumBuyAmount: req.body.minimumBuyAmount || 0, 
+            maximumBuyAmount: req.body.maximumBuyAmount || 0, 
+            buyFixedCharge: req.body.buyFixedCharge || 0, 
+            buyPercentCharge: req.body.buyPercentCharge || 0, 
+        },
+        sell: {
+            sellAt: req.body.sellAt || 0, 
+            availableForSell: req.body.availableForSell || true, 
+            minimumSellAmount: req.body.minimumSellAmount || 0, 
+            maximumSellAmount: req.body.maximumSellAmount || 0, 
+            sellFixedCharge: req.body.sellFixedCharge || 0, 
+            sellPercentCharge: req.body.sellPercentCharge || 0, 
+        },
+        send: {
+            sendAt: req.body.sendAt || 0,
+            availableForSend: req.body.availableForSend || true, 
+            minimumSendAmount: req.body.minimumSendAmount || 0,
+            maximumSendAmount: req.body.maximumSendAmount || 0,
+            sendFixedCharge: req.body.sendFixedCharge || 0,
+            sendPercentCharge: req.body.sendPercentCharge || 0,
+        },
+        receive: {
+            receiveAt: req.body.receiveAt || 0, 
+            availableForReceive: req.body.availableForReceive || true, 
+            minimumReceiveAmount: req.body.minimumReceiveAmount || 0, 
+            maximumReceiveAmount: req.body.maximumReceiveAmount || 0, 
+            receiveFixedCharge: req.body.receiveFixedCharge || 0, 
+            receivePercentCharge: req.body.receivePercentCharge || 0, 
+        },
+    }
   });
+
   currency
     .save()
     .then(result => {
@@ -81,46 +117,76 @@ const getCurrencyById = (req, res, next) => {
 
 
 
-const editCurrency = (req, res, next) => {
+const updateCurrency = (req, res, next) => {
   const id = req.params.currencyId;
+  const { status } = req.body;
   const updateOps = {};
 
+  // Check if there is a file attached to update the logo
   if (req.file) {
-    updateOps.logo = req.file.path;
+      updateOps.logo = req.file.path;
   }
 
   // Iterate over the properties of req.body
   for (const propName in req.body) {
-    // Check if the property is not inherited from the prototype chain
-    if (Object.prototype.hasOwnProperty.call(req.body, propName)) {
-      updateOps[propName] = req.body[propName];
-    }
+      // Check if the property is not inherited from the prototype chain
+      if (Object.prototype.hasOwnProperty.call(req.body, propName)) {
+          // Exclude the 'status' field from updateOps if it's provided
+          if (propName !== 'status') {
+              updateOps[propName] = req.body[propName];
+          }
+      }
   }
 
+  // If status is provided, update it as well
+  if (status) {
+      updateOps.status = status;
+  }
+
+  // Update the currency
   Currency.updateOne({ _id: id }, { $set: updateOps })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        message: "Currency updated",
-        request: {
-          type: "GET",
-          url: `${baseUrl}/currencies/` + id
-        }
+      .exec()
+      .then(result => {
+          let message = "Currency updated";
+          // If status is provided and set to 'inactive', also include deactivation message
+          if (status && status === 'inactive') {
+              message += " and deactivated";
+          }
+          Currency.findById(id)
+          .exec()
+          .then(currency => {
+            res.status(200).json({
+              success: true,
+              message: message,
+              currency: currency,
+              request: {
+                  type: "GET",
+                  url: `${baseUrl}/currencies/` + id
+              }
+          });
+          }).catch(err => {
+            res.status(500).json({
+              success: false,
+              error: err
+            });
+          })
+
+          
+      })
+      .catch(err => {
+          console.error(err);
+          res.status(500).json({
+              success: false,
+              error: err
+          });
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
 };
 
 
 const deleteCurrency = (req, res, next) => {
 
   const id = req.params.currencyId;
-  Currency.remove({ _id: id })
+  Currency.deleteOne({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -141,29 +207,6 @@ const deleteCurrency = (req, res, next) => {
     });
 };
 
-const deactivateCurrency = (req, res, next) => {
-  const id = req.params.currencyId;
-  
-  Currency.updateOne({ _id: id }, { $set: { status: 'inactive' } })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        success: true,
-        message: "Currency deactivated",
-        request: {
-          type: "GET",
-          url: `${baseUrl}/currencies/` + id
-        }
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        success: false,
-        error: err
-      });
-    });
-};
 
 
 
@@ -171,7 +214,6 @@ module.exports = {
   getCurrencies,
   createCurrency,
   getCurrencyById,
-  editCurrency,
-  deleteCurrency,
-  deactivateCurrency
+  updateCurrency,
+  deleteCurrency
 };

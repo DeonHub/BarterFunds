@@ -11,11 +11,15 @@ const currencyRoutes = require("./src/routes/currency.routes");
 const orderRoutes = require("./src/routes/orders");
 const userRoutes = require('./src/routes/users.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const walletRoutes = require('./src/routes/wallet.routes');
+const ticketRoutes = require('./src/routes/supportTicket.routes');
 
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const uri = `mongodb+srv://${dbUser}:${dbPassword}@deonhub.g1umm8e.mongodb.net/?retryWrites=true&w=majority`
 
+const transporter = require("./src/utils/sendMail");
+const hostEmail = process.env.HOST_EMAIL;
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -56,6 +60,8 @@ app.use("/currencies", currencyRoutes);
 app.use("/orders", orderRoutes);
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
+app.use("/wallets", walletRoutes);
+app.use("/tickets", ticketRoutes);
 
 
 app.use((req, res, next) => {
@@ -67,6 +73,7 @@ app.use((req, res, next) => {
     next(error);
   }
 });
+
 
 
 

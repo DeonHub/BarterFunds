@@ -1,10 +1,14 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const transporter = require("../utils/sendMail");
 const Users = require("../models/users");
+const Wallet = require("../models/wallet");
 const hostEmail = process.env.EMAIL_HOST_USER;
 const baseUrl = process.env.BASE_URL;
+const { generateWalletAddress } = require('../controllers/wallet.controllers');
+
 const crypto = require('crypto');
 
 
@@ -52,8 +56,6 @@ const mailOptions = {
       console.log("Email sent successfully:", info.response);
     }
   });
-  
-
 }
 
 
@@ -141,45 +143,56 @@ const Signup = async (req, res, next) => {
   };
 
 
+
 const accountActivation = (req, res, next) => {
-  const activationToken = req.query.token;
+    const activationToken = req.query.token;
+  
+    if (!activationToken) {
+      return res.status(400).json({ success: false, message: 'Token is required' });
+    }
+    console.log(activationToken)
+  
+    // Find user by token
+    Users.findOne({ activationToken: activationToken })
+      .then(user => {
+        console.log(user)
 
-  if (!activationToken) {
-    return res.status(400).json({ success: false, message: 'Token is required' });
-  }
+        if (user.activationTokenExpires > Date.now()) {
+          return res.status(404).json({ success: false, message: 'Invalid or expired reset token' });
+        }
+  
+        user.verified = true;
+        user.status = 'active';
+        user.activationToken = null;
+        user.activationTokenExpires = null;
+  
+        // Save the updated user document
+        user.save()
+          .then(() => {
+            // Create a wallet for the user
+            const wallet = new Wallet({
+              user: user._id,
+              walletAddress: generateWalletAddress(64),
+              transactionHistory: []
+            });
 
-  // Find user by token
-  Users.findOne({
-    activationToken: activationToken,
-    activationTokenExpires: { $gt: Date.now() }
-  })
-    .then(user => {
-      if (!user) {
-        return res.status(404).json({ success: false, message: 'Invalid or expired reset token' });
-      }
+            return wallet.save();
+          })
+          .then(() => {
+            res.status(200).json({ success:true, message: 'User account activation successful' });
+          })
+          .catch(err => {
+            console.error('Error creating wallet:', err);
+            res.status(500).json({ success: false, message: 'Error creating wallet' });
+          });
+      })
+      .catch(err => {
+        console.error('Error activating account:', err);
+        res.status(500).json({ success:false, message: 'Internal server error' });
+      });
+  };
 
-      user.verified = true;
-      user.status = 'active';
-      user.activationToken = undefined;
-      user.activationTokenExpires = undefined;
-
-      // Save the updated user document
-      user.save()
-        .then(() => {
-          res.status(200).json({ success:true, message: 'User account activation successful' });
-        })
-        .catch(err => {
-          console.error('Error activating user account:', err);
-          res.status(500).json({ success: false, message: 'Internal server error' });
-        });
-    })
-    .catch(err => {
-      console.error('Error activating account:', err);
-      res.status(500).json({ success:false, message: 'Internal server error' });
-    });
-};
-
-
+  
 
 const forgotPassword = (req, res, next) => {
   const email = req.body.email;

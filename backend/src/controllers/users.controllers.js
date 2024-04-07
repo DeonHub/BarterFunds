@@ -80,56 +80,71 @@ const getUser = async (req, res, next) => {
 };
 
 
-
-const editUser = (req, res, next) => {
-  const id = req.params.userId;
+const updateUser = (req, res, next) => {
+  const userId = req.params.userId;
+  const { status } = req.body;
   const updateOps = {};
-  
-  // Check if the request body is an array
-  if (!Array.isArray(req.body)) {
-    return res.status(400).json({
-      error: "Invalid request body format. Expected an array."
-    });
+
+  // Iterate over the properties of req.body
+  for (const propName in req.body) {
+      // Check if the property is not inherited from the prototype chain
+      if (Object.prototype.hasOwnProperty.call(req.body, propName)) {
+          // Exclude the 'status' field from updateOps if it's provided
+          if (propName !== 'status') {
+              updateOps[propName] = req.body[propName];
+          }
+      }
   }
-  
-  // Loop through each item in the request body array
-  req.body.forEach(ops => {
-    // Check if the item has the required properties
-    if (!ops.propName || !ops.value) {
-      return res.status(400).json({
-        error: "Each item in the request body array must have 'propName' and 'value' properties."
+
+  // If status is provided, update it as well
+  if (status) {
+      updateOps.status = status;
+  }
+
+  // Update the user
+  Users.updateOne({ _id: userId }, { $set: updateOps })
+      .exec()
+      .then(result => {
+          let message = "User updated";
+          // If status is provided and set to 'inactive', also include deactivation message
+          if (status && status === 'inactive') {
+              message += " and deactivated";
+          }
+          Users.findById(userId)
+          .exec()
+          .then(user => {
+            res.status(200).json({
+              success: true,
+              message: message,
+              user: user,
+              request: {
+                  type: "GET",
+                  url: `${process.env.BASE_URL}/users/${userId}`
+              }
+          });
+          }).catch(err => {
+            res.status(500).json({
+              success: false,
+              error: err
+            });
+          })
+
+          
+      })
+      .catch(err => {
+          console.error(err);
+          res.status(500).json({
+              success: false,
+              error: err
+          });
       });
-    }
-    
-    // Add the property and value to the updateOps object
-    updateOps[ops.propName] = ops.value;
-  });
-  
-  // Update the user document
-  Users.updateOne({ _id: id }, { $set: updateOps })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        message: "User details updated",
-        request: {
-          type: "GET",
-          url: `${process.env.BASE_URL}/users/${id}`
-        }
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
 };
 
 
-const deleteUser = (req, res, next) => {
 
-  const id = req.params.currencyId;
-  Users.remove({ _id: id })
+const deleteUser = (req, res, next) => {
+  const id = req.params.userId;
+  Users.deleteOne({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -151,36 +166,11 @@ const deleteUser = (req, res, next) => {
 };
 
 
-const blockUser = (req, res, next) => {
-  const userId = req.params.userId;
-
-  Users.updateOne({ _id: userId }, { status: 'blocked' })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        success: true,
-        message: "User blocked",
-        request: {
-          type: "GET",
-          url: `${process.env.BASE_URL}/users/${userId}`
-        }
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        success: false,
-        error: err
-      });
-    });
-};
-
 
 
 module.exports = {
   getUsers,
   getUser,
-  editUser,
-  deleteUser,
-  blockUser
+  updateUser,
+  deleteUser
 };

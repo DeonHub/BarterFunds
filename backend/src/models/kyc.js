@@ -18,6 +18,7 @@ const kycSchema = mongoose.Schema({
     photograph: { type: String, required: true },
     frontImage: { type: String, required: true },
     backImage: { type: String, required: true },
+    proofOfAddress: { type: String, required: true },
     kycReviewer: { type: String, default: "Admin" },
     status: { type: String, enum: ['pending', 'reviewing', 'approved', 'rejected'], default: 'pending' },
     createdAt: { type: Date, default: Date.now },

@@ -3,17 +3,15 @@ const router = express.Router();
 
 const { getUsers,
         getUser,
-        editUser,
-        deleteUser,
-        blockUser
+        updateUser,
+        deleteUser
      } = require('../controllers/users.controllers');
 
 const checkAuth = require('../middleware/check-auth');
 
 router.get("/", checkAuth, getUsers);
 router.get("/:userId", checkAuth, getUser);
-router.patch("/:userId", checkAuth, editUser);
-router.patch("/:userId", checkAuth, blockUser);
+router.patch("/:userId", checkAuth, updateUser);
 router.delete("/:userId", checkAuth, deleteUser);
 
 

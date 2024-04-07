@@ -193,3 +193,24 @@ Notifications
 
 
 Login history
+
+Wallet
+    User ID
+    Wallet ID
+    Currency Type
+    Balance
+    Transaction History
+    Creation Date
+    Last Updated
+    Security Measures
+    Status
+    Associated Account
+    Wallet Type
+    Limits
+    Metadata
+    Verification Status
+    Linked Bank Account/ Payment Method
+    Currency Conversion Preferences
+    
+    
+add proof of address to kyc
