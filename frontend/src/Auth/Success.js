@@ -26,7 +26,7 @@ class Success extends React.Component {
                                 <h4 class="nk-block-title">🎉 Congratulations! 🎉</h4>
                                 <h6> You’re now part of Barter Funds community. </h6>
                                 <div class="nk-block-des">
-                                    <p>You can now sign in with your new password</p>
+                                    <p>Please check your email and verify your account to unlock all the exciting features awaiting you.</p>
                                 </div>
                             </div>
                         </div>
