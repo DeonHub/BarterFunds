@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './Main/Main';
 import Login from './Auth/Login';
 import Signup from './Auth/Signup';
+import Reset from './Auth/Reset';
+import Success from './Auth/Success';
 import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
+
 
 const App = () => {
 
@@ -21,6 +24,8 @@ const App = () => {
         {/* Auth routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
         <Route path={`${process.env.PUBLIC_URL}/signup`} element={<Signup />} />
+        <Route path={`${process.env.PUBLIC_URL}/reset`} element={<Reset />} />
+        <Route path={`${process.env.PUBLIC_URL}/success`} element={<Success />} />
 
         {/* Admin routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />

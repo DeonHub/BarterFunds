@@ -43092,7 +43092,10 @@ border-radius: 4px;
 }
 
 
-
+.nk-block-des,
+.text-success {
+  text-align: center;
+}
 
 
 

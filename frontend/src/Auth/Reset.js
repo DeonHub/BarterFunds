@@ -1,6 +1,6 @@
 import React from "react";
 
-class Signup extends React.Component {
+class Reset extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,7 @@ class Signup extends React.Component {
             <div className="nk-wrap nk-wrap-nosidebar">
              
                 <div className="nk-content ">
-                <div class="nk-block nk-block-middle nk-auth-body wide-xs">
+                <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
                 <div className="brand-logo pb-4 text-center">
                             <a href="/frontend/user/index.html" className="logo-link">
                                
@@ -33,54 +33,32 @@ class Signup extends React.Component {
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
                                         <div class="nk-block-des">
-                                            <p>Create New Account</p>
+                                            <p>If you forgot your password, well, then we’ll email you instructions to
+                                                reset your password.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <form action="pages/auths/auth-success-v2.html">
                                     <div class="form-group">
-                                        <label class="form-label" for="email">Email</label>
+                                        <div class="form-label-group">
+                                            <label class="form-label" for="default-01">Email</label>
+                                        </div>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="email"
+                                            <input type="text" class="form-control form-control-lg" id="default-01"
                                                 placeholder="Enter your email address"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="password">Password</label>
-                                        <div class="form-control-wrap">
-                                            <a href="#" class="form-icon form-icon-right passcode-switch lg"
-                                                data-target="password">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
-                                            </a>
-                                            <input type="password" class="form-control form-control-lg" id="password"
-                                                placeholder="Enter your password"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-control-xs custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox"/>
-                                            <label class="custom-control-label" for="checkbox">I agree to your
-                                                <a href="#"> Terms and Conditions.</a></label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                                        <button class="btn btn-lg btn-primary btn-block">Send Reset Link</button>
                                     </div>
                                 </form>
-                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a
-                                        href="pages/auths/auth-login-v2.html"><strong>Signin instead</strong></a>
+                                <div class="form-note-s2 text-center pt-4">
+                                    <a href="pages/auths/auth-login-v2.html"><strong>Return to login</strong></a>
                                 </div>
-                                <div class="text-center pt-4 pb-3">
-                                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                                </div>
-                                <ul class="nav justify-center gx-8">
-                                    <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
+                
                     <div className="nk-footer nk-auth-footer-full">
                         <div className="container wide-lg">
                             <div className="row g-3">
@@ -116,4 +94,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default Reset;
