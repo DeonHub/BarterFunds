@@ -23,30 +23,28 @@ class Login extends React.Component {
                     <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div className="brand-logo pb-4 text-center">
                             <a href="/frontend/user/index.html" className="logo-link">
-                                <img className="logo-light logo-img logo-img-lg" src="/frontend/user/images/logo.png"
-                                    srcset="/frontend/user/images/logo.png 2x" alt="logo"/>
-                                <img className="logo-dark logo-img logo-img-lg" src="/assets/images/logo.png"
-                                    srcset="/frontend/user/images/logo.png 2x" alt="logo-dark"/>
+                               
+                                <img className="logo-dark logo-img logo-img-lg" src="/images/logo.png"
+                                    srcset="/images/logo/logo.png 2x" alt="logo"/>
                             </a>
                         </div>
                         <div className="card card-bordered">
                             <div className="card-inner card-inner-lg">
                                 <div className="nk-block-head">
                                     <div className="nk-block-head-content">
-                                        <h4 className="nk-block-title">Sign-In</h4>
                                         <div className="nk-block-des">
-                                            <p>signin using your email and password.</p>
+                                            <p>Signin using your email and password.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <form action="/frontend/user/index.html">
                                     <div className="form-group">
                                         <div className="form-label-group">
-                                            <label className="form-label" for="default-01">Email or Username</label>
+                                            <label className="form-label" for="default-01">Email</label>
                                         </div>
                                         <div className="form-control-wrap">
                                             <input type="text" className="form-control form-control-lg" id="default-01"
-                                                placeholder="Enter your email address or username"/>
+                                                placeholder="Enter your email address"/>
                                         </div>
                                     </div>
                                     <div className="form-group">
@@ -97,47 +95,11 @@ class Login extends React.Component {
                                         <li className="nav-item">
                                             <a className="nav-link" href="#">Help</a>
                                         </li>
-                                        <li className="nav-item dropup">
-                                            <a className="dropdown-toggle dropdown-indicator has-indicator nav-link"
-                                                data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
-                                            <div className="dropdown-menu dropdown-menu-sm dropdown-menu-end">
-                                                <ul className="language-list">
-                                                    <li>
-                                                        <a href="#" className="language-item">
-                                                            <img src="/frontend/user/images/flags/english.png" alt=""
-                                                                className="language-flag"/>
-                                                            <span className="language-name">English</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" className="language-item">
-                                                            <img src="/frontend/user/images/flags/spanish.png" alt=""
-                                                                className="language-flag"/>
-                                                            <span className="language-name">Español</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" className="language-item">
-                                                            <img src="/frontend/user/images/flags/french.png" alt=""
-                                                                className="language-flag"/>
-                                                            <span className="language-name">Français</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" className="language-item">
-                                                            <img src="/frontend/user/images/flags/turkey.png" alt=""
-                                                                className="language-flag"/>
-                                                            <span className="language-name">Türkçe</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="nk-block-content text-center text-lg-left">
-                                        <p className="text-soft">&copy; 2023 Barter Funds. All Rights Reserved.</p>
+                                        <p className="text-soft">&copy; 2024 Barter Funds. All Rights Reserved.</p>
                                     </div>
                                 </div>
                             </div>
