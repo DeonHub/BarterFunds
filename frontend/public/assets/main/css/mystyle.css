@@ -1,0 +1,265 @@
+
+@media screen and (max-width: 380px) {
+    .adsbygoogle{display:block !important;}
+  .picadd{
+    display: block;
+    max-height:100px !important;
+  margin-top:80px;
+  margin-bottom: -59px;
+    
+}
+.picadd2{
+    display: block;
+    max-height:100px !important;
+     margin-bottom: 10px;
+    
+}
+.myadd{display:none;}
+}
+ .para,label{
+            color:white;
+        }
+      
+ 
+
+ @media screen and (max-width: 736px) {
+   .adsbygoogle{display:block !important;}
+           
+        .picadd{
+            display: block;
+            max-height:100px !important;
+            margin-top:80px;
+            margin-bottom: -59px;
+        }
+        .myadd{display:none;}
+        .leftside{display:none;}
+        
+        .adsbygoogle{display:block !important;}
+           
+        .picadd2{
+            display: block;
+            max-height:100px !important;
+             margin-bottom: 10px;
+           
+        }
+        .myadd{display:none;}
+        .leftside{display:none;}
+}
+
+
+.mycontainer2{
+  
+  margin-top: 100px;
+  margin-bottom:100px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+    width: 100% ;
+  
+  
+
+}
+.myrow{
+margin-top: 0px;
+}
+.leftside{
+   
+	height: 700px;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+ background-size: auto;
+ 
+    background-position: left top;
+		
+	
+
+}
+.myadd{
+    margin-top:10px;
+}
+.myform{
+	height: 700px;
+	background-color: #810020;
+}
+form{
+
+    margin-top: 100px;
+    margin-bottom:100px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    	width: 50% ;
+
+}
+@media only screen and (max-width: 600px) {
+  .leftside {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  form {
+    margin-top: 100px;
+margin-bottom: auto;
+margin-left: auto;
+margin-right: auto;
+	border: 3px red;
+	width: 100%;
+
+  }
+}
+@media only screen and (max-width: 600px) {
+  .myform {
+    height: 100%;
+  }
+}
+.text{
+	text-align: center;
+	color:black;
+	text-decoration: none;
+}
+.text h2>a{
+	color: black;
+	text-decoration: none;
+	font-size: 10px;
+	font-family: 'Lato', sans-serif;
+}
+.myimg img{
+	
+	width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .mycontainer {
+    margin-top: -100px;
+  }
+}
+.panel-title{
+	border: 1px solid  #80808038;
+	line-height: 30px;
+	text-decoration: none;
+	background-color: #80808038;
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+}
+.panel-title a{
+	color: black;
+	text-decoration: none;
+	font-size: 10px;
+	/*font-family: 'Lato', sans-serif;*/
+}
+
+
+
+@media (min-width: 992px) {
+    .form-holder {
+        margin-left: 0;
+    }
+
+    .my-logo {
+        top: 50px;
+        left: 50px;
+        right: initial;
+        bottom: initial;
+    }
+.my-logo{
+	display: none;
+}
+   
+}
+.my-logo .logo img{
+       width:80px;
+      margin-top: -29px;
+      margin-bottom:50px;
+     
+    
+    }
+
+@media (max-width: 992px) {
+    .form-holder {
+        margin-left: 0;
+    }
+
+    .my-logo {
+        top: 50px;
+        left: 50px;
+        right: initial;
+        bottom: initial;
+        margin-top: 50px;
+        margin-bottom: -100px;
+    }
+ 
+    
+}
+@media (max-width: 992px) {
+    .textwidget{
+        display:none;
+    }
+    
+}
+.text h2>a{
+    color:white;
+}
+.text h2>a:hover{
+    color:blue;
+}
+
+.btn-primary {
+  background-color: #333333;
+  width: 130px;
+}
+
+
+
+.mycontainer2 {
+  padding: 20px; /* Adjust the padding as needed */
+  text-align: center;
+}
+
+.col-sm-6 {
+  font-size: 14px;
+}
+
+.row {
+  margin: 0; /* Remove default margin for the row */
+}
+
+.mycontainer2 .col-md-12 {
+  background-color: #f5f5f5; /* Add a background color to the column */
+  padding: 20px; /* Add padding to the column */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+}
+
+h1, h2, h3 {
+  color: #810020; /* Set text color for headings */
+}
+
+p {
+  color: #666; /* Set text color for paragraphs */
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Add margin to the table */
+  background-color: #f5f5f5; /* Add a background color to the column */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.btn-primary {
+    border-color: #969696;
+  /* Your custom CSS here */
+  }
+
+  .btn-primary:hover {
+      background-color: #969696;
+      border-color: #810020;
+      /* Add any other styles you want for the hover state */
+  }
