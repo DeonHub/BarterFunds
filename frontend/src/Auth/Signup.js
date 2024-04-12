@@ -20,63 +20,63 @@ class Signup extends React.Component {
             <div className="nk-wrap nk-wrap-nosidebar">
              
                 <div className="nk-content ">
-                <div class="nk-block nk-block-middle nk-auth-body wide-xs">
+                <div className="nk-block nk-block-middle nk-auth-body wide-xs">
                 <div className="brand-logo pb-4 text-center">
                             <a href="/frontend/user/index.html" className="logo-link">
                                
-                                <img className="logo-dark logo-img logo-img-lg" src="/images/logo.png"
-                                    srcset="/images/logo/logo.png 2x" alt="logo"/>
+                                <img className="logo-dark logo-img logo-img-lg" src="/assets/images/barterfunds-logo.png"
+                                    srcset="/assets/images/barterfunds-logo.png 2x" alt="logo"/>
                             </a>
                         </div>
-                        <div class="card card-bordered">
-                            <div class="card-inner card-inner-lg">
-                                <div class="nk-block-head">
-                                    <div class="nk-block-head-content">
-                                        <div class="nk-block-des">
+                        <div className="card card-bordered">
+                            <div className="card-inner card-inner-lg">
+                                <div className="nk-block-head">
+                                    <div className="nk-block-head-content">
+                                        <div className="nk-block-des">
                                             <p>Create New Account</p>
                                         </div>
                                     </div>
                                 </div>
                                 <form action="pages/auths/auth-success-v2.html">
-                                    <div class="form-group">
-                                        <label class="form-label" for="email">Email</label>
-                                        <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="email"
+                                    <div className="form-group">
+                                        <label className="form-label" for="email">Email</label>
+                                        <div className="form-control-wrap">
+                                            <input type="text" className="form-control form-control-lg" id="email"
                                                 placeholder="Enter your email address"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="password">Password</label>
-                                        <div class="form-control-wrap">
-                                            <a href="#" class="form-icon form-icon-right passcode-switch lg"
+                                    <div className="form-group">
+                                        <label className="form-label" for="password">Password</label>
+                                        <div className="form-control-wrap">
+                                            <a href="#" className="form-icon form-icon-right passcode-switch lg"
                                                 data-target="password">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
+                                                <em className="passcode-icon icon-show icon ni ni-eye"></em>
+                                                <em className="passcode-icon icon-hide icon ni ni-eye-off"></em>
                                             </a>
-                                            <input type="password" class="form-control form-control-lg" id="password"
+                                            <input type="password" className="form-control form-control-lg" id="password"
                                                 placeholder="Enter your password"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-control-xs custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox"/>
-                                            <label class="custom-control-label" for="checkbox">I agree to your
+                                    <div className="form-group">
+                                        <div className="custom-control custom-control-xs custom-checkbox">
+                                            <input type="checkbox" className="custom-control-input" id="checkbox"/>
+                                            <label className="custom-control-label" for="checkbox">I agree to your
                                                 <a href="#"> Terms and Conditions.</a></label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                                    <div className="form-group">
+                                        <button className="btn btn-lg btn-primary btn-block">Register</button>
                                     </div>
                                 </form>
-                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a
+                                <div className="form-note-s2 text-center pt-4"> Already have an account? <a
                                         href="pages/auths/auth-login-v2.html"><strong>Signin instead</strong></a>
                                 </div>
-                                <div class="text-center pt-4 pb-3">
-                                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
+                                <div className="text-center pt-4 pb-3">
+                                    <h6 className="overline-title overline-title-sap"><span>OR</span></h6>
                                 </div>
-                                <ul class="nav justify-center gx-8">
-                                    <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
+                                <ul className="nav justify-center gx-8">
+                                    <li className="nav-item"><a className="nav-link" href="#">Facebook</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="#">Google</a></li>
                                 </ul>
                             </div>
                         </div>

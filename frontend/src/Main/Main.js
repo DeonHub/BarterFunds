@@ -1,4 +1,6 @@
 import React from "react";
+import './Main.css'
+import CurrencyLogosCarousel from './CurrencyLogosCarousel'; // Import the component
 
 class Main extends React.Component {
   constructor(props) {
@@ -17,89 +19,7 @@ class Main extends React.Component {
 
     return (
       <>
-  <meta charSet="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Buy, Sell, Send and Receive Digital Currencies | Barter Funds</title>
-  <meta
-    name="description"
-    content="Whether you're looking to buy or sell PayPal, Bitcoin, Bitcoin Cash, USDT, USD Coin, Litecoin, Ethereum, Chinese Yuan, or Perfect Money, we've got you covered. Conveniently exchange these digital currencies for Ghana Cedis through seamless transactions via mobile money or bank transfer. With Barter Funds, sending and receiving payments has never been easier."
-  />
-  <link rel="canonical" href="https://barter-funds.com" />
-  <link rel="home" href="https://barter-funds.com" />
-  <meta property="og:site_name" content="Barter Funds" />
-  <meta
-    name="keywords"
-    content="Buy PayPal, Sell PayPal, Buy Bitcoin, Sell Bitcoin, Buy Bitcoin Cash, Sell Bitcoin Cash, Buy USDT, Sell USDT, Buy USD Coin, Sell USD Coin, Buy Litecoin, Sell Litecoin, Buy Ethereum, Sell Ethereum, Buy Chinese Yuan, Sell Chinese Yuan, Buy Perfect Money, Sell Perfect Money, Exchange digital currencies, Ghana Cedis, Seamless transactions, Mobile Money, Bank transfer, Sending payments, Receiving payments"
-  />
-  <meta property="og:url" content="https://barter-funds.com/" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="BarterFunds" />
-  <meta property="og:image" content="assets/images/featured-image.png" />
-  <meta property="og:image:width" content={1200} />
-  <meta property="og:image:height" content={630} />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:alt" content="Barter Funds Logo" />
-  <meta name="theme-color" content="#810020" />
-  {/* Organization schema markup */}
-  {/* LocalBusiness */}
-  {/* Favicons */}
-  <link href="assets/images/favicon.png" rel="icon" />
-  <link href="assets/images/favicon.png" rel="apple-touch-icon" />
-  {/* Google Fonts */}
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet"
-  />
-  {/* Vendor CSS Files */}
-  <link href="/assets/mianvendor/aos/aos.css" rel="stylesheet" />
-  <link href="/assets/mian/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link
-    href="/assets/mian/vendor/bootstrap-icons/bootstrap-icons.css"
-    rel="stylesheet"
-  />
-  <link href="/assets/mian/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-  <link href="/assets/mian/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="/assets/mian/vendor/remixicon/remixicon.css" rel="stylesheet" />
-  <link href="/assets/mian/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-xPwv0xWoyQ52ZrxlRZ+/MFFjJ5n5dCmJCWXtR5+JjnHHv1BIM38fBcgpx+Zb3Ekf23g9XCD/5+voIUP1kGgLPw=="
-    crossOrigin="anonymous"
-    referrerPolicy="no-referrer"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
-    integrity="sha512-1fMn/xtAMM5o5b5Q5Bhe++z1dqUh5ZJ9+gB0CtILWx0dRRfwmF5Z5b5L5wWZz8onvfvv9SOh7tr/hI+q3V7xuQ=="
-    crossOrigin="anonymous"
-    referrerPolicy="no-referrer"
-  />
-  {/* Load the Google API client library */}
-  {/*---- Include the above in your HEAD tag --------*/}
-  {/* Main CSS File */}
-  <link href="/assets/mian/css/style.css" rel="stylesheet" />
-  <link href="/assets/mian/css/custom.css" rel="stylesheet" />
-
-  {/* Google Tag Manager */}
-  {/* End Google Tag Manager */}
-  {/* Google tag (gtag.js) */}
-  <meta name="google-adsense-account" content="ca-pub-8057179537330255" />
-  {/* Google tag (gtag.js) */}
-  <div className="loader-container">
-    <img src="/assets/mian/images/loader.gif" alt="Loader" />
-  </div>
-  {/* Google Tag Manager (noscript) */}
-  <noscript>
-    &lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDPN4HTT"
-    height="0" width="0"
-    style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;
-  </noscript>
-  {/* End Google Tag Manager (noscript) */}
+  
   {/* ======= Header ======= */}
   <header id="header" className="fixed-top">
     <div className="container d-flex align-items-center justify-content-between">
@@ -107,7 +27,7 @@ class Main extends React.Component {
  Uncomment below if you prefer to use an image logo */}
       <a href="index.html" className="logo">
         <img
-          src="assets/images/Barter-Funds-Logo.png"
+          src="/assets/images/barterfunds-logo.png"
           alt="logo"
           className="img-fluid"
         />
@@ -181,49 +101,18 @@ class Main extends React.Component {
       <div className="row justify-content-center">
         <div className="col-xl-7 col-lg-9 text-center">
           <h1>BUY, SELL, SEND, RECEIVE</h1>
-          <section className="currency-logos slider">
-            <div className="slide">
-              <img src="/assets/mian/images/coins/bitcoin.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/usdt.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/usdc.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/ethereum.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/bch.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/litecoin.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/paypal.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/perfectmoney.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/alipay.png" />
-            </div>
-            <div className="slide">
-              <img src="/assets/mian/images/coins/wechat-pay.png" />
-            </div>
-          </section>
-        </div>
-      </div>
-      
-      <div className="text-center">
+          <CurrencyLogosCarousel /> 
+          <div className="get-started">
         <a
           href="https://wa.me/message/ON5PHWAZTGKWI1"
-          className="btn-get-started scrollto"
+          className="btn-get-started"
         >
           Get Started
         </a>
       </div>
+        </div>
+      </div>
+      
       <div className="features-list clearfix row row-cols-lg-5">
         <div className="feature">
           <div className="media">
@@ -422,7 +311,7 @@ class Main extends React.Component {
             data-aos="zoom-in"
           >
             <img
-              src="/assets/mian/images/payment/mtn.png"
+              src="/assets/images/payment/mtn.png"
               className="img-fluid"
               alt=""
             />
@@ -432,7 +321,7 @@ class Main extends React.Component {
             data-aos="zoom-in"
           >
             <img
-              src="/assets/mian/images/payment/vodafone.png"
+              src="/assets/images/payment/vodafone.png"
               className="img-fluid"
               alt=""
             />
@@ -442,7 +331,7 @@ class Main extends React.Component {
             data-aos="zoom-in"
           >
             <img
-              src="/assets/mian/images/payment/airteltigo.png"
+              src="/assets/images/payment/airteltigo.png"
               className="img-fluid"
               alt=""
             />
@@ -452,7 +341,7 @@ class Main extends React.Component {
             data-aos="zoom-in"
           >
             <img
-              src="/assets/mian/images/payment/uba.png"
+              src="/assets/images/payment/uba.png"
               className="img-fluid"
               alt=""
             />
@@ -462,7 +351,7 @@ class Main extends React.Component {
             data-aos="zoom-in"
           >
             <img
-              src="/assets/mian/images/payment/alipay.png"
+              src="/assets/images/payment/alipay.png"
               className="img-fluid"
               alt=""
             />
@@ -472,7 +361,7 @@ class Main extends React.Component {
             data-aos="zoom-in"
           >
             <img
-              src="/assets/mian/images/payment/wechatpay.png"
+              src="/assets/images/payment/wechatpay.png"
               className="img-fluid"
               alt=""
             />

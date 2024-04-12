@@ -20,12 +20,12 @@ class Success extends React.Component {
             <div className="nk-wrap nk-wrap-nosidebar">
              
                 <div className="nk-content ">
-                <div class="nk-block nk-block-middle nk-auth-body">
-                        <div class="nk-block-head">
-                            <div class="nk-block-head-content  text-success">
-                                <h4 class="nk-block-title">🎉 Congratulations! 🎉</h4>
+                <div className="nk-block nk-block-middle nk-auth-body">
+                        <div className="nk-block-head">
+                            <div className="nk-block-head-content  text-success">
+                                <h4 className="nk-block-title">🎉 Congratulations! 🎉</h4>
                                 <h6> You’re now part of Barter Funds community. </h6>
-                                <div class="nk-block-des">
+                                <div className="nk-block-des">
                                     <p>Please check your email and verify your account to unlock all the exciting features awaiting you.</p>
                                 </div>
                             </div>
