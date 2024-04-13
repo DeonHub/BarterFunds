@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -22,10 +24,10 @@ class Login extends React.Component {
                 <div className="nk-content ">
                     <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div className="brand-logo pb-4 text-center">
-                            <a href="/frontend/user/index.html" className="logo-link">
+                            <a href="#" className="logo-link">
                                
-                                <img className="logo-dark logo-img logo-img-lg" src="/images/logo.png"
-                                    srcset="/images/logo/logo.png 2x" alt="logo"/>
+                                <img className="logo-dark logo-img logo-img-lg" src="/assets/images/barterfunds-logo.png"
+                                    srcset="/assets/images/barterfunds-logo.png 2x" alt="logo"/>
                             </a>
                         </div>
                         <div className="card card-bordered">
@@ -37,7 +39,7 @@ class Login extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                <form action="/frontend/user/index.html">
+                                <form action="#">
                                     <div className="form-group">
                                         <div className="form-label-group">
                                             <label className="form-label" for="default-01">Email</label>
@@ -51,7 +53,7 @@ class Login extends React.Component {
                                         <div className="form-label-group">
                                             <label className="form-label" for="password">Password</label>
                                             <a className="link link-primary link-sm"
-                                                href="/frontend/user/auths/reset.html">Forgot
+                                                href="/auth/reset.html">Forgot
                                                 Code?</a>
                                         </div>
                                         <div className="form-control-wrap">
@@ -69,7 +71,7 @@ class Login extends React.Component {
                                     </div>
                                 </form>
                                 <div className="form-note-s2 text-center pt-4"> New on our platform? <a
-                                        href="pages/auths/auth-register-v2.html">Create an account</a>
+                                        href="auth/signup.html">Create an account</a>
                                 </div>
                                 <div className="text-center pt-4 pb-3">
                                     <h6 className="overline-title overline-title-sap"><span>OR</span></h6>

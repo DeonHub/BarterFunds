@@ -7,6 +7,8 @@ import Reset from './Auth/Reset';
 import Success from './Auth/Success';
 import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
+import Welcome from './User/Welcome';
+import Users from './Admin/Users';
 
 
 const App = () => {
@@ -33,6 +35,11 @@ const App = () => {
 
         {/* User routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/user/dashboard`} element={<UserDashboard />} />
+
+        {/* Kyc routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/user/welcome`} element={<Welcome />} />
+        {/* Users routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
 
       </Routes>
     </Router>
