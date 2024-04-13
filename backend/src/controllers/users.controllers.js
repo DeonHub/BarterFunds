@@ -5,8 +5,10 @@ const jwt = require("jsonwebtoken");
 const Users = require("../models/users");
 
 const getUsers = (req, res, next) => {
-  Users.find()
-    .select("_id firstname surname username email contact status verified createdAt")
+  const filter = req.query;
+
+  Users.find(filter)
+    .select("_id firstname surname username email contact status verified activationToken createdAt")
     .exec()
     .then(result => {
       const response = {
@@ -22,6 +24,7 @@ const getUsers = (req, res, next) => {
             contact: user.contact,
             verified: user.verified,
             status: user.status,
+            activationToken: user.activationToken,
             createdAt: user.createdAt,
             request: {
               type: "GET",

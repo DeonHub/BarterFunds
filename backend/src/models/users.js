@@ -18,11 +18,13 @@ const userSchema = mongoose.Schema({
     verified: { type: Boolean, default: false },
     verificationCode: { type: String },
     isAdmin: { type: Boolean, default: false },
+    twoFactorAuth: { type: Boolean, default: false },
+    twoFactorAuthSecretKey: { type: String },
     kycApproved: { type: Boolean, default: false },
-    activationToken: String,
-    activationTokenExpires: Date,
-    resetToken: String,
-    resetTokenExpires: Date,
+    activationToken: { type: String, default: "" },
+    activationTokenExpires: { type: Date },
+    resetToken: { type: String, default: "" },
+    resetTokenExpires: { type: Date },
     createdAt: { type: Date, default: Date.now }
 
 });
