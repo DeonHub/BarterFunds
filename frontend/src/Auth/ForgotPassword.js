@@ -176,7 +176,7 @@ class ForgotPassword extends React.Component {
                   )}
                 </div>
 
-                <div className="nk-footer nk-auth-footer-full">
+                {/* <div className="nk-footer nk-auth-footer-full">
                   <div className="container wide-lg">
                     <div className="row g-3">
                       <div className="col-lg-6 order-lg-last">
@@ -208,7 +208,7 @@ class ForgotPassword extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

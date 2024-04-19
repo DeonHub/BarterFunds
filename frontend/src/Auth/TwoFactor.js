@@ -339,7 +339,7 @@ class TwoFactor extends React.Component {
                           </p>
               </div>
 
-              <div className="nk-footer nk-auth-footer-full mt-5">
+              {/* <div className="nk-footer nk-auth-footer-full mt-5">
                 <div className="container wide-lg">
                   <div className="row g-3">
                     <div className="col-lg-6 order-lg-last">
@@ -371,7 +371,7 @@ class TwoFactor extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

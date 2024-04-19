@@ -192,7 +192,7 @@ class Login extends React.Component {
 
 
 
-                      <div className="text-center pt-4 pb-3">
+                      {/* <div className="text-center pt-4 pb-3">
                         <h6 className="overline-title overline-title-sap">
                           <span>OR</span>
                         </h6>
@@ -208,14 +208,14 @@ class Login extends React.Component {
                             Google
                           </a>
                         </li>
-                      </ul>
+                      </ul> */}
                     </div>
                   </div>
                 </div>
 
 
 
-                <div className="nk-footer nk-auth-footer-full">
+                {/* <div className="nk-footer nk-auth-footer-full">
                   <div className="container wide-lg">
                     <div className="row g-3">
                       <div className="col-lg-6 order-lg-last">
@@ -247,7 +247,7 @@ class Login extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

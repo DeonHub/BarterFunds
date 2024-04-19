@@ -138,7 +138,7 @@ const ResetPassword = ({ globalState }) => {
                 </div>
               </div>
 
-              <div className="nk-footer nk-auth-footer-full">
+              {/* <div className="nk-footer nk-auth-footer-full">
                 <div className="container wide-lg">
                   <div className="row g-3">
                     <div className="col-lg-6 order-lg-last">
@@ -170,7 +170,7 @@ const ResetPassword = ({ globalState }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
