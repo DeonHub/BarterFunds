@@ -8,7 +8,7 @@ const getUsers = (req, res, next) => {
   const filter = req.query;
 
   Users.find(filter)
-    .select("_id firstname surname username email contact status verified activationToken createdAt")
+    .select("_id firstname surname username email contact status verified activationToken twoFactorAuth createdAt")
     .exec()
     .then(result => {
       const response = {
@@ -25,6 +25,7 @@ const getUsers = (req, res, next) => {
             verified: user.verified,
             status: user.status,
             activationToken: user.activationToken,
+            twoFactorAuth: user.twoFactorAuth,
             createdAt: user.createdAt,
             request: {
               type: "GET",

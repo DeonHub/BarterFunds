@@ -20,6 +20,7 @@ const userSchema = mongoose.Schema({
     isAdmin: { type: Boolean, default: false },
     twoFactorAuth: { type: Boolean, default: false },
     twoFactorAuthSecretKey: { type: String },
+    twoFactorAuthQrcode: { type: String },
     kycApproved: { type: Boolean, default: false },
     activationToken: { type: String, default: "" },
     activationTokenExpires: { type: Date },
