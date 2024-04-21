@@ -13,14 +13,10 @@ import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
 import Welcome from './User/Welcome';
 import Users from './Admin/Users';
-<<<<<<< HEAD
 import MainHeader from './Main/MainHeader';
 import Trustpilot from './Admin/Trustpilot';
 
 
-=======
-import { useParams } from 'react-router-dom';
->>>>>>> d74efa95768d18c14ca09211bf0a09d4d8a70271
 
 const App = () => {
 

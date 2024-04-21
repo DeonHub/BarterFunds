@@ -1,12 +1,9 @@
 import React from "react";
-<<<<<<< HEAD
 import './Auth.css'
-=======
 import TextInput from "./components/TextInput";
 import axios from "axios";
 import openNotification from "./components/OpenNotification";
 import { withGlobalState } from '../withGlobalState';
->>>>>>> d74efa95768d18c14ca09211bf0a09d4d8a70271
 
 
 // {
@@ -126,17 +123,6 @@ class Login extends React.Component {
         <div>
           <div className="nk-main ">
             <div className="nk-wrap nk-wrap-nosidebar">
-<<<<<<< HEAD
-             
-                <div className="nk-content ">
-                    <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
-                        <div className="brand-logo pb-4 text-center">
-                            <a href="#" className="logo-link">
-                               
-                                <img className="logo-dark logo-img logo-img-lg" src="/assets/images/logo-icon.png"
-                                     alt="logo"/>
-                            </a>
-=======
               <div className="nk-content ">
                 <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
                   <div className="brand-logo pb-4 text-center">
@@ -160,7 +146,6 @@ class Login extends React.Component {
                               Sign in using your email address and password.
                             </p>
                           </div>
->>>>>>> d74efa95768d18c14ca09211bf0a09d4d8a70271
                         </div>
                       </div>
                       <form>
