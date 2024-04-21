@@ -1,9 +1,8 @@
 require("dotenv").config();
-const transporter = require("./transporter");
+const transporter = require("./src/utils/transporter");
 const hostEmail = process.env.EMAIL_HOST_USER;
 const baseUrl = process.env.BASE_URL;
-const currentYear = new Date().getFullYear();
-
+const currentYear = '2025';
 
 const sendMail = (userEmail, token, subject, action, header1, header2, header3, buttonText) => {
   // Define email options
@@ -479,7 +478,7 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
                                 >
                                   <div class="v-text-align" align="center">
                                     <a
-                                      href="${baseUrl}/${action}/${token}"
+                                      href="${baseUrl}/auth/${action}?token=${token}"
                                       target="_blank"
                                       class="v-button v-size-width"
                                       style="
@@ -858,7 +857,7 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
                                                 target="_blank"
                                               >
                                                 <img
-                                                  src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png"
+                                                  src="images/image-3.png"
                                                   alt="Facebook"
                                                   title="Facebook"
                                                   width="32"
@@ -917,7 +916,7 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
                                                 target="_blank"
                                               >
                                                 <img
-                                                  src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/instagram_icon-instagram_buttoninstegram-256.png"
+                                                  src="images/image-2.png"
                                                   alt="Instagram"
                                                   title="Instagram"
                                                   width="32"
@@ -959,7 +958,6 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
                                           margin-right: 0px;
                                         "
                                       >
-                                        
                                         <tbody>
                                           <tr style="vertical-align: top">
                                             <td
@@ -972,14 +970,14 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
                                               "
                                             >
                                               <a
-                                                href="https://twitter.com/"
+                                                href="https://linkedin.com/"
                                                 title="LinkedIn"
                                                 target="_blank"
                                               >
                                                 <img
-                                                  src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Twitter3_colored_svg-512.png"
-                                                  alt="Twitter"
-                                                  title="Twitter"
+                                                  src="images/image-7.png"
+                                                  alt="LinkedIn"
+                                                  title="LinkedIn"
                                                   width="32"
                                                   style="
                                                     outline: none;
@@ -1112,6 +1110,7 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
     </table>
   </body>
 </html>
+
     `,
   };
 
@@ -1125,4 +1124,6 @@ const sendMail = (userEmail, token, subject, action, header1, header2, header3, 
   });
 };
 
-module.exports = sendMail;
+// // (userEmail, token, subject, action, header1, header2, header3, buttonText)
+// // sendMail("pebabot355@rartg.com", "11234567890qwertyuiop", "Account Activation", "account-activation", "Thank you for registering with BarterFunds", "To complete your registration and activate your account, please click on the button below", "If you did not sign up for an account with BarterFunds, please disregard this email.", "Activate Account");
+// sendMail("pebabot355@rartg.com", "11234567890qwertyuiop", "Password Reset", "reset-password", "Greetings from BarterFunds", "We received a request to reset the password for the BarterFunds account associated with this e-mail address. Click the button below to reset your password.", "If you did not request this, please ignore this email and your password will remain unchanged.", "Reset Password");

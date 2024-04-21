@@ -3,18 +3,32 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './Main/Main';
 import Login from './Auth/Login';
 import Signup from './Auth/Signup';
-import Reset from './Auth/Reset';
-import Success from './Auth/Success';
+import ForgotPassword from './Auth/ForgotPassword';
+// import Success from './Auth/Success';
+import ResetPassword from './Auth/ResetPassword';
+import TwoFactor from './Auth/TwoFactor';
+import AccountActivation from './Auth/AccountActivation';
+
 import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
 import Welcome from './User/Welcome';
 import Users from './Admin/Users';
+<<<<<<< HEAD
 import MainHeader from './Main/MainHeader';
 import Trustpilot from './Admin/Trustpilot';
 
 
+=======
+import { useParams } from 'react-router-dom';
+>>>>>>> d74efa95768d18c14ca09211bf0a09d4d8a70271
 
 const App = () => {
+
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
+
+
 
   return (
     <Router>
@@ -22,15 +36,15 @@ const App = () => {
 
         {/* Main routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/*`} element={<Main />} />
-        {/* <Route path={`${process.env.PUBLIC_URL}/partners`} element={<Partners />} /> */}
-        {/* <Route path={`${process.env.PUBLIC_URL}/terms-and-conditions`} element={<TermsAndConditions />} /> */}
-
-
+ 
         {/* Auth routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
-        <Route path={`${process.env.PUBLIC_URL}/signup`} element={<Signup />} />
-        <Route path={`${process.env.PUBLIC_URL}/reset`} element={<Reset />} />
-        <Route path={`${process.env.PUBLIC_URL}/success`} element={<Success />} />
+        <Route path={`${process.env.PUBLIC_URL}/login`} element={<Login navigate={navigateTo} />}/>
+        <Route path={`${process.env.PUBLIC_URL}/signup`} element={<Signup navigate={navigateTo} />} />
+        <Route path={`${process.env.PUBLIC_URL}/forgot-password`} element={<ForgotPassword navigate={navigateTo} />} />
+        <Route path={`${process.env.PUBLIC_URL}/login/mfa`} element={<TwoFactor navigate={navigateTo} />} />
+        {/* <Route path={`${process.env.PUBLIC_URL}/success`} element={<Success navigate={navigateTo} />} /> */}
+        <Route path={`${process.env.PUBLIC_URL}/account-activation/:activationToken`} element={<AccountActivation />} />
+        <Route path={`${process.env.PUBLIC_URL}/reset-password/:resetToken`} element={<ResetPassword />} />
 
         {/* Admin routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />

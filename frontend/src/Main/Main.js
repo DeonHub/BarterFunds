@@ -1,5 +1,5 @@
 import React from "react";
-import './Main.css'
+// import './Main.css'
 import CurrencyLogosCarousel from './CurrencyLogosCarousel'; // Import the component
 import MainHeader from './MainHeader'; // Import the component
 import 'boxicons';
@@ -24,6 +24,7 @@ class Main extends React.Component {
       <>
 
   {/* ======= Header ======= */}
+  
   <header id="header" className="fixed-top">
     <div className="container d-flex align-items-center justify-content-between">
       {/*<h1 class="logo"><a href="index.html">OnePage</a></h1>
