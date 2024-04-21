@@ -1,6 +1,9 @@
 import React from "react";
 import './Main.css'
 import CurrencyLogosCarousel from './CurrencyLogosCarousel'; // Import the component
+import MainHeader from './MainHeader'; // Import the component
+import 'boxicons';
+
 
 class Main extends React.Component {
   constructor(props) {
@@ -19,7 +22,7 @@ class Main extends React.Component {
 
     return (
       <>
-  
+
   {/* ======= Header ======= */}
   <header id="header" className="fixed-top">
     <div className="container d-flex align-items-center justify-content-between">
@@ -62,7 +65,7 @@ class Main extends React.Component {
           </li>
           <li>
             <a
-              className="nav-link scrollto"
+              className="nav-link btn"
               href="https://blog.barter-funds.com/"
             >
               Blog
@@ -70,7 +73,7 @@ class Main extends React.Component {
           </li>
           <li>
             <a
-              className="nav-link scrollto"
+              className="nav-link btn"
               href="https://wa.me/message/ON5PHWAZTGKWI1"
             >
               Contact
@@ -78,10 +81,18 @@ class Main extends React.Component {
           </li>
           <li>
             <a
-              className="getstarted scrollto"
+              className="btn getstarted"
               href="https://wa.me/message/ON5PHWAZTGKWI1"
             >
-              Get Started
+              Signin
+            </a>
+          </li>
+          <li>
+            <a
+              className="btn getstarted  btn-arrow"
+              href="https://wa.me/message/ON5PHWAZTGKWI1"
+            >
+              Register
             </a>
           </li>
         </ul>

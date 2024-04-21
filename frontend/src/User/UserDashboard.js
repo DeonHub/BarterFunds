@@ -1,4 +1,8 @@
 import React from "react";
+import './User.css'
+import UserSidebar from "./UserSidebar";
+import UserHeader from "./UserHeader";
+import UserFooter from "./UserFooter";
 
 class UserDashboard extends React.Component {
   constructor(props) {
@@ -15,9 +19,15 @@ class UserDashboard extends React.Component {
   render() {
 
     return (
-      <div>
-        This is the user dashboard page
-      </div>
+      <div className="nk-app-root">
+  {/* main @s */}
+  <div className="nk-main ">
+  <UserSidebar /> 
+  <UserHeader />
+  <UserFooter />
+  </div>
+</div>
+
     );
   }
 }

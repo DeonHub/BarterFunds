@@ -1,4 +1,5 @@
 import React from "react";
+import './Auth.css'
 
 
 
@@ -26,8 +27,8 @@ class Login extends React.Component {
                         <div className="brand-logo pb-4 text-center">
                             <a href="#" className="logo-link">
                                
-                                <img className="logo-dark logo-img logo-img-lg" src="/assets/images/barterfunds-logo.png"
-                                    srcset="/assets/images/barterfunds-logo.png 2x" alt="logo"/>
+                                <img className="logo-dark logo-img logo-img-lg" src="/assets/images/logo-icon.png"
+                                     alt="logo"/>
                             </a>
                         </div>
                         <div className="card card-bordered">

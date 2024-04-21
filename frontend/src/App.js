@@ -9,6 +9,9 @@ import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
 import Welcome from './User/Welcome';
 import Users from './Admin/Users';
+import MainHeader from './Main/MainHeader';
+import Trustpilot from './Admin/Trustpilot';
+
 
 
 const App = () => {
@@ -40,7 +43,11 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/user/welcome`} element={<Welcome />} />
         {/* Users routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
-
+        {/* Users routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/main/header`} element={<MainHeader />} />
+        {/* Users routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/trustpilot`} element={<Trustpilot />} />
+    
       </Routes>
     </Router>
   );
