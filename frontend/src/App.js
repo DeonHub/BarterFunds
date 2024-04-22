@@ -15,6 +15,18 @@ import Welcome from './User/Welcome';
 import Users from './Admin/Users';
 import MainHeader from './Main/MainHeader';
 import Trustpilot from './Admin/Trustpilot';
+import Currency from './Admin/Currency';
+import CurrencyCreate from './Admin/CurrencyCreate';
+import CurrencyYuan from './Admin/CurrencyYuan';
+import CurrencyEthereum from './Admin/CurrencyEthereum';
+import CurrencyUsdc from './Admin/CurrencyUsdc';
+import CurrencyUsdt from './Admin/CurrencyUsdt';
+import CurrencyBch from './Admin/CurrencyBch';
+import CurrencyBitcoin from './Admin/CurrencyBitcoin';
+import CurrencyPerfectmoney from './Admin/CurrencyPerfectmoney';
+import CurrencyPaypal from './Admin/CurrencyPaypal';
+import CurrencyLitecoin from './Admin/CurrencyLitecoin';
+
 
 
 
@@ -57,6 +69,21 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/main/header`} element={<MainHeader />} />
         {/* Users routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/admin/trustpilot`} element={<Trustpilot />} />
+        {/* Users routes go here */}
+        
+
+        {/* Admin currency routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency`} element={<Currency />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/create`} element={<CurrencyCreate />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/yuan`} element={<CurrencyYuan />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/paypal`} element={<CurrencyPaypal />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/perfectmoney`} element={<CurrencyPerfectmoney />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/btc`} element={<CurrencyBitcoin />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/bch`} element={<CurrencyBch />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/usdt`} element={<CurrencyUsdt />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/usdc`} element={<CurrencyUsdc />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/eth`} element={<CurrencyEthereum />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/currency/ltc`} element={<CurrencyLitecoin />} />
     
       </Routes>
     </Router>
