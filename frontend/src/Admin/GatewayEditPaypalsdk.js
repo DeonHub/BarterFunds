@@ -1,6 +1,6 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebarX";
+import AdminSidebar from "./AdminSidebar";
 import AdminHeader from "./AdminHeader";
 
 
