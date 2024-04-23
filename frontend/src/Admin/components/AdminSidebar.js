@@ -1,5 +1,5 @@
 import React from "react";
-import './Admin.css'
+import '../Admin.css'
 
 class AdminSidebar extends React.Component {
   constructor(props) {
@@ -31,75 +31,17 @@ class AdminSidebar extends React.Component {
           </div>
           <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
             <ul className="sidebar__menu">
-              <li className="sidebar-menu-item active">
-                <a href="index.html" className="nav-link ">
+              <li className={`sidebar-menu-item ${this.props.active === 'dashboard' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/dashboard`} className="nav-link ">
                   <i className="menu-icon las la-home" />
                   <span className="menu-title">Dashboard</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
+              <li className={`sidebar-menu-item ${this.props.active === 'users' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/users`} className="">
                   <i className="menu-icon las la-users" />
-                  <span className="menu-title">Manage Users</span>
+                  <span className="menu-title">Users</span>
                 </a>
-                <div className="sidebar-submenu ">
-                  <ul>
-                    <li className="sidebar-menu-item  ">
-                      <a href="users/active.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Active Users</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="users/banned.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Banned Users</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="users/email-unverified.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Email Unverified</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a href="users/mobile-unverified.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Mobile Unverified</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a href="users/kyc-unverified.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">KYC Unverified</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a href="users/kyc-pending.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">KYC Pending</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a href="users/with-balance.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">With Balance</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="users/users.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">All Users</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a href="users/send-notification.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Notification to All</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li className="sidebar-menu-item  ">
                 <a
@@ -203,46 +145,15 @@ class AdminSidebar extends React.Component {
                   </ul>
                 </div>
               </li>
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
+              
+              <li className={`sidebar-menu-item ${this.props.active === 'tickets' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/tickets`} className="">
                   <i className="menu-icon la la-ticket" />
-                  <span className="menu-title">Support Ticket</span>
-                  <span className="menu-badge pill bg--danger ms-auto">
-                    <i className="fa fa-exclamation" />
-                  </span>
+                  <span className="menu-title">Support Tickets</span>
                 </a>
-                <div className="sidebar-submenu  ">
-                  <ul>
-                    <li className="sidebar-menu-item  ">
-                      <a href="ticket/pending.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Pending Ticket</span>
-                        <span className="menu-badge pill bg--danger ms-auto">
-                          6
-                        </span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="ticket/closed.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Closed Ticket</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="ticket/ticket/answered.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Answered Ticket</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="ticket/ticket.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">All Ticket</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
+
+
               <li className="sidebar-menu-item sidebar-dropdown">
                 <a href="javascript:void(0)" className="">
                   <i className="menu-icon la la-list" />

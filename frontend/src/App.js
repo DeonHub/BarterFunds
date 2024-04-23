@@ -5,6 +5,7 @@ import Login from './Auth/Login';
 import Signup from './Auth/Signup';
 import ForgotPassword from './Auth/ForgotPassword';
 // import Success from './Auth/Success';
+
 import ResetPassword from './Auth/ResetPassword';
 import TwoFactor from './Auth/TwoFactor';
 import AccountActivation from './Auth/AccountActivation';
@@ -100,12 +101,19 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/signup`} element={<Signup navigate={navigateTo} />} />
         <Route path={`${process.env.PUBLIC_URL}/forgot-password`} element={<ForgotPassword navigate={navigateTo} />} />
         <Route path={`${process.env.PUBLIC_URL}/login/mfa`} element={<TwoFactor navigate={navigateTo} />} />
-        {/* <Route path={`${process.env.PUBLIC_URL}/success`} element={<Success navigate={navigateTo} />} /> */}
         <Route path={`${process.env.PUBLIC_URL}/account-activation/:activationToken`} element={<AccountActivation />} />
         <Route path={`${process.env.PUBLIC_URL}/reset-password/:resetToken`} element={<ResetPassword />} />
 
         {/* Admin routes go here */}
+<<<<<<< HEAD
         
+=======
+        <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/tickets`} element={<Tickets />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/tickets/:ticketId`} element={<TicketDetails />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/users/:userId`} element={<UserDetails />} />
+>>>>>>> 5025506ac6b12d002ed70c1fc32d5992006cafa3
         {/* <Route path={`${process.env.PUBLIC_URL}/admin/add-currency`} element={<AddCurrency />} /> */}
 
         {/* User routes go here */}
@@ -205,6 +213,10 @@ const App = () => {
 
         
     
+
+        {/* Catch-all route for 404 Not Found */}
+        <Route element={<NotFound />} />
+
       </Routes>
     </Router>
   );
