@@ -43,31 +43,34 @@ class AdminSidebar extends React.Component {
                   <span className="menu-title">Users</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item  ">
+
+              <li className={`sidebar-menu-item ${this.props.active === 'currency' ? 'active' : ''}`}>
                 <a
-                  href="currency/index.html"
+                  href={`${process.env.PUBLIC_URL}/admin/currencies`}
                   className="nav-link"
-                  data-default-url="currency/index.html"
                 >
                   <i className="menu-icon las la-money-bill" />
-                  <span className="menu-title">Manage Currencies</span>
+                  <span className="menu-title">Currencies</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item  ">
-                <a href="gateway/automatic.html" className="nav-link">
+
+
+              <li className={`sidebar-menu-item ${this.props.active === 'payment-gateway' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/payment-gateways`} className="nav-link">
                   <i className="menu-icon las la-credit-card" />
                   <span className="menu-title">Payment Gateways</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
+
+              <li className={`sidebar-menu-item ${this.props.active === 'exchange' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/exchanges`} className="">
                   <i className="menu-icon las la-exchange-alt" />
-                  <span className="menu-title">Exchange</span>
-                  <span className="menu-badge pill bg--danger ms-auto">
+                  <span className="menu-title">Exchanges</span>
+                  {/* <span className="menu-badge pill bg--danger ms-auto">
                     <i className="fa fa-exclamation" />
-                  </span>
+                  </span> */}
                 </a>
-                <div className="sidebar-submenu  ">
+                {/* <div className="sidebar-submenu  ">
                   <ul>
                     <li className="sidebar-menu-item  ">
                       <a href="exchange/pending.html" className="nav-link">
@@ -103,7 +106,7 @@ class AdminSidebar extends React.Component {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </li>
               <li className="sidebar-menu-item sidebar-dropdown">
                 <a href="javascript:void(0)" className="">

@@ -1,13 +1,13 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
 
 
 
 
 
-class GatewayEditAuthorize extends React.Component {
+class EditPaymentGateway extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,16 +23,16 @@ class GatewayEditAuthorize extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'payment-gateway'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
       <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Update Gateway</h6>
+        <h6 className="page-title">Update Payment Gateway</h6>
         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
           <a
-            href="../automatic.html"
+            href="javascript:history.back()"
             className="btn btn-sm btn-outline--primary"
           >
             <i className="la la-undo" /> Back
@@ -371,4 +371,4 @@ class GatewayEditAuthorize extends React.Component {
 }
 
 
-export default GatewayEditAuthorize;
+export default EditPaymentGateway;

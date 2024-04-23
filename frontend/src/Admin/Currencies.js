@@ -1,13 +1,13 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
 
 
 
 
 
-class Currency extends React.Component {
+class Currencies extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ class Currency extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'currency'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -45,7 +45,7 @@ class Currency extends React.Component {
               </button>
             </div>
           </form>
-          <a className="btn btn-outline--primary" href={`${process.env.PUBLIC_URL}/admin/currency/create`}>
+          <a className="btn btn-outline--primary" href={`${process.env.PUBLIC_URL}/admin/currencies/create-currency`}>
             <i className="las la-plus" />
             Add New
           </a>
@@ -93,7 +93,7 @@ class Currency extends React.Component {
                       </td>
                       <td>
                         <a
-                          href={`${process.env.PUBLIC_URL}/admin/currency/btc`}
+                          href={`${process.env.PUBLIC_URL}/admin/currencies/edit-currency/1234567890`}
                           className="btn btn-sm btn-outline--primary"
                         >
                           <i className="la la-pencil" />
@@ -480,4 +480,4 @@ class Currency extends React.Component {
 }
 
 
-export default Currency;
+export default Currencies;

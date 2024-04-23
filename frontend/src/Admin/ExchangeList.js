@@ -1,7 +1,7 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
 
 
 
@@ -23,7 +23,7 @@ class ExchangeList extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'exchange'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
