@@ -11,8 +11,6 @@ import TwoFactor from './Auth/TwoFactor';
 import AccountActivation from './Auth/AccountActivation';
 import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
-import Welcome from './User/Welcome';
-import MainHeader from './Main/MainHeader';
 import Trustpilot from './Admin/Trustpilot';
 
 import NotFound from './NotFound';
@@ -86,11 +84,13 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/reset-password/:resetToken`} element={<ResetPassword />} />
 
         {/* Admin routes go here */}
+
         <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/tickets`} element={<Tickets />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/tickets/:ticketId`} element={<TicketDetails />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/users/:userId`} element={<UserDetails />} />
+
 
         <Route path={`${process.env.PUBLIC_URL}/admin/currencies`} element={<Currencies />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/currencies/create-currency`} element={<CreateCurrency />} />
@@ -104,19 +104,23 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/admin/payment-gateways/edit-gateway/:gatewayId`} element={<EditPaymentGateway />} />
 
 
+        {/* <Route path={`${process.env.PUBLIC_URL}/admin/add-currency`} element={<AddCurrency />} /> */}
+
+
         {/* User routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/user/dashboard`} element={<UserDashboard />} />
+        
 
-        {/* Kyc routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/user/welcome`} element={<Welcome />} />
-        {/* Users routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
-        {/* Users routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/main/header`} element={<MainHeader />} />
-        {/* Users routes go here */}
+        {/* Admin routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/extensions`} element={<Extensions />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/language`} element={<Language />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/referral`} element={<Referral />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/subscriber`} element={<Subscriber />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/seo`} element={<Seo />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/trustpilot`} element={<Trustpilot />} />
-        {/* Users routes go here */}
-{/*         
+
+
 
         <Route path={`${process.env.PUBLIC_URL}/admin/currency`} element={<Currency />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/currency/create`} element={<CurrencyCreate />} />
@@ -159,8 +163,46 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/admin/users/mobile-unverified`} element={<UsersMobileUnverified />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/users/send-notification`} element={<UsersSendNotification />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/users/with-balance`} element={<UsersWithBalance />} />
+
+        {/* Admin Payment Gateway routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/automatic`} element={<GatewayAutomatic />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/authorize`} element={<GatewayEditAuthorize />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/blockchain`} element={<GatewayEditBlockchain/>} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/coinpayments`} element={<GatewayEditCoinpayments />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/flutterwave`} element={<GatewayEditFlutterwave />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/paypal`} element={<GatewayEditPaypal />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/paypalsdk`} element={<GatewayEditPaypalsdk />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/paystack`} element={<GatewayEditPaystack />} />
+
+        {/* Admin Notification routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/email/setting`} element={<NotificationEmailSetting />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/global`} element={<NotificationGlobal />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/sms/setting`} element={<NotificationSmsSetting />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/templates`} element={<NotificationTemplates/>} />
+
+        {/* Admin Notification routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/login/history`} element={<ReportLoginHistory />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/notification/history`} element={<ReportNotificationHistory />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/notification/template`} element={<ReportNotificationTemplate />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/notification/template/edit`} element={<ReportNotificationTempalteEdit />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/referral/commission`} element={<ReportReferralCommission />} />
+
+         {/* Admin Tickets routes go here */}
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket`} element={<Ticket />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/answered`} element={<TicketAnswered />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/closed`} element={<TicketClosed />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/pending`} element={<TicketPending />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/view/pending`} element={<TicketViewPending />} />
+
+         {/* Admin Settings routes go here */}
+         <Route path={`${process.env.PUBLIC_URL}/admin/settings/logo-icon`} element={<SettingsLogoIcon />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/settings/social/credentials`} element={<SettingsSocialCredentials />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/settings/system/configuration`} element={<SettingsSystemConfiguration />} />
+
+         
+
         
-     */}
+    
 
         {/* Catch-all route for 404 Not Found */}
         <Route element={<NotFound />} />
