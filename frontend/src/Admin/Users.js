@@ -1,872 +1,235 @@
-import React from "react";
-import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import React, { useEffect, useState } from "react";
+import "./Admin.css";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
+import { withGlobalState } from "../withGlobalState";
+import DataTable from "datatables.net-dt";
+import { users } from "./components/data";
+import { Button, Table } from 'antd';
 
-class Users extends React.Component {
-  constructor(props) {
-    super(props);
+const Users = () => {
 
-    const currentYear = new Date().getFullYear();
+  useEffect(() => {
+    document.title = 'Users | BarterFunds';
+  }, [])
 
-    this.state = {
-    currentYear: currentYear,
-    };
+  const currentYear = new Date().getFullYear();
 
-  }
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
 
-  render() {
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
+  };
 
-    return (
-        <div className="page-wrapper default-version">
-        <AdminSidebar /> 
-        <AdminHeader />
-        
-        <div className="body-wrapper">
-          <div className="bodywrapper__inner">
-            <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-              <h6 className="page-title">All Users</h6>
-              <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-                <form action="" method="GET" className="d-flex flex-wrap sea gap-2">
-                  <div className="input-group w-auto flex-fill">
-                    <input
-                      type="search"
-                      name="search"
-                      className="form-control bg--white"
-                      placeholder="Username / Email"
-                      defaultValue=""
-                    />
-                    <button className="btn btn--primary" type="submit">
-                      <i className="la la-search" />
-                    </button>
-                  </div>
-                </form>
-              </div>
+  const filteredData = users.filter((user) =>
+    user.user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Calculate pagination
+  const totalItems = filteredData.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Calculate the index range of items for the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+
+  // Get the data for the current page
+  const currentPageData = filteredData.slice(startIndex, endIndex);
+
+  // Pagination handlers
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  return (
+    <div className="page-wrapper default-version">
+      <AdminSidebar active={"users"} />
+      <AdminHeader />
+
+      <div className="body-wrapper">
+        <div className="bodywrapper__inner">
+          <div className="d-flex mb-5 flex-wrap gap-3 justify-content-between align-items-center">
+            <h6 className="page-title">All Users</h6>
+            
+
+            <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+            <div className="input-group w-auto flex-fill">
+                  <input
+                    type="search"
+                    name="search"
+                    className="form-control bg--white"
+                    placeholder="Username / Email"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                  />
+                  <button className="btn btn--primary" type="submit">
+                    <i className="la la-search" />
+                  </button>
+                </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="card b-radius--10 ">
-                  <div className="card-body p-0">
-                    <div className="table-responsive--md  table-responsive">
-                      <table className="table table--light style--two">
-                        <thead>
+          </div>
+          <div className="row mt-5">
+            <div className="col-lg-12">
+              <div className="card b-radius--10 ">
+                <div className="card-body p-0">
+                  <div className="table-responsive--md  table-responsive">
+
+                    <table className="table table--light style--two table-responsive" id="users">
+                      <thead>
+                        <tr>
+                          <th>User</th>
+                          <th>Email-Phone</th>
+                          <th>Country</th>
+                          <th>Joined At</th>
+                          <th>Balance</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {currentPageData.length === 0 ? (
                           <tr>
-                            <th>User</th>
-                            <th>Email-Phone</th>
-                            <th>Country</th>
-                            <th>Joined At</th>
-                            <th>Balance</th>
-                            <th>Action</th>
+                            <td colSpan="3">No data</td>{" "}
+                            
                           </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Xasan Cabdi</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2365">
-                                  <span>@</span>hearning
+                        ) : (
+                          currentPageData.map((user) => (
+                            <tr key={user.id}>
+                              <td>
+                                <span className="fw-bold">
+                                  {user.user.name}
+                                </span>
+                                <br />
+                                <span className="small">
+                                  <a href="users/detail/2365">
+                                    <span>@</span>
+                                    {user.user.username}
+                                  </a>
+                                </span>
+                              </td>
+                              <td>
+                                {user.email}
+                                <br />
+                                {user.phone}
+                              </td>
+                              <td>
+                                <span className="fw-bold" title="Somalia">
+                                  {user.country}
+                                </span>
+                              </td>
+                              <td>
+                                {user.joinedAt} <br />
+                                28 minutes ago
+                              </td>
+                              <td>
+                                <span className="fw-bold">{user.balance}</span>
+                              </td>
+                              <td>
+                                <a
+                                  href={`${process.env.PUBLIC_URL}/admin/users/${user.id}`}
+                                  className="btn btn-sm btn-outline--primary"
+                                >
+                                  <i className="las la-desktop" />
+                                  Details{" "}
                                 </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Somalia">
-                                SO
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-27 09:50 PM <br />
-                              28 minutes ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2365"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Joy Emon</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2364">
-                                  <span>@</span>109685850956500104850
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-27 12:42 PM <br />9 hours ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2364"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Amit Halder</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2363">
-                                  <span>@</span>102706799201014805283
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-27 07:57 AM <br />
-                              14 hours ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2363"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Md Hossain</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2362">
-                                  <span>@</span>106962649904999221946
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-26 02:13 PM <br />1 day ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2362"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Yoush Ljdjd</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2361">
-                                  <span>@</span>gamegon
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Bangladesh">
-                                BD
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-26 09:17 AM <br />1 day ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2361"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Joy Emon</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2360">
-                                  <span>@</span>100728078429022888081
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-26 08:36 AM <br />1 day ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2360"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">moses mungai</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2359">
-                                  <span>@</span>115924879156619346211
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-25 10:32 PM <br />1 day ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2359"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Sopuru Daniel</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2358">
-                                  <span>@</span>intelligence
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Nigeria">
-                                NG
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-25 03:39 PM <br />2 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2358"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Ahmed Abdi</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2357">
-                                  <span>@</span>102454937053602712547
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-24 02:16 PM <br />3 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2357"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Jamilu Ahmad</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2356">
-                                  <span>@</span>markarz
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Nigeria">
-                                NG
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-24 09:20 AM <br />3 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2356"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">
-                                rickeyponder rickeyponder
-                              </span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2355">
-                                  <span>@</span>108523646412165088605
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-23 11:29 PM <br />3 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2355"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">md junaid</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2354">
-                                  <span>@</span>junaidhossain2020
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="United Arab Emirates">
-                                AE
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-23 05:12 PM <br />4 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2354"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Saker Mia</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2353">
-                                  <span>@</span>saker87
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Bangladesh">
-                                BD
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-23 11:39 AM <br />4 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2353"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Amir Hossain</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2352">
-                                  <span>@</span>ajamir
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Bangladesh">
-                                BD
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-22 01:13 PM <br />5 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2352"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">charif hamza</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2351">
-                                  <span>@</span>charifx
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Morocco">
-                                MA
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-22 12:52 PM <br />5 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2351"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Den Den</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2350">
-                                  <span>@</span>denden
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Colombia">
-                                CO
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-21 11:23 PM <br />5 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2350"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">John Onyeuwaoma</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2349">
-                                  <span>@</span>114733388110241326454
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-21 09:33 PM <br />6 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2349"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">12412412 4124124124</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2348">
-                                  <span>@</span>prosto
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="United States">
-                                US
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-21 01:17 PM <br />6 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2348"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Honey Boy</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2347">
-                                  <span>@</span>108523066825273594690
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="" />
-                            </td>
-                            <td>
-                              2023-07-21 11:21 AM <br />6 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2347"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="fw-bold">Kenechukwu Nwachukwu</span>
-                              <br />
-                              <span className="small">
-                                <a href="users/detail/2346">
-                                  <span>@</span>kenzi144
-                                </a>
-                              </span>
-                            </td>
-                            <td>
-                              [Email is protected for the demo]
-                              <br />
-                              [Mobile number is protected for the demo]
-                            </td>
-                            <td>
-                              <span className="fw-bold" title="Nigeria">
-                                NG
-                              </span>
-                            </td>
-                            <td>
-                              2023-07-21 10:41 AM <br />6 days ago
-                            </td>
-                            <td>
-                              <span className="fw-bold">₵0.00</span>
-                            </td>
-                            <td>
-                              <a
-                                href="users/detail/2346"
-                                className="btn btn-sm btn-outline--primary"
-                              >
-                                <i className="las la-desktop" />
-                                Details{" "}
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div className="card-footer py-4">
-                    <nav>
-                      <ul className="pagination">
-                        <li
-                          className="page-item disabled"
-                          aria-disabled="true"
-                          aria-label="« Previous"
-                        >
-                          <span className="page-link" aria-hidden="true">
-                            ‹
-                          </span>
-                        </li>
-                        <li className="page-item active" aria-current="page">
-                          <span className="page-link">1</span>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=2">
-                            2
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=3">
-                            3
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=4">
-                            4
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=5">
-                            5
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=6">
-                            6
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=7">
-                            7
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=8">
-                            8
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=9">
-                            9
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=10">
-                            10
-                          </a>
-                        </li>
-                        <li className="page-item disabled" aria-disabled="true">
-                          <span className="page-link">...</span>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=68">
-                            68
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="users?page=69">
-                            69
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a
-                            className="page-link"
-                            href="users?page=2"
-                            rel="next"
-                            aria-label="Next »"
-                          >
-                            ›
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
+                              </td>
+                            </tr>
+                          ))
+                        )}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
+                
+                { currentPageData.length === 0 ? (
+                  <p></p>
+                ) : (
+
+                  <div className="card-footer py-4">
+                  <nav>
+                    <ul className="pagination">
+                      <li
+                        className="page-item"
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                      >
+                        <button
+                          className="page-link"
+                          disabled={currentPage === 1}
+                        >
+                          «
+                        </button>
+                      </li>
+                      {[...Array(totalPages)].map((_, index) => (
+                        <li
+                          key={index}
+                          className={`page-item ${
+                            index + 1 === currentPage ? "active" : ""
+                          }`}
+                        >
+                          <button
+                            className="page-link"
+                            onClick={() => goToPage(index + 1)}
+                          >
+                            {index + 1}
+                          </button>
+                        </li>
+                      ))}
+                      <li
+                        className="page-item"
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                      >
+                        <button
+                          className="page-link"
+                          disabled={currentPage === totalPages}
+                        >
+                           »
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                )} 
+                
               </div>
             </div>
           </div>
-          {/* bodywrapper__inner end */}
         </div>
-        {/* body-wrapper end */}
       </div>
-      
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Users;
+// class Users extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     const currentYear = new Date().getFullYear();
+//     const data = [
+//       { id: 1, name: 'John Doe', email: 'john@example.com', contact: "1234567890" },
+//       { id: 2, name: 'Jane Smith', email: 'jane@example.com', contact: "1234567890" },
+//       { id: 3, name: 'Gideon Impraom', email: 'gideon@example.com', contact: "1234567890" },
+//       { id: 4, name: 'Samuel Diggs', email: 'sam@example.com', contact: "1234567890" },
+//       { id: 5, name: 'Edmonds', email: 'info@example.com', contact: "1234567890" },
+//       // Add more data objects as needed
+//     ];
+
+//     const headings = ['Name', 'Email', 'Contact']
+
+//     this.state = {
+//     currentYear: currentYear,
+//     data: data,
+//     headings: headings
+//     };
+
+//   }
+
+//   render() {
+
+//   }
+// }
+
+export default withGlobalState(Users);

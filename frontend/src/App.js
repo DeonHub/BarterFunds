@@ -13,9 +13,15 @@ import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
 import Welcome from './User/Welcome';
 import Users from './Admin/Users';
+import UserDetails from './Admin/UserDetails';
+import UsersActive from './Admin/UsersActive';
+
+import Tickets from './Admin/Tickets';
+
 import MainHeader from './Main/MainHeader';
 import Trustpilot from './Admin/Trustpilot';
-
+import NotFound from './404';
+import TicketDetails from './Admin/TicketDetails';
 
 
 const App = () => {
@@ -38,12 +44,15 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/signup`} element={<Signup navigate={navigateTo} />} />
         <Route path={`${process.env.PUBLIC_URL}/forgot-password`} element={<ForgotPassword navigate={navigateTo} />} />
         <Route path={`${process.env.PUBLIC_URL}/login/mfa`} element={<TwoFactor navigate={navigateTo} />} />
-        {/* <Route path={`${process.env.PUBLIC_URL}/success`} element={<Success navigate={navigateTo} />} /> */}
         <Route path={`${process.env.PUBLIC_URL}/account-activation/:activationToken`} element={<AccountActivation />} />
         <Route path={`${process.env.PUBLIC_URL}/reset-password/:resetToken`} element={<ResetPassword />} />
 
         {/* Admin routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/tickets`} element={<Tickets />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/tickets/:ticketId`} element={<TicketDetails />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/users/:userId`} element={<UserDetails />} />
         {/* <Route path={`${process.env.PUBLIC_URL}/admin/add-currency`} element={<AddCurrency />} /> */}
 
         {/* User routes go here */}
@@ -58,6 +67,10 @@ const App = () => {
         {/* Users routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/admin/trustpilot`} element={<Trustpilot />} />
     
+
+        {/* Catch-all route for 404 Not Found */}
+        <Route element={<NotFound />} />
+
       </Routes>
     </Router>
   );
