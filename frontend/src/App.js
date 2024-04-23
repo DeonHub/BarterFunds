@@ -10,8 +10,6 @@ import TwoFactor from './Auth/TwoFactor';
 import AccountActivation from './Auth/AccountActivation';
 import AdminDashboard from './Admin/AdminDashboard';
 import UserDashboard from './User/UserDashboard';
-import Welcome from './User/Welcome';
-import MainHeader from './Main/MainHeader';
 import Trustpilot from './Admin/Trustpilot';
 import Currency from './Admin/Currency';
 import CurrencyCreate from './Admin/CurrencyCreate';
@@ -48,7 +46,37 @@ import UsersKycUnverified from './Admin/UsersKycUnverified';
 import UsersMobileUnverified from './Admin/UsersMobileUnverified';
 import UsersSendNotification from './Admin/UsersSendNotification';
 import UsersWithBalance from './Admin/UsersWithBalance';
-
+import GatewayAutomatic from './Admin/GatewayAutomatic';
+import GatewayEditAuthorize from './Admin/GatewayEditAuthorize';
+import GatewayEditBlockchain from './Admin/GatewayEditBlockchain';
+import GatewayEditCoinpayments from './Admin/GatewayEditCoinpayments';
+import GatewayEditFlutterwave from './Admin/GatewayEditFlutterwave';
+import GatewayEditPaypal from './Admin/GatewayEditPaypal';
+import GatewayEditPaypalsdk from './Admin/GatewayEditPaypalsdk';
+import GatewayEditPaystack from './Admin/GatewayEditPaystack';
+import Extensions from './Admin/Extensions';
+import KycSettings from './Admin/KycSettings';
+import Language from './Admin/Language';
+import Referral from './Admin/Referral';
+import NotificationEmailSetting from './Admin/NotificationEmailSetting';
+import NotificationGlobal from './Admin/NotificationGlobal';
+import NotificationSmsSetting from './Admin/NotificationSmsSetting';
+import NotificationTemplates from './Admin/NotificationTemplates';
+import ReportLoginHistory from './Admin/ReportLoginHistory';
+import ReportNotificationHistory from './Admin/ReportNotificationHistory';
+import ReportNotificationTempalteEdit from './Admin/ReportNotificationTemplateEdit';
+import ReportNotificationTemplate from './Admin/ReportNotificationTemplate';
+import ReportReferralCommission from './Admin/ReportReferralCommission';
+import Seo from './Admin/Seo';
+import SettingsLogoIcon from './Admin/SettingsLogoIcon';
+import SettingsSocialCredentials from './Admin/SettingsSocialCredentials';
+import SettingsSystemConfiguration from './Admin/SettingsSystemConfiguration';
+import Subscriber from './Admin/Subscriber';
+import Ticket from './Admin/Ticket';
+import TicketAnswered from './Admin/TicketAnswered';
+import TicketClosed from './Admin/TicketClosed';
+import TicketPending from './Admin/TicketPending';
+import TicketViewPending from './Admin/TicketViewPending';
 
 
 
@@ -77,21 +105,22 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/reset-password/:resetToken`} element={<ResetPassword />} />
 
         {/* Admin routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
+        
         {/* <Route path={`${process.env.PUBLIC_URL}/admin/add-currency`} element={<AddCurrency />} /> */}
 
         {/* User routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/user/dashboard`} element={<UserDashboard />} />
+        
 
-        {/* Kyc routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/user/welcome`} element={<Welcome />} />
-        {/* Users routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
-        {/* Users routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/main/header`} element={<MainHeader />} />
-        {/* Users routes go here */}
+        {/* Admin routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/extensions`} element={<Extensions />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/language`} element={<Language />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/referral`} element={<Referral />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/subscriber`} element={<Subscriber />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/seo`} element={<Seo />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/trustpilot`} element={<Trustpilot />} />
-        {/* Users routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/kyc-settings`} element={<KycSettings />} />
         
 
         {/* Admin currency routes go here */}
@@ -136,6 +165,44 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/admin/users/mobile-unverified`} element={<UsersMobileUnverified />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/users/send-notification`} element={<UsersSendNotification />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/users/with-balance`} element={<UsersWithBalance />} />
+
+        {/* Admin Payment Gateway routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/automatic`} element={<GatewayAutomatic />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/authorize`} element={<GatewayEditAuthorize />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/blockchain`} element={<GatewayEditBlockchain/>} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/coinpayments`} element={<GatewayEditCoinpayments />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/flutterwave`} element={<GatewayEditFlutterwave />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/paypal`} element={<GatewayEditPaypal />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/paypalsdk`} element={<GatewayEditPaypalsdk />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/getway/edit/paystack`} element={<GatewayEditPaystack />} />
+
+        {/* Admin Notification routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/email/setting`} element={<NotificationEmailSetting />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/global`} element={<NotificationGlobal />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/sms/setting`} element={<NotificationSmsSetting />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/notification/templates`} element={<NotificationTemplates/>} />
+
+        {/* Admin Notification routes go here */}
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/login/history`} element={<ReportLoginHistory />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/notification/history`} element={<ReportNotificationHistory />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/notification/template`} element={<ReportNotificationTemplate />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/notification/template/edit`} element={<ReportNotificationTempalteEdit />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/report/referral/commission`} element={<ReportReferralCommission />} />
+
+         {/* Admin Tickets routes go here */}
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket`} element={<Ticket />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/answered`} element={<TicketAnswered />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/closed`} element={<TicketClosed />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/pending`} element={<TicketPending />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/tecket/view/pending`} element={<TicketViewPending />} />
+
+         {/* Admin Settings routes go here */}
+         <Route path={`${process.env.PUBLIC_URL}/admin/settings/logo-icon`} element={<SettingsLogoIcon />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/settings/social/credentials`} element={<SettingsSocialCredentials />} />
+         <Route path={`${process.env.PUBLIC_URL}/admin/settings/system/configuration`} element={<SettingsSystemConfiguration />} />
+
+         
+
         
     
       </Routes>
