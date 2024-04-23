@@ -3,7 +3,7 @@ import "./Admin.css";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
 import { withGlobalState } from "../withGlobalState";
-import DataTable from "datatables.net-dt";
+
 import { users } from "./components/data";
 import { Button, Table } from 'antd';
 
