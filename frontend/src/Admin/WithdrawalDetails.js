@@ -1,13 +1,13 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
 
 
 
 
 
-class WithdrawDetailsPending extends React.Component {
+class WithdrawalDetails extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ class WithdrawDetailsPending extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'withdrawal'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -207,4 +207,4 @@ class WithdrawDetailsPending extends React.Component {
 }
 
 
-export default WithdrawDetailsPending;
+export default WithdrawalDetails;

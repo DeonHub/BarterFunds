@@ -5,8 +5,6 @@ import AdminHeader from "./components/AdminHeader";
 
 
 
-
-
 class ExchangeApproved extends React.Component {
   constructor(props) {
     super(props);

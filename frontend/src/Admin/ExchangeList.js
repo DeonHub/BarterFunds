@@ -131,7 +131,7 @@ class ExchangeList extends React.Component {
                       </td>
                       <td>
                         <a
-                          href="../../admin/exchange/details/pending.html"
+                          href={`${process.env.PUBLIC_URL}/admin/exchanges/details/1234567890`}
                           className="btn btn-sm btn-outline--primary"
                         >
                           <i className="las la-desktop" />

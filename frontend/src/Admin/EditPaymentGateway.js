@@ -23,7 +23,7 @@ class EditPaymentGateway extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar active={'payment-gateway'}/>
+        <AdminSidebar active={'gateway'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">

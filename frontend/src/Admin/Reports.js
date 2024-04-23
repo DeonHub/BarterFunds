@@ -1,13 +1,13 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
 
 
 
 
 
-class ReportLoginHistory extends React.Component {
+class Reports extends React.Component {
   constructor(props) {
     super(props);
 
@@ -796,4 +796,4 @@ class ReportLoginHistory extends React.Component {
 }
 
 
-export default ReportLoginHistory;
+export default Reports;

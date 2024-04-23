@@ -1,13 +1,13 @@
 import React from "react";
 import './Admin.css'
-import AdminSidebar from "./AdminSidebar";
-import AdminHeader from "./AdminHeader";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
 
 
 
 
 
-class GatewayEditPaystack extends React.Component {
+class CreatePaymentGateway extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,16 +23,16 @@ class GatewayEditPaystack extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'gateway'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
       <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Update Gateway</h6>
+        <h6 className="page-title">Update Payment Gateway</h6>
         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
           <a
-            href="admin/gateway/automatic"
+            href="javascript:history.back()"
             className="btn btn-sm btn-outline--primary"
           >
             <i className="la la-undo" /> Back
@@ -43,7 +43,7 @@ class GatewayEditPaystack extends React.Component {
         <div className="col-lg-12">
           <div className="card">
             <form
-              action="admin/gateway/automatic/update/107"
+              action="gateway/automatic/update/120"
               method="POST"
               encType="multipart/form-data"
             >
@@ -52,26 +52,56 @@ class GatewayEditPaystack extends React.Component {
                 name="_token"
                 defaultValue="UNzijgbfPpKQOf0c7hJOCc3eMA2Ck8HlQjqS8MD7"
               />
-              <input type="hidden" name="alias" defaultValue="Paystack" />
+              <input type="hidden" name="alias" defaultValue="Authorize" />
               <input type="hidden" name="description" defaultValue="" />
               <div className="card-body">
                 <div className="payment-method-item block-item">
                   <div className="payment-method-header">
                     <div className="content ps-0 w-100">
                       <div className="d-flex justify-content-between">
-                        <h3>PayStack</h3>
+                        <h3>Authorize.net</h3>
                         <div className="input-group d-flex flex-wrap justify-content-end width-375">
                           <select className="newCurrencyVal ">
                             <option value="">Select currency</option>
-                            <option value="NGN" data-symbol="NGN">
-                              NGN
+                            <option value="USD" data-symbol="USD">
+                              USD
+                            </option>
+                            <option value="CAD" data-symbol="CAD">
+                              CAD
+                            </option>
+                            <option value="CHF" data-symbol="CHF">
+                              CHF
+                            </option>
+                            <option value="DKK" data-symbol="DKK">
+                              DKK
+                            </option>
+                            <option value="EUR" data-symbol="EUR">
+                              EUR
+                            </option>
+                            <option value="GBP" data-symbol="GBP">
+                              GBP
+                            </option>
+                            <option value="NOK" data-symbol="NOK">
+                              NOK
+                            </option>
+                            <option value="PLN" data-symbol="PLN">
+                              PLN
+                            </option>
+                            <option value="SEK" data-symbol="SEK">
+                              SEK
+                            </option>
+                            <option value="AUD" data-symbol="AUD">
+                              AUD
+                            </option>
+                            <option value="NZD" data-symbol="NZD">
+                              NZD
                             </option>
                           </select>
                           <button
                             type="button"
                             className="btn btn--primary input-group-text newCurrencyBtn"
                             data-crypto={0}
-                            data-name="PayStack"
+                            data-name="Authorize.net"
                           >
                             Add new
                           </button>
@@ -81,66 +111,25 @@ class GatewayEditPaystack extends React.Component {
                     </div>
                   </div>
                   <div className="payment-method-body mt-2">
-                    <h4 className="mb-3">Configurations</h4>
+                    <h4 className="mb-3">Global Setting for Authorize.net</h4>
                     <div className="row">
                       <div className="form-group col-lg-6">
-                        <label>Callback URL</label>
-                        <div className="input-group">
-                          <input
-                            type="text"
-                            className="form-control"
-                            defaultValue="ipn/paystack"
-                            readOnly=""
-                          />
-                          <button
-                            type="button"
-                            className="copyInput input-group-text"
-                            title="Copy"
-                          >
-                            <i className="fa fa-copy" />
-                          </button>
-                        </div>
-                      </div>
-                      <div className="form-group col-lg-6">
-                        <label>Webhook URL</label>
-                        <div className="input-group">
-                          <input
-                            type="text"
-                            className="form-control"
-                            defaultValue="ipn/paystack"
-                            readOnly=""
-                          />
-                          <button
-                            type="button"
-                            className="copyInput input-group-text"
-                            title="Copy"
-                          >
-                            <i className="fa fa-copy" />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="payment-method-body mt-2">
-                    <h4 className="mb-3">Global Setting for PayStack</h4>
-                    <div className="row">
-                      <div className="form-group col-lg-6">
-                        <label>Public key</label>
+                        <label>Login ID</label>
                         <input
                           type="text"
                           className="form-control"
-                          name="global[public_key]"
-                          defaultValue="pk_test_cd330608eb47970889bca397ced55c1dd5ad3783"
+                          name="global[login_id]"
+                          defaultValue="59e4P9DBcZv"
                           required=""
                         />
                       </div>
                       <div className="form-group col-lg-6">
-                        <label>Secret key</label>
+                        <label>Transaction Key</label>
                         <input
                           type="text"
                           className="form-control"
-                          name="global[secret_key]"
-                          defaultValue="sk_test_8a0b1f199362d7acc9c390bff72c4e81f74e2ac3"
+                          name="global[transaction_key]"
+                          defaultValue="47x47TJyLw2E7DbR"
                           required=""
                         />
                       </div>
@@ -148,172 +137,13 @@ class GatewayEditPaystack extends React.Component {
                   </div>
                 </div>
                 {/* payment-method-item start */}
-                <input
-                  type="hidden"
-                  name="currency[1][symbol]"
-                  defaultValue="$"
-                />
-                <div className="payment-method-item block-item child--item">
-                  <div className="payment-method-header">
-                    <div className="content w-100 ps-0">
-                      <div className="d-flex justify-content-between">
-                        <div className="form-group">
-                          <h4 className="mb-3">PayStack - USD</h4>
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="currency[1][name]"
-                            defaultValue="PayStack - USD"
-                            required=""
-                          />
-                        </div>
-                        <div className="remove-btn">
-                          <button
-                            type="button"
-                            className="btn btn--danger confirmationBtn"
-                            data-question="Are you sure to delete this gateway currency?"
-                            data-action="admin/gateway/automatic/remove/43"
-                          >
-                            <i className="la la-trash-o me-2" />
-                            Remove
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="payment-method-body">
-                    <div className="row">
-                      <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="card border--primary mt-2">
-                          <h5 className="card-header bg--primary">Range</h5>
-                          <div className="card-body">
-                            <div className="form-group">
-                              <label>Minimum Amount</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][min_amount]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">GHS</div>
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label>Maximum Amount</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][max_amount]"
-                                  defaultValue={10000}
-                                  required=""
-                                />
-                                <div className="input-group-text">GHS</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="card border--primary mt-2">
-                          <h5 className="card-header bg--primary">Charge</h5>
-                          <div className="card-body">
-                            <div className="form-group">
-                              <label>Fixed Charge</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][fixed_charge]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">GHS</div>
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label>Percent Charge</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][percent_charge]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">%</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="card border--primary mt-2">
-                          <h5 className="card-header bg--primary">Currency</h5>
-                          <div className="card-body">
-                            <div className="row">
-                              <div className="col-md-6">
-                                <div className="form-group">
-                                  <label>Currency</label>
-                                  <input
-                                    type="text"
-                                    name="currency[1][currency]"
-                                    className="form-control border-radius-5 "
-                                    defaultValue="USD"
-                                    readOnly=""
-                                  />
-                                </div>
-                              </div>
-                              <div className="col-md-6">
-                                <div className="form-group">
-                                  <label>Symbol</label>
-                                  <input
-                                    type="text"
-                                    name="currency[1][symbol]"
-                                    className="form-control border-radius-5 symbl"
-                                    defaultValue="$"
-                                    data-crypto={0}
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label>Rate</label>
-                              <div className="input-group">
-                                <div className="input-group-text">1 GHS =</div>
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][rate]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">
-                                  <span className="currency_symbol">$</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 {/* payment-method-item end */}
                 {/* **new payment-method-item start */}
                 <div className="payment-method-item child--item newMethodCurrency d-none">
                   <input
                     disabled=""
                     type="hidden"
-                    name="currency[2][symbol]"
+                    name="currency[1][symbol]"
                     className="currencySymbol"
                   />
                   <div className="payment-method-header">
@@ -327,7 +157,7 @@ class GatewayEditPaystack extends React.Component {
                             disabled=""
                             type="text"
                             className="form-control"
-                            name="currency[2][name]"
+                            name="currency[1][name]"
                             required=""
                           />
                         </div>
@@ -358,7 +188,7 @@ class GatewayEditPaystack extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][min_amount]"
+                                  name="currency[1][min_amount]"
                                   required=""
                                 />
                               </div>
@@ -372,7 +202,7 @@ class GatewayEditPaystack extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][max_amount]"
+                                  name="currency[1][max_amount]"
                                   required=""
                                 />
                               </div>
@@ -393,7 +223,7 @@ class GatewayEditPaystack extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][fixed_charge]"
+                                  name="currency[1][fixed_charge]"
                                   required=""
                                 />
                               </div>
@@ -407,7 +237,7 @@ class GatewayEditPaystack extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][percent_charge]"
+                                  name="currency[1][percent_charge]"
                                   required=""
                                 />
                               </div>
@@ -427,7 +257,7 @@ class GatewayEditPaystack extends React.Component {
                                     disabled=""
                                     type="step"
                                     className="form-control currencyText border-radius-5"
-                                    name="currency[2][currency]"
+                                    name="currency[1][currency]"
                                     readOnly=""
                                   />
                                 </div>
@@ -438,7 +268,7 @@ class GatewayEditPaystack extends React.Component {
                                   <input
                                     disabled=""
                                     type="text"
-                                    name="currency[2][symbol]"
+                                    name="currency[1][symbol]"
                                     className="form-control border-radius-5 symbl"
                                     ata-crypto={0}
                                   />
@@ -456,7 +286,7 @@ class GatewayEditPaystack extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][rate]"
+                                  name="currency[1][rate]"
                                   required=""
                                 />
                                 <div className="input-group-text">
@@ -541,4 +371,4 @@ class GatewayEditPaystack extends React.Component {
 }
 
 
-export default GatewayEditPaystack;
+export default CreatePaymentGateway;
