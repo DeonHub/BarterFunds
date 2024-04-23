@@ -2,7 +2,10 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec
 
 
 
@@ -24,7 +27,7 @@ class ExchangeList extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'exchange'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -132,7 +135,7 @@ class ExchangeList extends React.Component {
                       </td>
                       <td>
                         <a
-                          href="../../admin/exchange/details/pending.html"
+                          href={`${process.env.PUBLIC_URL}/admin/exchanges/details/1234567890`}
                           className="btn btn-sm btn-outline--primary"
                         >
                           <i className="las la-desktop" />

@@ -43,107 +43,42 @@ class AdminSidebar extends React.Component {
                   <span className="menu-title">Users</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item  ">
+
+              <li className={`sidebar-menu-item ${this.props.active === 'currency' ? 'active' : ''}`}>
                 <a
-                  href="currency/index.html"
+                  href={`${process.env.PUBLIC_URL}/admin/currencies`}
                   className="nav-link"
-                  data-default-url="currency/index.html"
                 >
                   <i className="menu-icon las la-money-bill" />
-                  <span className="menu-title">Manage Currencies</span>
+                  <span className="menu-title">Currencies</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item  ">
-                <a href="gateway/automatic.html" className="nav-link">
+
+              <li className={`sidebar-menu-item ${this.props.active === 'kyc' ? 'active' : ''}`}>
+                <a href="#" className="">
+                  <i className="menu-icon las la-address-card"></i>
+                  <span className="menu-title">KYCs</span>
+                </a>
+              </li>
+
+              <li className={`sidebar-menu-item ${this.props.active === 'gateway' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/payment-gateways`} className="nav-link">
                   <i className="menu-icon las la-credit-card" />
                   <span className="menu-title">Payment Gateways</span>
                 </a>
               </li>
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
+
+              <li className={`sidebar-menu-item ${this.props.active === 'exchange' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/exchanges`} className="">
                   <i className="menu-icon las la-exchange-alt" />
-                  <span className="menu-title">Exchange</span>
-                  <span className="menu-badge pill bg--danger ms-auto">
-                    <i className="fa fa-exclamation" />
-                  </span>
+                  <span className="menu-title">Exchanges</span>
                 </a>
-                <div className="sidebar-submenu  ">
-                  <ul>
-                    <li className="sidebar-menu-item  ">
-                      <a href="exchange/pending.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Pending Exchange</span>
-                        <span className="menu-badge pill bg--danger ms-auto">
-                          20
-                        </span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="exchange/canceled.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Canceled Exchange</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="exchange/refunded.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Refunded Exchange</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="exchange/approved.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Approved Exchange</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="exchange/list.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">All Exchange</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
+              <li className={`sidebar-menu-item ${this.props.active === 'withdrawal' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/withdrawals`} className="">
                   <i className="menu-icon la la-bank" />
                   <span className="menu-title">Withdrawals </span>
-                  <span className="menu-badge pill bg--danger ms-auto">
-                    <i className="fa fa-exclamation" />
-                  </span>
                 </a>
-                <div className="sidebar-submenu  ">
-                  <ul>
-                    <li className="sidebar-menu-item  ">
-                      <a href="withdraw/pending.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Pending Withdrawals</span>
-                        <span className="menu-badge pill bg--danger ms-auto">
-                          12
-                        </span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="withdraw/approved.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Approved Withdrawals</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="withdraw/rejected.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Rejected Withdrawals</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="withdraw/log.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">All Withdrawals</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               
               <li className={`sidebar-menu-item ${this.props.active === 'tickets' ? 'active' : ''}`}>
@@ -153,13 +88,20 @@ class AdminSidebar extends React.Component {
                 </a>
               </li>
 
-
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
-                  <i className="menu-icon la la-list" />
-                  <span className="menu-title">Report </span>
+              <li className={`sidebar-menu-item ${this.props.active === 'referral' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/referrals`} className="">
+                <i className="menu-icon las la-comments-dollar" />
+                  <span className="menu-title">Referrals</span>
                 </a>
-                <div className="sidebar-submenu  ">
+              </li>
+
+
+              <li className={`sidebar-menu-item ${this.props.active === 'report' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/reports`} className="">
+                  <i className="menu-icon la la-list" />
+                  <span className="menu-title">Reports</span>
+                </a>
+                {/* <div className="sidebar-submenu  ">
                   <ul>
                     <li className="sidebar-menu-item ">
                       <a
@@ -186,115 +128,10 @@ class AdminSidebar extends React.Component {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </li>
-              <li className="sidebar-menu-item  ">
-                <a
-                  href="subscriber.html"
-                  className="nav-link"
-                  data-default-url="subscriber"
-                >
-                  <i className="menu-icon las la-thumbs-up" />
-                  <span className="menu-title">Subscribers </span>
-                </a>
-              </li>
-              <li className="sidebar__menu-header">Settings</li>
-              <li className="sidebar-menu-item ">
-                <a href="general-settings.html" className="nav-link">
-                  <i className="menu-icon las la-life-ring" />
-                  <span className="menu-title">General Setting</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item ">
-                <a href="setting/social/credentials.html" className="nav-link">
-                  <i className="menu-icon las la-users-cog" />
-                  <span className="menu-title">Social Credentials</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item ">
-                <a href="setting/system-configuration.html" className="nav-link">
-                  <i className="menu-icon las la-cog" />
-                  <span className="menu-title">System Configuration</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item  ">
-                <a
-                  href="referral.html"
-                  className="nav-link"
-                  data-default-url="referral"
-                >
-                  <i className="menu-icon las la-link" />
-                  <span className="menu-title">Referral Setting</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item ">
-                <a href="setting/logo-icon.html" className="nav-link">
-                  <i className="menu-icon las la-images" />
-                  <span className="menu-title">Logo &amp; Favicon</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item ">
-                <a href="seo.html" className="nav-link">
-                  <i className="menu-icon las la-globe" />
-                  <span className="menu-title">SEO Manager</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item ">
-                <a href="kyc-settings.html" className="nav-link">
-                  <i className="menu-icon las la-user-check" />
-                  <span className="menu-title">KYC Setting</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item ">
-                <a href="blocked-ip.html" className="nav-link">
-                  <i className="menu-icon las la-map-marked" />
-                  <span className="menu-title">IP Blocking</span>
-                </a>
-              </li>
-              <li className="sidebar-menu-item sidebar-dropdown">
-                <a href="javascript:void(0)" className="">
-                  <i className="menu-icon las la-bell" />
-                  <span className="menu-title">Notification Setting</span>
-                </a>
-                <div className="sidebar-submenu  ">
-                  <ul>
-                    <li className="sidebar-menu-item  ">
-                      <a href="notification/global.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Global Template</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a
-                        href="notification/email/setting.html"
-                        className="nav-link"
-                      >
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Email Setting</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="notification/sms/setting.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">SMS Setting</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item  ">
-                      <a href="notification/templates.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Notification Templates</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li className="sidebar__menu-header">Frontend Manager</li>
-              <li className="sidebar-menu-item ">
-                <a href="frontend/manage-pages.html" className="nav-link ">
-                  <i className="menu-icon la la-list" />
-                  <span className="menu-title">Manage Pages</span>
-                </a>
-              </li>
+
+             
             </ul>
           </div>
         </div>

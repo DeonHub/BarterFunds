@@ -52,6 +52,7 @@ class AdminHeader extends React.Component {
               <p>You have 15 unread notification</p>
             </div>
             <div className="dropdown-menu__body">
+
               <a
                 href="notification/read/461.html"
                 className="dropdown-menu__item"
@@ -73,6 +74,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/460.html"
                 className="dropdown-menu__item"
@@ -94,6 +96,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/459.html"
                 className="dropdown-menu__item"
@@ -115,6 +118,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+              
               <a
                 href="notification/read/457.html"
                 className="dropdown-menu__item"
@@ -135,6 +139,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/456.html"
                 className="dropdown-menu__item"
@@ -155,6 +160,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/455.html"
                 className="dropdown-menu__item"
@@ -175,6 +181,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/454.html"
                 className="dropdown-menu__item"
@@ -195,6 +202,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/452.html"
                 className="dropdown-menu__item"
@@ -215,6 +223,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/450.html"
                 className="dropdown-menu__item"
@@ -235,6 +244,7 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
               <a
                 href="notification/read/449.html"
                 className="dropdown-menu__item"
@@ -255,9 +265,11 @@ class AdminHeader extends React.Component {
                 </div>
                 {/* navbar-notifi end */}
               </a>
+
+
             </div>
             <div className="dropdown-menu__footer">
-              <a href="notifications.html" className="view-all-message">
+              <a href={`${process.env.PUBLIC_URL}/admin/notifications`} className="view-all-message">
                 View all notification
               </a>
             </div>

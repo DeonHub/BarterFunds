@@ -2,13 +2,14 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD:frontend/src/Admin/CurrencyCreate.js
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec:frontend/src/Admin/CreateCurrency.js
 
 
 
-
-
-class CurrencyLitecoin extends React.Component {
+class CreateCurrency extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,32 +25,32 @@ class CurrencyLitecoin extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'currency'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
       <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Edit Currency</h6>
+        <h6 className="page-title">Create Currency</h6>
         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
           <a
-            href="admin/currency/index"
+            href="javascript: history.go(-1)"
             className="btn btn-sm btn-outline--primary"
           >
-            Back
+            <i className="la la-undo" /> Back
           </a>
         </div>
       </div>
       <form
-        action="admin/currency/save/14"
-        method="post"
+        action="/currency/save"
+        method="POST"
         encType="multipart/form-data"
       >
         <input
           type="hidden"
           name="_token"
-          defaultValue="UNzijgbfPpKQOf0c7hJOCc3eMA2Ck8HlQjqS8MD7"
-        />
+          defaultValue="JWq30Re8ExPKUFuQhVgAV67s0ZwdehStVt7ZwLH8"
+        />{" "}
         <div className="row gy-4">
           <div className="col-lg-12">
             <div className="card">
@@ -62,7 +63,7 @@ class CurrencyLitecoin extends React.Component {
                           className="profilePicPreview"
                           style={{
                             backgroundImage:
-                              'url("/assets/images/currency/paypal.png")'
+                              'url("/assets/images/default.png")'
                           }}
                         ></div>
                       </div>
@@ -74,23 +75,26 @@ class CurrencyLitecoin extends React.Component {
                           id="image"
                           accept=".png, .jpg, .jpeg"
                         />
+                        <label htmlFor="image" className="bg--primary">
+                          <i className="la la-pencil" />
+                        </label>
                       </div>
                     </div>
                     <small className="mt-3 text-muted text--small">
-                      Supported files: <b>png, jpeg,jpg.</b> Image will be
-                      resized into 400x400 px
+                      Supported files: <b>png, jpeg,jpg.</b>
+                      Image will be resized into 400x400 px{" "}
                     </small>
                   </div>
                   <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-9">
                     <div className="row">
                       <div className="col-xxl-4 col-sm-12">
                         <div className="form-group">
-                          <label>Currency Name</label>{" "}
+                          <label>Currency Name</label>
                           <input
                             type="text"
                             className="form-control"
                             name="name"
-                            defaultValue="Litecoin"
+                            defaultValue=""
                             required=""
                             autoComplete="off"
                           />
@@ -98,33 +102,53 @@ class CurrencyLitecoin extends React.Component {
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Currency</label>{" "}
+                          <label> Currency</label>
                           <input
                             type="text"
                             name="currency"
                             className="form-control currency"
                             required=""
-                            defaultValue="USD"
+                            defaultValue=""
                           />
                         </div>
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Payment Gateway</label>{" "}
+                          <label> Payment Gateway</label>{" "}
+                          <i
+                            className="la la-info-circle"
+                            title="User will send the money by this payment gateway."
+                          />
                           <select
                             name="payment_gateway"
                             className="form-control"
                             required=""
                           >
                             <option value={0}>Manual</option>
-                            <option value={1} selected="">
-                              Yuan
-                            </option>
+                            <option value={1}>Paypal</option>
+                            <option value={2}>Perfect Money</option>
+                            <option value={3}>Stripe Hosted</option>
+                            <option value={4}>Skrill</option>
+                            <option value={5}>PayTM</option>
+                            <option value={6}>Payeer</option>
                             <option value={7}>PayStack</option>
+                            <option value={8}>VoguePay</option>
                             <option value={9}>Flutterwave</option>
+                            <option value={10}>RazorPay</option>
+                            <option value={11}>Stripe Storefront</option>
+                            <option value={12}>Instamojo</option>
                             <option value={13}>Blockchain</option>
                             <option value={15}>CoinPayments</option>
+                            <option value={16}>CoinPayments Fiat</option>
+                            <option value={17}>Coingate</option>
+                            <option value={18}>Coinbase Commerce</option>
+                            <option value={19}>Paypal Express</option>
+                            <option value={20}>Stripe Checkout</option>
+                            <option value={21}>Mollie</option>
+                            <option value={22}>Cashmaal</option>
+                            <option value={23}>Mercado Pago</option>
                             <option value={24}>Authorize.net</option>
+                            <option value={25}>NMI</option>
                           </select>
                         </div>
                       </div>
@@ -137,25 +161,25 @@ class CurrencyLitecoin extends React.Component {
                               step="any"
                               className="form-control"
                               name="buy_at"
-                              defaultValue="10.0"
+                              defaultValue=""
                               required=""
-                            />{" "}
+                            />
                             <span className="input-group-text">GHS</span>
                           </div>
                         </div>
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Sell At</label>
+                          <label> Sell At</label>
                           <div className="input-group">
                             <input
                               type="number"
                               step="any"
                               className="form-control"
                               name="sell_at"
-                              defaultValue="13"
+                              defaultValue=""
                               required=""
-                            />{" "}
+                            />
                             <span className="input-group-text">GHS</span>
                           </div>
                         </div>
@@ -168,48 +192,49 @@ class CurrencyLitecoin extends React.Component {
                               type="number"
                               step="any"
                               className="form-control"
-                              name="send_at"
-                              defaultValue="13.0"
+                              name="buy_at"
+                              defaultValue=""
                               required=""
-                            />{" "}
+                            />
                             <span className="input-group-text">GHS</span>
                           </div>
                         </div>
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Receive At</label>
+                          <label> Receive At</label>
                           <div className="input-group">
                             <input
                               type="number"
                               step="any"
                               className="form-control"
-                              name="receive_at"
-                              defaultValue="12.0"
+                              name="sell_at"
+                              defaultValue=""
                               required=""
-                            />{" "}
+                            />
                             <span className="input-group-text">GHS</span>
                           </div>
                         </div>
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Reserve</label>
+                          <label> Reserve</label>
                           <div className="input-group">
                             <input
                               type="number"
                               step="any"
                               className="form-control"
                               name="reserve"
-                              defaultValue={10000.0}
+                              defaultValue=""
                               required=""
                             />
+                            <span className="currency-symbol input-group-text" />
                           </div>
                         </div>
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Available For sell</label>{" "}
+                          <label>Available For sell</label>
                           <input
                             type="checkbox"
                             data-width="100%"
@@ -226,7 +251,7 @@ class CurrencyLitecoin extends React.Component {
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Available For buy</label>{" "}
+                          <label> Available For buy</label>
                           <input
                             type="checkbox"
                             data-width="100%"
@@ -243,7 +268,7 @@ class CurrencyLitecoin extends React.Component {
                       </div>
                       <div className="col-xxl-4 col-sm-6">
                         <div className="form-group">
-                          <label>Rate Show</label>{" "}
+                          <label> Rate Show</label>
                           <input
                             type="checkbox"
                             data-width="100%"
@@ -280,8 +305,9 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control rounded"
                         name="minimum_limit_for_sell"
                         required=""
-                        defaultValue={10.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none" />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -293,8 +319,9 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control rounded"
                         name="maximum_limit_for_sell"
                         required=""
-                        defaultValue={6000.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none" />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -306,7 +333,7 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control rounded"
                         name="fixed_charge_for_sell"
                         required=""
-                        defaultValue={1.0}
+                        defaultValue=""
                       />
                       <div className="input-group-text currency-symbol d-none" />
                     </div>
@@ -320,7 +347,7 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control"
                         name="percent_charge_for_sell"
                         required=""
-                        defaultValue="0.50"
+                        defaultValue=""
                       />
                       <div className="input-group-text">%</div>
                     </div>
@@ -345,8 +372,9 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control rounded"
                         name="minimum_limit_for_buy"
                         required=""
-                        defaultValue={1.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none " />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -358,8 +386,9 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control rounded"
                         name="maximum_limit_for_buy"
                         required=""
-                        defaultValue={50000.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none" />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -371,7 +400,7 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control rounded"
                         name="fixed_charge_for_buy"
                         required=""
-                        defaultValue={1.0}
+                        defaultValue=""
                       />
                       <div className="input-group-text currency-symbol d-none" />
                     </div>
@@ -385,7 +414,7 @@ class CurrencyLitecoin extends React.Component {
                         className="form-control"
                         name="percent_charge_for_buy"
                         required=""
-                        defaultValue="0.60"
+                        defaultValue=""
                       />
                       <div className="input-group-text">%</div>
                     </div>
@@ -408,10 +437,11 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control rounded"
-                        name="minimum_limit_for_send"
+                        name="minimum_limit_for_sell"
                         required=""
-                        defaultValue={50.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none" />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -421,10 +451,11 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control rounded"
-                        name="maximum_limit_for_send"
+                        name="maximum_limit_for_sell"
                         required=""
-                        defaultValue={10000.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none" />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -434,9 +465,9 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control rounded"
-                        name="fixed_charge_for_send"
+                        name="fixed_charge_for_sell"
                         required=""
-                        defaultValue={1.0}
+                        defaultValue=""
                       />
                       <div className="input-group-text currency-symbol d-none" />
                     </div>
@@ -448,9 +479,9 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control"
-                        name="percent_charge_for_send"
+                        name="percent_charge_for_sell"
                         required=""
-                        defaultValue="3"
+                        defaultValue=""
                       />
                       <div className="input-group-text">%</div>
                     </div>
@@ -473,10 +504,11 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control rounded"
-                        name="minimum_limit_for_receive"
+                        name="minimum_limit_for_buy"
                         required=""
-                        defaultValue={10.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none " />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -486,10 +518,11 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control rounded"
-                        name="maximum_limit_for_receive"
+                        name="maximum_limit_for_buy"
                         required=""
-                        defaultValue={5000.0}
+                        defaultValue=""
                       />
+                      <span className="input-group-text currency-symbol d-none" />
                     </div>
                   </div>
                   <div className="form-group col-lg-6">
@@ -499,9 +532,9 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control rounded"
-                        name="fixed_charge_for_receive"
+                        name="fixed_charge_for_buy"
                         required=""
-                        defaultValue={1.0}
+                        defaultValue=""
                       />
                       <div className="input-group-text currency-symbol d-none" />
                     </div>
@@ -513,9 +546,9 @@ class CurrencyLitecoin extends React.Component {
                         type="number"
                         step="any"
                         className="form-control"
-                        name="percent_charge_for_receive"
+                        name="percent_charge_for_buy"
                         required=""
-                        defaultValue="20"
+                        defaultValue=""
                       />
                       <div className="input-group-text">%</div>
                     </div>
@@ -527,50 +560,27 @@ class CurrencyLitecoin extends React.Component {
         </div>
         <div className="forManualGateway my-4">
           <div className="card">
-            <h5 className="card-header">Instruction</h5>
+            <h5 className="card-header">
+              Instruction{" "}
+              <i
+                className="fa fa-info-circle text--primary"
+                title="Write the payment instruction here. Users will see the instruction while exchanging money."
+              />
+            </h5>
             <div className="card-body">
               <div className="form-group">
                 <textarea
                   rows={8}
                   className="form-control nicEdit"
                   name="instruction"
-                  defaultValue={"Further instructions for manual payments"}
+                  defaultValue={""}
                 />
               </div>
             </div>
           </div>
-          <div className="card mt-4">
-            <div className="card-header d-flex justify-content-between">
-              <h5>Transaction Proof Form</h5>
-              <button
-                type="button"
-                className="btn btn-sm btn-outline--primary float-end form-generate-btn"
-                append-to="#transaction-proof"
-                input-name="transaction_proof"
-              >
-                Add New
-              </button>
-            </div>
-            <div className="card-body">
-              <div className="row addedField" id="transaction-proof" />
-            </div>
-          </div>
+          
         </div>
-        <div className="card my-4">
-          <div className="card-header d-flex justify-content-between">
-            <h5>Sending Form</h5>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline--primary float-end form-generate-btn"
-              append-to="#sending-details"
-            >
-              Add New
-            </button>
-          </div>
-          <div className="card-body">
-            <div className="row addedField" id="sending-details" />
-          </div>
-        </div>
+        
         <div className="col-12">
           <button type="submit" className="btn btn--primary w-100 h-45">
             Submit
@@ -583,17 +593,25 @@ class CurrencyLitecoin extends React.Component {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Generate Form</h5>
+            <button
+              type="button"
+              className="close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i className="las la-times" />
+            </button>
           </div>
           <form className="generate-form">
             <input
               type="hidden"
               name="_token"
-              defaultValue="UNzijgbfPpKQOf0c7hJOCc3eMA2Ck8HlQjqS8MD7"
-            />
+              defaultValue="JWq30Re8ExPKUFuQhVgAV67s0ZwdehStVt7ZwLH8"
+            />{" "}
             <div className="modal-body">
               <input type="hidden" name="update_id" defaultValue="" />
               <div className="form-group">
-                <label>Form Type</label>{" "}
+                <label>Form Type</label>
                 <select name="form_type" className="form-control" required="">
                   <option value="">Select One</option>
                   <option value="text">Text</option>
@@ -605,7 +623,7 @@ class CurrencyLitecoin extends React.Component {
                 </select>
               </div>
               <div className="form-group">
-                <label>Is Required</label>{" "}
+                <label>Is Required</label>
                 <select name="is_required" className="form-control" required="">
                   <option value="">Select One</option>
                   <option value="required">Required</option>
@@ -613,7 +631,7 @@ class CurrencyLitecoin extends React.Component {
                 </select>
               </div>
               <div className="form-group">
-                <label>Form Label</label>{" "}
+                <label>Form Label</label>
                 <input
                   type="text"
                   name="form_label"
@@ -621,7 +639,7 @@ class CurrencyLitecoin extends React.Component {
                   required=""
                 />
               </div>
-              <div className="form-group extra_area" />
+              <div className="form-group extra_area"></div>
             </div>
             <div className="modal-footer">
               <button
@@ -637,6 +655,7 @@ class CurrencyLitecoin extends React.Component {
     </div>
   </div>
   {/* bodywrapper__inner end */}
+  {/* body-wrapper end */}
 </>
 
         
@@ -649,4 +668,4 @@ class CurrencyLitecoin extends React.Component {
 }
 
 
-export default CurrencyLitecoin;
+export default CreateCurrency;

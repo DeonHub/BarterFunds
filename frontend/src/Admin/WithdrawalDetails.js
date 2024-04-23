@@ -2,13 +2,16 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD:frontend/src/Admin/WithdrawDetailsPending.js
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec:frontend/src/Admin/WithdrawalDetails.js
 
 
 
 
 
-class WithdrawDetailsPending extends React.Component {
+class WithdrawalDetails extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,7 +27,7 @@ class WithdrawDetailsPending extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'withdrawal'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -208,4 +211,4 @@ class WithdrawDetailsPending extends React.Component {
 }
 
 
-export default WithdrawDetailsPending;
+export default WithdrawalDetails;

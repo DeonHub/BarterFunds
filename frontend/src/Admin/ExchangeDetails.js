@@ -2,13 +2,16 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD:frontend/src/Admin/ExchangeDetailsApproved.js
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec:frontend/src/Admin/ExchangeDetails.js
 
 
 
 
 
-class ExchangeDetailsPending extends React.Component {
+class ExchangeDetails extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,7 +27,7 @@ class ExchangeDetailsPending extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'exchange'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -33,14 +36,14 @@ class ExchangeDetailsPending extends React.Component {
         <h6 className="page-title">Exchange Details: U69OE15P6HGX</h6>
         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
           <a
-            href="../../admin/exchange/list"
+            href="javascript: history.go(-1)"
             className="btn btn-sm btn-outline--primary"
           >
             <i className="la la-undo" /> Back
           </a>
           <a
             href="../../admin/exchange/exchange/download/1717"
-            className="btn btn-sm btn-outline--dark"
+            className="btn btn-sm btn-primary"
           >
             <i className="la la-download" />
             Download
@@ -187,13 +190,13 @@ class ExchangeDetailsPending extends React.Component {
                 <li className="list-group-item d-flex justify-content-between flex-wrap">
                   <span className="fw-bold"> Status</span>
                   <div className="text-end">
-                    <span className="badge badge--warning">Pending</span>
+                    <span className="badge badge--success">Approved</span>
                   </div>
                 </li>
                 <li className="list-group-item d-flex justify-content-between flex-wrap">
                   <span className="fw-bold"> Automatic Payment Status</span>
                   <div className="text-end">
-                    <span className="badge badge--danger">Not Completed</span>
+                    <span className="badge badge--success">Completed</span>
                   </div>
                 </li>
                 <li className="list-group-item d-flex justify-content-between flex-wrap">
@@ -291,4 +294,4 @@ class ExchangeDetailsPending extends React.Component {
 }
 
 
-export default ExchangeDetailsPending;
+export default ExchangeDetails;

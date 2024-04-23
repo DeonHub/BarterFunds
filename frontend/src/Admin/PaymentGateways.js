@@ -2,13 +2,14 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD:frontend/src/Admin/GatewayAutomatic.js
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec:frontend/src/Admin/PaymentGateways.js
 
 
 
-
-
-class GatewayAutomatic extends React.Component {
+class PaymentGateways extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,7 +25,7 @@ class GatewayAutomatic extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'gateway'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -73,7 +74,7 @@ class GatewayAutomatic extends React.Component {
                       <td>
                         <div className="button--group">
                           <a
-                            href="edit/authorize.html"
+                            href={`${process.env.PUBLIC_URL}/admin/payment-gateways/edit-gateway/1234567890`}
                             className="btn btn-sm btn-outline--primary editGatewayBtn"
                           >
                             <i className="la la-pencil" />
@@ -294,4 +295,4 @@ class GatewayAutomatic extends React.Component {
 }
 
 
-export default GatewayAutomatic;
+export default PaymentGateways;

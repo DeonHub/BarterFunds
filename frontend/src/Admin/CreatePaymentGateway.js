@@ -2,13 +2,16 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD:frontend/src/Admin/GatewayEditBlockchain.js
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec:frontend/src/Admin/CreatePaymentGateway.js
 
 
 
 
 
-class GatewayEditFlutterwave extends React.Component {
+class CreatePaymentGateway extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,16 +27,16 @@ class GatewayEditFlutterwave extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'gateway'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
       <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Update Gateway</h6>
+        <h6 className="page-title">Update Payment Gateway</h6>
         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
           <a
-            href="admin/gateway/automatic"
+            href="javascript:history.back()"
             className="btn btn-sm btn-outline--primary"
           >
             <i className="la la-undo" /> Back
@@ -44,7 +47,7 @@ class GatewayEditFlutterwave extends React.Component {
         <div className="col-lg-12">
           <div className="card">
             <form
-              action="admin/gateway/automatic/update/109"
+              action="gateway/automatic/update/120"
               method="POST"
               encType="multipart/form-data"
             >
@@ -53,28 +56,28 @@ class GatewayEditFlutterwave extends React.Component {
                 name="_token"
                 defaultValue="UNzijgbfPpKQOf0c7hJOCc3eMA2Ck8HlQjqS8MD7"
               />
-              <input type="hidden" name="alias" defaultValue="Flutterwave" />
+              <input type="hidden" name="alias" defaultValue="Authorize" />
               <input type="hidden" name="description" defaultValue="" />
               <div className="card-body">
                 <div className="payment-method-item block-item">
                   <div className="payment-method-header">
                     <div className="content ps-0 w-100">
                       <div className="d-flex justify-content-between">
-                        <h3>Flutterwave</h3>
+                        <h3>Authorize.net</h3>
                         <div className="input-group d-flex flex-wrap justify-content-end width-375">
                           <select className="newCurrencyVal ">
                             <option value="">Select currency</option>
-                            <option value="BIF" data-symbol="BIF">
-                              BIF
+                            <option value="USD" data-symbol="USD">
+                              USD
                             </option>
                             <option value="CAD" data-symbol="CAD">
                               CAD
                             </option>
-                            <option value="CDF" data-symbol="CDF">
-                              CDF
+                            <option value="CHF" data-symbol="CHF">
+                              CHF
                             </option>
-                            <option value="CVE" data-symbol="CVE">
-                              CVE
+                            <option value="DKK" data-symbol="DKK">
+                              DKK
                             </option>
                             <option value="EUR" data-symbol="EUR">
                               EUR
@@ -82,66 +85,27 @@ class GatewayEditFlutterwave extends React.Component {
                             <option value="GBP" data-symbol="GBP">
                               GBP
                             </option>
-                            <option value="GHS" data-symbol="GHS">
-                              GHS
+                            <option value="NOK" data-symbol="NOK">
+                              NOK
                             </option>
-                            <option value="GMD" data-symbol="GMD">
-                              GMD
+                            <option value="PLN" data-symbol="PLN">
+                              PLN
                             </option>
-                            <option value="GNF" data-symbol="GNF">
-                              GNF
+                            <option value="SEK" data-symbol="SEK">
+                              SEK
                             </option>
-                            <option value="KES" data-symbol="KES">
-                              KES
+                            <option value="AUD" data-symbol="AUD">
+                              AUD
                             </option>
-                            <option value="LRD" data-symbol="LRD">
-                              LRD
-                            </option>
-                            <option value="MWK" data-symbol="MWK">
-                              MWK
-                            </option>
-                            <option value="MZN" data-symbol="MZN">
-                              MZN
-                            </option>
-                            <option value="NGN" data-symbol="NGN">
-                              NGN
-                            </option>
-                            <option value="RWF" data-symbol="RWF">
-                              RWF
-                            </option>
-                            <option value="SLL" data-symbol="SLL">
-                              SLL
-                            </option>
-                            <option value="STD" data-symbol="STD">
-                              STD
-                            </option>
-                            <option value="TZS" data-symbol="TZS">
-                              TZS
-                            </option>
-                            <option value="UGX" data-symbol="UGX">
-                              UGX
-                            </option>
-                            <option value="XAF" data-symbol="XAF">
-                              XAF
-                            </option>
-                            <option value="XOF" data-symbol="XOF">
-                              XOF
-                            </option>
-                            <option value="ZMK" data-symbol="ZMK">
-                              ZMK
-                            </option>
-                            <option value="ZMW" data-symbol="ZMW">
-                              ZMW
-                            </option>
-                            <option value="ZWD" data-symbol="ZWD">
-                              ZWD
+                            <option value="NZD" data-symbol="NZD">
+                              NZD
                             </option>
                           </select>
                           <button
                             type="button"
                             className="btn btn--primary input-group-text newCurrencyBtn"
                             data-crypto={0}
-                            data-name="Flutterwave"
+                            data-name="Authorize.net"
                           >
                             Add new
                           </button>
@@ -151,35 +115,25 @@ class GatewayEditFlutterwave extends React.Component {
                     </div>
                   </div>
                   <div className="payment-method-body mt-2">
-                    <h4 className="mb-3">Global Setting for Flutterwave</h4>
+                    <h4 className="mb-3">Global Setting for Authorize.net</h4>
                     <div className="row">
                       <div className="form-group col-lg-6">
-                        <label>Public Key</label>
+                        <label>Login ID</label>
                         <input
                           type="text"
                           className="form-control"
-                          name="global[public_key]"
-                          defaultValue="----------------"
+                          name="global[login_id]"
+                          defaultValue="59e4P9DBcZv"
                           required=""
                         />
                       </div>
                       <div className="form-group col-lg-6">
-                        <label>Secret Key</label>
+                        <label>Transaction Key</label>
                         <input
                           type="text"
                           className="form-control"
-                          name="global[secret_key]"
-                          defaultValue="-----------------------"
-                          required=""
-                        />
-                      </div>
-                      <div className="form-group col-lg-6">
-                        <label>Encryption Key</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="global[encryption_key]"
-                          defaultValue="------------------"
+                          name="global[transaction_key]"
+                          defaultValue="47x47TJyLw2E7DbR"
                           required=""
                         />
                       </div>
@@ -187,172 +141,13 @@ class GatewayEditFlutterwave extends React.Component {
                   </div>
                 </div>
                 {/* payment-method-item start */}
-                <input
-                  type="hidden"
-                  name="currency[1][symbol]"
-                  defaultValue="USD"
-                />
-                <div className="payment-method-item block-item child--item">
-                  <div className="payment-method-header">
-                    <div className="content w-100 ps-0">
-                      <div className="d-flex justify-content-between">
-                        <div className="form-group">
-                          <h4 className="mb-3">Flutterwave - USD</h4>
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="currency[1][name]"
-                            defaultValue="Flutterwave - USD"
-                            required=""
-                          />
-                        </div>
-                        <div className="remove-btn">
-                          <button
-                            type="button"
-                            className="btn btn--danger confirmationBtn"
-                            data-question="Are you sure to delete this gateway currency?"
-                            data-action="admin/gateway/automatic/remove/65"
-                          >
-                            <i className="la la-trash-o me-2" />
-                            Remove
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="payment-method-body">
-                    <div className="row">
-                      <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="card border--primary mt-2">
-                          <h5 className="card-header bg--primary">Range</h5>
-                          <div className="card-body">
-                            <div className="form-group">
-                              <label>Minimum Amount</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][min_amount]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">GHS</div>
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label>Maximum Amount</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][max_amount]"
-                                  defaultValue={2000}
-                                  required=""
-                                />
-                                <div className="input-group-text">GHS</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="card border--primary mt-2">
-                          <h5 className="card-header bg--primary">Charge</h5>
-                          <div className="card-body">
-                            <div className="form-group">
-                              <label>Fixed Charge</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][fixed_charge]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">GHS</div>
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label>Percent Charge</label>
-                              <div className="input-group">
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][percent_charge]"
-                                  defaultValue={0}
-                                  required=""
-                                />
-                                <div className="input-group-text">%</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="card border--primary mt-2">
-                          <h5 className="card-header bg--primary">Currency</h5>
-                          <div className="card-body">
-                            <div className="row">
-                              <div className="col-md-6">
-                                <div className="form-group">
-                                  <label>Currency</label>
-                                  <input
-                                    type="text"
-                                    name="currency[1][currency]"
-                                    className="form-control border-radius-5 "
-                                    defaultValue="USD"
-                                    readOnly=""
-                                  />
-                                </div>
-                              </div>
-                              <div className="col-md-6">
-                                <div className="form-group">
-                                  <label>Symbol</label>
-                                  <input
-                                    type="text"
-                                    name="currency[1][symbol]"
-                                    className="form-control border-radius-5 symbl"
-                                    defaultValue="USD"
-                                    data-crypto={0}
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label>Rate</label>
-                              <div className="input-group">
-                                <div className="input-group-text">1 GHS =</div>
-                                <input
-                                  type="number"
-                                  step="any"
-                                  className="form-control"
-                                  name="currency[1][rate]"
-                                  defaultValue={1}
-                                  required=""
-                                />
-                                <div className="input-group-text">
-                                  <span className="currency_symbol">USD</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 {/* payment-method-item end */}
                 {/* **new payment-method-item start */}
                 <div className="payment-method-item child--item newMethodCurrency d-none">
                   <input
                     disabled=""
                     type="hidden"
-                    name="currency[2][symbol]"
+                    name="currency[1][symbol]"
                     className="currencySymbol"
                   />
                   <div className="payment-method-header">
@@ -366,7 +161,7 @@ class GatewayEditFlutterwave extends React.Component {
                             disabled=""
                             type="text"
                             className="form-control"
-                            name="currency[2][name]"
+                            name="currency[1][name]"
                             required=""
                           />
                         </div>
@@ -397,7 +192,7 @@ class GatewayEditFlutterwave extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][min_amount]"
+                                  name="currency[1][min_amount]"
                                   required=""
                                 />
                               </div>
@@ -411,7 +206,7 @@ class GatewayEditFlutterwave extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][max_amount]"
+                                  name="currency[1][max_amount]"
                                   required=""
                                 />
                               </div>
@@ -432,7 +227,7 @@ class GatewayEditFlutterwave extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][fixed_charge]"
+                                  name="currency[1][fixed_charge]"
                                   required=""
                                 />
                               </div>
@@ -446,7 +241,7 @@ class GatewayEditFlutterwave extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][percent_charge]"
+                                  name="currency[1][percent_charge]"
                                   required=""
                                 />
                               </div>
@@ -466,7 +261,7 @@ class GatewayEditFlutterwave extends React.Component {
                                     disabled=""
                                     type="step"
                                     className="form-control currencyText border-radius-5"
-                                    name="currency[2][currency]"
+                                    name="currency[1][currency]"
                                     readOnly=""
                                   />
                                 </div>
@@ -477,7 +272,7 @@ class GatewayEditFlutterwave extends React.Component {
                                   <input
                                     disabled=""
                                     type="text"
-                                    name="currency[2][symbol]"
+                                    name="currency[1][symbol]"
                                     className="form-control border-radius-5 symbl"
                                     ata-crypto={0}
                                   />
@@ -495,7 +290,7 @@ class GatewayEditFlutterwave extends React.Component {
                                   type="number"
                                   step="any"
                                   className="form-control"
-                                  name="currency[2][rate]"
+                                  name="currency[1][rate]"
                                   required=""
                                 />
                                 <div className="input-group-text">
@@ -572,7 +367,6 @@ class GatewayEditFlutterwave extends React.Component {
 
         
         
-        
 
       </div>
 
@@ -581,4 +375,4 @@ class GatewayEditFlutterwave extends React.Component {
 }
 
 
-export default GatewayEditFlutterwave;
+export default CreatePaymentGateway;

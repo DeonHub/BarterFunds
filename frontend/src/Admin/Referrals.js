@@ -2,13 +2,14 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+<<<<<<< HEAD:frontend/src/Admin/ReportReferralCommission.js
 import { withGlobalState } from '../withGlobalState';
+=======
+>>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec:frontend/src/Admin/Referrals.js
 
 
 
-
-
-class ReportReferralCommission extends React.Component {
+class Referrals extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,14 +25,24 @@ class ReportReferralCommission extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'referral'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
       <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
         <h6 className="page-title">Referral Commissions</h6>
-        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins"></div>
+        
+        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+          <a
+            href="#"
+            className="btn btn-sm btn-outline--primary"
+          >
+            <i className="la la-undo" /> Referral Settings
+          </a>
+        </div>
+        </div>
       </div>
       <div className="row">
         <div className="col-lg-12">
@@ -80,4 +91,4 @@ class ReportReferralCommission extends React.Component {
 }
 
 
-export default ReportReferralCommission;
+export default Referrals;
