@@ -20,11 +20,7 @@ class UserFooter extends React.Component {
         <div className="nk-footer-wrap">
           <div className="nk-footer-copyright">
             {" "}
-            © 2024 Barter Funds. All Rights Reserved. Powered by:
-            <a href="#" target="_blank">
-              {" "}
-              Currency Technologies
-            </a>
+            © 2019 - 2024 Barter Funds. All Rights Reserved.
           </div>
         </div>
       </div>

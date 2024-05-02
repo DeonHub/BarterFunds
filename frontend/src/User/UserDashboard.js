@@ -1,8 +1,10 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './User.css'
 import UserSidebar from "./components/UserSidebar";
 import UserHeader from "./components/UserHeader";
 import UserFooter from "./components/UserFooter";
+
 
 class UserDashboard extends React.Component {
   constructor(props) {
@@ -19,7 +21,8 @@ class UserDashboard extends React.Component {
   render() {
 
     return (
-      <div className="nk-app-root">
+      <div className="nk-body npc-crypto bg-white has-sidebar">
+        <div className="nk-app-root">
         <div className="nk-main ">
           <UserSidebar />
           <div className="nk-wrap ">
@@ -29,7 +32,51 @@ class UserDashboard extends React.Component {
     <div className="nk-content-body">
       <div className="nk-block">
         <div className="row gy-gs">
-          <div className="col-lg-7 col-xl-12">
+        <div className="col-lg-5 col-xl-4">
+  <div className="nk-block">
+    <div className="nk-block-head-xs">
+      <div className="nk-block-head-content">
+        <h5 className="nk-block-title title">Overview</h5>
+      </div>
+    </div>
+    <div className="nk-block">
+      <div className="card card-bordered text-light is-dark h-100">
+        <div className="card-inner">
+          <div className="nk-wg7">
+            <div className="nk-wg7-stats">
+              <div className="nk-wg7-title">Barter Wallet Balance</div>
+              <div className="number-lg amount">GHS 290.00</div>
+            </div>
+            <div className="user-account-actions">
+  <ul className="g-1">
+    <li>
+      <a href="#" className="btn btn-lg btn-primary">
+        <span>Deposit</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" className="btn btn-lg btn-primary">
+        <span>Withdraw</span>
+      </a>
+    </li>
+  </ul>
+  <br></br>
+  <div>
+      <a href="#" className="btn btn-lg btn-primary">
+        <span>Exchange</span>
+      </a>
+    </div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div className="col-lg-7 col-xl-8">
             <div className="nk-block">
               <div className="nk-block-head-xs">
                 <div className="nk-block-between-md g-2">
@@ -38,6 +85,7 @@ class UserDashboard extends React.Component {
                   </div>
                 </div>
               </div>
+              
               {/* .nk-block-head */}
               <div className="row g-2">
                 <div className="col-sm-4">
@@ -49,7 +97,10 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-btc" />
+                          <img
+                              src="/assets/images/currency/btc.png"
+                              alt="bitcoin"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">Bitcoin</h5>
                         </div>
@@ -73,7 +124,10 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-usdc" />
+                          <img
+                              src="/assets/images/currency/usdc.png"
+                              alt="usd coin"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">USD Coin</h5>
                         </div>
@@ -97,14 +151,17 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-usdt" />
+                          <img
+                              src="/assets/images/currency/usdt.png"
+                              alt="usdt"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">Tether USDT</h5>
                         </div>
                         <div className="nk-wgw-balance">
                           <div className="amount">
                             4.434953
-                            <span className="currency currency-btc">USDT</span>
+                            <span className="currency currency-usdt">USDT</span>
                           </div>
                         </div>
                       </a>
@@ -121,7 +178,10 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-eth" />
+                          <img
+                              src="/assets/images/currency/ethereum.png"
+                              alt="ethereum"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">Ethereum</h5>
                         </div>
@@ -145,7 +205,10 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-ltc" />
+                          <img
+                              src="/assets/images/currency/litecoin.png"
+                              alt="light coin"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">Litecoin</h5>
                         </div>
@@ -169,7 +232,10 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-bch" />
+                          <img
+                              src="/assets/images/currency/bch.png"
+                              alt="bitcoin cash"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">Bitcoin Cash</h5>
                         </div>
@@ -193,8 +259,8 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <img
-                              src="/frontend/user/images/coins/pp.png"
+                          <img
+                              src="/assets/images/currency/paypal.png"
                               alt="paypal"
                             />
                           </div>
@@ -220,7 +286,10 @@ class UserDashboard extends React.Component {
                       >
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
-                            <em className="icon ni ni-sign-cny" />
+                          <img
+                              src="/assets/images/currency/alipay.png"
+                              alt="Alipay"
+                            />
                           </div>
                           <h5 className="nk-wgw-title title">Yuan CNY</h5>
                         </div>
@@ -245,7 +314,7 @@ class UserDashboard extends React.Component {
                         <div className="nk-wgw-name">
                           <div className="nk-wgw-icon">
                             <img
-                              src="/frontend/user/images/coins/pm.png"
+                              src="/assets/images/currency/perfectmoney.png"
                               alt="perfectmoney Icon"
                             />
                           </div>
@@ -568,6 +637,8 @@ class UserDashboard extends React.Component {
 
 
       </div>
+
+      </div> 
   
 
 

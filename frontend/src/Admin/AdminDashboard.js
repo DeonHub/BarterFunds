@@ -1,5 +1,5 @@
 import React from "react";
-import './Admin.css'
+import styles from './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
 import { withGlobalState } from '../withGlobalState';
@@ -43,7 +43,7 @@ class AdminDashboard extends React.Component {
               </div>
               <div className="col-8 text-end">
                 <span className="text--white text--small">Total Users</span>
-                <h2 className="text--white">0</h2>
+                <h2 className={styles.text__white}>0</h2>
               </div>
             </div>
           </div>

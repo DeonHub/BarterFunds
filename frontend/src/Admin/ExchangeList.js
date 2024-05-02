@@ -2,10 +2,8 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
-<<<<<<< HEAD
 import { withGlobalState } from '../withGlobalState';
-=======
->>>>>>> 03f2386db9d8d0c97dd83c2fadb9ebb3fd8c49ec
+
 
 
 

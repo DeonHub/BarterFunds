@@ -1,5 +1,4 @@
 import React from "react";
-import '../Admin.css'
 
 class AdminSidebar extends React.Component {
   constructor(props) {

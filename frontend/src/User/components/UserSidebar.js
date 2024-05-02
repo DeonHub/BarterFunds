@@ -1,4 +1,11 @@
 import React from "react";
+import { RxDashboard } from "react-icons/rx";
+import { GrTransaction } from "react-icons/gr";
+import { LuWallet2 } from "react-icons/lu";
+import { TbTransform } from "react-icons/tb";
+import { TbTransfer } from "react-icons/tb";
+import { RiExchangeDollarLine } from "react-icons/ri";
+import { FaRegUser } from "react-icons/fa";
 
 class UserSidebar extends React.Component {
   constructor(props) {
@@ -24,7 +31,7 @@ class UserSidebar extends React.Component {
         
         <img
           className="logo-img"
-          src="/assets/images/barterfunds-logo.png"
+          src="/assets/images/logo.png"
           alt="dashboard logo"
         />
       </a>
@@ -45,71 +52,47 @@ class UserSidebar extends React.Component {
       <div className="nk-sidebar-content">
         <div className="nk-sidebar-menu">
           <ul className="nk-menu">
-            <li className="nk-menu-heading">
-              <h6 className="overline-title text-primary-alt">OVERVIEW</h6>
-            </li>
             {/* .nk-menu-item */}
             <li className="nk-menu-item">
               <a href="/frontend/user/index.html" className="nk-menu-link">
-                <span className="nk-menu-icon">
-                  <em className="icon ni ni-dashboard" />
-                </span>
+              <span class="nk-menu-icon"><em class="icon la la-server"></em></span>
                 <span className="nk-menu-text">Dashboard</span>
               </a>
             </li>
-            {/* .nk-menu-item */}
             <li className="nk-menu-heading">
               <h6 className="overline-title text-primary-alt">TRANSACTIONS</h6>
             </li>
-            {/* .nk-menu-item */}
+            {/* .nk-menu-heading */}
             <li className="nk-menu-item">
               <a
                 href="/frontend/user/panel/buy/btc.html"
                 className="nk-menu-link"
               >
                 <span className="nk-menu-icon">
-                  <em className="icon ni ni-panel" />
+                <span class="nk-menu-icon"><em class="icon la la-exchange"></em></span>
                 </span>
                 <span className="nk-menu-text">Buy Sell Panel</span>
                 <span className="nk-menu-badge">HOT</span>
               </a>
             </li>
-            {/* .nk-menu-item */}
-            <li className="nk-menu-heading">
-              <h6 className="overline-title text-primary-alt">PAYMENTS</h6>
-            </li>
-            {/* .nk-menu-item */}
-            <li className="nk-menu-item">
-              <a href="/frontend/user/wallet.html" className="nk-menu-link">
-                <span className="nk-menu-icon">
-                  <em className="icon ni ni-wallet-alt" />
-                </span>
-                <span className="nk-menu-text">Barter Wallet</span>
-                <span className="nk-menu-badge">COMING SOON</span>
-              </a>
-            </li>
-            {/* .nk-menu-item */}
             <li className="nk-menu-item">
               <a
                 href="/frontend/user/transactions.html"
                 className="nk-menu-link"
               >
                 <span className="nk-menu-icon">
-                  <em className="icon ni ni-sign-cc-alt" />
+                <span class="nk-menu-icon"><em class="icon la la-cart-plus"></em></span>
                 </span>
                 <span className="nk-menu-text">Manage Orders</span>
               </a>
             </li>
-            {/* .nk-menu-item */}
             <li className="nk-menu-item">
-              <a
-                href="/frontend/user/coming-soon.html"
-                className="nk-menu-link"
-              >
+              <a href="/frontend/user/wallet.html" className="nk-menu-link">
                 <span className="nk-menu-icon">
-                  <em className="icon ni ni-exchange" />
+                <span class="nk-menu-icon"><em class="icon la la-wallet"></em></span>
                 </span>
-                <span className="nk-menu-text">Exchange Rates</span>
+                <span className="nk-menu-text">Barter Wallet</span>
+                <span className="nk-menu-badge">COMING SOON</span>
               </a>
             </li>
             {/* .nk-menu-item */}
@@ -120,7 +103,7 @@ class UserSidebar extends React.Component {
             <li className="nk-menu-item has-sub">
               <a href="#" className="nk-menu-link nk-menu-toggle">
                 <span className="nk-menu-icon">
-                  <em className="icon ni ni-users" />
+                <span class="nk-menu-icon"><em class="icon la la-user"></em></span>
                 </span>
                 <span className="nk-menu-text">My Account</span>
               </a>
@@ -140,7 +123,7 @@ class UserSidebar extends React.Component {
             <li className="nk-menu-item has-sub">
               <a href="#" className="nk-menu-link nk-menu-toggle">
                 <span className="nk-menu-icon">
-                  <em className="icon ni ni-tranx" />
+                <span class="nk-menu-icon"><em class="icon la la-layer-group"></em></span>
                 </span>
                 <span className="nk-menu-text">Transactions</span>
               </a>
@@ -156,31 +139,10 @@ class UserSidebar extends React.Component {
               </ul>
               {/* .nk-menu-sub */}
             </li>
-            {/* .nk-menu-item */}
             <li className="nk-menu-item has-sub">
               <a href="#" className="nk-menu-link nk-menu-toggle">
                 <span className="nk-menu-icon">
-                  <em className="icon ni ni-user" />
-                </span>
-                <span className="nk-menu-text">KYC</span>
-              </a>
-              <ul className="nk-menu-sub">
-                <li className="nk-menu-item">
-                  <a
-                    href="/frontend/user/kyc/application.html"
-                    className="nk-menu-link"
-                  >
-                    <span className="nk-menu-text">Get Started</span>
-                  </a>
-                </li>
-              </ul>
-              {/* .nk-menu-sub */}
-            </li>
-            {/* .nk-menu-item */}
-            <li className="nk-menu-item has-sub">
-              <a href="#" className="nk-menu-link nk-menu-toggle">
-                <span className="nk-menu-icon">
-                  <em className="icon ni ni-question" />
+                  <em className="icon la la-comments" />
                 </span>
                 <span className="nk-menu-text">Support Center</span>
               </a>
@@ -190,7 +152,7 @@ class UserSidebar extends React.Component {
                     href="/frontend/user/support.html"
                     className="nk-menu-link"
                   >
-                    <span className="nk-menu-text">Live Chat</span>
+                    <span className="nk-menu-text">Create Ticket</span>
                   </a>
                 </li>
                 <li className="nk-menu-item">
@@ -219,69 +181,6 @@ class UserSidebar extends React.Component {
           {/* .nk-menu */}
         </div>
         {/* .nk-sidebar-menu */}
-        <div className="nk-sidebar-footer">
-          <ul className="nk-menu nk-menu-footer">
-            <li className="nk-menu-item">
-              <a href="#" className="nk-menu-link">
-                <span className="nk-menu-icon">
-                  <em className="icon ni ni-help-alt" />
-                </span>
-                <span className="nk-menu-text">Support</span>
-              </a>
-            </li>
-            <li className="nk-menu-item ms-auto">
-              <div className="dropup">
-                <a
-                  href="#"
-                  className="nk-menu-link dropdown-indicator has-indicator"
-                  data-bs-toggle="dropdown"
-                  data-offset="0,10"
-                >
-                  <span className="nk-menu-icon">
-                    <em className="icon ni ni-globe" />
-                  </span>
-                  <span className="nk-menu-text">English</span>
-                </a>
-                <div className="dropdown-menu dropdown-menu-sm dropdown-menu-end">
-                  <ul className="language-list">
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/uk.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">English</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/spanish.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">Spanish</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/french.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">French</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-          </ul>
-          {/* .nk-footer-menu */}
-        </div>
-        {/* .nk-sidebar-footer */}
       </div>
       {/* .nk-sidebar-content */}
     </div>

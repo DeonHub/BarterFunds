@@ -1,4 +1,6 @@
 import React from "react";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { BsCardText } from "react-icons/bs";
 
 class UserHeader extends React.Component {
   constructor(props) {
@@ -24,22 +26,20 @@ class UserHeader extends React.Component {
               className="nk-nav-toggle nk-quick-nav-icon"
               data-target="sidebarMenu"
             >
-              <em className="icon ni ni-menu" />
+              <em className="icon la la-bars" />
             </a>
           </div>
           <div className="nk-header-brand d-xl-none">
-            <a href="/frontend/user/index.html" className="logo-link">
+            <a href="/assets/index.html" className="logo-link">
               <img
                 className="logo-light logo-img"
-                src="/frontend/user/images/logo.png"
-                srcSet="/frontend/user/images/logo2x.png 2x"
+                src="/assets/images/logo.png"
+                srcSet="/assets/images/logo2x.png 2x"
                 alt="logo"
               />
               <img
                 className="logo-dark logo-img"
-                src="/frontend/user/images/logo-dark.png"
-                srcSet="/frontend/user/images/logo-dark2x.png 2x"
-                alt="logo-dark"
+                src="/assets/images/logo.png"
               />
             </a>
           </div>
@@ -48,14 +48,14 @@ class UserHeader extends React.Component {
             <div className="nk-news-list">
               <a className="nk-news-item" href="#">
                 <div className="nk-news-icon">
-                  <em className="icon ni ni-card-view" />
+                  <em className="icon la la-newspaper"></em> 
                 </div>
                 <div className="nk-news-text">
                   <p>
                     Get realtime update on our exchange rates
                     <span> Subscribe to our newsletter now!</span>
                   </p>
-                  <em className="icon ni ni-external" />
+                  <em className="icon la la-external-link"></em>
                 </div>
               </a>
             </div>
@@ -63,71 +63,11 @@ class UserHeader extends React.Component {
           {/* .nk-header-news */}
           <div className="nk-header-tools">
             <ul className="nk-quick-nav">
-              <li className="dropdown language-dropdown d-none d-sm-block me-n1">
-                <a
-                  href="#"
-                  className="dropdown-toggle nk-quick-nav-icon"
-                  data-bs-toggle="dropdown"
-                >
-                  <div className="quick-icon border border-light">
-                    <img
-                      className="icon"
-                      src="/frontend/user/images/flags/english-sq.png"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="dropdown-menu dropdown-menu-end dropdown-menu-s1">
-                  <ul className="language-list">
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/english.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">English</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/spanish.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">Español</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/french.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">Français</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="language-item">
-                        <img
-                          src="/frontend/user/images/flags/turkey.png"
-                          alt=""
-                          className="language-flag"
-                        />
-                        <span className="language-name">Türkçe</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              {/* .dropdown */}
               <li className="dropdown user-dropdown">
                 <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown">
                   <div className="user-toggle">
                     <div className="user-avatar sm">
-                      <em className="icon ni ni-user-alt" />
+                      <em className="icon la la-user-alt" />
                     </div>
                     <div className="user-info d-none d-md-block">
                       <div className="user-status">Administrator</div>
@@ -152,14 +92,14 @@ class UserHeader extends React.Component {
                   <div className="dropdown-inner">
                     <ul className="link-list">
                       <li>
-                        <a href="/frontend/user/user/profile.html">
-                          <em className="icon ni ni-user-alt" />
+                        <a href="/assets/user/profile.html">
+                          <em className="icon la la-user-alt" />
                           <span>View Profile</span>
                         </a>
                       </li>
                       <li>
                         <a href="user/profile-setting.html">
-                          <em className="icon ni ni-setting-alt" />
+                          <em className="icon la la-setting-alt" />
                           <span>Account Setting</span>
                         </a>
                       </li>
@@ -191,7 +131,7 @@ class UserHeader extends React.Component {
                   data-bs-toggle="dropdown"
                 >
                   <div className="icon-status icon-status-info">
-                    <em className="icon ni ni-bell" />
+                    <em className="icon la la-bell" />
                   </div>
                 </a>
                 <div className="dropdown-menu dropdown-menu-xl dropdown-menu-end dropdown-menu-s1">
