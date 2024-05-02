@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { withGlobalState } from "../withGlobalState";
-import TextInput from "./components/TextInput";
-import openNotification from "./components/OpenNotification";
+import TextInput from "../components/TextInput";
+import openNotification from "../components/OpenNotification";
 import axios from "axios";
 
 const ResetPassword = ({ globalState }) => {
@@ -11,6 +11,11 @@ const ResetPassword = ({ globalState }) => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+
+  useEffect(() => {
+      document.title = "Reset Password | BarterFunds";
+  }, [])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

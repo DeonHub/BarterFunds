@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const KYC = require("../models/kyc");
 const baseUrl = process.env.BASE_URL;
-
+const Users = require("../models/users");
 
 // Function to add KYC details
 const addKYC = (req, res, next) => {
@@ -13,7 +13,12 @@ const addKYC = (req, res, next) => {
         userId: userId,
         firstname: req.body.firstname,
         surname: req.body.surname,
+        email: req.body.email,
+        contact: req.body.contact,
         dateOfBirth: req.body.dateOfBirth,
+        country: req.body.country,
+        region: req.body.region,
+        city: req.body.city,
         nationality: req.body.nationality,
         residentialAddress: req.body.residentialAddress,
         postalAddress: req.body.postalAddress,
@@ -34,7 +39,7 @@ const addKYC = (req, res, next) => {
             res.status(201).json({
                 success: true,
                 message: "KYC details added successfully",
-                createdKYC: result
+                kyc: result
             });
         })
         .catch(err => {
@@ -69,7 +74,11 @@ const deleteKYC = (req, res, next) => {
 
 // Function to get all KYC details
 const getAllKYC = (req, res, next) => {
-    const filter = req.query;
+    const filters = []; // Initialize an array to store all filters
+    filters.push({ status: { $ne: 'deleted' } });
+    // filters.push({ isAdmin: false });
+
+    const filter = { $and: filters };
 
     KYC.find(filter)
         .exec()
@@ -77,7 +86,7 @@ const getAllKYC = (req, res, next) => {
             res.status(200).json({
                 success: true,
                 count: docs.length,
-                kycDetails: docs
+                kycs: docs
             });
         })
         .catch(err => {
@@ -98,7 +107,7 @@ const getKYCByUserId = (req, res, next) => {
             res.status(200).json({
                 success: true,
                 count: docs.length,
-                kycDetails: docs
+                kyc: docs
             });
         })
         .catch(err => {
@@ -118,24 +127,95 @@ const getKYCById = (req, res, next) => {
     KYC.findById(id)
       .exec()
       .then(doc => {
-        console.log("From database", doc);
         if (doc) {
-          res.status(200).json(doc);
+          res.status(200).json({
+            success: true,
+            message: 'KYC found',
+            kyc: doc
+          });
         } else {
-          res.status(404).json({ message: "No valid entry found for provided ID" });
+          res.status(404).json({ success: false, message: "No valid entry found for provided ID", kyc: {} });
         }
       })
       .catch(err => {
         console.log(err);
-        res.status(500).json({ error: err });
+        res.status(500).json({ success: false, error: err });
       });
   };
   
+
+  const updateKyc = (req, res, next) => {
+    const id = req.params.kycId;
+    const { status } = req.body;
+    const updateOps = {};
+
+    // If status is provided, update it as well
+    if (status) {
+        updateOps.status = status;
+    }
+
+    // Update the KYC
+    KYC.updateOne({ _id: id }, { $set: updateOps })
+        .exec()
+        .then((result) => {
+            KYC.findById(id)
+                .exec()
+                .then((kyc) => {
+                    // If status is set to 'approved', update user's kycApproved status
+                    if (status === 'approved' && kyc.userId) {
+                        Users.updateOne({ _id: kyc.userId }, { $set: { kycApproved: true } })
+                            .exec()
+                            .then(() => {
+                                res.status(200).json({
+                                    success: true,
+                                    message: "KYC status updated successfully",
+                                    kyc: kyc,
+                                    request: {
+                                        type: "GET",
+                                        url: `${baseUrl}/kycs/` + id,
+                                    },
+                                });
+                            })
+                            .catch((err) => {
+                                res.status(500).json({
+                                    success: false,
+                                    error: err,
+                                });
+                            });
+                    } else {
+                        res.status(200).json({
+                            success: true,
+                            message: "KYC status updated successfully",
+                            kyc: kyc,
+                            request: {
+                                type: "GET",
+                                url: `${baseUrl}/kycs/` + id,
+                            },
+                        });
+                    }
+                })
+                .catch((err) => {
+                    res.status(500).json({
+                        success: false,
+                        error: err,
+                    });
+                });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({
+                success: false,
+                error: err,
+            });
+        });
+};
+
 
 module.exports = {
     addKYC,
     deleteKYC,
     getAllKYC,
     getKYCByUserId,
-    getKYCById
+    getKYCById,
+    updateKyc
 };

@@ -23,31 +23,34 @@ class Reports extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'report'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
-      <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">User Login History</h6>
-        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-          <form action="" method="GET" className="d-flex flex-wrap sea gap-2">
+
+    <div className="d-flex justify-content-between align-items-center">
+            <h6 className="page-title">Activity Log</h6>
+            
+
+            <div className="d-flex flex-wrap justify-content-end align-items-center breadcrumb-plugins">
             <div className="input-group w-auto flex-fill">
-              <input
-                type="search"
-                name="search"
-                className="form-control bg--white"
-                placeholder="Enter Username"
-                defaultValue=""
-              />
-              <button className="btn btn--primary" type="submit">
-                <i className="la la-search" />
-              </button>
+                  <input
+                    type="search"
+                    name="search"
+                    className="form-control bg--white text-white"
+                    placeholder="Search..."
+                    // value={searchTerm}
+                    // onChange={handleSearchChange}
+                  />
+                  <button className="btn btn--primary" type="submit">
+                    <i className="la la-search" />
+                  </button>
+                </div>
             </div>
-          </form>
-        </div>
-      </div>
-      <div className="row">
+          </div>
+
+      <div className="row mt-3">
         <div className="col-lg-12">
           <div className="card b-radius--10 ">
             <div className="card-body p-0">

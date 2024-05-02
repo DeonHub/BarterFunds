@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
 import { withGlobalState } from "../withGlobalState";
+import DataTable from "datatables.net-dt";
+import { users } from "./components/data";
 import { Button, Table } from "antd";
-import axios from "axios";
 import Loader from "../components/Loader";
+import axios from "axios";
 
-const Tickets = ({ globalState, setGlobalState }) => {
+
+const Kycs = ({ globalState, setGlobalState }) => {
   const navigate = useNavigate();
-  const [tickets, setTickets] = useState([]);
+  const currentYear = new Date().getFullYear();
   const [isLoading, setIsLoading] = useState(true);
+  const [kycs, setKycs] = useState([]);
 
   const API_URL = globalState.api_url;
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
+
   useEffect(() => {
-    document.title = "Support Tickets | BarterFunds";
+    document.title = "View KYCs | BarterFunds";
     const token = window.sessionStorage.getItem("token");
 
     if (!token) {
@@ -24,19 +32,28 @@ const Tickets = ({ globalState, setGlobalState }) => {
       return;
     }
 
+
     const headers = {
       Authorization: `Bearer ${token}`,
     };
 
     axios
-      .get(`${API_URL}/tickets`, { headers: headers })
+      .get(`${API_URL}/kycs`, { headers: headers })
       .then((response) => {
         if (response.data.success) {
-          setTickets(response.data.tickets);
-          // console.log(response.data.tickets);
+          setKycs(response.data.kycs);
           setIsLoading(false);
+          // if(response.data.currencies === globalState.currencies){
+          //   setCurrencies(globalState.currencies )
+          // } else{
+          //   setCurrencies(response.data.currencies)
+          //   setGlobalState((prevState) => ({
+          //     ...prevState,
+          //     currencies: response.data.currencies
+          //   }));
+          // }
         } else {
-          setTickets([]);
+          setKycs([]);
         }
       })
       .catch((error) => {
@@ -44,20 +61,14 @@ const Tickets = ({ globalState, setGlobalState }) => {
       });
   }, []);
 
-  const currentYear = new Date().getFullYear();
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(20);
-
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
     setCurrentPage(1);
   };
 
-  const filteredData = tickets.filter(
-    (ticket) => ticket.ticketId.toLowerCase().includes(searchTerm.toLowerCase())
-    // ticket.surname.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredData = kycs.filter((kyc) =>
+    kyc.firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    kyc.surname.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Calculate pagination
@@ -94,17 +105,19 @@ const Tickets = ({ globalState, setGlobalState }) => {
     return `${hours}:${minutes} ${amPM}`;
   };
 
+
   return (
-    <div classNameName="page-wrapper default-version">
-      <AdminSidebar active={"tickets"} />
+    <div className="page-wrapper default-version">
+      <AdminSidebar active={"kyc"} />
       <AdminHeader />
+
       {isLoading ? (
         <Loader />
       ) : (
         <div className="body-wrapper">
           <div className="bodywrapper__inner">
             <div className="d-flex justify-content-between align-items-center">
-              <h6 className="page-title">Support Tickets</h6>
+              <h6 className="page-title">All KYCs</h6>
 
               <div className="d-flex flex-wrap justify-content-end align-items-center breadcrumb-plugins">
                 <div className="input-group w-auto flex-fill">
@@ -112,9 +125,9 @@ const Tickets = ({ globalState, setGlobalState }) => {
                     type="search"
                     name="search"
                     className="form-control bg--white text-white"
-                    placeholder="Search..."
-                    // value={searchTerm}
-                    // onChange={handleSearchChange}
+                    placeholder="Username / Email"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
                   />
                   <button className="btn btn--primary" type="submit">
                     <i className="la la-search" />
@@ -122,76 +135,90 @@ const Tickets = ({ globalState, setGlobalState }) => {
                 </div>
               </div>
             </div>
-
             <div className="row mt-3">
               <div className="col-lg-12">
                 <div className="card b-radius--10 ">
                   <div className="card-body p-0">
-                    <div className="table-responsive--sm table-responsive">
-                      <table className="table table--light">
+                    <div className="table-responsive--md  table-responsive">
+                      <table
+                        className="table table--light style--two table-responsive"
+                        id="users"
+                      >
                         <thead>
                           <tr>
-                            <th>Ticket ID</th>
-                            <th>Subject</th>
-                            <th>Submitted By</th>
+                            <th>User</th>
+                            <th>Email/Phone</th>
+                            <th>Country</th>
+                            <th>Added At</th>
                             <th>Status</th>
-                            <th>Submitted On</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
                           {currentPageData.length === 0 ? (
                             <tr>
-                              <td colSpan="8">No data</td>{" "}
+                              <td colSpan="3">No data</td>{" "}
                             </tr>
                           ) : (
-                            currentPageData.map((ticket) => (
-                              <tr key={ticket._id}>
+                            currentPageData.map((kyc) => (
+                              <tr key={kyc._id}>
                                 <td>
-                                  <a href="" class="fw-bold">
-                                    {ticket.ticketId}
-                                  </a>
-                                </td>
-                                <td>
-                                  <p class="fw-bold">{ticket.subject}</p>
-                                </td>
-                                <td>
-                                  <p class="fw-bold">
-                                    {ticket.userId.firstname}{" "}
-                                    {ticket.userId.surname}
-                                  </p>
-                                </td>
-
-                                <td>
-                                  {ticket.status === "open" ? (
-                                    <span className="badge badge--primary">
-                                      Open
-                                    </span>
-                                  ) : ticket.status === "resolved" ? (
+                                  <span className="fw-bold">
+                                    {kyc.firstname} {kyc.surname}
+                                  </span>
+                                  <br />
+                                  <span className="small">
+                                  {kyc.userId.status === "active" ? (
                                     <span className="badge badge--success">
-                                      Resolved
+                                      Active
                                     </span>
-                                  ) : ticket.status === "pending" ? (
+                                  ) : kyc.userId.status === "blocked" ? (
+                                    <span className="badge badge--warning">
+                                      Blocked
+                                    </span>
+                                  ) : (
+                                    <span className="badge badge--danger">
+                                      Inactive
+                                    </span>
+                                  )}
+                                  </span>
+                                </td>
+                                <td>
+                                  {kyc.email}
+                                  <br />
+                                  {kyc.contact}
+                                </td>
+                                <td>
+                                  <span className="fw-bold" title="Somalia">
+                                    {kyc.country}
+                                  </span>
+                                </td>
+                                <td>
+                                  {formatDate(kyc.createdAt)} <br />
+                                  {formatTime(kyc.createdAt)}
+                                </td>
+                                <td>
+                                  {kyc.status === "approved" ? (
+                                    <span className="badge badge--success">
+                                      Approved
+                                    </span>
+                                  ) : kyc.status === "pending" ? (
                                     <span className="badge badge--warning">
                                       Pending
                                     </span>
                                   ) : (
                                     <span className="badge badge--danger">
-                                      Closed
+                                      Rejected
                                     </span>
                                   )}
                                 </td>
                                 <td>
-                                  {formatDate(ticket.createdAt)} <br />
-                                  {formatTime(ticket.createdAt)}
-                                </td>
-                                <td>
                                   <a
-                                    href={`${process.env.PUBLIC_URL}/admin/tickets/${ticket._id}`}
+                                    href={`${process.env.PUBLIC_URL}/admin/kycs/${kyc._id}`}
                                     className="btn btn-sm btn-outline--primary"
                                   >
                                     <i className="las la-desktop" />
-                                    Details{" "}
+                                    Details
                                   </a>
                                 </td>
                               </tr>
@@ -261,4 +288,4 @@ const Tickets = ({ globalState, setGlobalState }) => {
   );
 };
 
-export default withGlobalState(Tickets);
+export default withGlobalState(Kycs);

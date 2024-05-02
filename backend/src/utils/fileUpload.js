@@ -1,6 +1,7 @@
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('cloudinary').v2;
+const path = require("path");
 
 // Configure Cloudinary with your API credentials
 cloudinary.config({
@@ -9,21 +10,28 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Configure multer to use Cloudinary storage
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'uploads', // Optional, specify the folder to upload files to
-    allowed_formats: ['jpg', 'png', 'jpeg'],
-    filename: function(req, file, cb) {
-      cb(undefined, file.fieldname + '-' + Date.now());
-    }
-  }
-});
+function fileUpload(folderName) {
+  const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: (req, file) => {
+      const folderPath = `${folderName.trim()}`; 
+      const fileExtension = path.extname(file.originalname).substring(1);
+      const publicId = `${file.fieldname}-${Date.now()}`;
+      
+      return {
+        folder: folderPath,
+        public_id: publicId,
+        format: fileExtension,
+      };
+    },
+  });
 
+  return multer({
+    storage: storage,
+    limits: {
+      fileSize: 5 * 1024 * 1024, // keep images size < 5 MB
+    },
+  });
+}
 
-const upload = multer({ storage: storage });
-
-module.exports = {
-  upload,
-};
+module.exports = fileUpload;

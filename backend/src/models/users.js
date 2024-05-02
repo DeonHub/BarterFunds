@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     firstname: { type: String, required: true },
     surname: { type: String, required: true },
     username: { type: String, required: true, default: 'user1234'},
-    profilePicture: { type: String, default: '/uploads/profile.jpeg' },
+    profilePicture: { type: String },
     email: { 
         type: String, 
         required: true, 
@@ -22,6 +22,8 @@ const userSchema = mongoose.Schema({
     twoFactorAuthSecretKey: { type: String },
     twoFactorAuthQrcode: { type: String },
     kycApproved: { type: Boolean, default: false },
+    referralCode: { type: String, default: "xyz12345" },
+    referrerCode: { type: String },
     activationToken: { type: String, default: "" },
     activationTokenExpires: { type: Date },
     resetToken: { type: String, default: "" },

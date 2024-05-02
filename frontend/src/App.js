@@ -31,9 +31,10 @@ import EditCurrency from './Admin/EditCurrency';
 // import CurrencyLitecoin from './Admin/CurrencyLitecoin';
 // import ExchangePending from './Admin/ExchangePending';
 // import ExchangeApproved from './Admin/ExchangeApproved';
-import ExchangeList from './Admin/ExchangeList';
-import ExchangeDetails from './Admin/ExchangeDetails';
+import ExchangeList from './Admin/Transactions';
+import ExchangeDetails from './Admin/TransactionDetails';
 
+import Kycs from './Admin/Kycs';
 
 import PaymentGateways from './Admin/PaymentGateways';
 import EditPaymentGateway from './Admin/EditPaymentGateway';
@@ -44,6 +45,10 @@ import WithdrawalDetails from './Admin/WithdrawalDetails';
 import Referrals from './Admin/Referrals';
 import Reports from './Admin/Reports';
 import Notifications from './Admin/Notifications';
+import KycDetails from './Admin/KycDetails';
+import Transactions from './Admin/Transactions';
+import TransactionDetails from './Admin/TransactionDetails';
+import AdminResetPassword from './Admin/AdminResetPassword';
 
 // import ExchangeDetailsCanceled from './Admin/ExchangeDetailsCanceled';
 // import ExchangeDetailsPending from './Admin/ExchangeDetailsPending';
@@ -66,7 +71,6 @@ import Notifications from './Admin/Notifications';
 
 
 
-
 const App = () => {
 
   const navigateTo = (path) => {
@@ -80,7 +84,7 @@ const App = () => {
       <Routes>
 
         {/* Main routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/*`} element={<Main />} />
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Main />} />
  
         {/* Auth routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/login`} element={<Login navigate={navigateTo} />}/>
@@ -93,18 +97,25 @@ const App = () => {
         {/* Admin routes go here */}
 
         <Route path={`${process.env.PUBLIC_URL}/admin/dashboard`} element={<AdminDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/reset-password`} element={<AdminResetPassword />} />
+
         <Route path={`${process.env.PUBLIC_URL}/admin/users`} element={<Users />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/users/:userId`} element={<UserDetails />} />
+
+        <Route path={`${process.env.PUBLIC_URL}/admin/kycs`} element={<Kycs />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/kycs/:kycId`} element={<KycDetails />} />
+
+
         <Route path={`${process.env.PUBLIC_URL}/admin/tickets`} element={<Tickets />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/tickets/:ticketId`} element={<TicketDetails />} />
-        <Route path={`${process.env.PUBLIC_URL}/admin/users/:userId`} element={<UserDetails />} />
 
 
         <Route path={`${process.env.PUBLIC_URL}/admin/currencies`} element={<Currencies />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/currencies/create-currency`} element={<CreateCurrency />} />
         <Route path={`${process.env.PUBLIC_URL}/admin/currencies/edit-currency/:currencyId`} element={<EditCurrency />} />
 
-        <Route path={`${process.env.PUBLIC_URL}/admin/exchanges`} element={<ExchangeList />} />
-        <Route path={`${process.env.PUBLIC_URL}/admin/exchanges/details/:exchangeId`} element={<ExchangeDetails />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/transactions`} element={<Transactions />} />
+        <Route path={`${process.env.PUBLIC_URL}/admin/transactions/details/:transactionId`} element={<TransactionDetails />} />
 
 
         <Route path={`${process.env.PUBLIC_URL}/admin/payment-gateways`} element={<PaymentGateways />} />
@@ -129,9 +140,8 @@ const App = () => {
         {/* User routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/user/dashboard`} element={<UserDashboard />} />
         
-        
 
-        <Route element={<NotFound />} />
+        <Route path={`${process.env.PUBLIC_URL}/*`} element={<NotFound />} />
 
       </Routes>
     </Router>

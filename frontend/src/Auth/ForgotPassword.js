@@ -1,7 +1,7 @@
 import React from "react";
-import TextInput from "./components/TextInput";
+import TextInput from "../components/TextInput";
 import axios from "axios";
-import openNotification from "./components/OpenNotification";
+import openNotification from "../components/OpenNotification";
 import { withGlobalState } from "../withGlobalState";
 import Success from "./Success";
 
@@ -27,6 +27,11 @@ class ForgotPassword extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount(){
+    document.title = "Forgot Password | BarterFunds";
+  }
+
+  
   handleInputChange(event) {
     const { name, value } = event.target;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

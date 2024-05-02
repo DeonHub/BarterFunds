@@ -21,7 +21,8 @@ const openNotification = (placement, type, message, description, duration = 5) =
         border: '1px solid green',
         borderRadius: '5px',
         backgroundColor: '#ccffcc',
-        color: 'green'
+        color: 'green',
+        zIndex: '10000'
       };
       break;
     case 'warning':
@@ -30,7 +31,8 @@ const openNotification = (placement, type, message, description, duration = 5) =
         border: '1px solid #ffc107',
         borderRadius: '5px',
         backgroundColor: '#fff7e6',
-        color: '#ffc107'
+        color: '#ffc107',
+        zIndex: '10000'
       };
       break;
     case 'info':
@@ -39,7 +41,8 @@ const openNotification = (placement, type, message, description, duration = 5) =
         border: '1px solid #1890ff',
         borderRadius: '5px',
         backgroundColor: '#e6f7ff',
-        color: '#1890ff'
+        color: '#1890ff',
+        zIndex: '10000'
       };
       break;
     default:
@@ -48,7 +51,8 @@ const openNotification = (placement, type, message, description, duration = 5) =
         border: '1px solid gray',
         borderRadius: '5px',
         backgroundColor: '#f0f0f0',
-        color: 'gray'
+        color: 'gray',
+        zIndex: '10000'
       };
   }
 

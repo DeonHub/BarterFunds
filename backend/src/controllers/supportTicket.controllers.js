@@ -12,7 +12,11 @@ const generateTicketId = (length) => {
 };
 
 const getSupportTickets = (req, res, next) => {
-    const filter = req.query;
+    const filters = []; 
+    filters.push({ status: { $ne: 'deleted' } });
+    // filters.push({ isAdmin: false });
+  
+    const filter = { $and: filters };
 
     SupportTicket.find(filter)
         .exec()
@@ -32,15 +36,35 @@ const getSupportTickets = (req, res, next) => {
         });
 };
 
+
+
 const createSupportTicket = (req, res, next) => {
     const userId = req.user.userId;
+    const files = req.files;
+    const descriptions = req.body.descriptions;
+
+    // Ensure that the number of files matches the number of descriptions
+    if (files.length !== descriptions.length) {
+        return res.status(400).json({
+            success: false,
+            message: "Number of files does not match the number of descriptions"
+        });
+    }
+
+    // Extract file metadata and descriptions and store them in an array
+    const fileMetadata = files.map((file, index) => ({
+        originalName: file.originalname,
+        path: file.path,
+        description: descriptions[index] // Match each file with its corresponding description
+    }));
 
     const ticket = new SupportTicket({
         _id: new mongoose.Types.ObjectId(),
         ticketId: generateTicketId(8),
         userId: userId,
         subject: req.body.subject,
-        message: req.body.message
+        message: req.body.message,
+        files: fileMetadata // Add file metadata to the files array
     });
 
     ticket
@@ -62,20 +86,22 @@ const createSupportTicket = (req, res, next) => {
         });
 };
 
+
 const getSupportTicketById = (req, res, next) => {
     const id = req.params.ticketId;
     SupportTicket.findById(id)
+        .populate('userId')
         .exec()
         .then(ticket => {
             if (ticket) {
-                res.status(200).json(ticket);
+                res.status(200).json({ success: true, message:'Ticket found', ticket:ticket});
             } else {
-                res.status(404).json({ message: "Support ticket not found" });
+                res.status(404).json({ success: false, message: "Support ticket not found", ticket: {} });
             }
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({ error: err });
+            res.status(500).json({ success: false, error: err });
         });
 };
 
@@ -84,7 +110,6 @@ const updateSupportTicket = (req, res, next) => {
     const id = req.params.ticketId;
     const { status, comments } = req.body;
     const updateOps = {};
-    console.log(req.body)
 
     // Validate if the status is one of the allowed values
     if (status && (status === "open" || status === "closed" || status === "pending" || status === "resolved")) {
@@ -100,6 +125,9 @@ const updateSupportTicket = (req, res, next) => {
     if (Object.keys(updateOps).length === 0) {
         return res.status(400).json({ success: false, message: "No valid update operations provided." });
     }
+
+    // Update the updatedAt field to the current date and time
+    updateOps.updatedAt = new Date();
 
     // Update the support ticket
     SupportTicket.updateOne({ _id: id }, { $set: updateOps })
@@ -145,6 +173,27 @@ const deleteSupportTicket = (req, res, next) => {
         });
 };
 
+const getSupportTicketsByUserId = (req, res, next) => {
+    const userId = req.params.userId;
+
+    // SupportTicket.find({ userId: userId, status: { $ne: 'deleted' } })
+    SupportTicket.find({ userId: userId, status: { $ne: 'deleted' }})
+        .exec()
+        .then(tickets => {
+            res.status(200).json({
+                success: true,
+                count: tickets.length,
+                tickets: tickets
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({
+                success: false,
+                error: err
+            });
+        });
+};
 
 
 module.exports = {
@@ -152,5 +201,6 @@ module.exports = {
     createSupportTicket,
     getSupportTicketById,
     deleteSupportTicket,
-    updateSupportTicket
+    updateSupportTicket,
+    getSupportTicketsByUserId
 };

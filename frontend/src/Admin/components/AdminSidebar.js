@@ -25,7 +25,7 @@ class AdminSidebar extends React.Component {
         </button>
         <div className="sidebar__inner">
           <div className="sidebar__logo">
-            <a href="#" className="sidebar__main-logo">
+            <a href={`${process.env.PUBLIC_URL}/admin/dashboard`} className="sidebar__main-logo">
               <img src="/assets/images/logo-dark.png" alt="sidebar logo" />
             </a>
           </div>
@@ -55,7 +55,7 @@ class AdminSidebar extends React.Component {
               </li>
 
               <li className={`sidebar-menu-item ${this.props.active === 'kyc' ? 'active' : ''}`}>
-                <a href="#" className="">
+                <a href={`${process.env.PUBLIC_URL}/admin/kycs`} className="">
                   <i className="menu-icon las la-address-card"></i>
                   <span className="menu-title">KYCs</span>
                 </a>
@@ -68,10 +68,10 @@ class AdminSidebar extends React.Component {
                 </a>
               </li>
 
-              <li className={`sidebar-menu-item ${this.props.active === 'exchange' ? 'active' : ''}`}>
-                <a href={`${process.env.PUBLIC_URL}/admin/exchanges`} className="">
+              <li className={`sidebar-menu-item ${this.props.active === 'transaction' ? 'active' : ''}`}>
+                <a href={`${process.env.PUBLIC_URL}/admin/transactions`} className="">
                   <i className="menu-icon las la-exchange-alt" />
-                  <span className="menu-title">Exchanges</span>
+                  <span className="menu-title">Transactions</span>
                 </a>
               </li>
               <li className={`sidebar-menu-item ${this.props.active === 'withdrawal' ? 'active' : ''}`}>
@@ -99,36 +99,8 @@ class AdminSidebar extends React.Component {
               <li className={`sidebar-menu-item ${this.props.active === 'report' ? 'active' : ''}`}>
                 <a href={`${process.env.PUBLIC_URL}/admin/reports`} className="">
                   <i className="menu-icon la la-list" />
-                  <span className="menu-title">Reports</span>
+                  <span className="menu-title">Activity Log</span>
                 </a>
-                {/* <div className="sidebar-submenu  ">
-                  <ul>
-                    <li className="sidebar-menu-item ">
-                      <a
-                        href="report/referral/commission.html"
-                        className="nav-link"
-                      >
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Referall Commissions</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a href="report/login/history.html" className="nav-link">
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Login History</span>
-                      </a>
-                    </li>
-                    <li className="sidebar-menu-item ">
-                      <a
-                        href="report/notification/history.html"
-                        className="nav-link"
-                      >
-                        <i className="menu-icon las la-dot-circle" />
-                        <span className="menu-title">Notification History</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div> */}
               </li>
 
              

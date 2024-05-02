@@ -26,25 +26,35 @@ class PaymentGateways extends React.Component {
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
-      <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Automatic Gateways</h6>
-        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-          <div className="d-inline">
-            <div className="input-group justify-content-end">
-              <input
-                type="text"
-                name="search_table"
-                className="form-control bg--white"
-                placeholder="Search..."
-              />
-              <button className="btn btn--primary input-group-text">
-                <i className="fa fa-search" />
-              </button>
-            </div>
+
+    <div className="d-flex mb-5 justify-content-between align-items-center" >
+      <h6 className="page-title">Payment Gateways</h6>
+      <div className="d-flex flex-wrap justify-content-end align-items-center breadcrumb-plugins">
+        <form action="" method="GET" className="d-flex flex-wrap">
+          <div className="input-group w-auto flex-fill">
+            <input
+              type="search"
+              name="search"
+              className="form-control bg--white text-white"
+              placeholder="Search..."
+              // value={searchTerm}
+              // onChange={handleSearchChange}
+            />
+            <button className="btn btn--primary" type="submit">
+              <i className="la la-search" />
+            </button>
           </div>
-        </div>
+        </form>
+        <a className="btn btn-outline--primary ml-5" style={{ marginLeft: "10px"}} href={`${process.env.PUBLIC_URL}/admin/payment-gateways/create-gateway`}>
+          <i className="las la-plus" />
+          Add New
+        </a>
       </div>
-      <div className="row">
+    </div>
+
+
+
+      <div className="row mt-3">
         <div className="col-lg-12">
           <div className="card b-radius--10 ">
             <div className="card-body p-0">

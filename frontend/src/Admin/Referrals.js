@@ -26,18 +26,28 @@ class Referrals extends React.Component {
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
-      <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Referral Commissions</h6>
-        
-        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-          <a
-            href="#"
-            className="btn btn-sm btn-outline--primary"
-          >
-            <i className="la la-undo" /> Referral Settings
+
+    <div className="d-flex mb-5 justify-content-between align-items-center" >
+        <h6 className="page-title">Referral Commission</h6>
+        <div className="d-flex flex-wrap justify-content-end align-items-center breadcrumb-plugins">
+          <form action="" method="GET" className="d-flex flex-wrap">
+            <div className="input-group w-auto flex-fill">
+              <input
+                type="search"
+                name="search"
+                className="form-control bg--white text-white"
+                placeholder="Search..."
+                defaultValue=""
+              />
+              <button className="btn btn--primary" type="submit">
+                <i className="la la-search" />
+              </button>
+            </div>
+          </form>
+          <a className="btn btn-outline--primary ml-5" style={{ marginLeft: "10px"}} href={`${process.env.PUBLIC_URL}/admin/currencies/create-currency`}>
+            <i className="las la-undo" />
+            Referral Settings
           </a>
-        </div>
         </div>
       </div>
       <div className="row">

@@ -5,45 +5,32 @@ const jwt = require("jsonwebtoken");
 const Users = require("../models/users");
 
 const getUsers = (req, res, next) => {
-  const filter = req.query;
+  const filters = []; // Initialize an array to store all filters
+  filters.push({ status: { $ne: 'deleted' } });
+  filters.push({ isAdmin: false });
+
+  // Combine all filters into a single filter object using $and
+  const filter = { $and: filters };
 
   Users.find(filter)
-    .select("_id firstname surname username email contact status verified activationToken twoFactorAuth createdAt")
-    .exec()
-    .then(result => {
-      const response = {
-        success: true,
-        count: result.length,
-        users: result.map(user => {
-          return {
-            _id: user._id,
-            firstname: user.firstname,
-            surname: user.surname,
-            username: user.username,
-            email: user.email,
-            contact: user.contact,
-            verified: user.verified,
-            status: user.status,
-            activationToken: user.activationToken,
-            twoFactorAuth: user.twoFactorAuth,
-            createdAt: user.createdAt,
-            request: {
-              type: "GET",
-              url: `${process.env.BASE_URL}/users/${user._id}`
-            }
+      .exec()
+      .then(result => {
+          const response = {
+              success: true,
+              count: result.length,
+              users: result
           };
-        })
-      };
-      res.status(200).json(response);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        success: false,
-        error: err
+          res.status(200).json(response);
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json({
+              success: false,
+              error: err
+          });
       });
-    });
 };
+
 
 const getUser = async (req, res, next) => {
   const userId = req.params.userId;
@@ -53,12 +40,12 @@ const getUser = async (req, res, next) => {
     if (mongoose.Types.ObjectId.isValid(userId)) {
       // If userId is a valid ObjectId
       user = await Users.findById(userId)
-        .select("_id firstname surname username email contact status verified createdAt")
+        // .select("_id firstname surname username email contact status verified createdAt")
         .exec();
     } else {
       // If userId is not a valid ObjectId
       user = await Users.findOne({ username: userId })
-        .select("_id firstname surname username email contact status verified createdAt")
+        // .select("_id firstname surname username email contact status verified createdAt")
         .exec();
     }
 

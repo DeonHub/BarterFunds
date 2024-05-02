@@ -19,7 +19,7 @@ const walletSchema = mongoose.Schema({
     }],
 
 
-    status: { type: String, enum: ['active', 'inactive', 'suspended'], default: 'active' },
+    status: { type: String, enum: ['active', 'inactive', 'suspended', 'deleted'], default: 'active' },
     walletType: { type: String, enum: ['personal', 'business'], default: 'personal' },
 
     limits: {
@@ -30,5 +30,12 @@ const walletSchema = mongoose.Schema({
     creationDate: { type: Date, default: Date.now },
     lastUpdated: { type: Date, default: Date.now },
 });
+
+
+walletSchema.pre('find', function(next) {
+    this.populate('userId', '');
+    next();
+});
+
 
 module.exports = mongoose.model('Wallet', walletSchema);

@@ -1,7 +1,7 @@
 import React from "react";
-import TextInput from "./components/TextInput";
+import TextInput from "../components/TextInput";
 import axios from "axios";
-import openNotification from "./components/OpenNotification";
+import openNotification from "../components/OpenNotification";
 import { withGlobalState } from "../withGlobalState";
 import Success from "./Success";
 
@@ -34,6 +34,11 @@ class Signup extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+
+  componentDidMount(){
+    document.title = "Signup | BarterFunds";
   }
 
   handleInputChange(event) {

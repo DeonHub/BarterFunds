@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import openNotification from "./components/OpenNotification";
+import openNotification from "../components/OpenNotification";
 import { withGlobalState } from "../withGlobalState";
 
 
@@ -19,6 +19,9 @@ class TwoFactor extends React.Component {
   }
 
   componentDidMount() {
+
+    document.title = "Two Factor Authentication | BarterFunds";
+
     const { globalState } = this.props;
     const API_URL = globalState.api_url;
     const token = window.sessionStorage.getItem("token");

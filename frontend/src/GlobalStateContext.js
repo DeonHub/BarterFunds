@@ -14,7 +14,8 @@ export const GlobalStateProvider = ({ children }) => {
       token: "",
       api_url: "http://localhost:8000",
       public_url: "http://localhost:3000",
-      authSecretKey: null
+      authSecretKey: null,
+      currencies: []
     };
   });
 

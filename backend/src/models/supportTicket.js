@@ -6,10 +6,24 @@ const supportTicketSchema = mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     subject: { type: String, required: true },
     message: { type: String, required: true },
-    comments: { type: String },
-    status: { type: String, enum: ['open', 'closed', 'pending', 'resolved'], default: 'open' },
+    comments: { type: String, default: '' },
+    feedback: { type: String, default: '' },
+    rating: { type: Number, default: 0 },
+    status: { type: String, enum: ['open', 'closed', 'pending', 'resolved', 'deleted'], default: 'open' },
+    files: [{ 
+        description: String,
+        originalName: String,
+        path: String,
+    }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
 });
+
+
+supportTicketSchema.pre('find', function(next) {
+    this.populate('userId', '');
+    next();
+});
+
 
 module.exports = mongoose.model('SupportTicket', supportTicketSchema);

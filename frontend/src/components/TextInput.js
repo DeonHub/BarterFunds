@@ -2,6 +2,7 @@ import { Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const TextInput = ({
+  id,
   label,
   placeholder,
   value,
@@ -16,6 +17,17 @@ const TextInput = ({
   toolTipMessage,
   required
 }) => {
+  const togglePasswordVisibility = () => {
+    const passwordInput = document.getElementById("password");
+  
+    // Toggle the type attribute of the password input field
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+
   return (
     <>
       <div className="form-group">
@@ -40,6 +52,7 @@ const TextInput = ({
               href="#"
               className="form-icon form-icon-right passcode-switch lg"
               data-target="password"
+              onClick={togglePasswordVisibility}
             >
               <span class="passcode-icon icon-show material-symbols-outlined">visibility</span>
               <span class="passcode-icon icon-hide material-symbols-outlined">visibility_off</span>

@@ -7,7 +7,7 @@ import AdminHeader from "./components/AdminHeader";
 
 
 
-class ExchangeDetails extends React.Component {
+class TransactionDetails extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ class ExchangeDetails extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar active={'exchange'}/>
+        <AdminSidebar active={'transaction'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
@@ -290,4 +290,4 @@ class ExchangeDetails extends React.Component {
 }
 
 
-export default ExchangeDetails;
+export default TransactionDetails;

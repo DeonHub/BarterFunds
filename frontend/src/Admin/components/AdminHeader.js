@@ -1,17 +1,9 @@
 import React from "react";
+import './adminjs';
 
-class AdminHeader extends React.Component {
-  constructor(props) {
-    super(props);
+const AdminHeader = () => {
 
-    const currentYear = new Date().getFullYear();
-
-    this.state = {
-      currentYear: currentYear,
-    };
-  }
-
-  render() {
+ 
     return (
       <>
   {/* navbar-wrapper start */}
@@ -305,11 +297,11 @@ class AdminHeader extends React.Component {
               <span className="dropdown-menu__caption">Profile</span>
             </a>
             <a
-              href="password.html"
+              href={`${process.env.PUBLIC_URL}/admin/reset-password`} 
               className="dropdown-menu__item d-flex align-items-center px-3 py-2"
             >
               <i className="dropdown-menu__icon las la-key" />
-              <span className="dropdown-menu__caption">Password</span>
+              <span className="dropdown-menu__caption">Password Reset</span>
             </a>
             <a
               href="logout.html"
@@ -327,7 +319,7 @@ class AdminHeader extends React.Component {
 </>
 
     );
-  }
+
 }
 
 export default AdminHeader;

@@ -90,6 +90,20 @@ const getUserFromToken = async (req, res, next) => {
   }
 };
 
+const generateReferralCode = () => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const codeLength = 8;
+  let referralCode = '';
+
+  for (let i = 0; i < codeLength; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      referralCode += characters[randomIndex];
+  }
+
+  return referralCode;
+}
+
+
 const Login = async (req, res, next) => {
   try {
     const user = await Users.findOne({ email: req.body.email }).exec();
@@ -162,6 +176,8 @@ const Signup = async (req, res, next) => {
       contact: req.body.contact,
       activationToken: activationToken,
       activationTokenExpires: Date.now() + 432000000,
+      referralCode: generateReferralCode(),
+      referrerCode: req.body.referrerCode ? req.body.referrerCode : ''
     });
 
     const result = await user.save();

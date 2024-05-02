@@ -391,4 +391,109 @@ export const users = [
         actionLink: 'users/detail/7890'
       }
   ];
+
+
+
+  export const currencies = [
+    {
+      id:1,
+      currency: 'Bitcoin',
+      image: '/assets/images/currency/btc.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:2,
+      currency: 'Ethereum',
+      image: '/assets/images/currency/ethereum.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:3,
+      currency: 'Perfect Money',
+      image: '/assets/images/currency/perfectmoney.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:4,
+      currency: 'Yuan',
+      image: '/assets/images/currency/rmb.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 RMB',
+      status: 'Enabled'
+    },
+    {
+      id:5,
+      currency: 'Tether USDT',
+      image: '/assets/images/currency/usdt.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:6,
+      currency: 'USD Coin',
+      image: '/assets/images/currency/usdc.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:7,
+      currency: 'Bitcoin Cash',
+      image: '/assets/images/currency/bch.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:8,
+      currency: 'Litecoin',
+      image: '/assets/images/currency/litecoin.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    },
+    {
+      id:9,
+      currency: 'Paypal',
+      image: '/assets/images/currency/paypal.png',
+      buyAt: '13.00 GHS',
+      sellAt: '10.00 GHS',
+      sendAt: '13.00 GHS',
+      receiveAt: '12.00 GHS',
+      reserveAmount: '80,000.00 USD',
+      status: 'Enabled'
+    }
+  ];
+  
   

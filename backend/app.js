@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 
 
+const dashboardRoutes = require("./src/routes/dashboard.routes");
 const kycRoutes = require("./src/routes/kyc.routes");
 const currencyRoutes = require("./src/routes/currency.routes");
 const orderRoutes = require("./src/routes/orders");
@@ -55,13 +56,14 @@ app.use((req, res, next) => {
 });
 
 // Routes which should handle requests
-app.use("/kyc", kycRoutes);
+app.use("/kycs", kycRoutes);
 app.use("/currencies", currencyRoutes);
 app.use("/orders", orderRoutes);
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
 app.use("/wallets", walletRoutes);
 app.use("/tickets", ticketRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 
 app.use((req, res, next) => {

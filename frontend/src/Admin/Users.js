@@ -1,17 +1,59 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
 import { withGlobalState } from "../withGlobalState";
 import DataTable from "datatables.net-dt";
 import { users } from "./components/data";
-import { Button, Table } from 'antd';
+import { Button, Table } from "antd";
+import axios from "axios";
+import Loader from "../components/Loader";
 
-const Users = () => {
+const Users = ({ globalState, setGlobalState }) => {
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const API_URL = globalState.api_url;
 
   useEffect(() => {
-    document.title = 'Users | BarterFunds';
-  }, [])
+    document.title = "Users | BarterFunds";
+    const token = window.sessionStorage.getItem("token");
+
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    axios
+      .get(`${API_URL}/users`, { headers: headers })
+      .then((response) => {
+        if (response.data.success) {
+          setUsers(response.data.users);
+          setIsLoading(false);
+
+          // if(response.data.currencies === globalState.currencies){
+          //   setUsers(response.data.users)
+          // } else{
+          //   setUsers(response.data.currencies)
+          //   setGlobalState((prevState) => ({
+          //     ...prevState,
+          //     currencies: response.data.currencies
+          //   }));
+          // }
+        } else {
+          setUsers([]);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const currentYear = new Date().getFullYear();
 
@@ -24,8 +66,10 @@ const Users = () => {
     setCurrentPage(1);
   };
 
-  const filteredData = users.filter((user) =>
-    user.user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredData = users.filter(
+    (user) =>
+      user.firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.surname.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Calculate pagination
@@ -44,23 +88,43 @@ const Users = () => {
     setCurrentPage(pageNumber);
   };
 
+  const formatDate = (dateTimeString) => {
+    const date = new Date(dateTimeString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+  };
+
+  const formatTime = (dateTimeString) => {
+    const date = new Date(dateTimeString);
+    let hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const amPM = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12 || 12; // Convert hours from 24-hour to 12-hour format
+    hours = hours.toString().padStart(2, "0");
+
+    return `${hours}:${minutes} ${amPM}`;
+  };
+
   return (
     <div className="page-wrapper default-version">
       <AdminSidebar active={"users"} />
       <AdminHeader />
 
-      <div className="body-wrapper">
-        <div className="bodywrapper__inner">
-          <div className="d-flex mb-5 flex-wrap gap-3 justify-content-between align-items-center">
-            <h6 className="page-title">All Users</h6>
-            
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="body-wrapper">
+          <div className="bodywrapper__inner">
+            <div className="d-flex justify-content-between align-items-center">
+              <h6 className="page-title">All Users</h6>
 
-            <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-            <div className="input-group w-auto flex-fill">
+              <div className="d-flex flex-wrap justify-content-end align-items-center breadcrumb-plugins">
+                <div className="input-group w-auto flex-fill">
                   <input
                     type="search"
                     name="search"
-                    className="form-control bg--white"
+                    className="form-control bg--white text-white"
                     placeholder="Username / Email"
                     value={searchTerm}
                     onChange={handleSearchChange}
@@ -69,167 +133,143 @@ const Users = () => {
                     <i className="la la-search" />
                   </button>
                 </div>
+              </div>
             </div>
-          </div>
-          <div className="row mt-5">
-            <div className="col-lg-12">
-              <div className="card b-radius--10 ">
-                <div className="card-body p-0">
-                  <div className="table-responsive--md  table-responsive">
-
-                    <table className="table table--light style--two table-responsive" id="users">
-                      <thead>
-                        <tr>
-                          <th>User</th>
-                          <th>Email-Phone</th>
-                          <th>Country</th>
-                          <th>Joined At</th>
-                          <th>Balance</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {currentPageData.length === 0 ? (
+            <div className="row mt-3">
+              <div className="col-lg-12">
+                <div className="card b-radius--10 ">
+                  <div className="card-body p-0">
+                    <div className="table-responsive--md  table-responsive">
+                      <table
+                        className="table table--light style--two table-responsive"
+                        id="users"
+                      >
+                        <thead>
                           <tr>
-                            <td colSpan="3">No data</td>{" "}
-                            
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Joined At</th>
+                            <th>Status</th>
+                            <th>Action</th>
                           </tr>
-                        ) : (
-                          currentPageData.map((user) => (
-                            <tr key={user.id}>
-                              <td>
-                                <span className="fw-bold">
-                                  {user.user.name}
-                                </span>
-                                <br />
-                                <span className="small">
-                                  <a href="users/detail/2365">
-                                    <span>@</span>
-                                    {user.user.username}
-                                  </a>
-                                </span>
-                              </td>
-                              <td>
-                                {user.email}
-                                <br />
-                                {user.phone}
-                              </td>
-                              <td>
-                                <span className="fw-bold" title="Somalia">
-                                  {user.country}
-                                </span>
-                              </td>
-                              <td>
-                                {user.joinedAt} <br />
-                                28 minutes ago
-                              </td>
-                              <td>
-                                <span className="fw-bold">{user.balance}</span>
-                              </td>
-                              <td>
-                                <a
-                                  href={`${process.env.PUBLIC_URL}/admin/users/${user.id}`}
-                                  className="btn btn-sm btn-outline--primary"
-                                >
-                                  <i className="las la-desktop" />
-                                  Details{" "}
-                                </a>
-                              </td>
+                        </thead>
+                        <tbody>
+                          {currentPageData.length === 0 ? (
+                            <tr>
+                              <td colSpan="8">No data</td>{" "}
                             </tr>
-                          ))
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                
-                { currentPageData.length === 0 ? (
-                  <p></p>
-                ) : (
+                          ) : (
+                            currentPageData.map((user) => (
+                              <tr key={user._id}>
+                                <td>
+                                  <span className="fw-bold">
+                                    {user.firstname} {user.surname}
+                                  </span>
+                                  <br />
+                                  <span className="small">
+                                    <a href={`users/${user._id}`}>
+                                      <span>@</span>
+                                      {user.username}
+                                    </a>
+                                  </span>
+                                </td>
+                                <td>{user.email}</td>
 
-                  <div className="card-footer py-4">
-                  <nav>
-                    <ul className="pagination">
-                      <li
-                        className="page-item"
-                        onClick={() => goToPage(currentPage - 1)}
-                        disabled={currentPage === 1}
-                      >
-                        <button
-                          className="page-link"
-                          disabled={currentPage === 1}
-                        >
-                          «
-                        </button>
-                      </li>
-                      {[...Array(totalPages)].map((_, index) => (
-                        <li
-                          key={index}
-                          className={`page-item ${
-                            index + 1 === currentPage ? "active" : ""
-                          }`}
-                        >
-                          <button
-                            className="page-link"
-                            onClick={() => goToPage(index + 1)}
+                                <td>{user.contact}</td>
+                                <td>
+                                  {formatDate(user.createdAt)} <br />
+                                  {formatTime(user.createdAt)}
+                                </td>
+                                <td>
+                                  {user.status === "active" ? (
+                                    <span className="badge badge--success">
+                                      Active
+                                    </span>
+                                  ) : user.status === "blocked" ? (
+                                    <span className="badge badge--warning">
+                                      Blocked
+                                    </span>
+                                  ) : (
+                                    <span className="badge badge--danger">
+                                      Inactive
+                                    </span>
+                                  )}
+                                </td>
+                                <td>
+                                  <a
+                                    href={`${process.env.PUBLIC_URL}/admin/users/${user._id}`}
+                                    className="btn btn-sm btn-outline--primary"
+                                  >
+                                    <i className="las la-desktop" />
+                                    Details{" "}
+                                  </a>
+                                </td>
+                              </tr>
+                            ))
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {currentPageData.length === 0 ? (
+                    <p></p>
+                  ) : (
+                    <div className="card-footer py-4">
+                      <nav>
+                        <ul className="pagination">
+                          <li
+                            className="page-item"
+                            onClick={() => goToPage(currentPage - 1)}
+                            disabled={currentPage === 1}
                           >
-                            {index + 1}
-                          </button>
-                        </li>
-                      ))}
-                      <li
-                        className="page-item"
-                        onClick={() => goToPage(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                      >
-                        <button
-                          className="page-link"
-                          disabled={currentPage === totalPages}
-                        >
-                           »
-                        </button>
-                      </li>
-                    </ul>
-                  </nav>
+                            <button
+                              className="page-link"
+                              disabled={currentPage === 1}
+                            >
+                              «
+                            </button>
+                          </li>
+                          {[...Array(totalPages)].map((_, index) => (
+                            <li
+                              key={index}
+                              className={`page-item ${
+                                index + 1 === currentPage ? "active" : ""
+                              }`}
+                            >
+                              <button
+                                className="page-link"
+                                onClick={() => goToPage(index + 1)}
+                              >
+                                {index + 1}
+                              </button>
+                            </li>
+                          ))}
+                          <li
+                            className="page-item"
+                            onClick={() => goToPage(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                          >
+                            <button
+                              className="page-link"
+                              disabled={currentPage === totalPages}
+                            >
+                              »
+                            </button>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  )}
                 </div>
-                )} 
-                
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
-
-// class Users extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     const currentYear = new Date().getFullYear();
-//     const data = [
-//       { id: 1, name: 'John Doe', email: 'john@example.com', contact: "1234567890" },
-//       { id: 2, name: 'Jane Smith', email: 'jane@example.com', contact: "1234567890" },
-//       { id: 3, name: 'Gideon Impraom', email: 'gideon@example.com', contact: "1234567890" },
-//       { id: 4, name: 'Samuel Diggs', email: 'sam@example.com', contact: "1234567890" },
-//       { id: 5, name: 'Edmonds', email: 'info@example.com', contact: "1234567890" },
-//       // Add more data objects as needed
-//     ];
-
-//     const headings = ['Name', 'Email', 'Contact']
-
-//     this.state = {
-//     currentYear: currentYear,
-//     data: data,
-//     headings: headings
-//     };
-
-//   }
-
-//   render() {
-
-//   }
-// }
 
 export default withGlobalState(Users);
