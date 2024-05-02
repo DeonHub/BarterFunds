@@ -7,7 +7,9 @@ import { withGlobalState } from '../withGlobalState';
 
 
 
-class ExchangeApproved extends React.Component {
+
+
+class ExchangeList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,13 +25,13 @@ class ExchangeApproved extends React.Component {
 
     return (
       <div className="page-wrapper default-version">
-        <AdminSidebar />
+        <AdminSidebar active={'exchange'}/>
         <AdminHeader />
         <>
   <div className="body-wrapper">
     <div className="bodywrapper__inner">
       <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-        <h6 className="page-title">Approved Exchange</h6>
+        <h6 className="page-title">All Exchange</h6>
         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
           <form action="" method="GET" className="d-flex flex-wrap sea gap-2">
             <div className="input-group w-auto flex-fill">
@@ -88,10 +90,10 @@ class ExchangeApproved extends React.Component {
                     <tr>
                       <td>1</td>
                       <td>
-                        <span className="fw-bold">PW2SZNMZ83O2</span>
+                        <span className="fw-bold">H8VWGS2HGYNE</span>
                         <br />
                         <small className="text-muted">
-                          2024-01-30 07:38 AM
+                          2023-07-26 09:22 AM
                         </small>
                       </td>
                       <td>
@@ -99,7 +101,7 @@ class ExchangeApproved extends React.Component {
                         <span>
                           <a
                             className="text--primary"
-                            href="../../admin/users/detail/approved.html"
+                            href="../../admin/users/detail/2360"
                           >
                             <span className="text--primary">@</span>meekynerd
                           </a>
@@ -110,31 +112,28 @@ class ExchangeApproved extends React.Component {
                         <span className="text--primary">GHS</span>
                       </td>
                       <td>
-                        <span className="d-block">100.00 GHS</span>
-                        <span>100.00</span> +
-                        <span className="text--danger">3.00</span>=
-                        <span>103.00 GHS</span>
+                        <span className="d-block">1,000.00 GHS</span>
+                        <span>1,000.00</span> +
+                        <span className="text--danger">16.00</span>=
+                        <span>1,016.00 GHS</span>
                       </td>
                       <td>
                         <span className="d-block">PayPal</span>
                         <span className="text--primary">USD</span>
                       </td>
                       <td>
-                        <span className="d-block">100.00 USD</span>
-                        <span>100.00</span> -
-                        <span className="text--danger">2.80</span>=
-                        <span>97.20 USD</span>
+                        <span className="d-block">11.58 USD</span>
+                        <span>11.58</span> -
+                        <span className="text--danger">2.12</span>=
+                        <span>9.46 USD</span>
                       </td>
                       <td>
                         {" "}
-                        <span>
-                          <span className="badge badge--success">Approved</span>
-                          <br />5 months ago
-                        </span>
+                        <span className="badge badge--warning">Pending</span>
                       </td>
                       <td>
                         <a
-                          href="../../admin/exchange/details/approved.html"
+                          href={`${process.env.PUBLIC_URL}/admin/exchanges/details/1234567890`}
                           className="btn btn-sm btn-outline--primary"
                         >
                           <i className="las la-desktop" />
@@ -164,7 +163,7 @@ class ExchangeApproved extends React.Component {
                   <li className="page-item">
                     <a
                       className="page-link"
-                      href="../../admin/exchange/approved?page=2"
+                      href="../../admin/exchange/list?page=2"
                     >
                       2
                     </a>
@@ -172,7 +171,71 @@ class ExchangeApproved extends React.Component {
                   <li className="page-item">
                     <a
                       className="page-link"
-                      href="../../admin/exchange/approved?page=2"
+                      href="../../admin/exchange/list?page=3"
+                    >
+                      3
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=4"
+                    >
+                      4
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=5"
+                    >
+                      5
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=6"
+                    >
+                      6
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=7"
+                    >
+                      7
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=8"
+                    >
+                      8
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=9"
+                    >
+                      9
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=10"
+                    >
+                      10
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="../../admin/exchange/list?page=2"
                       rel="next"
                       aria-label="Next »"
                     >
@@ -201,4 +264,4 @@ class ExchangeApproved extends React.Component {
 }
 
 
-export default ExchangeApproved;
+export default ExchangeList;

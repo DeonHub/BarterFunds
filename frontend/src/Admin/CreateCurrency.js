@@ -4,140 +4,22 @@ import "./Admin.css";
 import axios from "axios";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
-import { Checkbox, Col, Row } from "antd";
-import CheckBox from "../components/CheckBox";
-import TextInput from "../components/TextInput";
-import { withGlobalState } from "../withGlobalState";
-import openNotification from "../components/OpenNotification";
-import Loader from "../components/Loader";
 
-const CreateCurrency = ({ globalState }) => {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
 
-  const [submitButton, setSubmitButton] = useState(false);
-  const [formData, setFormData] = useState({
-    currencyName: "",
-    currencyLogo: "",
-    currencyCode: "",
-    paymentGateway: "",
-    buyAt: "",
-    sellAt: "",
-    sendAt: "",
-    receiveAt: "",
-    exchangeRate: "",
-    reserveAmount: "",
-    availableForSell: false,
-    availableForBuy: false,
-    rateShow: false,
-    availableForSend: false,
-    availableForReceive: false,
-    minimumBuyAmount: "",
-    maximumBuyAmount: "",
-    buyFixedCharge: "",
-    buyPercentCharge: "",
-    minimumSellAmount: "",
-    maximumSellAmount: "",
-    sellFixedCharge: "",
-    sellPercentCharge: "",
-    minimumSendAmount: "",
-    maximumSendAmount: "",
-    sendFixedCharge: "",
-    sendPercentCharge: "",
-    minimumReceiveAmount: "",
-    maximumReceiveAmount: "",
-    receiveFixedCharge: "",
-    receivePercentCharge: "",
-    instructions: "",
-  });
 
-  useEffect(() => {
-    document.title = "Add New Currency | BarterFunds";
-    const token = window.sessionStorage.getItem("token");
-    
-    if (!token) {
-      navigate('/login');
-      return;
-    }
+class CreateCurrency extends React.Component {
+  constructor(props) {
+    super(props);
 
-    if (
-      formData.currencyName &&
-      formData.currencyLogo &&
-      formData.currencyCode
-    ) {
-      setSubmitButton(true);
-    } else {
-      setSubmitButton(false);
-    }
-    setIsLoading(false)
-  }, [formData]);
+    const currentYear = new Date().getFullYear();
 
-  const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-
-    // Check if the event target is a checkbox or select element
-    const newValue =
-      type === "checkbox" ? checked : type === "file" ? files[0] : value;
-
-    // Update state based on the name of the input field
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: newValue,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // You can handle form submission here
-    setIsLoading(true)
-
-    const API_URL = globalState.api_url;
-    const token = window.sessionStorage.getItem("token");
-    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlZGViOTc0MTFAc2Vvc25hcHMuY29tIiwidXNlcklkIjoiNjVkMjFmMzZjYjE3Nzc0MWJiZmE3ZTk2IiwiaWF0IjoxNzE0MDU1OTg0LCJleHAiOjE3MTY2NDc5ODR9.bWMdV8VRZoQV2DNIsFHFIUFZbQCLoNyfrMkmq-m9rPg";
-
-    const body = new FormData();
-    for (const key in formData) {
-      body.append(key, formData[key]);
-    }
-    // Example: Send formDataToSend to server using fetch or axios
-    // console.log(body);
-
-    const headers = {
-      Authorization: `Bearer ${token}`,
+    this.state = {
+    currentYear: currentYear,
     };
 
-    axios
-      .post(`${API_URL}/currencies`, body, { headers: headers })
-      .then((response) => {
-        if (response.data.success) {
-          // setMessage('Login Successfully')
-          openNotification(
-            "topRight",
-            "success",
-            "Currency Creation Successful",
-            "Currency has been successfully added. Redirecting to currency list page."
-          );
-          // console.log("response.data :>> ", response.data);
-          // setPassword("");
-          // setConfirmPassword("");
+  }
 
-          setTimeout(() => {
-            window.location.href = `${process.env.PUBLIC_URL}/admin/currencies`;
-          }, 2000);
-        }
-      })
-      .catch((error) => {
-        setIsLoading(false)
-        openNotification(
-          "topRight",
-          "error",
-          "Error",
-          error.response.data.message
-        );
-
-        console.log("error :>> ", error.response.data.message);
-      });
-  };
+  render() {
 
   return (
     <div className="page-wrapper default-version">

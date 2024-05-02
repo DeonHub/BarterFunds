@@ -45,10 +45,6 @@ import WithdrawalDetails from './Admin/WithdrawalDetails';
 import Referrals from './Admin/Referrals';
 import Reports from './Admin/Reports';
 import Notifications from './Admin/Notifications';
-import KycDetails from './Admin/KycDetails';
-import Transactions from './Admin/Transactions';
-import TransactionDetails from './Admin/TransactionDetails';
-import AdminResetPassword from './Admin/AdminResetPassword';
 
 // import ExchangeDetailsCanceled from './Admin/ExchangeDetailsCanceled';
 // import ExchangeDetailsPending from './Admin/ExchangeDetailsPending';
@@ -68,6 +64,7 @@ import AdminResetPassword from './Admin/AdminResetPassword';
 // import UsersMobileUnverified from './Admin/UsersMobileUnverified';
 // import UsersSendNotification from './Admin/UsersSendNotification';
 // import UsersWithBalance from './Admin/UsersWithBalance';
+
 
 
 
@@ -139,6 +136,15 @@ const App = () => {
 
         {/* User routes go here */}
         <Route path={`${process.env.PUBLIC_URL}/user/dashboard`} element={<UserDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/user/profile`} element={<Profile />} />
+        <Route path={`${process.env.PUBLIC_URL}/user/buy/btc`} element={<BuyBtc />} />
+        
+        <Route path={`${process.env.PUBLIC_URL}/user/sell/btc`} element={<SellBtc />} />
+        
+        <Route path={`${process.env.PUBLIC_URL}/user/send/btc`} element={<SendBtc />} />
+        
+        <Route path={`${process.env.PUBLIC_URL}/user/receive/btc`} element={<ReceiveBtc />} />
+        
         
 
         <Route path={`${process.env.PUBLIC_URL}/*`} element={<NotFound />} />

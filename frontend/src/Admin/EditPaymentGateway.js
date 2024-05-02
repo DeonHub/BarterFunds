@@ -2,6 +2,7 @@ import React from "react";
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
+import { withGlobalState } from '../withGlobalState';
 
 
 

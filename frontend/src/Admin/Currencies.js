@@ -8,6 +8,7 @@ import { withGlobalState } from "../withGlobalState";
 import axios from "axios";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
+import { withGlobalState } from '../withGlobalState';
 
 const Currencies = ({ globalState, setGlobalState }) => {
   const navigate = useNavigate();

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './Admin.css'
 import AdminSidebar from "./components/AdminSidebar";
 import AdminHeader from "./components/AdminHeader";
-
+import { withGlobalState } from '../withGlobalState';
 
 
 const Withdrawals = ({}) => {
