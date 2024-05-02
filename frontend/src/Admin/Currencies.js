@@ -21,6 +21,7 @@ const Currencies = ({ globalState, setGlobalState }) => {
     document.title = "Currencies | BarterFunds";
     const token = window.sessionStorage.getItem("token");
 
+    
     if (!token) {
       navigate('/login');
       return;
