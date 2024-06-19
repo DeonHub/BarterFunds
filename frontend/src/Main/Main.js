@@ -1,7 +1,7 @@
 import React from "react";
 // import './Main.css'
 import CurrencyLogosCarousel from './CurrencyLogosCarousel'; // Import the component
-import MainHeader from './MainHeader'; // Import the component
+import MainHeader from './Header'; // Import the component
 // import 'boxicons';
 
 
