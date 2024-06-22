@@ -51,4 +51,15 @@ const currencySchema = mongoose.Schema({
     
 });
 
+
+currencySchema.pre('save', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
+
+currencySchema.pre('update', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
+
 module.exports = mongoose.model('Currency', currencySchema);

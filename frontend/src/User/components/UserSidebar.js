@@ -6,7 +6,8 @@ import { TbTransform } from "react-icons/tb";
 import { TbTransfer } from "react-icons/tb";
 import { RiExchangeDollarLine } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
-
+import { user } from "./data";
+import './userjs';
 class UserSidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -27,11 +28,11 @@ class UserSidebar extends React.Component {
   {/* sidebar @s */}
   <div className="nk-sidebar-element nk-sidebar-head">
     <div className="nk-sidebar-brand">
-      <a href="/frontend/user/index.html" className="logo-link nk-sidebar-logo">
+    <a href={`${process.env.REACT_APP_PUBLIC_URL}/user/dashboard`}  className="logo-link nk-sidebar-logo">
         
         <img
           className="logo-img"
-          src="/assets/images/logo.png"
+          src="/assets/images/barterfunds-logo.png"
           alt="dashboard logo"
         />
       </a>
@@ -53,8 +54,12 @@ class UserSidebar extends React.Component {
         <div className="nk-sidebar-menu">
           <ul className="nk-menu">
             {/* .nk-menu-item */}
-            <li className="nk-menu-item">
-              <a href="/frontend/user/index.html" className="nk-menu-link">
+            <li className="nk-menu-heading">
+              <h6 className="overline-title text-primary-alt">OVERVIEW</h6>
+            </li>
+          
+            <li className={`nk-menu-item ${this.props.active === 'dashboard' ? 'active' : ''}`}>
+            <a href={`${process.env.REACT_APP_PUBLIC_URL}/user/dashboard`} className="nk-menu-link">
               <span class="nk-menu-icon"><em class="icon la la-server"></em></span>
                 <span className="nk-menu-text">Dashboard</span>
               </a>
@@ -62,12 +67,21 @@ class UserSidebar extends React.Component {
             <li className="nk-menu-heading">
               <h6 className="overline-title text-primary-alt">TRANSACTIONS</h6>
             </li>
-            {/* .nk-menu-heading */}
+            
+
             <li className="nk-menu-item">
               <a
-                href="/frontend/user/panel/buy/btc.html"
+                href="/frontend/user/transactions.html"
                 className="nk-menu-link"
               >
+                <span className="nk-menu-icon">
+                <span class="nk-menu-icon"><em class="icon la la-money"></em></span>
+                </span>
+                <span className="nk-menu-text">Payment Methods</span>
+              </a>
+            </li>
+            <li className={`nk-menu-item ${this.props.active === 'transactions' ? 'active' : ''}`}>
+            <a href={`${process.env.REACT_APP_PUBLIC_URL}/user/transactions-panel`} className="nk-menu-link">
                 <span className="nk-menu-icon">
                 <span class="nk-menu-icon"><em class="icon la la-exchange"></em></span>
                 </span>
@@ -75,9 +89,9 @@ class UserSidebar extends React.Component {
                 <span className="nk-menu-badge">HOT</span>
               </a>
             </li>
-            <li className="nk-menu-item">
+            <li className={`nk-menu-item ${this.props.active === 'orders' ? 'active' : ''}`}>
               <a
-                href="/frontend/user/transactions.html"
+                href={`${process.env.REACT_APP_PUBLIC_URL}/user/transactions`} 
                 className="nk-menu-link"
               >
                 <span className="nk-menu-icon">
@@ -86,8 +100,8 @@ class UserSidebar extends React.Component {
                 <span className="nk-menu-text">Manage Orders</span>
               </a>
             </li>
-            <li className="nk-menu-item">
-              <a href="/frontend/user/wallet.html" className="nk-menu-link">
+            <li className={`nk-menu-item ${this.props.active === 'wallet' ? 'active' : ''}`}>
+              <a href={`${process.env.REACT_APP_PUBLIC_URL}/user/wallet`}  className="nk-menu-link">
                 <span className="nk-menu-icon">
                 <span class="nk-menu-icon"><em class="icon la la-wallet"></em></span>
                 </span>
@@ -99,48 +113,19 @@ class UserSidebar extends React.Component {
             <li className="nk-menu-heading">
               <h6 className="overline-title text-primary-alt">MENU</h6>
             </li>
-            {/* .nk-menu-heading */}
-            <li className="nk-menu-item has-sub">
-              <a href="#" className="nk-menu-link nk-menu-toggle">
+
+            <li className={`nk-menu-item ${this.props.active === 'kycs' ? 'active' : ''}`}>
+              <a href={`${process.env.REACT_APP_PUBLIC_URL}/user/kycs`} className="nk-menu-link">
                 <span className="nk-menu-icon">
-                <span class="nk-menu-icon"><em class="icon la la-user"></em></span>
+                <span class="nk-menu-icon"><em class="icon la la-id-card"></em></span>
                 </span>
-                <span className="nk-menu-text">My Account</span>
+                <span className="nk-menu-text">KYC</span>
               </a>
-              <ul className="nk-menu-sub">
-                <li className="nk-menu-item">
-                  <a
-                    href="/frontend/user/user/profile.html"
-                    className="nk-menu-link"
-                  >
-                    <span className="nk-menu-text">My Profile</span>
-                  </a>
-                </li>
-              </ul>
-              {/* .nk-menu-sub */}
+             
             </li>
-            {/* .nk-menu-item */}
-            <li className="nk-menu-item has-sub">
-              <a href="#" className="nk-menu-link nk-menu-toggle">
-                <span className="nk-menu-icon">
-                <span class="nk-menu-icon"><em class="icon la la-layer-group"></em></span>
-                </span>
-                <span className="nk-menu-text">Transactions</span>
-              </a>
-              <ul className="nk-menu-sub">
-                <li className="nk-menu-item">
-                  <a
-                    href="/frontend/user/order-history.html"
-                    className="nk-menu-link"
-                  >
-                    <span className="nk-menu-text">Transaction History</span>
-                  </a>
-                </li>
-              </ul>
-              {/* .nk-menu-sub */}
-            </li>
-            <li className="nk-menu-item has-sub">
-              <a href="#" className="nk-menu-link nk-menu-toggle">
+
+            <li className={`nk-menu-item ${this.props.active === 'support' ? 'active' : ''}`}>
+              <a href={`${process.env.REACT_APP_PUBLIC_URL}/user/support`} className="nk-menu-link">
                 <span className="nk-menu-icon">
                   <em className="icon la la-comments" />
                 </span>
@@ -174,19 +159,12 @@ class UserSidebar extends React.Component {
                   </a>
                 </li>
               </ul>
-              {/* .nk-menu-sub */}
             </li>
-            {/* .nk-menu-item */}
           </ul>
-          {/* .nk-menu */}
         </div>
-        {/* .nk-sidebar-menu */}
       </div>
-      {/* .nk-sidebar-content */}
     </div>
-    {/* .nk-sidebar-body */}
   </div>
-  {/* .nk-sidebar-element */}
 </div>
 
 

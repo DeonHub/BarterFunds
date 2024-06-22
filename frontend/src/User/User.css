@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400; /* Adjust the font weight as needed */
+  src: url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200') format('woff2'); 
+  /* Optionally, you can include additional font properties like font-display */
+}
 
 /** Bootstrap v5.1.3 */
 :root {
@@ -15628,7 +15635,7 @@ a:hover .btn-trigger:before {
 .form-control-lg ~ .form-label-outlined {
   top: 0.6875rem;
   padding: 0 0.3773584906rem;
-  font-size: 0.9375rem;
+  font-size: 0.5rem;
 }
 .form-control-sm ~ .form-label-outlined {
   font-size: 0.75rem;
@@ -15705,7 +15712,7 @@ a:hover .btn-trigger:before {
   border-color: #dbdfea;
 }
 .form-control-number {
-  font-size: 20px;
+  /* font-size: 10px; */
   padding: 20px;
   height: 74px;
 }
@@ -16231,10 +16238,10 @@ textarea.textarea-auto {
   display: none;
 }
 
-+ .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
   background-color: #810020;
 }
-+ .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
   background-color: #810020;
 }
 
@@ -16746,7 +16753,7 @@ div.dataTables_wrapper div.dataTables_length .input-group-lg > select,
     padding-right: 1.5rem;
   }
 }
-+ .table-borderless th, .table-borderless td, .table-borderless thead th, .table-borderless tbody + tbody {
+.table-borderless th, .table-borderless td, .table-borderless thead th, .table-borderless tbody + tbody {
   border: 0;
 }
 
@@ -23101,6 +23108,49 @@ ol.linenums li {
     transform: scale(1);
   }
 }
+
+.nk-kycfm-upload-box {
+  position: relative;
+}
+.preview-image {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.preview-image:hover .overlay {
+  opacity: 1;
+}
+
+.remove-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.preview-image:hover .remove-button {
+  opacity: 1;
+  pointer: cursor;
+}
+
 .dropzone,
 .dropzone * {
   box-sizing: border-box;
@@ -23108,7 +23158,7 @@ ol.linenums li {
 
 .dropzone {
   min-height: 150px;
-  border: 1px dashed #e5e9f2;
+  border: 1px dashed #000;
   border-radius: 4px;
   background: white;
   padding: 20px 20px;
@@ -29689,7 +29739,7 @@ body.nav-shown {
   background: #f5f6fa;
   border-bottom: 1px solid #e5e9f2;
   padding: 0 6px;
-  z-index: 1010;
+  z-index: 1;
 }
 .nk-header.is-dark:not([class*=bg-]) {
   background: #101924;
@@ -30203,7 +30253,7 @@ body.nav-shown {
   transition: color 0.3s, background-color 0.3s;
 }
 .nk-menu-item {
-  padding: 2px 0;
+  padding: 1px 0;
 }
 .nk-menu-sub .nk-menu-item {
   padding: 1px 0;
@@ -30340,7 +30390,7 @@ body.nav-shown {
   color: #5da1ff;
 }
 .nk-menu-item + .nk-menu-heading {
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
 }
 .nk-menu-heading .overline-title {
   color: inherit;
@@ -31200,8 +31250,9 @@ li {
   left: 0;
   font-size: 14px;
   line-height: 1.5rem;
-  font-family: "Nioicon";
-  content: "\e980";
+  font-family: 'Material Symbols Outlined';
+  src: url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200') format('woff2');
+  content: "spinner";
 }
 .list li span {
   color: #8094ae;
@@ -31211,7 +31262,8 @@ li {
 }
 .list-checked li:before {
   color: #810020;
-  content: "\e9b9";
+  content: "\e86c";
+  font-size: 30px;
 }
 .list-checked-circle li:before {
   color: #810020;
@@ -31254,26 +31306,44 @@ li {
   font-size: 12px;
 }
 .list-step li {
-  color: #8094ae;
+  color: #000;
   font-weight: 500;
 }
+
+/* .list-step li a{
+  color: #000;
+} */
+
 .list-step li:before {
-  content: "\e9e0";
+  content: "\e86c";
+  font-size: 20px;
 }
 .list-step li.list-step-current {
-  color: #364a63;
+  color: #810020;
 }
 .list-step li.list-step-current:before {
-  content: "\ea1b";
+  content: "\e000";
   color: #810020;
 }
 .list-step li.list-step-done {
-  color: #526484;
+  color: #000;
 }
 .list-step li.list-step-done:before {
-  content: "\e9b6";
+  content: "\e86c";
   color: #1ee0ac;
 }
+
+
+.list-step li.list-step-pending {
+  content: "\ef64";
+  color: #8094ae;
+}
+
+.list-step li.list-step-pending:before {
+  content: "\ef64";
+  color: #8094ae;
+}
+
 .list-plain a {
   color: #526484;
   display: block;
@@ -35637,8 +35707,8 @@ button.close {
   font-size: 12px;
   border-radius: 50%;
   transform: translateY(-50%);
-  font-family: "Nioicon";
-  content: "\e9be";
+  font-family: 'Material Symbols Outlined';
+  content: "\e86c";
   color: #fff;
   background: #810020;
   display: flex;
@@ -36917,8 +36987,8 @@ button.close {
   border: 2px solid #dbdfea;
 }
 .buysell-pm-label:after {
-  font-family: "Nioicon";
-  content: "\e9be";
+  font-family: 'Material Symbols Outlined';
+  content: "\e86c";
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -37469,8 +37539,8 @@ button.close {
   position: absolute;
   bottom: -8px;
   right: -8px;
-  font-family: "Nioicon";
-  content: "\ebcc";
+  font-family: "Material Symbols Outlined";
+  content: "\e838";
   height: 20px;
   width: 20px;
   font-size: 13px;
@@ -43033,8 +43103,6 @@ border-radius: 4px;
 }
 
 
-
-
 .info-content {
   display: none;
   position: center;
@@ -43063,11 +43131,8 @@ border-radius: 4px;
 
 .info-icon {
   position: absolute;
-
-
 }
-</style>
-<style>
+
 .buysell-tt-list {
   border: 1px solid #dbdfea;
   background: #fff;
@@ -43110,8 +43175,8 @@ border-radius: 4px;
 }
 
 .buysell-tt-label:after {
-  font-family: "Nioicon";
-  content: "\e9be";
+  font-family: 'Material Symbols Outlined';
+  content: "\e86c";
   display: inline-flex;
   align-items: center;
   justify-content: center;

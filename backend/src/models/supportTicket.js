@@ -20,6 +20,17 @@ const supportTicketSchema = mongoose.Schema({
 });
 
 
+supportTicketSchema.pre('save', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
+
+supportTicketSchema.pre('update', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
+
+
 supportTicketSchema.pre('find', function(next) {
     this.populate('userId', '');
     next();

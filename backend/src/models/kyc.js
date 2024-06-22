@@ -25,14 +25,26 @@ const kycSchema = mongoose.Schema({
     issueDate: { type: Date, required: true },
     expiryDate: { type: Date, required: true },
     issuingAuthority: { type: String, required: true },
+    identityDocumentUploaded: { type: String },
     photograph: { type: String, required: true },
     frontImage: { type: String, required: true },
     backImage: { type: String, required: true },
+    proofDocumentUploaded: { type: String },
     proofOfAddress: { type: String, required: true },
-    kycReviewer: { type: String, default: "Admin" },
+    kycReviewer: { type: String },
     status: { type: String, enum: ['pending', 'reviewing', 'approved', 'rejected', 'deleted'], default: 'pending' },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
+});
+
+kycSchema.pre('save', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
+
+kycSchema.pre('update', function(next) {
+    this.updatedAt = new Date();
+    next();
 });
 
 kycSchema.pre('find', function(next) {

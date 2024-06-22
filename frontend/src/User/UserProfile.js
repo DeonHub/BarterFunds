@@ -1,344 +1,439 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './User.css'
+import React, { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./User.css";
 import UserSidebar from "./components/UserSidebar";
 import UserHeader from "./components/UserHeader";
 import UserFooter from "./components/UserFooter";
+import { withGlobalState } from "../withGlobalState";
+import { user } from "./components/data";
+import { Image, Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
+const UserProfile = ({ globalState, ...props }) => {
+  useEffect(() => {
+    document.title = "User Profile | BarterFunds";
+  }, []);
 
-class UserProfile extends React.Component {
-  constructor(props) {
-    super(props);
+  return (
+    <div className="nk-body npc-crypto bg-white has-sidebar">
+      <div className="nk-app-root">
+        <div className="nk-main ">
+          <UserSidebar active={"dashboard"} />
 
-    const currentYear = new Date().getFullYear();
+          <div className="nk-wrap ">
+            <UserHeader user={user} />
 
-    this.state = {
-    currentYear: currentYear,
-    };
+            <div className="nk-content nk-content-fluid">
+              <div className="container-xl wide-lg">
+                <div className="nk-content-body">
+                  <div className="nk-block">
+                    <div className="card card-bordered">
+                      <div className="card-aside-wrap">
+                        <div className="card-inner card-inner-lg">
+                          <div className="nk-block-head nk-block-head-lg">
+                            <div className="user-card d-flex flex-column">
+                              <div className="">
+                                {!user.kycApproved ? (
+                                  <Avatar size={250} icon={<UserOutlined />} />
+                                ) : (
+                                  <Avatar
+                                    size={250}
+                                    src={
+                                      <img
+                                        src={
+                                          "https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?b=1&s=170667a&w=0&k=20&c=XPuGhP9YyCWquTGT-tUFk6TwI-HZfOr1jNkehKQ17g0="
+                                        }
+                                        alt="avatar"
+                                      />
+                                    }
+                                  />
+                                )}
+                              </div>
+                            </div>
+                          </div>
 
-  }
+                          <div className="nk-block">
+                            <div className="nk-data data-list">
+                              <div className="data-head">
+                                <h6 className="overline-title">Basics</h6>
+                              </div>
+                              <div
+                                className="data-item"
+                                >
+                                <div className="data-col">
+                                  <span className="data-label">Full Name</span>
+                                  <span className="data-value">
+                                    Michael Adzato
+                                  </span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more">
+                                    <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              {/* data-item */}
+                              <div
+                                className="data-item"
+                                
+                              >
+                                <div className="data-col">
+                                  <span className="data-label">Username</span>
+                                  <span className="data-value">Ishtiyak</span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more">
+                                  <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              {/* data-item */}
+                              <div className="data-item">
+                                <div className="data-col">
+                                  <span className="data-label">Email</span>
+                                  <span className="data-value">
+                                    info@barter-funds.com
+                                  </span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more disable">
+                                  <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              {/* data-item */}
+                              <div
+                                className="data-item"
+                                
+                              >
+                                <div className="data-col">
+                                  <span className="data-label">
+                                    Phone Number
+                                  </span>
+                                  <span className="data-value text-soft">
+                                    Not add yet
+                                  </span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more">
+                                  <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              {/* data-item */}
+                              <div
+                                className="data-item"
+                              >
+                                <div className="data-col">
+                                  <span className="data-label">
+                                    Date of Birth
+                                  </span>
+                                  <span className="data-value">
+                                    29 Feb, 1986
+                                  </span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more">
+                                  <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
 
-  render() {
+                              <div
+                                className="data-item"
+                               
+                              >
+                                <div className="data-col">
+                                  <span className="data-label">Address</span>
+                                  <span className="data-value">
+                                    2337 Kildeer Drive,
+                                    <br />
+                                    Kentucky, Canada
+                                  </span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more">
+                                  <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                className="data-item"
+                                
+                              >
+                                <div className="data-col">
+                                  <span className="data-label">Address</span>
+                                  <span className="data-value">
+                                    2337 Kildeer Drive,
+                                    <br />
+                                    Kentucky, Canada
+                                  </span>
+                                </div>
+                                <div className="data-col data-col-end">
+                                  <span className="data-more">
+                                  <i class="las la-chevron-circle-right"></i>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-    return (
-      <div className="nk-body npc-crypto bg-white has-sidebar">
-        <div className="nk-app-root">
-            {/*Main Start*/}
-            <div className="nk-main ">
-                {/*Sidebar Start*/}
-                <UserSidebar />
-                {/*Sidebar End*/}
-                <div className="nk-wrap ">
-                    {/*Main Header Start*/}
-                    <UserHeader />
-                    {/*Main Header End*/}
-                    {/*Content Start*/}
-                    <div className="nk-content nk-content-fluid">
-  <div className="container-xl wide-lg">
-    <div className="nk-content-body">
-      <div className="nk-block">
-        <div className="card card-bordered">
-          <div className="card-aside-wrap">
-            <div className="card-inner card-inner-lg">
-              <div className="nk-block-head nk-block-head-lg">
-                <div className="nk-block-between">
-                  <div className="nk-block-head-content">
-                    <h4 className="nk-block-title">Personal Information</h4>
-                    <div className="nk-block-des">
-                      <p>
-                        Basic info, like your name and address, that you use on
-                        Nio Platform.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="nk-block-head-content align-self-start d-lg-none">
-                    <a
-                      href="#"
-                      className="toggle btn btn-icon btn-trigger mt-n1"
-                      data-target="userAside"
-                    >
-                      <em className="icon ni ni-menu-alt-r" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              {/* .nk-block-head */}
-              <div className="nk-block">
-                <div className="nk-data data-list">
-                  <div className="data-head">
-                    <h6 className="overline-title">Basics</h6>
-                  </div>
-                  <div
-                    className="data-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#profile-edit"
-                  >
-                    <div className="data-col">
-                      <span className="data-label">Full Name</span>
-                      <span className="data-value">Michael Adzato</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <span className="data-more">
-                        <em className="icon ni ni-forward-ios" />
-                      </span>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div
-                    className="data-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#profile-edit"
-                  >
-                    <div className="data-col">
-                      <span className="data-label">Display Name</span>
-                      <span className="data-value">Ishtiyak</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <span className="data-more">
-                        <em className="icon ni ni-forward-ios" />
-                      </span>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div className="data-item">
-                    <div className="data-col">
-                      <span className="data-label">Email</span>
-                      <span className="data-value">info@barter-funds.com</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <span className="data-more disable">
-                        <em className="icon ni ni-lock-alt" />
-                      </span>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div
-                    className="data-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#profile-edit"
-                  >
-                    <div className="data-col">
-                      <span className="data-label">Phone Number</span>
-                      <span className="data-value text-soft">Not add yet</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <span className="data-more">
-                        <em className="icon ni ni-forward-ios" />
-                      </span>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div
-                    className="data-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#profile-edit"
-                  >
-                    <div className="data-col">
-                      <span className="data-label">Date of Birth</span>
-                      <span className="data-value">29 Feb, 1986</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <span className="data-more">
-                        <em className="icon ni ni-forward-ios" />
-                      </span>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div
-                    className="data-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#profile-edit"
-                    data-tab-target="#address"
-                  >
-                    <div className="data-col">
-                      <span className="data-label">Address</span>
-                      <span className="data-value">
-                        2337 Kildeer Drive,
-                        <br />
-                        Kentucky, Canada
-                      </span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <span className="data-more">
-                        <em className="icon ni ni-forward-ios" />
-                      </span>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                </div>
-                {/* data-list */}
-                <div className="nk-data data-list">
-                  <div className="data-head">
-                    <h6 className="overline-title">Preferences</h6>
-                  </div>
-                  <div className="data-item">
-                    <div className="data-col">
-                      <span className="data-label">Language</span>
-                      <span className="data-value">English (United State)</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <a href="#" className="link link-primary">
-                        Change Language
-                      </a>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div className="data-item">
-                    <div className="data-col">
-                      <span className="data-label">Date Format</span>
-                      <span className="data-value">M d, YYYY</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <a href="#" className="link link-primary">
-                        Change
-                      </a>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                  <div className="data-item">
-                    <div className="data-col">
-                      <span className="data-label">Timezone</span>
-                      <span className="data-value">Bangladesh (GMT +6)</span>
-                    </div>
-                    <div className="data-col data-col-end">
-                      <a href="#" className="link link-primary">
-                        Change
-                      </a>
-                    </div>
-                  </div>
-                  {/* data-item */}
-                </div>
-                {/* data-list */}
-              </div>
-              {/* .nk-block */}
-            </div>
-            <div
-              className="card-aside card-aside-left user-aside toggle-slide toggle-slide-left toggle-break-lg"
-              data-toggle-body="true"
-              data-content="userAside"
-              data-toggle-screen="lg"
-              data-toggle-overlay="true"
-            >
-              <div className="card-inner-group" data-simplebar="">
-                <div className="card-inner">
-                  <div className="user-card">
-                    <div className="user-avatar bg-primary">
-                      <span>AB</span>
-                    </div>
-                    <div className="user-info">
-                      <span className="lead-text">Michael Adzato</span>
-                      <span className="sub-text">info@barter-funds.com</span>
-                    </div>
-                    <div className="user-action">
-                      <div className="dropdown">
-                        <a
-                          className="btn btn-icon btn-trigger me-n2"
-                          data-bs-toggle="dropdown"
-                          href="#"
-                        >
-                          <em className="icon ni ni-more-v" />
-                        </a>
-                        <div className="dropdown-menu dropdown-menu-end">
-                          <ul className="link-list-opt no-bdr">
-                            <li>
-                              <a href="#">
-                                <em className="icon ni ni-camera-fill" />
-                                <span>Change Photo</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <em className="icon ni ni-edit-fill" />
-                                <span>Update Profile</span>
-                              </a>
-                            </li>
-                          </ul>
+                          
+                          <div
+                            className="nk-block text-center"
+                            data-bs-toggle="modal"
+                            data-bs-target="#profile-edit"
+                          >
+                            
+                            <div className="form-navigation">
+                              <button
+                                type="button"
+                                className="btn btn-lg btn-block btn-primary"
+                                
+                              >
+                                <i className="las la-user-edit"></i>
+                                Update Profile
+                              </button>
+                            </div>
+                          </div>
+                       
+                          
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* .user-card */}
                 </div>
-                {/* .card-inner */}
-                <div className="card-inner">
-                  <div className="user-account-info py-0">
-                    <h6 className="overline-title-alt">Nio Wallet Account</h6>
-                    <div className="user-balance">
-                      12.395769{" "}
-                      <small className="currency currency-btc">BTC</small>
-                    </div>
-                    <div className="user-balance-sub">
-                      Locked{" "}
-                      <span>
-                        0.344939{" "}
-                        <span className="currency currency-btc">BTC</span>
-                      </span>
+              </div>
+            </div>
+
+            <div class="modal fade" role="dialog" id="profile-edit">
+              <div
+                class="modal-dialog modal-dialog-centered modal-lg"
+                role="document"
+              >
+                <div class="modal-content">
+                  <a href="#" class="close" data-bs-dismiss="modal">
+                    <em class="icon ni ni-cross-sm"></em>
+                  </a>
+                  <div class="modal-body modal-body-lg">
+                    <h5 class="title">Update Profile</h5>
+                    <ul class="nk-nav nav nav-tabs">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          data-bs-toggle="tab"
+                          href="#personal"
+                        >
+                          Personal
+                        </a>
+                      </li>
+                      
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="personal">
+                        <div class="row gy-4 ">
+                        <div className="col-md-12">
+                                {!user.kycApproved ? (
+                                  <Avatar size={200} icon={<UserOutlined />} />
+                                ) : (
+                                  <Avatar
+                                    size={200}
+                                    src={
+                                      <img
+                                        src={
+                                          "https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?b=1&s=170667a&w=0&k=20&c=XPuGhP9YyCWquTGT-tUFk6TwI-HZfOr1jNkehKQ17g0="
+                                        }
+                                        alt="avatar"
+                                      />
+                                    }
+                                  />
+                                )}
+                        </div>
+<hr/>
+                      <div className="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="full-name">
+                                Full Name
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="full-name"
+                                value="Michael Adzato"
+                                placeholder="Enter Full name"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="display-name">
+                                Display Name
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="display-name"
+                                value="Ishtiyak"
+                                placeholder="Enter display name"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="phone-no">
+                                Phone Number
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="phone-no"
+                                value="+880"
+                                placeholder="Phone Number"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="birth-day">
+                                Date of Birth
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg date-picker"
+                                id="birth-day"
+                                placeholder="Enter your BirthDay"
+                              />
+                            </div>
+                          </div>
+
+                          </div>
+                          {/* <div class="col-12">
+                            <div class="custom-control custom-switch">
+                              <input
+                                type="checkbox"
+                                class="custom-control-input"
+                                id="latest-sale"
+                              />
+                              <label
+                                class="custom-control-label"
+                                for="latest-sale"
+                              >
+                                Use full name to display
+                              </label>
+                            </div>
+                          </div> */}
+                          <div class="col-12">
+                            <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                              <li>
+                                <a href="#" class="btn btn-lg btn-primary">
+                                  Update Profile
+                                </a>
+                              </li>
+                              <li>
+                                <a
+                                  href="#"
+                                  data-bs-dismiss="modal"
+                                  class="link link-light"
+                                >
+                                  Cancel
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      {/* <div class="tab-pane" id="address">
+                        <div class="row gy-4">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="address-l1">
+                                Address Line 1
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="address-l1"
+                                value="2337 Kildeer Drive"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="address-l2">
+                                Address Line 2
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="address-l2"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="address-st">
+                                State
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="address-st"
+                                value="Kentucky"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="form-label" for="address-county">
+                                Country
+                              </label>
+                              <select
+                                class="form-select js-select2"
+                                id="address-county"
+                                data-ui="lg"
+                              >
+                                <option>Canada</option>
+                                <option>United State</option>
+                                <option>United Kindom</option>
+                                <option>Australia</option>
+                                <option>India</option>
+                                <option>Bangladesh</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                              <li>
+                                <a href="#" class="btn btn-lg btn-primary">
+                                  Update Address
+                                </a>
+                              </li>
+                              <li>
+                                <a
+                                  href="#"
+                                  data-bs-dismiss="modal"
+                                  class="link link-light"
+                                >
+                                  Cancel
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
-                {/* .card-inner */}
-                <div className="card-inner p-0">
-                  <ul className="link-list-menu">
-                    <li>
-                      <a
-                        className="active"
-                        href="/frontend/user/user/profile-regular.html"
-                      >
-                        <em className="icon ni ni-user-fill-c" />
-                        <span>Personal Infomation</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/frontend/user/user/profile-notification.html">
-                        <em className="icon ni ni-bell-fill" />
-                        <span>Notifications</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/frontend/user/user/profile-activity.html">
-                        <em className="icon ni ni-activity-round-fill" />
-                        <span>Account Activity</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/frontend/user/user/profile-setting.html">
-                        <em className="icon ni ni-lock-alt-fill" />
-                        <span>Security Settings</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                {/* .card-inner */}
               </div>
-              {/* .card-inner-group */}
             </div>
-            {/* card-aside */}
+            <UserFooter />
           </div>
-          {/* .card-aside-wrap */}
         </div>
-        {/* .card */}
       </div>
-      {/* .nk-block */}
     </div>
-  </div>
-</div>
+  );
+};
 
-                    {/*Content End*/}
-                    {/*Footer Start*/}
-                    <UserFooter />
-                    {/*Footer End*/}
-
-                </div>
-            </div>
-            {/*Main End*/}
-
-        </div>
-      </div> 
-  
-
-
-    );
-  }
-}
-
-export default UserProfile;
+export default withGlobalState(UserProfile);

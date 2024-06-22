@@ -28,9 +28,18 @@ const walletSchema = mongoose.Schema({
     },
 
     creationDate: { type: Date, default: Date.now },
-    lastUpdated: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
 });
 
+walletSchema.pre('save', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
+
+walletSchema.pre('update', function(next) {
+    this.updatedAt = new Date();
+    next();
+});
 
 walletSchema.pre('find', function(next) {
     this.populate('userId', '');

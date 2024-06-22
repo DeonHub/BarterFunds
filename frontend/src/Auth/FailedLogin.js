@@ -11,7 +11,7 @@ const FailedLogin = ({ deadline }) => {
   return (
     <div className="mt-5">
       <div className="brand-logo text-center">
-        <a href={`${process.env.PUBLIC_URL}/`} className="logo-link">
+        <a href={`${process.env.REACT_APP_PUBLIC_URL}/`} className="logo-link">
           <img
             className="logo-dark logo-img logo-img-lg"
             src="/assets/images/barterfunds-logo.png"
@@ -25,7 +25,7 @@ const FailedLogin = ({ deadline }) => {
         subTitle="Please wait a few minutes before attempting to log in again. If you continue to experience issues, please contact support for assistance."
         extra={
           <div>
-            <a href={`${process.env.PUBLIC_URL}/`}>
+            <a href={`${process.env.REACT_APP_PUBLIC_URL}/`}>
               <button className="btn btn-outline-primary btn-sm">
                 Back Home
               </button>

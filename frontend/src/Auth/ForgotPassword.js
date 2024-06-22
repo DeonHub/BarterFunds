@@ -50,7 +50,7 @@ class ForgotPassword extends React.Component {
 
     const { globalState } = this.props;
     const API_URL = globalState.api_url;
-    const PUBLIC_URL = globalState.public_url;
+    const REACT_APP_PUBLIC_URL = globalState.REACT_APP_PUBLIC_URL;
 
     const { email } = this.state;
 
@@ -101,7 +101,7 @@ class ForgotPassword extends React.Component {
                 <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
                   <div className="brand-logo pb-4 text-center">
                     <a
-                      href={`${process.env.PUBLIC_URL}/`}
+                      href={`${process.env.REACT_APP_PUBLIC_URL}/`}
                       className="logo-link"
                     >
                       <img
@@ -157,7 +157,7 @@ class ForgotPassword extends React.Component {
                         </form>
 
                         <div className="form-note-s2 text-center pt-4">
-                          <a href={`${process.env.PUBLIC_URL}/login`}>
+                          <a href={`${process.env.REACT_APP_PUBLIC_URL}/login`}>
                             <strong>Return to Login</strong>
                           </a>
                         </div>

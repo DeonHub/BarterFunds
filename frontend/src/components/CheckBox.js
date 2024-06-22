@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { QuestionCircleOutlined } from "@ant-design/icons";
-import { Tooltip, Checkbox, Col, Row } from "antd";
+import React from "react";
+import { Checkbox } from "antd";
 
 const CheckBox = ({
   name,

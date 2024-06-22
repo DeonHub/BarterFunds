@@ -31,7 +31,8 @@ const addKYC = (req, res, next) => {
         frontImage: req.files['frontImage'][0]['path'],
         backImage: req.files['backImage'][0]['path'],
         proofOfAddress: req.files['proofOfAddress'][0]['path'],
-        status: req.body.status
+        identityDocumentUploaded: req.body.identityDocumentUploaded,
+        proofDocumentUploaded: req.body.proofDocumentUploaded,
     });
 
     kyc.save()
@@ -100,14 +101,15 @@ const getAllKYC = (req, res, next) => {
 
 // Function to get KYC details by user ID
 const getKYCByUserId = (req, res, next) => {
-    const userId = req.params.userId;
+    const userId = req.user.userId;
+
     KYC.find({ userId: userId })
         .exec()
         .then(docs => {
             res.status(200).json({
                 success: true,
                 count: docs.length,
-                kyc: docs
+                kycs: docs
             });
         })
         .catch(err => {

@@ -37,7 +37,7 @@ const AccountActivation = ({ globalState }) => {
             <div className="nk-content ">
               <div className="nk-block nk-block-middle nk-auth-body">
                 <div className="brand-logo pb-4 text-center">
-                  <a href={`${process.env.PUBLIC_URL}/`} className="logo-link">
+                  <a href={`${process.env.REACT_APP_PUBLIC_URL}/`} className="logo-link">
                     <img
                       className="logo-dark logo-img logo-img-lg"
                       src="/assets/images/barterfunds-logo.png"
@@ -55,7 +55,7 @@ const AccountActivation = ({ globalState }) => {
                     <div className="nk-block-des">
                       <p>
                         You can now{" "}
-                        <a href={`${process.env.PUBLIC_URL}/login`}>Login</a>{" "}
+                        <a href={`${process.env.REACT_APP_PUBLIC_URL}/login`}>Login</a>{" "}
                         and start using our services.
                       </p>
                       <p>Thank you for choosing BarterFunds.</p>

@@ -88,7 +88,6 @@ class Login extends React.Component {
 
     const { globalState } = this.props;
     const API_URL = globalState.api_url;
-    const PUBLIC_URL = globalState.public_url;
 
     const { email, password, failedLoginAttempts } = this.state;
 
@@ -118,9 +117,12 @@ class Login extends React.Component {
               "Success",
               "Login Successful"
             );
-            console.log("response.data.user :>> ", response.data.user);
+            
             let token = response.data.token;
+            
             window.sessionStorage.setItem("token", token);
+            window.sessionStorage.setItem("email", email);
+            // window.sessionStorage.setItem("userId", response.data.user._id);
 
             this.props.setGlobalState((prevState) => ({
               ...prevState,
@@ -130,7 +132,7 @@ class Login extends React.Component {
             }));
 
             setTimeout(() => {
-              this.props.navigate(`${process.env.PUBLIC_URL}/login/mfa`);
+              this.props.navigate(`${process.env.REACT_APP_PUBLIC_URL}/login/mfa`);
             }, 1000);
           }
         })
@@ -185,7 +187,7 @@ class Login extends React.Component {
                   <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
                     <div className="brand-logo pb-4 text-center">
                       <a
-                        href={`${process.env.PUBLIC_URL}/`}
+                        href={`${process.env.REACT_APP_PUBLIC_URL}/`}
                         className="logo-link"
                       >
                         <img
@@ -248,7 +250,7 @@ class Login extends React.Component {
                         </form>
                         <div className="form-note-s2 text-center pt-4">
                           New on our platform?
-                          <a href={`${process.env.PUBLIC_URL}/signup`}>
+                          <a href={`${process.env.REACT_APP_PUBLIC_URL}/signup`}>
                             {" "}
                             Create an account
                           </a>

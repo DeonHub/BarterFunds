@@ -60,7 +60,7 @@ class TwoFactor extends React.Component {
   handleScan = () => {
     const { globalState } = this.props;
     const API_URL = globalState.api_url;
-    const PUBLIC_URL = globalState.public_url;
+    const REACT_APP_PUBLIC_URL = globalState.REACT_APP_PUBLIC_URL;
     const token = window.sessionStorage.getItem("token");
     const headers = {
       "Authorization": `Bearer ${token}`,
@@ -167,7 +167,7 @@ class TwoFactor extends React.Component {
 
         setTimeout(() => {
           this.props.navigate(
-            `${process.env.PUBLIC_URL}/user/dashboard`
+            `${process.env.REACT_APP_PUBLIC_URL}/user/dashboard`
           );
         }, 2000);
       }
@@ -194,7 +194,7 @@ class TwoFactor extends React.Component {
             <div className="nk-content ">
               <div className="nk-block nk-block-middle nk-auth-body  wide-xs">
                 <div className="brand-logo pb-4 text-center">
-                  <a href={`${process.env.PUBLIC_URL}/`} className="logo-link">
+                  <a href={`${process.env.REACT_APP_PUBLIC_URL}/`} className="logo-link">
                     <img
                       className="logo-dark logo-img logo-img-lg"
                       src="/assets/images/barterfunds-logo.png"
