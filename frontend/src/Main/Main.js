@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 
 import './Main.css'
 import CurrencyLogosCarousel from './CurrencyLogosCarousel';
-import MainHeader from './Header'; 
+import Header from './Header'; 
 import MainFooter from './Footer'; 
 import FAQ from './FAQ';
 import Features from './Features';
@@ -47,7 +47,7 @@ class Main extends React.Component {
       <>
 
   {/* ======= Header ======= */}
-  <MainHeader />
+  <Header />
   
   {/* ======= Hero Section ======= */}
   <Hero />
@@ -73,7 +73,10 @@ class Main extends React.Component {
                   <p>See More Details</p>
                 </div>
                 <div className="back">
-                <img src="assets/images/personal.gif" alt="Personal" />
+                <p>Securely manage your digital assets with ease.</p>
+                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+            <button className="btn">Learn More Here</button>
+          </a>
                 </div>
               </div>
             </div>
@@ -90,7 +93,10 @@ class Main extends React.Component {
                   <p>See More Details</p>
                 </div>
                 <div className="back">
-                <img src="assets/images/business.gif" alt="Business" />
+                <p>Streamline your business transactions digitally.</p>
+                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+            <button className="btn">Learn More Here</button>
+          </a>
                 </div>
               </div>
             </div>
@@ -107,7 +113,10 @@ class Main extends React.Component {
                   <p>See More Details</p>
                 </div>
                 <div className="back">
-                <img src="assets/images/freelance.gif" alt="Freelance" />
+                <p>Get paid faster and manage your earnings.</p>
+                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+            <button className="btn">Learn More Here</button>
+          </a>
                 </div>
               </div>
             </div>
@@ -124,7 +133,10 @@ class Main extends React.Component {
                   <p>See More Details</p>
                 </div>
                 <div className="back">
-                <img src="assets/images/organization.gif" alt="Organizations" />
+                <p>Optimize your organization's financial operations.</p>
+                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+            <button className="btn">Learn More Here</button>
+          </a>
                 </div>
               </div>
             </div>
@@ -151,6 +163,25 @@ class Main extends React.Component {
   {/* ======= Footer ======= */}
   <MainFooter />
   {/* End Footer */}
+
+  <style jsx>{`
+        .btn {
+          color: #fff;
+          border: 2px solid #fff;
+          padding: 10px 20px;
+          font-size: 12px;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+          background-color: #fff;
+          color: #404040;
+        }
+
+       
+      `}</style>
   
 </>
 

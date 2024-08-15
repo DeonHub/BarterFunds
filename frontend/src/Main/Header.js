@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import MainMenu from './MainHeader';
 import MobileMenu from './MobileHeader';
 
-const MainHeader = () => {
+const Header = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     useEffect(() => {

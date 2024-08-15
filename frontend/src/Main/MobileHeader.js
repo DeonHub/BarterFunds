@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './MobileHeader.css';
+import './Header.css';
 
 const MobileMenu = () => {
     const [menuVisible, setMenuVisible] = useState(false);
