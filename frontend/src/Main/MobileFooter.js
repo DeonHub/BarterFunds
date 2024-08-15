@@ -53,7 +53,7 @@ class MobileFooter extends React.Component {
                     </a>
                   </li>
                   <li>
-                    <a href="https://barter-funds.com/terms-and-conditions">
+                    <a href="https://barter-funds.com/terms-of-use">
                       Terms &amp; Conditions
                     </a>
                   </li>
@@ -68,16 +68,16 @@ class MobileFooter extends React.Component {
                 <h4>Help Center</h4>
                 <ul>
                   <li>
-                    <a href="#">FAQ</a>
+                    <a href="https://barter-funds.com/faq">FAQ</a>
                   </li>
                   <li>
-                    <a href="#">Support</a>
+                    <a href="https://barter-funds.com/support">Support</a>
                   </li>
                   <li>
-                    <a href="#">Fees</a>
+                    <a href="https://barter-funds.com/fees">Fees</a>
                   </li>
                   <li>
-                    <a href="#">Features</a>
+                    <a href="https://barter-funds.com/features">Features</a>
                   </li>
                 </ul>
               </div>
@@ -85,16 +85,16 @@ class MobileFooter extends React.Component {
                 <h4>Solutions</h4>
                 <ul>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">Personal</a>
+                    <a href="https://barter-funds.com/personal">Personal</a>
                   </li>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">Business</a>
+                    <a href="https://barter-funds.com/business">Business</a>
                   </li>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">Freelance</a>
+                    <a href="https://barter-funds.com/freelance">Freelance</a>
                   </li>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">
+                    <a href="https://barter-funds.com/tools">
                       Tools
                     </a>
                   </li>
@@ -107,13 +107,13 @@ class MobileFooter extends React.Component {
                     <a href="https://blog.barter-funds.com/">News/Blog</a>
                   </li>
                   <li>
-                    <a href="#">Newsletter</a>
+                    <a href="https://barter-funds.com/newsletter">Newsletter</a>
                   </li>
                   <li>
-                    <a href="#">How it works</a>
+                    <a href="https://barter-funds.com/how-it-works">How it works</a>
                   </li>
                   <li>
-                    <a href="#">Security</a>
+                    <a href="https://barter-funds.com/security">Security</a>
                   </li>
                 </ul>
               </div>
@@ -121,16 +121,16 @@ class MobileFooter extends React.Component {
                 <h4>Company</h4>
                 <ul>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">Products</a>
+                    <a href="https://barter-funds.com/products">Products</a>
                   </li>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">Services</a>
+                    <a href="https://barter-funds.com/services">Services</a>
                   </li>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">About us</a>
+                    <a href="https://barter-funds.com/about">About us</a>
                   </li>
                   <li>
-                    <a href="https://wa.me/message/ON5PHWAZTGKWI1">Contact us</a>
+                    <a href="https://barter-funds.com/contact">Contact us</a>
                   </li>
                 </ul>
               </div>
@@ -141,7 +141,7 @@ class MobileFooter extends React.Component {
           <div className="text-center">
             <div className="credits">
               © 2019 - 2024 Barter Funds. All Rights Reserved. Powered by{" "}
-              <a href="#">Currency Technologies</a>
+              <a href="https://wa.me/233246580585">Currency Technologies</a>
             </div>
           </div>
           <div className="text-center social-links" style={footerLinkStyle}>
@@ -160,10 +160,10 @@ class MobileFooter extends React.Component {
             <a href="https://linkedin.com/company/barterfunds" className="linkedin">
               <i className="fab fa-linkedin" />
             </a>
-            <a href="https://linkedin.com/company/barterfunds" className="tiktok">
+            <a href="https://wa.me/message/ON5PHWAZTGKWI1" className="whatsapp">
               <i className="fa-brands fa-square-whatsapp" />
             </a>
-            <a href="https://linkedin.com/company/barterfunds" className="tiktok">
+            <a href="https://linkedin.com/barterfunds" className="tiktok">
               <i className="fa-brands fa-tiktok" />
             </a>
           </div>

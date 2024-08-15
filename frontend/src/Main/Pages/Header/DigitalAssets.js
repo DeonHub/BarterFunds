@@ -51,7 +51,7 @@ const DigitalAssets = ({ ...props }) => {
   return (
     <React.Fragment>
       <Header />
-      <Head title="Affiliate | Barter Funds" />
+      <Head title="Digital Assets | Barter Funds" />
       <Content>
         <BlockHead size="lg" wide="xs" className="mx-auto">
           <BlockHeadContent className="text-center">
@@ -79,11 +79,20 @@ const DigitalAssets = ({ ...props }) => {
           Barter Funds offers a holistic solution for managing your digital assets, ensuring that you have the power to transact with ease and security. Our platform supports over 20 digital assets, providing you with the flexibility you need in today's global economy.
         </p>
         <ul style={styles.list}>
-          <li style={styles.listItem}><strong>Buy Assets:</strong> Gain access to a wide variety of digital assets at competitive rates. Whether you need Bitcoin, Ethereum, PayPal, or any other digital currency, Barter Funds allows you to purchase them directly with your local currency.</li>
-          <li style={styles.listItem}><strong>Sell Assets:</strong> Convert your digital assets into local currency easily. Barter Funds ensures fast and secure transactions with competitive exchange rates.</li>
-          <li style={styles.listItem}><strong>Send Assets:</strong> Send digital assets to anyone, anywhere in the world. Barter Funds provides a secure and efficient way to send your assets across borders.</li>
-          <li style={styles.listItem}><strong>Receive Assets:</strong> Accept payments in various digital currencies and easily convert them into your local currency with Barter Funds.</li>
-        </ul>
+  <li id='buy' className='Buy' style={styles.listItem}>
+    <strong>Buy Assets:</strong> Gain access to a wide variety of digital assets at competitive rates. Whether you need Bitcoin, Ethereum, PayPal, or any other digital currency, Barter Funds allows you to purchase them directly with your local currency.
+  </li>
+  <li id='sell' className='Sell' style={styles.listItem}>
+    <strong>Sell Assets:</strong> Convert your digital assets into local currency easily. Barter Funds ensures fast and secure transactions with competitive exchange rates.
+  </li>
+  <li id='send' className='Send' style={styles.listItem}>
+    <strong>Send Assets:</strong> Send digital assets to anyone, anywhere in the world. Barter Funds provides a secure and efficient way to send your assets across borders.
+  </li>
+  <li id='receive' className='Receive' style={styles.listItem}>
+    <strong>Receive Assets:</strong> Accept payments in various digital currencies and easily convert them into your local currency with Barter Funds.
+  </li>
+</ul>
+
       </div>
 
       {/* Supported Digital Assets div */}
