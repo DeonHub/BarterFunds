@@ -187,7 +187,7 @@ const MobileMenu = () => {
       },
       {
         title: "Help",
-        url: `${process.env.REACT_APP_PUBLIC_URL}/support`,
+        url: `${process.env.REACT_APP_PUBLIC_URL}/support-center`,
         description: "Get assistance and find FAQs."
       }
     ];

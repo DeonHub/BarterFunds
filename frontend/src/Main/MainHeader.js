@@ -727,7 +727,7 @@ class MainMenu extends React.Component {
   <div className="flex-fill d-flex align-items-center ms-auto">
     <div className="d-none d-lg-inline-block">
       <a 
-        href={`${process.env.REACT_APP_PUBLIC_URL}/support`} 
+        href={`${process.env.REACT_APP_PUBLIC_URL}/support-center`} 
         className="btn-help" 
         data-link-name="Help"
       >

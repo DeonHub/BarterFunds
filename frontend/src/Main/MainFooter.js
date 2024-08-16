@@ -87,7 +87,7 @@ class MainFooter extends React.Component {
                     <a href="https://barter-funds.com/faq">FAQ</a>
                   </li>
                   <li>
-                    <a href="https://barter-funds.com/support">Support</a>
+                    <a href="https://barter-funds.com/support-center">Support</a>
                   </li>
                   <li>
                     <a href="https://barter-funds.com/fees">Fees</a>
