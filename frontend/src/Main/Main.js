@@ -74,7 +74,7 @@ class Main extends React.Component {
                 </div>
                 <div className="back">
                 <p>Securely manage your digital assets with ease.</p>
-                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+                <a href={`${process.env.REACT_APP_PUBLIC_URL}/personal`}  target="_blank" rel="noopener noreferrer">
             <button className="btn">Learn More Here</button>
           </a>
                 </div>
@@ -94,7 +94,7 @@ class Main extends React.Component {
                 </div>
                 <div className="back">
                 <p>Streamline your business transactions digitally.</p>
-                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+                <a href={`${process.env.REACT_APP_PUBLIC_URL}/business`}  target="_blank" rel="noopener noreferrer">
             <button className="btn">Learn More Here</button>
           </a>
                 </div>
@@ -114,7 +114,7 @@ class Main extends React.Component {
                 </div>
                 <div className="back">
                 <p>Get paid faster and manage your earnings.</p>
-                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+                <a href={`${process.env.REACT_APP_PUBLIC_URL}/freelance`} target="_blank" rel="noopener noreferrer">
             <button className="btn">Learn More Here</button>
           </a>
                 </div>
@@ -134,7 +134,7 @@ class Main extends React.Component {
                 </div>
                 <div className="back">
                 <p>Optimize your organization's financial operations.</p>
-                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+                <a href={`${process.env.REACT_APP_PUBLIC_URL}/organization`}  target="_blank" rel="noopener noreferrer">
             <button className="btn">Learn More Here</button>
           </a>
                 </div>

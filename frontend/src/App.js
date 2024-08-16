@@ -58,8 +58,8 @@ import Services from './Main/Pages/Footer/Company/Services';
 import Products from './Main/Pages/Footer/Company/Products';
 import Personal from './Main/Pages/Footer/Solutions/Personal';
 import Business from './Main/Pages/Footer/Solutions/Business';
+import Organization from './Main/Pages/Footer/Solutions/Organization';
 import Freelance from './Main/Pages/Footer/Solutions/Freelance';
-import Tools from './Main/Pages/Footer/Solutions/Tools';
 import HowItWorks from './Main/Pages/Footer/Resources/HowItWorks';
 import Newsletter from './Main/Pages/Footer/Resources/Newsletter';
 import Security from './Main/Pages/Footer/Resources/Security';
@@ -108,8 +108,9 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/services`} element={<Services />} />
         <Route path={`${process.env.PUBLIC_URL}/personal`} element={<Personal />} />
         <Route path={`${process.env.PUBLIC_URL}/business`} element={<Business />} />
+        <Route path={`${process.env.PUBLIC_URL}/organization`} element={<Organization />} />
         <Route path={`${process.env.PUBLIC_URL}/freelance`} element={<Freelance />} />
-        <Route path={`${process.env.PUBLIC_URL}/tools`} element={<Tools />} />
+        <Route path={`${process.env.PUBLIC_URL}/products`} element={<Products />} />
         <Route path={`${process.env.PUBLIC_URL}/how-it-works`} element={<HowItWorks />} />
         <Route path={`${process.env.PUBLIC_URL}/newsletter`} element={<Newsletter/>} />
         <Route path={`${process.env.PUBLIC_URL}/security`} element={<Security />} />

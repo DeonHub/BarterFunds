@@ -94,8 +94,8 @@ class MobileFooter extends React.Component {
                     <a href="https://barter-funds.com/freelance">Freelance</a>
                   </li>
                   <li>
-                    <a href="https://barter-funds.com/tools">
-                      Tools
+                    <a href="https://barter-funds.com/organization">
+                      Organization
                     </a>
                   </li>
                 </ul>
