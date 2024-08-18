@@ -64,6 +64,8 @@ import HowItWorks from './Main/Pages/Footer/Resources/HowItWorks';
 import Newsletter from './Main/Pages/Footer/Resources/Newsletter';
 import Security from './Main/Pages/Footer/Resources/Security';
 
+import ComingSoon from './Main/Pages/ComingSoon';
+
 
 const App = () => {
 
@@ -101,6 +103,9 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/user/wallet`} element={<UserWallet />} />
         <Route path={`${process.env.PUBLIC_URL}/user/support`} element={<UserSupport />} />
         <Route path={`${process.env.PUBLIC_URL}/user/kycs/application`} element={<KycForm />} />
+
+        {/* Pages routes go here*/}
+        <Route path={`${process.env.PUBLIC_URL}/coming-soon`} element={<ComingSoon/>} />
 
         {/* Header Pages routes go here*/}
         <Route path={`${process.env.PUBLIC_URL}/about`} element={<About />} />
