@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const Investors = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Investors | Barter Funds</title>
+                <meta name="description" content="Explore investment opportunities with Barter Funds. Learn about our growth strategy, financial performance, and how you can partner with us for long-term success." />
+                <meta name="keywords" content="Barter Funds, Investors, Investment Opportunities, Financial Performance, Growth Strategy, Investor Relations" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Investors | Barter Funds" />
+                <meta property="og:description" content="Discover the potential of investing in Barter Funds. Access key financial data and learn about our strategic vision for growth." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/investors" />
+                <meta property="og:image" content="https://barter-funds.com/assets/investors-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Investors | Barter Funds" />
+                <meta name="twitter:description" content="Partner with Barter Funds as an investor. Explore our growth potential and how we aim to deliver long-term value." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/investors-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Investors | Barter Funds" />
       <Content>

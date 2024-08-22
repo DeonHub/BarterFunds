@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const PrivacyPolicy = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Privacy Policy | Barter Funds</title>
+                <meta name="description" content="Review Barter Funds' Privacy Policy. Learn how we protect your personal data and ensure your privacy while using our services." />
+                <meta name="keywords" content="Barter Funds, Privacy Policy, Data Protection, User Privacy, Information Security, Personal Data" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Privacy Policy | Barter Funds" />
+                <meta property="og:description" content="Detailed information on Barter Funds' Privacy Policy, covering how we collect, use, and protect your personal information." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/privacy-policy" />
+                <meta property="og:image" content="https://barter-funds.com/assets/privacy-policy-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Privacy Policy | Barter Funds" />
+                <meta name="twitter:description" content="Learn how Barter Funds handles and protects your personal data in our comprehensive Privacy Policy." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/privacy-policy-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Privacy Policy | Barter Funds" />
       <Content>

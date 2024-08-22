@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const Cookies = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Cookies Policy | Barter Funds</title>
+                <meta name="description" content="Learn about Barter Funds' Cookies Policy. Understand how we use cookies to enhance your experience and how you can manage your cookie preferences." />
+                <meta name="keywords" content="Barter Funds, Cookies Policy, Privacy, Cookie Management, User Experience, Digital Security" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Cookies Policy | Barter Funds" />
+                <meta property="og:description" content="Detailed information on how Barter Funds uses cookies to improve user experience and protect your privacy." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/cookies-policy" />
+                <meta property="og:image" content="https://barter-funds.com/assets/cookies-policy-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Cookies Policy | Barter Funds" />
+                <meta name="twitter:description" content="Understand how cookies are used by Barter Funds to enhance your experience and ensure your privacy." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/cookies-policy-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Affiliate | Barter Funds" />
       <Content>

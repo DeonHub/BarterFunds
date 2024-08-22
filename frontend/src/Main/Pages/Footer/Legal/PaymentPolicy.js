@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const PaymentPolicy = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Payment Policy | Barter Funds</title>
+                <meta name="description" content="Understand Barter Funds' Payment Policy. Learn about our payment methods, processing times, and security measures." />
+                <meta name="keywords" content="Barter Funds, Payment Policy, Payment Methods, Payment Security, Transaction Processing, Digital Payments" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Payment Policy | Barter Funds" />
+                <meta property="og:description" content="Detailed information on Barter Funds' Payment Policy, including accepted payment methods and transaction security." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/payment-policy" />
+                <meta property="og:image" content="https://barter-funds.com/assets/payment-policy-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Payment Policy | Barter Funds" />
+                <meta name="twitter:description" content="Learn about the payment methods and security measures in Barter Funds' Payment Policy." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/payment-policy-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Payment Policy | Barter Funds" />
       <Content>

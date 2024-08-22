@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const RefundPolicy = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Refund Policy | Barter Funds</title>
+                <meta name="description" content="Understand Barter Funds' Refund Policy. Learn about the conditions and procedures for refunds on transactions made through our platform." />
+                <meta name="keywords" content="Barter Funds, Refund Policy, Transaction Refund, Refund Conditions, Payment Policy, Refund Procedures" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Refund Policy | Barter Funds" />
+                <meta property="og:description" content="Detailed information on Barter Funds' Refund Policy, outlining the terms and processes for obtaining a refund." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/refund-policy" />
+                <meta property="og:image" content="https://barter-funds.com/assets/refund-policy-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Refund Policy | Barter Funds" />
+                <meta name="twitter:description" content="Learn about the refund process and conditions under Barter Funds' Refund Policy." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/refund-policy-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Refund Policy | Barter Funds" />
       <Content>

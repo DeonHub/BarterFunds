@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const Terms = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Terms and Conditions | Barter Funds</title>
+                <meta name="description" content="Review Barter Funds' Terms and Conditions. Understand the rules, guidelines, and policies that govern the use of our platform." />
+                <meta name="keywords" content="Barter Funds, Terms and Conditions, User Agreement, Platform Rules, Service Policies, Legal Terms" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Terms and Conditions | Barter Funds" />
+                <meta property="og:description" content="Detailed information on Barter Funds' Terms and Conditions, including user responsibilities and legal guidelines." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/terms-and-conditions" />
+                <meta property="og:image" content="https://barter-funds.com/assets/terms-and-conditions-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Terms and Conditions | Barter Funds" />
+                <meta name="twitter:description" content="Understand the terms and guidelines that govern your use of Barter Funds through our Terms and Conditions page." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/terms-and-conditions-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Terms & Conditions | Barter Funds" />
       <Content>

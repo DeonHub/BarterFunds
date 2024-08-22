@@ -93,16 +93,16 @@ const App = () => {
 
 
         {/* User routes go here */}
-        <Route path={`${process.env.PUBLIC_URL}/user/dashboard`} element={<UserDashboard />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/profile`} element={<UserProfile />} />
+        <Route path={`${process.env.PUBLIC_URL}/dashboard`} element={<UserDashboard />} />
+        <Route path={`${process.env.PUBLIC_URL}/profile`} element={<UserProfile />} />
         {/* <Route path={`${process.env.PUBLIC_URL}/user/welcome`} element={<UserWelcome />} /> */}
-        <Route path={`${process.env.PUBLIC_URL}/user/transactions-panel`} element={<TransactionsPanel />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/transactions`} element={<Transactions />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/transactions/success`} element={<OrderSuccess />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/kycs`} element={<UserKycs />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/wallet`} element={<UserWallet />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/support`} element={<UserSupport />} />
-        <Route path={`${process.env.PUBLIC_URL}/user/kycs/application`} element={<KycForm />} />
+        <Route path={`${process.env.PUBLIC_URL}/transactions-panel`} element={<TransactionsPanel />} />
+        <Route path={`${process.env.PUBLIC_URL}/transactions`} element={<Transactions />} />
+        <Route path={`${process.env.PUBLIC_URL}/transactions/success`} element={<OrderSuccess />} />
+        <Route path={`${process.env.PUBLIC_URL}/kycs`} element={<UserKycs />} />
+        <Route path={`${process.env.PUBLIC_URL}/wallet`} element={<UserWallet />} />
+        <Route path={`${process.env.PUBLIC_URL}/support`} element={<UserSupport />} />
+        <Route path={`${process.env.PUBLIC_URL}/kycs/application`} element={<KycForm />} />
 
         {/* Pages routes go here*/}
         <Route path={`${process.env.PUBLIC_URL}/coming-soon`} element={<ComingSoon/>} />

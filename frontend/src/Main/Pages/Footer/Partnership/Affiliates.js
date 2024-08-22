@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const Affiliates = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Affiliates | Barter Funds</title>
+                <meta name="description" content="Join the Barter Funds Affiliate Program. Earn commissions by promoting our services. Learn more about our affiliate opportunities." />
+                <meta name="keywords" content="Barter Funds, Affiliate Program, Earn Commissions, Promote Services, Affiliate Opportunities, Digital Payments" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Affiliates | Barter Funds" />
+                <meta property="og:description" content="Discover the benefits of joining Barter Funds' Affiliate Program. Promote our platform and earn commissions." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/affiliates" />
+                <meta property="og:image" content="https://barter-funds.com/assets/affiliates-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Affiliates | Barter Funds" />
+                <meta name="twitter:description" content="Earn commissions by joining the Barter Funds Affiliate Program. Learn more about how you can promote our services." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/affiliates-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Affiliate | Barter Funds" />
       <Content>

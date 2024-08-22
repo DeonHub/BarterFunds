@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const Developers = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>Developers | Barter Funds</title>
+                <meta name="description" content="Explore Barter Funds' Developer Portal. Access APIs, documentation, and resources to integrate with our platform and build powerful financial solutions." />
+                <meta name="keywords" content="Barter Funds, Developer Portal, APIs, Integration, Developer Resources, Financial Solutions, API Documentation" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="Developers | Barter Funds" />
+                <meta property="og:description" content="Get access to Barter Funds' API and developer resources. Integrate our platform into your applications and create seamless financial experiences." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/developers" />
+                <meta property="og:image" content="https://barter-funds.com/assets/developers-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Developers | Barter Funds" />
+                <meta name="twitter:description" content="Leverage Barter Funds' APIs and resources to build custom financial solutions. Explore our Developer Portal for documentation and support." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/developers-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="Developers | Barter Funds" />
       <Content>

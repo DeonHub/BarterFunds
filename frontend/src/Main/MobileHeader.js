@@ -267,7 +267,7 @@ const MobileMenu = () => {
                           )}
                         </>
                       ) : (
-                        <div className="mmenu-item">
+                        <div className="mmenu-item" >
                           <a href={menuItem.url}>
                             {menuItem.title} <i className="la la-question-circle"></i>
                           </a>
@@ -278,11 +278,13 @@ const MobileMenu = () => {
                   <div className="mmenu-footer">
                 <button className="mmenu-footer-button">Login</button>
                 <button className="mmenu-footer-button">Get Started</button>
-                <div className="mfooter-links">
-                    <a href="/privacy-policy" className="mfooter-link">Privacy Policy</a>
-                    <a href="/terms-conditions" className="mfooter-link">Terms & Conditions</a>
-                    <a href="/fees" className="mfooter-link">Fees</a>
-                </div>
+                <div className="mfooter-links"  style={{ marginTop: '100px' }}>
+  <a href="/privacy-policy" className="mfooter-link">Privacy</a>
+  <a href="/terms-of-use" className="mfooter-link">Terms</a>
+  <a href="/terms-of-use" className="mfooter-link">AML/KYC Policy</a>
+  <a href="/fees" className="mfooter-link">Fees</a>
+  <a href="/fees" className="mfooter-link">Payment</a>
+</div>
                 <div className="msocial-media">
                     <a href="https://www.facebook.com/barterfunds" className="msocial-icon"><i className="fab fa-facebook-square"></i></a>
                     <a href="https://www.twitter.com/barterfunds" className="msocial-icon"><i className="fab fa-twitter-square"></i></a>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,23 @@ const AMLPolicy = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+                <title>AML Policy | Barter Funds</title>
+                <meta name="description" content="Read Barter Funds' Anti-Money Laundering (AML) Policy. Understand our commitment to preventing money laundering and ensuring compliance with regulations." />
+                <meta name="keywords" content="Barter Funds, AML Policy, Anti-Money Laundering, Compliance, Financial Regulations, Security" />
+                <meta name="author" content="Barter Funds" />
+                <meta property="og:title" content="AML Policy | Barter Funds" />
+                <meta property="og:description" content="Detailed information on Barter Funds' AML Policy, outlining our approach to preventing money laundering and adhering to legal standards." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://barter-funds.com/aml-policy" />
+                <meta property="og:image" content="https://barter-funds.com/assets/aml-policy-thumbnail.jpg" />
+                <meta property="og:site_name" content="Barter Funds" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AML Policy | Barter Funds" />
+                <meta name="twitter:description" content="Discover Barter Funds' AML Policy, which highlights our dedication to combating money laundering activities." />
+                <meta name="twitter:image" content="https://barter-funds.com/assets/aml-policy-thumbnail.jpg" />
+                <meta name="twitter:site" content="@BarterFunds" />
+            </Helmet>
       <Header />
       <Head title="AML/KYC Policy | Barter Funds" />
       <Content>

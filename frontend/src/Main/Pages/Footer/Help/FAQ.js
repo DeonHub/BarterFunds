@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,8 +21,24 @@ const FAQ = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Frequently Asked Questions (FAQ) | Barter Funds</title>
+        <meta name="description" content="Find answers to the most common questions about Barter Funds. From account setup to transaction details, our FAQ section covers it all." />
+        <meta name="keywords" content="Barter Funds FAQ, common questions, help, support, account setup, transactions" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Barter Funds" />
+        <meta property="og:title" content="Frequently Asked Questions (FAQ) | Barter Funds" />
+        <meta property="og:description" content="Get answers to frequently asked questions about Barter Funds. Whether you're new or experienced, our FAQ section has the information you need." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.barter-funds.com/faq" />
+        <meta property="og:image" content="https://www.barter-funds.com/images/faq-thumbnail.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Frequently Asked Questions (FAQ) | Barter Funds" />
+        <meta name="twitter:description" content="Explore our FAQ section for quick answers to common questions about Barter Funds' services, transactions, and more." />
+        <meta name="twitter:image" content="https://www.barter-funds.com/images/faq-thumbnail.jpg" />
+      </Helmet>
       <Header />
-      <Head title="FAQ | Barter Funds" />
+      <Head title="Frequently Asked Questions (FAQ) | Barter Funds" />
       <Content>
         <BlockHead size="lg" wide="xs" className="mx-auto">
           <BlockHeadContent className="text-center">
@@ -37,53 +54,29 @@ const FAQ = ({ ...props }) => {
             <div className="nk-block">
           <div className="card">
             <div id="faqs" className="accordion">
-              <div className="accordion-item">
-                <a
-                  href="#"
-                  className="accordion-head"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq-q1"
-                >
-                  <h6 className="title">What is Barter Funds?</h6>
-                  <span className="accordion-icon" />
-                </a>
-                <div
-                  className="accordion-body collapse show"
-                  id="faq-q1"
-                  data-bs-parent="#faqs"
-                >
-                  <div className="accordion-inner">
-                    <p>
-                      <strong>Barter Funds</strong> is an innovative eCurrency
-                      exchange platform that facilitates seamless conversion
-                      between various digital currencies, providing users with a
-                      convenient way to trade and manage their digital assets.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              
               {/* .accordion-item */}
               <div className="accordion-item">
                 <a
                   href="#"
                   className="accordion-head collapsed"
                   data-bs-toggle="collapse"
-                  data-bs-target="#faq-q2"
+                  data-bs-target="#faq-q1"
                 >
                   <h6 className="title">How does Barter Funds work?</h6>
                   <span className="accordion-icon" />
                 </a>
                 <div
                   className="accordion-body collapse"
-                  id="faq-q2"
+                  id="faq-q1"
                   data-bs-parent="#faqs"
                 >
                   <div className="accordion-inner">
                     <p>
                       Barter Funds simplifies the process of exchanging
-                      eCurrencies by offering a user-friendly interface where
-                      users can securely buy, sell, and trade digital
-                      currencies. Users can create accounts, deposit funds,
+                      digital currencies by offering a user-friendly interface where
+                      users can securely buy, sell, send and receive digital
+                      currencies against your local currency. Users can create accounts,
                       choose their desired currencies, and execute transactions
                       quickly and efficiently.
                     </p>
@@ -94,12 +87,34 @@ const FAQ = ({ ...props }) => {
               <div className="accordion-item">
                 <a
                   href="#"
+                  className="accordion-head"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-q2"
+                >
+                  <h6 className="title">Is there a limit to how much currency I can transact?</h6>
+                  <span className="accordion-icon" />
+                </a>
+                <div
+                  className="accordion-body collapse show"
+                  id="faq-q2"
+                  data-bs-parent="#faqs"
+                >
+                  <div className="accordion-inner">
+                    <p>
+                    Yes, there are minimum and maximum limits for each transaction depending on the currency involved and your account verification status. Please check your account dashboard for specific limits.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <a
+                  href="#"
                   className="accordion-head collapsed"
                   data-bs-toggle="collapse"
                   data-bs-target="#faq-q3"
                 >
                   <h6 className="title">
-                    What digital currencies does Barter Funds support?
+                    What currencies does Barter Funds support?
                   </h6>
                   <span className="accordion-icon" />
                 </a>
@@ -112,8 +127,8 @@ const FAQ = ({ ...props }) => {
                     <p>
                       Barter Funds supports a wide range of popular digital
                       currencies, including but not limited to Bitcoin (BTC),
-                      Ethereum (ETH), Litecoin (LTC), Paypal (PP), Chinese Yuan
-                      (RMB) and more.
+                      Ethereum (ETH), Litecoin (LTC), Paypal (PP), Alipay
+                      (RMB) Perfect Money (PM), Payoner (PAYO), and more.
                     </p>
                     <h6>What else is included?</h6>
                     <ul className="list list-sm list-checked">
@@ -124,8 +139,9 @@ const FAQ = ({ ...props }) => {
                       <li>Ethereum</li>
                       <li>Litecoin</li>
                       <li>Paypal</li>
-                      <li>Chinese Yuan</li>
+                      <li>Alipay</li>
                       <li>Perfect Money</li>
+                      <li>Payoneer</li>
                     </ul>
                   </div>
                 </div>
@@ -150,11 +166,7 @@ const FAQ = ({ ...props }) => {
                 >
                   <div className="accordion-inner">
                     <p>
-                      While Barter Funds strives to maintain competitive fees,
-                      users should expect standard transaction fees for buying,
-                      selling, or exchanging digital currencies. These fees may
-                      vary depending on factors such as transaction volume,
-                      currency pairs, and payment methods.
+                    Barter Funds offers a mix of fee-free and fee-based transactions, depending on the currency you're dealing with. To learn more about our fee structure, please visit our <a href={`${process.env.REACT_APP_PUBLIC_URL}/fees`}>fees page</a>.
                     </p>
                   </div>
                 </div>
@@ -180,12 +192,7 @@ const FAQ = ({ ...props }) => {
                 >
                   <div className="accordion-inner">
                     <p>
-                      Barter Funds prioritizes the security of user funds and
-                      personal information through robust encryption protocols
-                      and stringent security measures. Additionally, the
-                      platform may implement multi-factor authentication, cold
-                      storage solutions, and regular security audits to mitigate
-                      risks and safeguard against unauthorized access.
+                    We prioritize the security of your transactions. Our platform uses advanced encryption and multi-factor authentication to ensure that your personal and financial information is protected.
                     </p>
                   </div>
                 </div>
@@ -213,10 +220,109 @@ const FAQ = ({ ...props }) => {
                     <p>
                       Getting started with Barter Funds is straightforward.
                       Users can sign up for an account, complete the
-                      verification process, deposit funds into their account,
-                      and begin trading digital currencies on the platform. The
+                      verification process, and begin trading digital currencies on the platform. The
                       user interface is intuitive, making it easy for both
-                      novice and experienced traders to navigate.
+                      novice and experienced users to navigate.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <a
+                  href="#"
+                  className="accordion-head collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-q7"
+                >
+                  <h6 className="title">
+                    {" "}
+                    Can I cancel a currency exchange transaction?
+                  </h6>
+                  <span className="accordion-icon" />
+                </a>
+                <div
+                  className="accordion-body collapse"
+                  id="faq-q7"
+                  data-bs-parent="#faqs"
+                >
+                  <div className="accordion-inner">
+                    <p>
+                    Once a transaction is confirmed, it cannot be canceled due to the real-time nature of the exchange process. Please double-check your transaction details before confirming.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <a
+                  href="#"
+                  className="accordion-head collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-q8"
+                >
+                  <h6 className="title">
+                    {" "}
+                    What happens if I experience issues with my transaction?
+                  </h6>
+                  <span className="accordion-icon" />
+                </a>
+                <div
+                  className="accordion-body collapse"
+                  id="faq-q8"
+                  data-bs-parent="#faqs"
+                >
+                  <div className="accordion-inner">
+                    <p>
+                    Answer: If you encounter any issues during your transaction, please contact our customer support team immediately. We are here to assist you 24/7 and will work to resolve any problems as quickly as possible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <a
+                  href="#"
+                  className="accordion-head collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-q9"
+                >
+                  <h6 className="title">
+                    {" "}
+                    How do I track my transaction?
+                  </h6>
+                  <span className="accordion-icon" />
+                </a>
+                <div
+                  className="accordion-body collapse"
+                  id="faq-q9"
+                  data-bs-parent="#faqs"
+                >
+                  <div className="accordion-inner">
+                    <p>
+                    You can track the status of your exchange transactions directly from your user dashboard. All details, including transaction history and status updates, are available in real-time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <a
+                  href="#"
+                  className="accordion-head collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-q10"
+                >
+                  <h6 className="title">
+                    {" "}
+                    What should I do if I forget my account password?
+                  </h6>
+                  <span className="accordion-icon" />
+                </a>
+                <div
+                  className="accordion-body collapse"
+                  id="faq-q10"
+                  data-bs-parent="#faqs"
+                >
+                  <div className="accordion-inner">
+                    <p>
+                    If you forget your password, you can reset it by clicking on the "Forgot Password" link on the login page. Follow the instructions to reset your password securely.
                     </p>
                   </div>
                 </div>
@@ -227,6 +333,7 @@ const FAQ = ({ ...props }) => {
             {/* .card */}
           </div>
           {/* .nk-block */}
+          <div style={{ marginBottom: '20px' }}></div>
           <div className="nk-block">
             <div className="card card-bordered">
               <div className="card-inner">
@@ -404,6 +511,7 @@ const FAQ = ({ ...props }) => {
                       />
                     </svg>
                   </div>
+                  
                   <div className="nk-block-content">
                     <div className="nk-block-content-head px-lg-4">
                       <h5>We’re here to help you!</h5>
@@ -415,7 +523,7 @@ const FAQ = ({ ...props }) => {
                     </div>
                   </div>
                   <div className="nk-block-content flex-shrink-0">
-                    <a href="#" className="btn btn-lg btn-outline-primary">
+                    <a href={`${process.env.REACT_APP_PUBLIC_URL}/support-center`} className="btn btn-lg btn-outline-primary">
                       Get Support Now
                     </a>
                   </div>

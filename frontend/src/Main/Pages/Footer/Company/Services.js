@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../../Page.css'
 import Header from '../../../Header'
 import Footer from '../../../Footer'
@@ -20,6 +21,22 @@ const Services = ({ ...props }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Services | Barter Funds</title>
+        <meta name="description" content="Discover the range of services offered by Barter Funds, including digital asset management, currency exchange, international transfers, and more. We provide tailored financial solutions to meet your digital and global payment needs." />
+        <meta name="keywords" content="Barter Funds services, digital asset management, currency exchange, international transfers, digital financial services, e-currency, online payments, global payments" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Barter Funds" />
+        <meta property="og:title" content="Services | Barter Funds" />
+        <meta property="og:description" content="Explore Barter Funds' comprehensive suite of services designed to simplify digital transactions, manage digital assets, and facilitate international payments, tailored to your financial needs." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.barter-funds.com/services" />
+        <meta property="og:image" content="https://www.barter-funds.com/images/services-thumbnail.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Services | Barter Funds" />
+        <meta name="twitter:description" content="Learn about the variety of services provided by Barter Funds, from digital asset management to global currency exchange, designed to meet your financial and payment needs." />
+        <meta name="twitter:image" content="https://www.barter-funds.com/images/services-thumbnail.jpg" />
+      </Helmet>
       <Header />
       <Head title="Services | Barter Funds" />
       <Content>
