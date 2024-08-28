@@ -50,7 +50,8 @@
     flex-direction: column; /* Stack title and description vertically */
 }
 .feature .feature-title {
-    font-weight: bold;
+    font-weight: 700;
+    color: black;
 }
 
 

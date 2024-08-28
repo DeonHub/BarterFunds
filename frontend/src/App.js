@@ -65,7 +65,7 @@ import Newsletter from './Main/Pages/Footer/Resources/Newsletter';
 import Security from './Main/Pages/Footer/Resources/Security';
 
 import ComingSoon from './Main/Pages/ComingSoon';
-
+import PaypalFees from './Main/Pages/Tools/PaypalFees';
 
 const App = () => {
 
@@ -145,6 +145,10 @@ const App = () => {
         <Route path={`${process.env.PUBLIC_URL}/features`} element={<FeaturesPage />} />
         <Route path={`${process.env.PUBLIC_URL}/fees`} element={<Fees />} />
         <Route path={`${process.env.PUBLIC_URL}/support-center`} element={<Support />} />
+
+
+        {/* Tools routes go here*/}
+        <Route path={`${process.env.PUBLIC_URL}/paypal-fees-checker`} element={<PaypalFees />} />
         
         
 
